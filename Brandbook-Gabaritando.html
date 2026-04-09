@@ -356,36 +356,90 @@ h3.serif em { font-style: italic; color: var(--ouro); }
   -webkit-print-color-adjust:exact; print-color-adjust:exact;
 }
 
-
+  
+  /* ── RESPONSIVO TABLET (≤ 800px) ── */
   @media (max-width: 800px) {
-    .page { padding: 0 24px; }
+    .page { padding: 0 20px; }
     .logo-analysis-grid, .grid-2, .rules-grid { grid-template-columns: 1fr; }
     .palette-grid { grid-template-columns: repeat(3,1fr); }
     .palette-combos { grid-template-columns: 1fr 1fr; }
-    .mockup-grid { grid-template-columns: 1fr; }
-    .type-row { grid-template-columns: 1fr; }
-    .scale-item { grid-template-columns: 80px 50px 1fr; }
-    .cover-title { font-size: 2.6rem; }
+    .mockup-grid { grid-template-columns: 1fr 1fr; }
+    .type-row { grid-template-columns: 1fr; gap: 8px; }
+    .cover-title { font-size: 2.4rem; }
     h2.serif { font-size: 2rem; }
     .symbol-grid { grid-template-columns: 1fr 1fr; }
     .grid-3 { grid-template-columns: 1fr 1fr; }
-    .moodboard { grid-template-columns: repeat(6,1fr); grid-template-rows: repeat(4,80px); }
+    /* Moodboard: scroll horizontal */
+    .moodboard-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .moodboard { min-width: 600px; }
+    /* Anúncios e Posts: inline grid override */
+    .ads-grid, .posts-grid { grid-template-columns: 1fr !important; }
   }
+
+  /* ── RESPONSIVO MOBILE (≤ 560px) ── */
   @media (max-width: 560px) {
-    .page { padding: 0 16px; }
-    .cover-title { font-size: 2rem; }
-    h2.serif { font-size: 1.6rem; }
+    .page { padding: 0 14px; }
+    .cover-title { font-size: 1.7rem; }
+    h2.serif { font-size: 1.5rem; }
+    .intro-text { font-size: 0.82rem; margin-bottom: 28px; }
+
+    /* Paleta: 2 colunas */
     .palette-grid { grid-template-columns: 1fr 1fr; }
     .palette-combos { grid-template-columns: 1fr; }
-    .palette-combos .combo-card[style*="span 3"] { grid-column: span 1; }
-    .symbol-grid { grid-template-columns: 1fr 1fr; }
-    .grid-2, .grid-3 { grid-template-columns: 1fr; }
-    .type-row { gap: 16px; }
-    .scale-item { grid-template-columns: 70px 44px 1fr; gap: 10px; }
-    .intro-text { font-size: 0.84rem; margin-bottom: 36px; }
-    .moodboard { grid-template-columns: repeat(4,1fr); grid-template-rows: repeat(6,60px); }
-    .mockup-grid { grid-template-columns: 1fr; }
-    .rules-grid, .logo-analysis-grid { grid-template-columns: 1fr; }
+
+    /* Símbolo: 2 colunas com mais espaço */
+    .symbol-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .symbol-preview { padding: 24px 16px; }
+    .symbol-caption { font-size: 0.72rem; padding: 10px 12px; line-height: 1.4; }
+
+    /* Escala tipográfica: empilha label + spec | sample abaixo */
+    .scale-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 16px 0;
+    }
+    .scale-item-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .scale-label-col {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ouro);
+      flex-shrink: 0;
+      min-width: 60px;
+    }
+    .scale-size {
+      font-size: 0.64rem;
+    }
+    .scale-text {
+      padding-top: 2px;
+    }
+    /* Hero da escala fica menor */
+    .scale-item:first-child .scale-text { font-size: 1.6rem !important; }
+    .scale-item:nth-child(2) .scale-text { font-size: 1.2rem !important; }
+    .scale-item:nth-child(3) .scale-text { font-size: 1rem !important; }
+
+    /* Type row */
+    .type-row { gap: 4px; padding: 20px 0; }
+
+    /* Grids */
+    .grid-2, .grid-3, .mockup-grid { grid-template-columns: 1fr; }
+    .logo-analysis-grid { grid-template-columns: 1fr; }
+
+    /* Anúncios / Posts — 1 coluna */
+    .ads-grid, .posts-grid { grid-template-columns: 1fr !important; }
+
+    /* Moodboard: scroll */
+    .moodboard-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .moodboard { min-width: 480px; grid-template-rows: repeat(8, 56px); }
+
+    /* Combo card span override */
+    .palette-combos .combo-card[style*="span"] { grid-column: span 1 !important; }
   }
 
   </style>
@@ -880,39 +934,25 @@ h3.serif em { font-style: italic; color: var(--ouro); }
   <div class="mt-56">
     <div class="section-label mb-24">Escala Tipográfica</div>
     <div class="type-scale">
-      <div class="scale-item">
-        <div class="scale-label-col">Hero</div>
-        <div class="scale-size">56&ndash;72px &mdash; peso 900</div>
+      <div class="scale-item"><div class="scale-item-meta"><div class="scale-label-col">Hero</div><div class="scale-size">56&ndash;72px &mdash; peso 900</div></div>
         <div class="scale-text" style="font-family:var(--serif);font-size:2.4rem;font-weight:900">Aprovado.</div>
       </div>
-      <div class="scale-item">
-        <div class="scale-label-col">Título H1</div>
-        <div class="scale-size">40&ndash;48px &mdash; peso 800</div>
+      <div class="scale-item"><div class="scale-item-meta"><div class="scale-label-col">Título H1</div><div class="scale-size">40&ndash;48px &mdash; peso 800</div></div>
         <div class="scale-text" style="font-family:var(--serif);font-size:1.9rem;font-weight:800">Treinado para a Bahia</div>
       </div>
-      <div class="scale-item">
-        <div class="scale-label-col">Título H2</div>
-        <div class="scale-size">28&ndash;34px &mdash; peso 700</div>
+      <div class="scale-item"><div class="scale-item-meta"><div class="scale-label-col">Título H2</div><div class="scale-size">28&ndash;34px &mdash; peso 700</div></div>
         <div class="scale-text" style="font-family:var(--serif);font-size:1.4rem;font-weight:700">O método de quem passou nos dois concursos</div>
       </div>
-      <div class="scale-item">
-        <div class="scale-label-col">Subtítulo</div>
-        <div class="scale-size">20&ndash;24px &mdash; peso 600 itálico</div>
+      <div class="scale-item"><div class="scale-item-meta"><div class="scale-label-col">Subtítulo</div><div class="scale-size">20&ndash;24px &mdash; peso 600 itálico</div></div>
         <div class="scale-text" style="font-family:var(--sans);font-size:1.15rem;font-style:italic;font-weight:600">Carreiras Policiais &mdash; PMBA, BMBA e PCBA</div>
       </div>
-      <div class="scale-item">
-        <div class="scale-label-col">Corpo</div>
-        <div class="scale-size">16&ndash;18px &mdash; peso 400</div>
+      <div class="scale-item"><div class="scale-item-meta"><div class="scale-label-col">Corpo</div><div class="scale-size">16&ndash;18px &mdash; peso 400</div></div>
         <div class="scale-text" style="font-family:var(--sans);font-size:0.92rem;font-weight:400">Trilha guiada, cronograma personalizado e questões alinhadas ao perfil da banca.</div>
       </div>
-      <div class="scale-item">
-        <div class="scale-label-col">Label</div>
-        <div class="scale-size">11&ndash;13px &mdash; peso 700</div>
+      <div class="scale-item"><div class="scale-item-meta"><div class="scale-label-col">Label</div><div class="scale-size">11&ndash;13px &mdash; peso 700</div></div>
         <div class="scale-text" style="font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase">Soldado PMBA &middot; R$ 767 &middot; 12 meses de acesso</div>
       </div>
-      <div class="scale-item">
-        <div class="scale-label-col">Legenda</div>
-        <div class="scale-size">10&ndash;12px &mdash; peso 300</div>
+      <div class="scale-item"><div class="scale-item-meta"><div class="scale-label-col">Legenda</div><div class="scale-size">10&ndash;12px &mdash; peso 300</div></div>
         <div class="scale-text" style="font-family:var(--sans);font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.45)">Documento de uso interno &mdash; Gabaritando &mdash; Abril 2026</div>
       </div>
     </div>
@@ -1037,7 +1077,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
   <h2 class="serif">O <em>clima</em> da marca</h2>
   <p class="intro-text">O universo visual do Gabaritando une a disciplina das forças policiais com a energia do candidato baiano. Preto tático, dourado como medalha, creme como papel de carta &mdash; um mundo de conquista, preparação e identidade regional.</p>
 
-  <div class="moodboard">
+  <div class="moodboard-wrap"><div class="moodboard">
 
     <div class="mb mb-1">
       <div class="mb-inner" style="background:#1B3A2D;border:1px solid rgba(212,168,75,0.1)">
@@ -1162,6 +1202,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
     </div>
 
   </div>
+</div><!-- /moodboard-wrap -->
 </div>
 </section>
 
@@ -1278,7 +1319,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
   <h2 class="serif">A marca <em>nos anúncios</em></h2>
   <p class="intro-text">Exemplos de peças pagas no formato quadrado 1080&times;1080px. Fundo escuro com elementos visuais da carreira policial (silhueta de oficial, distintivo, mira tática), gradiente dourado na base e logo sempre centralizada no rodapé.</p>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+  <div class="ads-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
 
     <!-- Anúncio 1 — Conversão: silhueta de policial -->
     <div style="border:1px solid var(--borda-ouro);overflow:hidden">
@@ -1377,7 +1418,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
   <h2 class="serif">A marca <em>no feed orgânico</em></h2>
   <p class="intro-text">Exemplos de posts orgânicos para o feed do Instagram. O visual mantém a linguagem dos anúncios &mdash; fundo escuro, elementos policiais como marca d'água, gradiente dourado &mdash; com mais espaço para conteúdo educativo, motivacional e de relacionamento com a audiência.</p>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+  <div class="posts-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
 
     <!-- Post 1 — Educativo: mira tática como fundo -->
     <div style="border:1px solid var(--borda-ouro);overflow:hidden">
