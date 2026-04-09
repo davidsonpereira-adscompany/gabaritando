@@ -9,12 +9,12 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --preto:      #0E0E1A;
-      --ardosia:    #1E1E2E;
-      --borda:      rgba(255,255,255,0.08);
-      --ouro:       #FFB800;
-      --ouro-escuro: #CC9400;
-      --ouro-dim:   rgba(255,184,0,0.13);
+      --preto:      #0F2318;
+      --ardosia:    #1B3A2D;
+      --borda:      rgba(45,106,79,0.25);
+      --ouro:       #D4A84B;
+      --ouro-escuro: #B8893A;
+      --ouro-dim:   rgba(212,168,75,0.13);
       --texto:      rgba(255,255,255,0.82);
       --texto-dim:  rgba(255,255,255,0.42);
     }
@@ -41,7 +41,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.07) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(212,168,75,0.07) 0%, transparent 60%);
       pointer-events: none;
     }
     .hero-label {
@@ -114,7 +114,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 0% 0%, rgba(255,184,0,0.04) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 0% 0%, rgba(212,168,75,0.04) 0%, transparent 60%);
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.3s;
@@ -132,7 +132,7 @@
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(255,184,0,0.55);
+      color: rgba(212,168,75,0.55);
     }
     .card-title {
       font-family: 'Montserrat', sans-serif;
@@ -171,10 +171,10 @@
       gap: 32px;
       padding: 28px 32px;
     }
-    .card.destaque::before { background: radial-gradient(ellipse at 0% 50%, rgba(255,184,0,0.04) 0%, transparent 60%); }
+    .card.destaque::before { background: radial-gradient(ellipse at 0% 50%, rgba(212,168,75,0.04) 0%, transparent 60%); }
     .card.destaque:hover { border-left-color: var(--ouro); }
     .card.destaque .card-cta { color: var(--ouro); }
-    .card.destaque .card-tag { color: rgba(255,184,0,0.55); }
+    .card.destaque .card-tag { color: rgba(212,168,75,0.55); }
     .card.destaque .destaque-text { flex: 1; display: flex; flex-direction: column; gap: 10px; }
     .card.destaque .destaque-meta {
       display: flex;
@@ -195,7 +195,7 @@
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,184,0,0.5);
+      color: rgba(212,168,75,0.5);
     }
 
     /* FOOTER */

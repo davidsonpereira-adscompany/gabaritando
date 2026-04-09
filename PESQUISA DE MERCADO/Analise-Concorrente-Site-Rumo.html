@@ -10,12 +10,12 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --preto:     #080A10;
-  --navy:      #0D1117;
-  --ardosia:   #131A28;
-  --borda:     rgba(255,255,255,0.08);
-  --ouro:      #FFB800;
-  --ouro-dim:  rgba(255,184,0,0.14);
+  --preto:     #0A1510;
+  --navy:      #0D2416;
+  --ardosia:   #162D1F;
+  --borda:     rgba(45,106,79,0.25);
+  --ouro:      #D4A84B;
+  --ouro-dim:  rgba(212,168,75,0.14);
   --texto:     rgba(255,255,255,0.82);
   --texto-dim: rgba(255,255,255,0.45);
 }
@@ -41,7 +41,7 @@ body {
 .doc-header::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.08) 0%, transparent 65%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(212,168,75,0.08) 0%, transparent 65%);
   pointer-events: none;
 }
 .back-btn {
@@ -55,9 +55,9 @@ body {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,184,0,0.65);
+  color: rgba(212,168,75,0.65);
   text-decoration: none;
-  border: 1px solid rgba(255,184,0,0.2);
+  border: 1px solid rgba(212,168,75,0.2);
   padding: 7px 14px;
   transition: color .2s, border-color .2s;
 }
@@ -108,7 +108,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.60rem; font-weight: 700;
   letter-spacing: 0.28em; text-transform: uppercase;
-  color: rgba(255,184,0,0.55);
+  color: rgba(212,168,75,0.55);
   margin-bottom: 16px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--borda);
@@ -136,7 +136,7 @@ body {
   padding-left: 22px;
   color: rgba(255,255,255,0.3);
 }
-.toc-list li.toc-h3 a:hover { color: rgba(255,184,0,0.7); }
+.toc-list li.toc-h3 a:hover { color: rgba(212,168,75,0.7); }
 
 /* ── CONTEÚDO ── */
 .content {
@@ -172,7 +172,7 @@ h4.md {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.70rem; font-weight: 700;
   letter-spacing: 0.22em; text-transform: uppercase;
-  color: rgba(255,184,0,0.65);
+  color: rgba(212,168,75,0.65);
   margin: 28px 0 8px;
 }
 
@@ -195,7 +195,7 @@ h4.md {
 .day-block {
   background: var(--ardosia);
   border: 1px solid var(--borda);
-  border-top: 2px solid rgba(255,184,0,0.35);
+  border-top: 2px solid rgba(212,168,75,0.35);
   padding: 20px 22px 16px;
   margin: 32px 0 8px;
   border-radius: 0 0 4px 4px;
@@ -211,7 +211,7 @@ h4.md {
 /* ── BLOCO OBJETIVO/NOTA inline ── */
 .inline-label {
   background: var(--ardosia);
-  border-left: 2px solid rgba(255,184,0,0.3);
+  border-left: 2px solid rgba(212,168,75,0.3);
   padding: 10px 16px;
   margin: 12px 0;
 }
@@ -264,12 +264,12 @@ ul.md.nested, ol.md.nested {
   margin: 8px 0 4px 0;
   padding-left: 20px;
 }
-ul.md.nested li::before { width: 4px; height: 4px; background: rgba(255,184,0,0.5); }
+ul.md.nested li::before { width: 4px; height: 4px; background: rgba(212,168,75,0.5); }
 
 /* ── TABELAS ── */
 .table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--ouro-dim); }
 table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
-thead tr { background: rgba(255,184,0,0.10); border-bottom: 1px solid rgba(255,184,0,0.4); }
+thead tr { background: rgba(212,168,75,0.10); border-bottom: 1px solid rgba(212,168,75,0.4); }
 thead th {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.66rem; font-weight: 700;
@@ -297,7 +297,7 @@ blockquote p.md {
 code {
   font-family: 'Menlo', 'Courier New', monospace;
   font-size: 0.82rem;
-  background: rgba(255,184,0,0.1); color: var(--ouro);
+  background: rgba(212,168,75,0.1); color: var(--ouro);
   padding: 2px 7px; border-radius: 3px;
 }
 
@@ -305,8 +305,8 @@ hr.md { border: none; border-top: 1px solid var(--borda); margin: 36px 0; }
 
 .fill-badge {
   display: inline-block;
-  background: rgba(255,184,0,0.10);
-  border: 1px solid rgba(255,184,0,0.28);
+  background: rgba(212,168,75,0.10);
+  border: 1px solid rgba(212,168,75,0.28);
   color: var(--ouro);
   font-size: 0.70rem; font-weight: 600;
   letter-spacing: 0.08em; padding: 1px 8px; border-radius: 3px;

@@ -11,18 +11,18 @@
    TOKENS
 ═══════════════════════════════════════════ */
 :root {
-  --ouro:        #FFB800;
-  --ouro-escuro: #CC9400;
-  --ouro-suave:  rgba(255,184,0,0.12);
-  --preto:       #0E0E1A;
-  --preto-2:     #13131F;
-  --ardosia:     #1E1E2E;
-  --carvao:      #111111;
-  --creme:       #EDE8DF;
-  --creme-2:     #F5F1EB;
+  --ouro:        #D4A84B;
+  --ouro-escuro: #B8893A;
+  --ouro-suave:  rgba(212,168,75,0.12);
+  --preto:       #0F2318;
+  --preto-2:     #162D1F;
+  --ardosia:     #1B3A2D;
+  --carvao:      #2C2C2C;
+  --creme:       #FAF6EF;
+  --creme-2:     #F0EAE0;
   --branco:      #FFFFFF;
-  --borda:       rgba(255,255,255,0.07);
-  --borda-ouro:  rgba(255,184,0,0.22);
+  --borda:       rgba(45,106,79,0.25);
+  --borda-ouro:  rgba(212,168,75,0.22);
 
   --serif:       'Montserrat', sans-serif;
   --cormorant:   'Montserrat', sans-serif;
@@ -54,7 +54,7 @@ section.light2{ background: var(--creme-2); color: var(--carvao); }
 
 .divider-line {
   width: 100%; height: 1px;
-  background: linear-gradient(90deg, var(--ouro), rgba(255,184,0,0));
+  background: linear-gradient(90deg, var(--ouro), rgba(212,168,75,0));
 }
 
 /* ═══════════════════════════════════════════
@@ -100,13 +100,13 @@ h3.serif em { font-style: italic; color: var(--ouro); }
 .cover-bg-grid {
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(255,184,0,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,184,0,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(212,168,75,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,168,75,0.03) 1px, transparent 1px);
   background-size: 60px 60px; pointer-events: none;
 }
 .cover-bg-glow {
   position: absolute; width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(255,184,0,0.07) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(212,168,75,0.07) 0%, transparent 70%);
   top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none;
 }
 .cover-eyebrow {
@@ -145,7 +145,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
 .analysis-points { display: flex; flex-direction: column; gap: 20px; }
 .point {
   border-left: 2px solid var(--ouro);
-  padding: 14px 20px; background: rgba(255,184,0,0.04);
+  padding: 14px 20px; background: rgba(212,168,75,0.04);
 }
 .point .point-title {
   font-family: var(--serif); font-size: 0.95rem;
@@ -364,7 +364,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
   section.dark,section.dark2,section.slate { background:#f8f8f8 !important; }
   section.light,section.light2 { background:#fff !important; }
   .color-info,.version-meta,.mockup-label,.symbol-caption { background:#eee !important; }
-  .col-ouro,.section-label,h2.serif em,h3.serif em,.type-role { color:#CC8800 !important; }
+  .col-ouro,.section-label,h2.serif em,h3.serif em,.type-role { color:#B8893A !important; }
   -webkit-print-color-adjust:exact; print-color-adjust:exact;
 }
 
@@ -372,8 +372,8 @@ h3.serif em { font-style: italic; color: var(--ouro); }
 </head>
 <body>
 
-<div style="position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(14,14,26,0.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,184,0,0.1);padding:10px 28px;">
-  <a href="index.html" style="font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">&#8592; &nbsp;Índice Geral</a>
+<div style="position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(15,35,24,0.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(212,168,75,0.1);padding:10px 28px;">
+  <a href="index.html" style="font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#D4A84B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">&#8592; &nbsp;Índice Geral</a>
 </div>
 <div style="height:38px"></div>
 
@@ -520,7 +520,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
       </div>
       <!-- Fundo escuro -->
       <div class="version-card">
-        <div class="version-preview" style="background:#1A1A2E;padding:40px 48px">
+        <div class="version-preview" style="background:#1B3A2D;padding:40px 48px">
           <img src="LOGOS/LOGOTIPO_-_GABARITANDO_-_PRETO_-_SEM_FUNDO.png"
                alt="Logotipo Gabaritando fundo escuro"
                class="logo-white"
@@ -528,30 +528,30 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         </div>
         <div class="version-meta">
           <div class="version-name">Versão Branca &mdash; Fundo Escuro</div>
-          <div class="version-desc">Aplicar filtro de inversão (branco puro) sobre fundos escuros como o Preto Tático e o Ardosia. Uso em headers de email, capas de material digital e banners.</div>
+          <div class="version-desc">Aplicar filtro de inversão (branco puro) sobre fundos escuros como o Verde Florestal e o Ardósia. Uso em headers de email, capas de material digital e banners.</div>
         </div>
       </div>
       <!-- Fundo creme -->
       <div class="version-card">
-        <div class="version-preview" style="background:#EDE8DF;padding:40px 48px">
+        <div class="version-preview" style="background:#FAF6EF;padding:40px 48px">
           <img src="LOGOS/LOGOTIPO_-_GABARITANDO_-_PRETO_-_SEM_FUNDO.png"
                alt="Logotipo Gabaritando fundo creme"
                style="max-width:100%;max-height:70px;object-fit:contain">
         </div>
         <div class="version-meta">
           <div class="version-name">Versão Escura &mdash; Fundo Creme</div>
-          <div class="version-desc">Aplicação elegante para materiais físicos com fundo Creme Operacional. Transmite seriedade institucional e sofisticação.</div>
+          <div class="version-desc">Aplicação elegante para materiais físicos com fundo Bege Quente. Transmite seriedade institucional e sofisticação.</div>
         </div>
       </div>
       <!-- Fundo ouro -->
       <div class="version-card">
-        <div class="version-preview" style="background:#FFB800;padding:40px 48px">
+        <div class="version-preview" style="background:#D4A84B;padding:40px 48px">
           <img src="LOGOS/LOGOTIPO_-_GABARITANDO_-_PRETO_-_SEM_FUNDO.png"
                alt="Logotipo Gabaritando fundo ouro"
                style="max-width:100%;max-height:70px;object-fit:contain">
         </div>
         <div class="version-meta">
-          <div class="version-name">Versão Escura &mdash; Fundo Ouro</div>
+          <div class="version-name">Versão Escura &mdash; Fundo Âmbar</div>
           <div class="version-desc">Alta energia para CTAs, banners de lançamento, capa de stories e peças de campanha. O preto sobre ouro e a combinação de maior impacto visual.</div>
         </div>
       </div>
@@ -563,31 +563,31 @@ h3.serif em { font-style: italic; color: var(--ouro); }
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
     <!-- Ouro sobre escuro (arquivo 02) -->
     <div class="version-card">
-      <div class="version-preview" style="background:#1A1A2E;padding:32px">
+      <div class="version-preview" style="background:#1B3A2D;padding:32px">
         <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png"
              alt="Símbolo ouro sobre escuro"
              style="width:120px;height:120px;object-fit:contain;display:block">
       </div>
       <div class="version-meta">
-        <div class="version-name">Ouro / Escuro</div>
+        <div class="version-name">Âmbar / Verde</div>
         <div class="version-desc">Aplicação principal para redes sociais. Máximo contraste e impacto.</div>
       </div>
     </div>
     <!-- Ouro sobre ouro bg (02 sobre fundo ouro — não recomendado; usar 03) -->
     <div class="version-card">
-      <div class="version-preview" style="background:#FFB800;padding:32px">
+      <div class="version-preview" style="background:#D4A84B;padding:32px">
         <img src="LOGOS/03_AVATAR_1000X1000PX-removebg-preview.png"
              alt="Símbolo escuro sobre ouro"
              style="width:120px;height:120px;object-fit:contain;display:block">
       </div>
       <div class="version-meta">
-        <div class="version-name">Escuro / Ouro</div>
+        <div class="version-name">Verde / Âmbar</div>
         <div class="version-desc">Alta energia para stories, reels e peças de campanha com fundo ouro.</div>
       </div>
     </div>
     <!-- Escuro sobre creme (03) -->
     <div class="version-card">
-      <div class="version-preview" style="background:#EDE8DF;padding:32px">
+      <div class="version-preview" style="background:#FAF6EF;padding:32px">
         <img src="LOGOS/03_AVATAR_1000X1000PX-removebg-preview.png"
              alt="Símbolo escuro sobre creme"
              style="width:120px;height:120px;object-fit:contain;display:block">
@@ -599,14 +599,14 @@ h3.serif em { font-style: italic; color: var(--ouro); }
     </div>
     <!-- Branco sobre escuro (03 invertido) -->
     <div class="version-card">
-      <div class="version-preview" style="background:#0E0E1A;padding:32px">
+      <div class="version-preview" style="background:#0F2318;padding:32px">
         <img src="LOGOS/03_AVATAR_1000X1000PX-removebg-preview.png"
              alt="Símbolo branco sobre preto"
              class="logo-white"
              style="width:120px;height:120px;object-fit:contain;display:block">
       </div>
       <div class="version-meta">
-        <div class="version-name">Branco / Preto Tático</div>
+        <div class="version-name">Branco / Verde Florestal</div>
         <div class="version-desc">Para bordado em uniformes, gravação em brindes e materiais monocromáticos.</div>
       </div>
     </div>
@@ -630,7 +630,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
       </div>
       <div class="point">
         <div class="point-title">Paleta consolidada</div>
-        <p>Ouro (#FFB800) + Preto profundo (#1A1A2E) e uma combinação que já pertence ao repertório visual da marca. Deve ser mantida como base de toda a comunicação sem exceções.</p>
+        <p>Âmbar (#D4A84B) + Verde Florestal (#1B3A2D) — combinação central da identidade Gabaritando. Deve ser mantida como base de toda a comunicação sem exceções.</p>
       </div>
     </div>
   </div>
@@ -647,47 +647,47 @@ h3.serif em { font-style: italic; color: var(--ouro); }
 <div class="page">
   <div class="section-label">03 &mdash; Paleta de Cores</div>
   <h2 class="serif">As <em>cores</em> da marca</h2>
-  <p class="intro-text">Paleta extraida diretamente das logos aprovadas. Cinco cores que equilibram autoridade militar, calor baiano e seriedade institucional. Nenhuma cor deve ser substituida ou adicionada sem aprovação.</p>
+  <p class="intro-text">Verde-escuro + âmbar quente. Paleta que transmite confiança, estabilidade e seriedade institucional — equilibrando a autoridade das carreiras policiais com o acolhimento necessário para engajar o candidato baiano. Nenhuma cor deve ser substituída ou adicionada sem aprovação.</p>
 
   <div class="palette-grid" style="border:1px solid var(--borda-ouro)">
     <div>
-      <div class="color-swatch" style="background:#FFB800"></div>
+      <div class="color-swatch" style="background:#D4A84B"></div>
       <div class="color-info" style="background:var(--preto)">
-        <div class="color-name" style="color:#FFB800">Ouro Gabaritando</div>
-        <div class="color-hex" style="color:rgba(255,255,255,0.5)">#FFB800</div>
-        <div class="color-role" style="color:rgba(255,255,255,0.4)">Cor primaria. Destaque, CTAs, símbolo.</div>
+        <div class="color-name" style="color:#D4A84B">Âmbar Dourado</div>
+        <div class="color-hex" style="color:rgba(255,255,255,0.5)">#D4A84B</div>
+        <div class="color-role" style="color:rgba(255,255,255,0.4)">Destaque, CTAs, símbolo e ênfase.</div>
       </div>
     </div>
     <div>
-      <div class="color-swatch" style="background:#1A1A2E"></div>
+      <div class="color-swatch" style="background:#1B3A2D"></div>
       <div class="color-info" style="background:var(--preto)">
-        <div class="color-name">Preto Tático</div>
-        <div class="color-hex" style="color:rgba(255,255,255,0.5)">#1A1A2E</div>
-        <div class="color-role" style="color:rgba(255,255,255,0.4)">Fundo principal. Gravidade e autoridade.</div>
+        <div class="color-name">Verde Florestal</div>
+        <div class="color-hex" style="color:rgba(255,255,255,0.5)">#1B3A2D</div>
+        <div class="color-role" style="color:rgba(255,255,255,0.4)">Fundo principal. Autoridade, estabilidade e identidade da marca.</div>
       </div>
     </div>
     <div>
-      <div class="color-swatch" style="background:#111111"></div>
+      <div class="color-swatch" style="background:#2D6A4F"></div>
       <div class="color-info" style="background:var(--preto)">
-        <div class="color-name">Carvao</div>
-        <div class="color-hex" style="color:rgba(255,255,255,0.5)">#111111</div>
-        <div class="color-role" style="color:rgba(255,255,255,0.4)">Texto sobre fundo claro. Máximo contraste.</div>
+        <div class="color-name">Verde Tático</div>
+        <div class="color-hex" style="color:rgba(255,255,255,0.5)">#2D6A4F</div>
+        <div class="color-role" style="color:rgba(255,255,255,0.4)">Cor secundária. Badges, bordas ativas, hover e elementos de apoio.</div>
       </div>
     </div>
     <div>
-      <div class="color-swatch" style="background:#EDE8DF"></div>
+      <div class="color-swatch" style="background:#FAF6EF"></div>
       <div class="color-info" style="background:var(--preto)">
-        <div class="color-name">Creme Operacional</div>
-        <div class="color-hex" style="color:rgba(255,255,255,0.5)">#EDE8DF</div>
-        <div class="color-role" style="color:rgba(255,255,255,0.4)">Fundo alternativo. Elegância e calor.</div>
+        <div class="color-name">Bege Quente</div>
+        <div class="color-hex" style="color:rgba(255,255,255,0.5)">#FAF6EF</div>
+        <div class="color-role" style="color:rgba(255,255,255,0.4)">Fundo alternativo. Elegância, calor e leveza para materiais impressos.</div>
       </div>
     </div>
     <div>
-      <div class="color-swatch" style="background:#FFFFFF;border-right:none"></div>
+      <div class="color-swatch" style="background:#2C2C2C;border-right:none"></div>
       <div class="color-info" style="background:var(--preto)">
-        <div class="color-name">Branco</div>
-        <div class="color-hex" style="color:rgba(255,255,255,0.5)">#FFFFFF</div>
-        <div class="color-role" style="color:rgba(255,255,255,0.4)">Texto sobre escuro. Respiro e contraste.</div>
+        <div class="color-name">Carvão</div>
+        <div class="color-hex" style="color:rgba(255,255,255,0.5)">#2C2C2C</div>
+        <div class="color-role" style="color:rgba(255,255,255,0.4)">Texto e contratos. Máxima legibilidade sobre fundos claros.</div>
       </div>
     </div>
   </div>
@@ -697,47 +697,47 @@ h3.serif em { font-style: italic; color: var(--ouro); }
     <div class="section-label" style="margin-bottom:20px">Combinações Aprovadas</div>
     <div class="palette-combos">
       <div class="combo-card">
-        <div class="combo-bg" style="background:#1A1A2E;color:#FFB800">GABARITANDO</div>
-        <div class="combo-label">Ouro sobre Preto Tático &mdash; combinação principal</div>
+        <div class="combo-bg" style="background:#1B3A2D;color:#D4A84B">GABARITANDO</div>
+        <div class="combo-label">Âmbar sobre Verde Florestal &mdash; combinação principal</div>
       </div>
       <div class="combo-card">
-        <div class="combo-bg" style="background:#FFB800;color:#1A1A2E">GABARITANDO</div>
-        <div class="combo-label">Preto sobre Ouro &mdash; alta energia, CTAs</div>
+        <div class="combo-bg" style="background:#D4A84B;color:#1B3A2D">GABARITANDO</div>
+        <div class="combo-label">Verde sobre Âmbar &mdash; alta energia, CTAs</div>
       </div>
       <div class="combo-card">
-        <div class="combo-bg" style="background:#EDE8DF;color:#111111">GABARITANDO</div>
-        <div class="combo-label">Carvao sobre Creme &mdash; materiais impressos, formal</div>
+        <div class="combo-bg" style="background:#FAF6EF;color:#2C2C2C">GABARITANDO</div>
+        <div class="combo-label">Texto sobre Bege &mdash; materiais impressos, formal</div>
       </div>
       <div class="combo-card">
-        <div class="combo-bg" style="background:#111111;color:#FFFFFF">GABARITANDO</div>
-        <div class="combo-label">Branco sobre Carvao &mdash; corpo de texto, contratos</div>
+        <div class="combo-bg" style="background:#2C2C2C;color:#FFFFFF">GABARITANDO</div>
+        <div class="combo-label">Branco sobre Carvão &mdash; corpo de texto, contratos</div>
       </div>
       <!-- Símbolo ouro sobre escuro -->
       <div class="combo-card">
-        <div class="combo-bg" style="background:#1A1A2E">
+        <div class="combo-bg" style="background:#1B3A2D">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png"
                alt="Símbolo ouro sobre escuro"
                style="width:52px;height:52px;object-fit:contain;display:block">
         </div>
-        <div class="combo-label">Símbolo ouro sobre escuro &mdash; avatar principal</div>
+        <div class="combo-label">Símbolo âmbar sobre verde &mdash; avatar principal</div>
       </div>
       <!-- Símbolo escuro sobre ouro -->
       <div class="combo-card">
-        <div class="combo-bg" style="background:#FFB800">
+        <div class="combo-bg" style="background:#D4A84B">
           <img src="LOGOS/03_AVATAR_1000X1000PX-removebg-preview.png"
                alt="Símbolo escuro sobre ouro"
                style="width:52px;height:52px;object-fit:contain;display:block">
         </div>
-        <div class="combo-label">Símbolo escuro sobre ouro &mdash; stories, reels</div>
+        <div class="combo-label">Símbolo verde sobre âmbar &mdash; stories, reels</div>
       </div>
       <!-- Símbolo escuro sobre creme -->
       <div class="combo-card">
-        <div class="combo-bg" style="background:#EDE8DF">
+        <div class="combo-bg" style="background:#FAF6EF">
           <img src="LOGOS/03_AVATAR_1000X1000PX-removebg-preview.png"
                alt="Símbolo escuro sobre creme"
                style="width:52px;height:52px;object-fit:contain;display:block">
         </div>
-        <div class="combo-label">Símbolo escuro sobre creme &mdash; material impresso</div>
+        <div class="combo-label">Símbolo verde sobre bege &mdash; material impresso</div>
       </div>
       <!-- Logotipo horizontal fundo claro (span total) -->
       <div class="combo-card" style="grid-column:span 3">
@@ -746,7 +746,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
                alt="Logotipo horizontal"
                style="max-height:50px;width:auto;object-fit:contain;display:block">
         </div>
-        <div class="combo-label">Logotipo horizontal &mdash; wordmark completo sobre fundo claro</div>
+        <div class="combo-label">Logotipo horizontal &mdash; wordmark sobre fundo bege</div>
       </div>
     </div>
   </div>
@@ -756,18 +756,18 @@ h3.serif em { font-style: italic; color: var(--ouro); }
     <div class="section-label" style="margin-bottom:16px">Tons Derivados (uso secundario)</div>
     <div class="grid-3">
       <div style="display:flex;gap:0;border:1px solid var(--borda)">
-        <div style="height:60px;flex:1;background:#CC9400"></div>
-        <div style="height:60px;flex:1;background:#FFB800"></div>
-        <div style="height:60px;flex:1;background:#FFD060"></div>
-        <div style="height:60px;flex:1;background:#FFF0C0"></div>
+        <div style="height:60px;flex:1;background:#B8893A"></div>
+        <div style="height:60px;flex:1;background:#D4A84B"></div>
+        <div style="height:60px;flex:1;background:#E8C370"></div>
+        <div style="height:60px;flex:1;background:#F5E8C0"></div>
       </div>
       <div style="padding:14px 0">
-        <div class="section-label" style="margin-bottom:6px">Gradação do Ouro</div>
-        <p style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.6">Do #CC9400 (ouro escuro) ao #FFF0C0 (ouro palha). Usar com moderação para hierarquizar informações dentro de um layout.</p>
+        <div class="section-label" style="margin-bottom:6px">Gradação do Âmbar</div>
+        <p style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.6">De #B8893A (âmbar escuro) a #F5E8C0 (âmbar palha). Usar com moderação para hierarquizar informações dentro de um layout.</p>
       </div>
       <div style="padding:14px 0">
         <div class="section-label" style="margin-bottom:6px">Regra de Contraste</div>
-        <p style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.6">Nunca usar ouro sobre creme ou ouro sobre branco. O contraste é insuficiente. Ouro funciona exclusivamente sobre fundos escuros.</p>
+        <p style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.6">Âmbar (#D4A84B) funciona com excelência sobre Verde Florestal (#1B3A2D). Evitar âmbar sobre bege claro — contraste insuficiente. Verde Tático (#2D6A4F) pode ser combinado com texto branco ou âmbar.</p>
       </div>
     </div>
   </div>
@@ -850,7 +850,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         </div>
         <div class="spec-caption">PMBA &middot; BMBA &middot; PCBA &mdash; Gabaritando 2026 &mdash; Luís Eduardo Magalhães &middot; BA</div>
         <div style="font-family:var(--sans);font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.35);margin-top:8px;letter-spacing:0.05em">
-          #FFB800 &middot; Montserrat Black 900 &middot; Montserrat Bold 700 &middot; Montserrat Regular 400 &middot; Montserrat Light 300
+          #D4A84B &middot; Montserrat Black 900 &middot; Montserrat Bold 700 &middot; Montserrat Regular 400 &middot; Montserrat Light 300
         </div>
       </div>
     </div>
@@ -915,23 +915,23 @@ h3.serif em { font-style: italic; color: var(--ouro); }
   <!-- 4 versões de cor -->
   <div class="symbol-grid">
     <div class="symbol-card">
-      <div class="symbol-preview" style="background:#1A1A2E">
+      <div class="symbol-preview" style="background:#1B3A2D">
         <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png"
              alt="Símbolo ouro sobre escuro"
              style="width:110px;height:110px;object-fit:contain;display:block">
       </div>
-      <div class="symbol-caption">Ouro / Preto Tático<br>uso principal &mdash; redes sociais</div>
+      <div class="symbol-caption">Ouro / Verde Florestal<br>uso principal &mdash; redes sociais</div>
     </div>
     <div class="symbol-card">
-      <div class="symbol-preview" style="background:#FFB800">
+      <div class="symbol-preview" style="background:#D4A84B">
         <img src="LOGOS/03_AVATAR_1000X1000PX-removebg-preview.png"
              alt="Símbolo escuro sobre ouro"
              style="width:110px;height:110px;object-fit:contain;display:block">
       </div>
-      <div class="symbol-caption">Escuro / Ouro<br>stories, reels, campanhas</div>
+      <div class="symbol-caption">Verde / Âmbar<br>stories, reels, campanhas</div>
     </div>
     <div class="symbol-card">
-      <div class="symbol-preview" style="background:#EDE8DF">
+      <div class="symbol-preview" style="background:#FAF6EF">
         <img src="LOGOS/03_AVATAR_1000X1000PX-removebg-preview.png"
              alt="Símbolo escuro sobre creme"
              style="width:110px;height:110px;object-fit:contain;display:block">
@@ -939,7 +939,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
       <div class="symbol-caption">Escuro / Creme<br>materiais físicos, impressão</div>
     </div>
     <div class="symbol-card">
-      <div class="symbol-preview" style="background:#0E0E1A">
+      <div class="symbol-preview" style="background:#0F2318">
         <img src="LOGOS/03_AVATAR_1000X1000PX-removebg-preview.png"
              alt="Símbolo branco sobre preto"
              class="logo-white"
@@ -989,7 +989,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
     <div class="section-label mb-24">Zona de Respiro</div>
     <div style="display:flex;gap:48px;align-items:center;flex-wrap:wrap">
       <div style="position:relative;display:inline-block">
-        <div style="padding:32px;border:1px dashed rgba(255,184,0,0.35)">
+        <div style="padding:32px;border:1px dashed rgba(212,168,75,0.35)">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png"
                alt="Zona de respiro"
                style="width:100px;height:100px;object-fit:contain;display:block">
@@ -1020,25 +1020,25 @@ h3.serif em { font-style: italic; color: var(--ouro); }
   <div class="moodboard">
 
     <div class="mb mb-1">
-      <div class="mb-inner" style="background:#1A1A2E;border:1px solid rgba(255,184,0,0.1)">
+      <div class="mb-inner" style="background:#1B3A2D;border:1px solid rgba(212,168,75,0.1)">
         <div class="mb-text">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png"
                alt="G-Mira" style="width:80px;height:80px;object-fit:contain;display:block;margin:0 auto 12px">
-          <div style="font-family:var(--cormorant);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,184,0,0.6)">Gabaritando</div>
+          <div style="font-family:var(--cormorant);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,168,75,0.6)">Gabaritando</div>
         </div>
       </div>
     </div>
 
     <div class="mb mb-2">
-      <div class="mb-inner" style="background:#FFB800">
+      <div class="mb-inner" style="background:#D4A84B">
         <div class="mb-text">
-          <div style="font-family:var(--serif);font-size:2.2rem;font-weight:900;color:#1A1A2E;line-height:1">APROVADO</div>
+          <div style="font-family:var(--serif);font-size:2.2rem;font-weight:900;color:#1B3A2D;line-height:1">APROVADO</div>
         </div>
       </div>
     </div>
 
     <div class="mb mb-3">
-      <div class="mb-inner" style="background:#111111">
+      <div class="mb-inner" style="background:#2C2C2C">
         <div class="mb-text" style="color:rgba(255,255,255,0.85)">
           <div style="font-family:var(--cormorant);font-size:1.1rem;font-weight:300;font-style:italic;line-height:1.5;color:rgba(255,255,255,0.7)">
             "Treinado para a Bahia.<br>Aprovado de verdade."
@@ -1049,17 +1049,17 @@ h3.serif em { font-style: italic; color: var(--ouro); }
     </div>
 
     <div class="mb mb-4">
-      <div class="mb-inner" style="background:#EDE8DF">
+      <div class="mb-inner" style="background:#FAF6EF">
         <div class="mb-text">
           <img src="LOGOS/03_AVATAR_1000X1000PX-removebg-preview.png"
                alt="G-Mira creme" style="width:70px;height:70px;object-fit:contain;display:block;margin:0 auto 10px">
-          <div style="font-family:var(--sans);font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#1A1A2E;opacity:0.5">LEM &middot; BA &middot; 2026</div>
+          <div style="font-family:var(--sans);font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#1B3A2D;opacity:0.5">LEM &middot; BA &middot; 2026</div>
         </div>
       </div>
     </div>
 
     <div class="mb mb-5">
-      <div class="mb-inner" style="background:#0E0E1A;border:1px solid rgba(255,184,0,0.15)">
+      <div class="mb-inner" style="background:#0F2318;border:1px solid rgba(212,168,75,0.15)">
         <div class="mb-text">
           <div style="font-family:var(--serif);font-size:3rem;font-weight:900;color:var(--ouro);line-height:1">PMBA</div>
           <div style="font-family:var(--cormorant);font-size:0.8rem;letter-spacing:0.3em;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-top:6px">Polícia Militar da Bahia</div>
@@ -1068,15 +1068,15 @@ h3.serif em { font-style: italic; color: var(--ouro); }
     </div>
 
     <div class="mb mb-6">
-      <div class="mb-inner" style="background:#CC9400">
+      <div class="mb-inner" style="background:#B8893A">
         <div class="mb-text">
-          <div style="font-family:var(--sans);font-size:0.6rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#1A1A2E">Missão cumprida</div>
+          <div style="font-family:var(--sans);font-size:0.6rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#1B3A2D">Missão cumprida</div>
         </div>
       </div>
     </div>
 
     <div class="mb mb-7">
-      <div class="mb-inner" style="background:#1E1E2E">
+      <div class="mb-inner" style="background:#1B3A2D">
         <div class="mb-text">
           <div style="font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--ouro);line-height:1">GABARITAR</div>
           <div style="font-family:var(--cormorant);font-size:0.75rem;letter-spacing:0.2em;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-top:6px">verbo &middot; acertar tudo</div>
@@ -1085,16 +1085,16 @@ h3.serif em { font-style: italic; color: var(--ouro); }
     </div>
 
     <div class="mb mb-8">
-      <div class="mb-inner" style="background:#13131F">
+      <div class="mb-inner" style="background:#162D1F">
         <div class="mb-text">
           <div style="width:40px;height:2px;background:var(--ouro);margin:0 auto 12px"></div>
-          <div style="font-family:var(--sans);font-size:0.58rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,184,0,0.7)">Sistema GABA</div>
+          <div style="font-family:var(--sans);font-size:0.58rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(212,168,75,0.7)">Sistema GABA</div>
         </div>
       </div>
     </div>
 
     <div class="mb mb-9">
-      <div class="mb-inner" style="background:#FFB800">
+      <div class="mb-inner" style="background:#D4A84B">
         <div class="mb-text">
           <img src="LOGOS/03_AVATAR_1000X1000PX-removebg-preview.png"
                alt="G-Mira dourado" style="width:64px;height:64px;object-fit:contain;display:block;margin:0 auto">
@@ -1103,9 +1103,9 @@ h3.serif em { font-style: italic; color: var(--ouro); }
     </div>
 
     <div class="mb mb-10">
-      <div class="mb-inner" style="background:#EDE8DF">
+      <div class="mb-inner" style="background:#FAF6EF">
         <div class="mb-text">
-          <div style="font-family:var(--serif);font-size:0.75rem;font-weight:400;font-style:italic;color:#1A1A2E;line-height:1.6;opacity:0.7">
+          <div style="font-family:var(--serif);font-size:0.75rem;font-weight:400;font-style:italic;color:#1B3A2D;line-height:1.6;opacity:0.7">
             Luís Eduardo<br>Magalhães, BA
           </div>
         </div>
@@ -1113,20 +1113,20 @@ h3.serif em { font-style: italic; color: var(--ouro); }
     </div>
 
     <div class="mb mb-11">
-      <div class="mb-inner" style="background:#1A1A2E">
+      <div class="mb-inner" style="background:#1B3A2D">
         <div class="mb-text">
           <div style="display:flex;gap:6px;justify-content:center">
             <div style="width:8px;height:8px;border-radius:50%;background:var(--ouro)"></div>
-            <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,184,0,0.4)"></div>
-            <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,184,0,0.15)"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:rgba(212,168,75,0.4)"></div>
+            <div style="width:8px;height:8px;border-radius:50%;background:rgba(212,168,75,0.15)"></div>
           </div>
-          <div style="font-family:var(--sans);font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,184,0,0.5);margin-top:12px">PCBA &middot; BMBA</div>
+          <div style="font-family:var(--sans);font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,168,75,0.5);margin-top:12px">PCBA &middot; BMBA</div>
         </div>
       </div>
     </div>
 
     <div class="mb mb-12">
-      <div class="mb-inner" style="background:#111111">
+      <div class="mb-inner" style="background:#2C2C2C">
         <div class="mb-text">
           <div style="font-family:var(--cormorant);font-size:1.2rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.6);line-height:1.4">Aprovado<br><em style="color:var(--ouro);font-style:normal;font-weight:600">de verdade.</em></div>
         </div>
@@ -1134,9 +1134,9 @@ h3.serif em { font-style: italic; color: var(--ouro); }
     </div>
 
     <div class="mb mb-13">
-      <div class="mb-inner" style="background:#0E0E1A">
+      <div class="mb-inner" style="background:#0F2318">
         <div class="mb-text">
-          <div style="font-family:var(--sans);font-size:0.55rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,184,0,0.45)">2024 &mdash; 2026</div>
+          <div style="font-family:var(--sans);font-size:0.55rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:rgba(212,168,75,0.45)">2024 &mdash; 2026</div>
         </div>
       </div>
     </div>
@@ -1161,8 +1161,8 @@ h3.serif em { font-style: italic; color: var(--ouro); }
 
     <!-- Avatar Instagram -->
     <div class="mockup-card">
-      <div class="mockup-preview" style="background:#1A1A2E">
-        <div style="width:110px;height:110px;border-radius:50%;overflow:hidden;background:#1A1A2E;border:3px solid var(--ouro);display:flex;align-items:center;justify-content:center">
+      <div class="mockup-preview" style="background:#1B3A2D">
+        <div style="width:110px;height:110px;border-radius:50%;overflow:hidden;background:#1B3A2D;border:3px solid var(--ouro);display:flex;align-items:center;justify-content:center">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png"
                alt="Avatar Instagram" style="width:85px;height:85px;object-fit:contain;display:block">
         </div>
@@ -1172,10 +1172,10 @@ h3.serif em { font-style: italic; color: var(--ouro); }
 
     <!-- Story / Reel -->
     <div class="mockup-card">
-      <div class="mockup-preview" style="background:#FFB800;flex-direction:column;gap:12px">
+      <div class="mockup-preview" style="background:#D4A84B;flex-direction:column;gap:12px">
         <img src="LOGOS/03_AVATAR_1000X1000PX-removebg-preview.png"
              alt="Story fundo ouro" style="width:70px;height:70px;object-fit:contain;display:block">
-        <div style="font-family:var(--serif);font-size:0.85rem;font-weight:700;color:#1A1A2E;letter-spacing:0.04em;text-align:center">GABARITANDO</div>
+        <div style="font-family:var(--serif);font-size:0.85rem;font-weight:700;color:#1B3A2D;letter-spacing:0.04em;text-align:center">GABARITANDO</div>
         <div style="font-family:var(--sans);font-size:0.55rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,0,0,0.5)">Carreiras Policiais BA</div>
       </div>
       <div class="mockup-label">Story / Reels &mdash; fundo ouro</div>
@@ -1183,12 +1183,12 @@ h3.serif em { font-style: italic; color: var(--ouro); }
 
     <!-- Crachá / Badge -->
     <div class="mockup-card">
-      <div class="mockup-preview" style="background:#EDE8DF">
+      <div class="mockup-preview" style="background:#FAF6EF">
         <div style="background:#FFFFFF;border:1px solid rgba(0,0,0,0.1);padding:16px 20px;display:flex;flex-direction:column;align-items:center;gap:10px;width:140px">
           <img src="LOGOS/03_AVATAR_1000X1000PX-removebg-preview.png"
                alt="Crachá" style="width:50px;height:50px;object-fit:contain;display:block">
           <div style="height:1px;width:60px;background:rgba(0,0,0,0.15)"></div>
-          <div style="font-family:var(--sans);font-size:0.5rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1A1A2E;opacity:0.55;text-align:center">PROJETO<br>GABARITANDO</div>
+          <div style="font-family:var(--sans);font-size:0.5rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1B3A2D;opacity:0.55;text-align:center">PROJETO<br>GABARITANDO</div>
         </div>
       </div>
       <div class="mockup-label">Crachá / Distintivo</div>
@@ -1197,7 +1197,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
     <!-- Email header -->
     <div class="mockup-card">
       <div class="mockup-preview" style="background:#f8f8f8;flex-direction:column;gap:0;align-items:stretch;padding:0">
-        <div style="background:#1A1A2E;padding:16px 20px;display:flex;align-items:center;gap:12px">
+        <div style="background:#1B3A2D;padding:16px 20px;display:flex;align-items:center;gap:12px">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png"
                alt="Email header" style="width:32px;height:32px;object-fit:contain;display:block">
           <div>
@@ -1206,9 +1206,9 @@ h3.serif em { font-style: italic; color: var(--ouro); }
           </div>
         </div>
         <div style="padding:16px 20px;background:#fff">
-          <div style="height:6px;background:#EDE8DF;border-radius:2px;margin-bottom:8px;width:80%"></div>
-          <div style="height:6px;background:#EDE8DF;border-radius:2px;margin-bottom:8px;width:60%"></div>
-          <div style="height:6px;background:#EDE8DF;border-radius:2px;width:70%"></div>
+          <div style="height:6px;background:#FAF6EF;border-radius:2px;margin-bottom:8px;width:80%"></div>
+          <div style="height:6px;background:#FAF6EF;border-radius:2px;margin-bottom:8px;width:60%"></div>
+          <div style="height:6px;background:#FAF6EF;border-radius:2px;width:70%"></div>
         </div>
       </div>
       <div class="mockup-label">Header de E-mail</div>
@@ -1216,10 +1216,10 @@ h3.serif em { font-style: italic; color: var(--ouro); }
 
     <!-- Material impresso -->
     <div class="mockup-card">
-      <div class="mockup-preview" style="background:#EDE8DF;flex-direction:column;align-items:flex-start;padding:24px">
+      <div class="mockup-preview" style="background:#FAF6EF;flex-direction:column;align-items:flex-start;padding:24px">
         <img src="LOGOS/LOGOTIPO_-_GABARITANDO_-_PRETO_-_SEM_FUNDO.png"
              alt="Apostila" style="height:28px;width:auto;object-fit:contain;display:block;margin-bottom:16px">
-        <div style="height:4px;background:#1A1A2E;width:40%;margin-bottom:12px"></div>
+        <div style="height:4px;background:#1B3A2D;width:40%;margin-bottom:12px"></div>
         <div style="height:4px;background:rgba(0,0,0,0.1);border-radius:1px;margin-bottom:6px;width:90%"></div>
         <div style="height:4px;background:rgba(0,0,0,0.1);border-radius:1px;margin-bottom:6px;width:75%"></div>
         <div style="height:4px;background:rgba(0,0,0,0.1);border-radius:1px;width:85%"></div>
@@ -1234,7 +1234,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <div style="border:1.5px solid var(--ouro);padding:16px 20px;display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
           <img src="LOGOS/03_AVATAR_1000X1000PX-removebg-preview.png"
                alt="Certificado" style="width:36px;height:36px;object-fit:contain;display:block">
-          <div style="font-family:var(--serif);font-size:0.6rem;font-weight:600;color:#1A1A2E;letter-spacing:0.08em">CERTIFICADO</div>
+          <div style="font-family:var(--serif);font-size:0.6rem;font-weight:600;color:#1B3A2D;letter-spacing:0.08em">CERTIFICADO</div>
           <div style="height:1px;width:50px;background:var(--ouro)"></div>
           <div style="font-family:var(--cormorant);font-size:0.58rem;font-style:italic;color:rgba(0,0,0,0.4);text-align:center">de aprovação no módulo</div>
         </div>
@@ -1266,19 +1266,19 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <!-- Overlay escuro -->
         <div style="position:absolute;inset:0;background:rgba(0,0,0,0.50);pointer-events:none"></div>
         <!-- Gradiente dourado inferior -->
-        <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(255,184,0,0.75) 0%,transparent 100%);pointer-events:none"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(212,168,75,0.75) 0%,transparent 100%);pointer-events:none"></div>
         <!-- Conteúdo -->
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:8px;width:100%;padding-right:28%">
-          <div style="font-family:'Montserrat',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,184,0,0.75)">Concurso PMBA 2026</div>
-          <div style="width:22px;height:2px;background:#FFB800"></div>
-          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.75rem;font-weight:900;color:#FFB800;line-height:1;text-transform:uppercase;letter-spacing:0.02em">VAGAS<br>ABER&shy;TAS</h3>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(212,168,75,0.75)">Concurso PMBA 2026</div>
+          <div style="width:22px;height:2px;background:#D4A84B"></div>
+          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.75rem;font-weight:900;color:#D4A84B;line-height:1;text-transform:uppercase;letter-spacing:0.02em">VAGAS<br>ABER&shy;TAS</h3>
           <p style="font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.75);line-height:1.5">Prepare-se com<br>quem passou.</p>
-          <div style="background:#FFB800;color:#111111;font-family:'Montserrat',sans-serif;font-size:0.5rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:6px 14px;margin-top:4px">QUERO PASSAR</div>
+          <div style="background:#D4A84B;color:#2C2C2C;font-family:'Montserrat',sans-serif;font-size:0.5rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:6px 14px;margin-top:4px">QUERO PASSAR</div>
         </div>
         <!-- Logo no rodapé -->
         <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:7px">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png" alt="logo" style="width:18px;height:18px;object-fit:contain;display:block">
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.44rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.44rem;font-weight:700;color:#D4A84B;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
         </div>
       </div>
       <div style="padding:12px 16px;background:var(--ardosia);border-top:1px solid var(--borda)">
@@ -1293,17 +1293,17 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <!-- Overlay escuro -->
         <div style="position:absolute;inset:0;background:rgba(0,0,0,0.52);pointer-events:none"></div>
         <!-- Gradiente dourado inferior -->
-        <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(255,184,0,0.75) 0%,transparent 100%);pointer-events:none"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(212,168,75,0.75) 0%,transparent 100%);pointer-events:none"></div>
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
-          <div style="width:36px;height:2px;background:#FFB800;margin-bottom:4px"></div>
+          <div style="width:36px;height:2px;background:#D4A84B;margin-bottom:4px"></div>
           <p style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.7);letter-spacing:0.04em;line-height:1.6">"Passei no concurso de Soldado<br>estudando 2h por dia<br>pelo Gabaritando."</p>
-          <p style="font-family:'Montserrat',sans-serif;font-size:0.48rem;font-weight:700;color:#FFB800;letter-spacing:0.2em;text-transform:uppercase">— Carlos M., aprovado PMBA 2024</p>
-          <div style="width:36px;height:2px;background:#FFB800;margin-top:4px"></div>
-          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;color:#FFFFFF;line-height:1.25;margin-top:10px">Você pode ser<br><em style="color:#FFB800;font-style:italic">o próximo aprovado.</em></h3>
+          <p style="font-family:'Montserrat',sans-serif;font-size:0.48rem;font-weight:700;color:#D4A84B;letter-spacing:0.2em;text-transform:uppercase">— Carlos M., aprovado PMBA 2024</p>
+          <div style="width:36px;height:2px;background:#D4A84B;margin-top:4px"></div>
+          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;color:#FFFFFF;line-height:1.25;margin-top:10px">Você pode ser<br><em style="color:#D4A84B;font-style:italic">o próximo aprovado.</em></h3>
         </div>
         <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:7px">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png" alt="logo" style="width:18px;height:18px;object-fit:contain;display:block">
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.44rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.44rem;font-weight:700;color:#D4A84B;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
         </div>
       </div>
       <div style="padding:12px 16px;background:var(--ardosia);border-top:1px solid var(--borda)">
@@ -1318,17 +1318,17 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <!-- Overlay escuro -->
         <div style="position:absolute;inset:0;background:rgba(0,0,0,0.48);pointer-events:none"></div>
         <!-- Gradiente dourado inferior -->
-        <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(255,184,0,0.75) 0%,transparent 100%);pointer-events:none"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(212,168,75,0.75) 0%,transparent 100%);pointer-events:none"></div>
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
-          <div style="font-family:'Montserrat',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,184,0,0.75)">Acesso completo por</div>
-          <h3 style="font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:900;color:#FFB800;line-height:0.92">12×<br><span style="font-size:1.75rem">R$79</span></h3>
-          <div style="width:40px;height:2px;background:#FFB800;opacity:0.6"></div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(212,168,75,0.75)">Acesso completo por</div>
+          <h3 style="font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:900;color:#D4A84B;line-height:0.92">12×<br><span style="font-size:1.75rem">R$79</span></h3>
+          <div style="width:40px;height:2px;background:#D4A84B;opacity:0.6"></div>
           <p style="font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:400;font-style:italic;color:rgba(255,255,255,0.7);line-height:1.5">Soldado PMBA &mdash; 12 meses de acesso</p>
-          <div style="background:#FFB800;color:#111111;font-family:'Montserrat',sans-serif;font-size:0.5rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:7px 16px;margin-top:4px">GARANTIR MINHA VAGA</div>
+          <div style="background:#D4A84B;color:#2C2C2C;font-family:'Montserrat',sans-serif;font-size:0.5rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:7px 16px;margin-top:4px">GARANTIR MINHA VAGA</div>
         </div>
         <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:7px">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png" alt="logo" style="width:18px;height:18px;object-fit:contain;display:block">
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.44rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.44rem;font-weight:700;color:#D4A84B;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
         </div>
       </div>
       <div style="padding:12px 16px;background:var(--ardosia);border-top:1px solid var(--borda)">
@@ -1365,37 +1365,37 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <!-- Overlay escuro -->
         <div style="position:absolute;inset:0;background:rgba(0,0,0,0.50);pointer-events:none"></div>
         <!-- Gradiente dourado inferior -->
-        <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(255,184,0,0.75) 0%,transparent 100%);pointer-events:none"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(212,168,75,0.75) 0%,transparent 100%);pointer-events:none"></div>
         <!-- Conteúdo -->
         <div style="position:relative;z-index:2">
-          <div style="font-family:'Montserrat',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#FFB800;margin-bottom:8px">Dica de Estudo</div>
-          <div style="width:22px;height:2px;background:#FFB800;margin-bottom:12px"></div>
-          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;color:#FFFFFF;line-height:1.25;margin-bottom:14px">3 matérias que mais<br>caem no concurso<br><em style="color:#FFB800;font-style:italic">de Soldado PMBA</em></h3>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#D4A84B;margin-bottom:8px">Dica de Estudo</div>
+          <div style="width:22px;height:2px;background:#D4A84B;margin-bottom:12px"></div>
+          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;color:#FFFFFF;line-height:1.25;margin-bottom:14px">3 matérias que mais<br>caem no concurso<br><em style="color:#D4A84B;font-style:italic">de Soldado PMBA</em></h3>
           <div style="display:flex;flex-direction:column;gap:8px">
             <div style="display:flex;align-items:center;gap:8px">
-              <div style="width:18px;height:18px;background:#FFB800;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <div style="width:18px;height:18px;background:#D4A84B;display:flex;align-items:center;justify-content:center;flex-shrink:0">
                 <span style="font-family:'Montserrat',sans-serif;font-size:0.5rem;font-weight:700;color:#111">01</span>
               </div>
-              <span style="font-family:'Libre Baskerville',Georgia,serif;font-size:0.58rem;color:rgba(255,255,255,0.85)">Língua Portuguesa</span>
+              <span style="font-family:'Montserrat',sans-serif;font-size:0.58rem;color:rgba(255,255,255,0.85)">Língua Portuguesa</span>
             </div>
             <div style="display:flex;align-items:center;gap:8px">
-              <div style="width:18px;height:18px;background:#FFB800;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <div style="width:18px;height:18px;background:#D4A84B;display:flex;align-items:center;justify-content:center;flex-shrink:0">
                 <span style="font-family:'Montserrat',sans-serif;font-size:0.5rem;font-weight:700;color:#111">02</span>
               </div>
-              <span style="font-family:'Libre Baskerville',Georgia,serif;font-size:0.58rem;color:rgba(255,255,255,0.85)">Raciocínio Lógico</span>
+              <span style="font-family:'Montserrat',sans-serif;font-size:0.58rem;color:rgba(255,255,255,0.85)">Raciocínio Lógico</span>
             </div>
             <div style="display:flex;align-items:center;gap:8px">
-              <div style="width:18px;height:18px;background:#FFB800;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <div style="width:18px;height:18px;background:#D4A84B;display:flex;align-items:center;justify-content:center;flex-shrink:0">
                 <span style="font-family:'Montserrat',sans-serif;font-size:0.5rem;font-weight:700;color:#111">03</span>
               </div>
-              <span style="font-family:'Libre Baskerville',Georgia,serif;font-size:0.58rem;color:rgba(255,255,255,0.85)">Direito Constitucional</span>
+              <span style="font-family:'Montserrat',sans-serif;font-size:0.58rem;color:rgba(255,255,255,0.85)">Direito Constitucional</span>
             </div>
           </div>
         </div>
         <!-- Logo -->
         <div style="position:absolute;bottom:13px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:6px">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png" alt="logo" style="width:16px;height:16px;object-fit:contain;display:block">
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.43rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.43rem;font-weight:700;color:#D4A84B;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
         </div>
       </div>
       <div style="padding:12px 16px;background:var(--preto);border-top:1px solid var(--borda)">
@@ -1410,16 +1410,16 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <!-- Overlay escuro -->
         <div style="position:absolute;inset:0;background:rgba(0,0,0,0.52);pointer-events:none"></div>
         <!-- Gradiente dourado inferior -->
-        <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(255,184,0,0.75) 0%,transparent 100%);pointer-events:none"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(212,168,75,0.75) 0%,transparent 100%);pointer-events:none"></div>
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:11px">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png" alt="logo" style="width:48px;height:48px;object-fit:contain;display:block;opacity:0.92">
           <h3 style="font-family:'Montserrat',sans-serif;font-size:1.35rem;font-weight:700;color:#FFFFFF;line-height:1.2">A farda não se<br>conquista por sorte.</h3>
-          <div style="width:38px;height:2px;background:#FFB800"></div>
+          <div style="width:38px;height:2px;background:#D4A84B"></div>
           <p style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.6);line-height:1.65">Se conquista com método,<br>disciplina e o preparatório certo.</p>
-          <div style="font-family:'Montserrat',sans-serif;font-size:0.48rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#FFB800;margin-top:2px">#MétodoGabaritando</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.48rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#D4A84B;margin-top:2px">#MétodoGabaritando</div>
         </div>
         <div style="position:absolute;bottom:13px;left:50%;transform:translateX(-50%);z-index:2">
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.42rem;font-weight:700;color:rgba(255,184,0,0.45);letter-spacing:0.12em;text-transform:uppercase">gabaritando.com.br</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.42rem;font-weight:700;color:rgba(212,168,75,0.45);letter-spacing:0.12em;text-transform:uppercase">gabaritando.com.br</span>
         </div>
       </div>
       <div style="padding:12px 16px;background:var(--preto);border-top:1px solid var(--borda)">
@@ -1434,17 +1434,17 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <!-- Overlay escuro -->
         <div style="position:absolute;inset:0;background:rgba(0,0,0,0.48);pointer-events:none"></div>
         <!-- Gradiente dourado inferior -->
-        <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(255,184,0,0.75) 0%,transparent 100%);pointer-events:none"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(212,168,75,0.75) 0%,transparent 100%);pointer-events:none"></div>
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:9px">
-          <div style="font-family:'Montserrat',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:rgba(255,184,0,0.7)">Turma PMBA 2026</div>
-          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;color:#FFB800;line-height:1;text-transform:uppercase;letter-spacing:0.02em">INSCRIÇÕES<br>ABERTAS</h3>
-          <div style="width:44px;height:2px;background:#FFB800"></div>
-          <p style="font-family:'Libre Baskerville',Georgia,serif;font-size:0.6rem;font-weight:400;color:rgba(255,255,255,0.75);line-height:1.65">Início em 15 de maio.<br>Vagas limitadas.</p>
-          <div style="border:1px solid #FFB800;color:#FFB800;font-family:'Montserrat',sans-serif;font-size:0.48rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:5px 14px;margin-top:4px">LINK NA BIO</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:rgba(212,168,75,0.7)">Turma PMBA 2026</div>
+          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;color:#D4A84B;line-height:1;text-transform:uppercase;letter-spacing:0.02em">INSCRIÇÕES<br>ABERTAS</h3>
+          <div style="width:44px;height:2px;background:#D4A84B"></div>
+          <p style="font-family:'Montserrat',sans-serif;font-size:0.6rem;font-weight:400;color:rgba(255,255,255,0.75);line-height:1.65">Início em 15 de maio.<br>Vagas limitadas.</p>
+          <div style="border:1px solid #D4A84B;color:#D4A84B;font-family:'Montserrat',sans-serif;font-size:0.48rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:5px 14px;margin-top:4px">LINK NA BIO</div>
         </div>
         <div style="position:absolute;bottom:13px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:6px">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png" alt="logo" style="width:16px;height:16px;object-fit:contain;display:block">
-          <span style="font-family:'Montserrat',sans-serif;font-size:0.43rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.43rem;font-weight:700;color:#D4A84B;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
         </div>
       </div>
       <div style="padding:12px 16px;background:var(--preto);border-top:1px solid var(--borda)">
@@ -1481,7 +1481,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
       <div style="position:relative">
         <!-- Indicador de slide -->
         <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:4px">
-          <div style="width:18px;height:3px;background:#FFB800;border-radius:2px"></div>
+          <div style="width:18px;height:3px;background:#D4A84B;border-radius:2px"></div>
           <div style="width:8px;height:3px;background:rgba(255,255,255,0.4);border-radius:2px"></div>
           <div style="width:8px;height:3px;background:rgba(255,255,255,0.4);border-radius:2px"></div>
         </div>
@@ -1498,7 +1498,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
       <div style="position:relative">
         <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:4px">
           <div style="width:8px;height:3px;background:rgba(255,255,255,0.4);border-radius:2px"></div>
-          <div style="width:18px;height:3px;background:#FFB800;border-radius:2px"></div>
+          <div style="width:18px;height:3px;background:#D4A84B;border-radius:2px"></div>
           <div style="width:8px;height:3px;background:rgba(255,255,255,0.4);border-radius:2px"></div>
         </div>
         <img src="CARROSSEL 1.2.png" alt="Carrossel — Slide 2" style="width:100%;display:block;aspect-ratio:1/1;object-fit:cover">
@@ -1515,7 +1515,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:4px">
           <div style="width:8px;height:3px;background:rgba(255,255,255,0.4);border-radius:2px"></div>
           <div style="width:8px;height:3px;background:rgba(255,255,255,0.4);border-radius:2px"></div>
-          <div style="width:18px;height:3px;background:#FFB800;border-radius:2px"></div>
+          <div style="width:18px;height:3px;background:#D4A84B;border-radius:2px"></div>
         </div>
         <img src="CARROSSEL 1.3.png" alt="Carrossel — Slide 3" style="width:100%;display:block;aspect-ratio:1/1;object-fit:cover">
       </div>

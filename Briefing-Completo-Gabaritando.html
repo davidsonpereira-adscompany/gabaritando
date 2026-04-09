@@ -7,12 +7,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ouro: #FFB800;
-    --preto: #0E0E1A;
-    --card: #13131F;
-    --medio: #1E1E2E;
-    --escuro: #1E1E2E;
-    --borda: rgba(255,255,255,0.07);
+    --ouro: #D4A84B;
+    --preto: #0F2318;
+    --card: #162D1F;
+    --medio: #1B3A2D;
+    --escuro: #234B35;
+    --borda: rgba(45,106,79,0.25);
     --cinza: #666;
     --branco: #FFFFFF;
     --verde: #22C55E;
@@ -36,18 +36,18 @@
   @media print {
     body { background:#fff; color:#111; padding:20px; font-size:12px; }
     .card, .field-value, .offer-card, .nivel-option { background:#f7f7f7 !important; color:#111 !important; border-color:#ccc !important; }
-    .section-tag { color:#CC9400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .section-tag { color:#B8893A !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
     h1, h2 { color:#111 !important; }
-    .hl { background: #fff8f5 !important; border-color:#CC9400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-    .badge { background:#fff8dc !important; color:#CC9400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-    .divider, .scale-fill, .header-line { background:#CC9400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .hl { background: #fff8f5 !important; border-color:#B8893A !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .badge { background:#faf3e0 !important; color:#B8893A !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .divider, .scale-fill, .header-line { background:#B8893A !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
     .obj-table th { background:#eee !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-    .nivel-option.sel { background:#fff3ee !important; border-color:#CC9400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .nivel-option.sel { background:#fff3ee !important; border-color:#B8893A !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
     .status-bar { background:#f0fff0 !important; color:#166534 !important; border-color:#bbf7d0 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
     .no-print { display:none !important; }
     .market-card { background:#f7f7f7 !important; border-color:#ddd !important; }
-    .market-card .mc-num { color:#CC9400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-    .offer-card { border-color:#CC9400 !important; }
+    .market-card .mc-num { color:#B8893A !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .offer-card { border-color:#B8893A !important; }
   }
 
   /* HEADER */
@@ -72,7 +72,7 @@
   .lbl { font-size:0.66rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--cinza); margin-bottom:7px; }
   .field-value {
     background:var(--card);
-    border:1px solid rgba(255,184,0,0.14);
+    border:1px solid rgba(212,168,75,0.14);
     padding:16px 20px;
     font-size:0.89rem;
     font-weight:300;
@@ -89,7 +89,7 @@
   /* OFFER CARDS */
   .offer-wrap { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
   @media(max-width:640px){ .offer-wrap{ grid-template-columns:1fr; } }
-  .offer-card { background:var(--card); border:1px solid rgba(255,184,0,0.16); padding:20px 22px; }
+  .offer-card { background:var(--card); border:1px solid rgba(212,168,75,0.16); padding:20px 22px; }
   .offer-card.dest { border-color:var(--ouro); }
   .offer-tag { font-size:0.64rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--ouro); margin-bottom:10px; }
   .offer-price { font-family:var(--serif); font-size:1.8rem; font-weight:700; line-height:1; margin-bottom:4px; }
@@ -118,20 +118,20 @@
 
   /* NIVEL */
   .nivel { display:flex; align-items:flex-start; gap:14px; padding:13px 17px; background:var(--card); border:1px solid var(--borda); margin-bottom:8px; }
-  .nivel.sel { border-color:var(--ouro); background:rgba(255,184,0,0.05); }
+  .nivel.sel { border-color:var(--ouro); background:rgba(212,168,75,0.05); }
   .ndot { width:14px; height:14px; border-radius:50%; border:2px solid var(--cinza); flex-shrink:0; margin-top:3px; }
   .nivel.sel .ndot { background:var(--ouro); border-color:var(--ouro); }
   .nivel-label { font-size:0.86rem; font-weight:500; flex:1; }
   .nivel-desc { font-size:0.77rem; color:var(--cinza); font-weight:300; margin-top:2px; }
 
   /* HIGHLIGHT */
-  .hl { background:rgba(255,184,0,0.05); border-left:3px solid var(--ouro); padding:17px 22px; margin-bottom:16px; font-size:0.87rem; font-weight:300; color:rgba(255,255,255,0.88); line-height:1.8; }
+  .hl { background:rgba(212,168,75,0.05); border-left:3px solid var(--ouro); padding:17px 22px; margin-bottom:16px; font-size:0.87rem; font-weight:300; color:rgba(255,255,255,0.88); line-height:1.8; }
   .hl b, .hl strong { color:var(--ouro); font-weight:600; }
   .hl-amarelo { background:rgba(245,158,11,0.05); border-left:3px solid var(--amarelo); padding:14px 20px; margin-bottom:14px; font-size:0.84rem; color:rgba(255,255,255,0.72); font-weight:300; line-height:1.75; }
   .hl-amarelo b { color:var(--amarelo); font-weight:600; }
 
   /* BADGES */
-  .badge { display:inline-block; background:rgba(255,184,0,0.11); color:var(--ouro); font-size:0.67rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:4px 11px; margin:2px 3px 2px 0; }
+  .badge { display:inline-block; background:rgba(212,168,75,0.11); color:var(--ouro); font-size:0.67rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:4px 11px; margin:2px 3px 2px 0; }
 
   /* MARKET CARDS */
   .mc-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:16px; }
@@ -141,7 +141,7 @@
   .mc-lbl { font-size:0.74rem; font-weight:400; color:rgba(255,255,255,0.55); line-height:1.45; }
 
   /* DIVIDER */
-  .divider { width:100%; height:1px; background:linear-gradient(90deg,var(--ouro),rgba(255,184,0,0)); margin:56px 0; }
+  .divider { width:100%; height:1px; background:linear-gradient(90deg,var(--ouro),rgba(212,168,75,0)); margin:56px 0; }
 
   /* BUTTONS */
   .btn-bar { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:24px; }
@@ -154,8 +154,8 @@
 </head>
 <body>
 
-<div style="position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(14,14,26,0.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.07);padding:10px 28px;">
-  <a href="index.html" style="font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">&#8592; &nbsp;Índice Geral</a>
+<div style="position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(15,35,24,0.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(45,106,79,0.25);padding:10px 28px;">
+  <a href="index.html" style="font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#D4A84B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">&#8592; &nbsp;Índice Geral</a>
 </div>
 <div style="height:38px"></div>
 
