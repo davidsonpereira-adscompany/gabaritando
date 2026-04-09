@@ -20,7 +20,7 @@
       --texto-dim: rgba(255,255,255,0.45);
     }
 
-    html { font-size: 16px; }
+    html { overflow-x: hidden; font-size: 16px; }
     body {
       background: var(--preto);
       color: var(--texto);
@@ -152,11 +152,21 @@
     }
     footer p { font-size: 0.72rem; color: var(--texto-dim); letter-spacing: 0.06em; line-height: 1.8; }
     footer strong { color: var(--ouro); }
+  
+  @media (max-width: 640px) {
+    .hero { padding: 60px 20px 48px; }
+    .hero h1 { font-size: 1.8rem; }
+    .hero-sub { font-size: 0.88rem; }
+    .grid-wrap { padding: 36px 16px 56px; }
+    .grid { grid-template-columns: 1fr; }
+    .card { padding: 22px 18px; }
+    footer { padding: 28px 16px; }
+  }
 
-    @media (max-width: 640px) {
-      .grid-wrap { padding: 40px 20px 64px; }
-      .grid { grid-template-columns: 1fr; }
-    }
+  
+    img, table, .tbl { max-width: 100%; }
+    * { box-sizing: border-box; }
+
   </style>
 </head>
 <body>
