@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brandbook — Gabaritando</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
 <style>
 
 /* ═══════════════════════════════════════════
@@ -24,10 +24,10 @@
   --borda:       rgba(255,255,255,0.07);
   --borda-ouro:  rgba(255,184,0,0.22);
 
-  --serif:       'Playfair Display', Georgia, serif;
-  --cormorant:   'Cormorant Garamond', Georgia, serif;
-  --baskerville: 'Libre Baskerville', Georgia, serif;
-  --sans:        'Inter', -apple-system, sans-serif;
+  --serif:       'Montserrat', sans-serif;
+  --cormorant:   'Montserrat', sans-serif;
+  --baskerville: 'Montserrat', sans-serif;
+  --sans:        'Montserrat', sans-serif;
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -221,11 +221,11 @@ h3.serif em { font-style: italic; color: var(--ouro); }
 }
 .type-family { font-family: var(--serif); font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
 .type-usage  { font-size: 0.76rem; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.6; }
-.spec-heading       { font-family: var(--serif); font-size: 3.2rem; font-weight: 700; line-height: 1.05; margin-bottom: 8px; }
-.spec-heading-italic{ font-family: var(--serif); font-size: 3.2rem; font-weight: 400; font-style: italic; line-height: 1.05; color: var(--ouro); margin-bottom: 16px; }
-.spec-subheading    { font-family: var(--cormorant); font-size: 1.6rem; font-weight: 300; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); margin-bottom: 20px; font-style: italic; }
-.spec-body          { font-family: var(--baskerville); font-size: 0.95rem; font-weight: 400; line-height: 1.8; color: rgba(255,255,255,0.75); max-width: 520px; }
-.spec-caption       { font-family: var(--sans); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+.spec-heading       { font-family: var(--serif); font-size: 3.2rem; font-weight: 900; line-height: 1.05; margin-bottom: 8px; }
+.spec-heading-italic{ font-family: var(--serif); font-size: 3.2rem; font-weight: 700; font-style: italic; line-height: 1.05; color: var(--ouro); margin-bottom: 16px; }
+.spec-subheading    { font-family: var(--sans); font-size: 1.6rem; font-weight: 600; letter-spacing: 0.04em; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+.spec-body          { font-family: var(--sans); font-size: 0.95rem; font-weight: 400; line-height: 1.8; color: rgba(255,255,255,0.75); max-width: 520px; }
+.spec-caption       { font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
 
 .type-scale { display: flex; flex-direction: column; gap: 8px; margin-top: 48px; }
 .scale-item {
@@ -373,7 +373,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
 <body>
 
 <div style="position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(14,14,26,0.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,184,0,0.1);padding:10px 28px;">
-  <a href="index.html" style="font-family:'Inter',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">&#8592; &nbsp;Índice Geral</a>
+  <a href="index.html" style="font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">&#8592; &nbsp;Índice Geral</a>
 </div>
 <div style="height:38px"></div>
 
@@ -784,16 +784,16 @@ h3.serif em { font-style: italic; color: var(--ouro); }
 <div class="page">
   <div class="section-label">04 &mdash; Sistema Tipográfico</div>
   <h2 class="serif">Letras que <em>comunicam</em> seriedade</h2>
-  <p class="intro-text">A preferência por tipografia serifada não e estética &mdash; e estratégica. Serifa transmite autoridade institucional, tradição e credibilidade. As fontes abaixo formam uma hierarquia completa que diferencia o Gabaritando de concorrentes que recorrem a sans-serifs arredondadas.</p>
+  <p class="intro-text">Montserrat é a tipografia oficial do Gabaritando em todos os canais e formatos. Sua escala de pesos — de Light 300 a Black 900 — estabelece uma hierarquia visual clara e profissional sem necessidade de múltiplas famílias. Uma fonte única com variações de peso garante coesão total entre materiais impressos e digitais, carregamento rápido em plataformas online e identidade reconhecível em qualquer peça de comunicação.</p>
 
   <div class="type-system">
 
-    <!-- PLAYFAIR DISPLAY -->
+    <!-- MONTSERRAT BLACK / EXTRABOLD -->
     <div class="type-row">
       <div class="type-meta">
         <div class="type-role">Display / Titulação</div>
-        <div class="type-family">Playfair Display</div>
-        <div class="type-usage">Títulos de seção, headlines de campanha, nome da marca em layouts formais. Uso em Bold e Bold Italic.</div>
+        <div class="type-family">Montserrat Black &amp; ExtraBold</div>
+        <div class="type-usage">Títulos de seção, headlines de campanha e nome da marca em layouts de alto impacto. Pesos 900 e 800. Uso em caixa alta ou caixa-e-baixa com letra inicial maiúscula.</div>
       </div>
       <div class="type-specimen">
         <div class="spec-heading">Aprovado.</div>
@@ -804,30 +804,30 @@ h3.serif em { font-style: italic; color: var(--ouro); }
       </div>
     </div>
 
-    <!-- CORMORANT GARAMOND -->
+    <!-- MONTSERRAT BOLD / SEMIBOLD -->
     <div class="type-row">
       <div class="type-meta">
-        <div class="type-role">Subtítulos / Citações</div>
-        <div class="type-family">Cormorant Garamond</div>
-        <div class="type-usage">Subtítulos, depoimentos, citações de autoridade, taglines em layouts. Uso em Light e Italic. Transmite elegância sem arrogância.</div>
+        <div class="type-role">Subtítulos / Destaques</div>
+        <div class="type-family">Montserrat Bold &amp; SemiBold</div>
+        <div class="type-usage">Subtítulos de seção, chamadas secundárias, depoimentos em destaque e taglines. Pesos 700 e 600. Uso em itálico para ênfases e citações de autoridade.</div>
       </div>
       <div class="type-specimen">
         <div class="spec-subheading">Carreiras Policiais da Bahia &mdash; do zero à farda.</div>
-        <div style="font-family:var(--cormorant);font-size:1.1rem;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:0.1em;text-transform:uppercase;margin-top:4px">
+        <div style="font-family:var(--sans);font-size:1.05rem;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:0.1em;text-transform:uppercase;margin-top:8px">
           Soldado &middot; Oficial &middot; Investigador
         </div>
-        <div style="font-family:var(--cormorant);font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.45);letter-spacing:0.04em;margin-top:12px;font-style:italic">
+        <div style="font-family:var(--sans);font-size:0.95rem;font-weight:400;color:rgba(255,255,255,0.45);letter-spacing:0.04em;margin-top:12px;font-style:italic">
           "Quem passou nos dois concursos agora te ensina o caminho."
         </div>
       </div>
     </div>
 
-    <!-- LIBRE BASKERVILLE -->
+    <!-- MONTSERRAT REGULAR -->
     <div class="type-row">
       <div class="type-meta">
         <div class="type-role">Corpo de Texto</div>
-        <div class="type-family">Libre Baskerville</div>
-        <div class="type-usage">Parágrafos longos em landing pages, e-mails, materiais de estudo e scripts. Legível em tamanho pequeno, autoridade no tamanho médio.</div>
+        <div class="type-family">Montserrat Regular</div>
+        <div class="type-usage">Parágrafos longos em landing pages, e-mails, materiais de estudo e scripts. Peso 400. Alta legibilidade em tamanhos pequenos e médios.</div>
       </div>
       <div class="type-specimen">
         <div class="spec-body">
@@ -836,12 +836,12 @@ h3.serif em { font-style: italic; color: var(--ouro); }
       </div>
     </div>
 
-    <!-- INTER -->
+    <!-- MONTSERRAT LIGHT / LABELS -->
     <div class="type-row">
       <div class="type-meta">
-        <div class="type-role">Funcional / Interface</div>
-        <div class="type-family">Inter</div>
-        <div class="type-usage">Labels, menus, botões, metadados, badges, formulários e UI da plataforma. Nunca usar para títulos ou headlines &mdash; apenas para informações funcionais.</div>
+        <div class="type-role">Funcional / Labels / Interface</div>
+        <div class="type-family">Montserrat Light &amp; Medium</div>
+        <div class="type-usage">Labels, menus, botões, metadados, badges, formulários e UI da plataforma. Peso 300 para texto secundário e legendas; peso 500–700 para botões e tags em caixa alta.</div>
       </div>
       <div class="type-specimen">
         <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
@@ -850,7 +850,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         </div>
         <div class="spec-caption">PMBA &middot; BMBA &middot; PCBA &mdash; Gabaritando 2026 &mdash; Luís Eduardo Magalhães &middot; BA</div>
         <div style="font-family:var(--sans);font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.35);margin-top:8px;letter-spacing:0.05em">
-          #FFB800 &middot; Playfair Display Bold &middot; Cormorant Light Italic &middot; Libre Baskerville Regular
+          #FFB800 &middot; Montserrat Black 900 &middot; Montserrat Bold 700 &middot; Montserrat Regular 400 &middot; Montserrat Light 300
         </div>
       </div>
     </div>
@@ -862,33 +862,38 @@ h3.serif em { font-style: italic; color: var(--ouro); }
     <div class="type-scale">
       <div class="scale-item">
         <div class="scale-label-col">Hero</div>
-        <div class="scale-size">56&ndash;72px</div>
-        <div class="scale-text" style="font-family:var(--serif);font-size:2.4rem;font-weight:700">Aprovado.</div>
+        <div class="scale-size">56&ndash;72px &mdash; peso 900</div>
+        <div class="scale-text" style="font-family:var(--serif);font-size:2.4rem;font-weight:900">Aprovado.</div>
       </div>
       <div class="scale-item">
         <div class="scale-label-col">Título H1</div>
-        <div class="scale-size">40&ndash;48px</div>
-        <div class="scale-text" style="font-family:var(--serif);font-size:1.9rem;font-weight:700">Treinado para a Bahia</div>
+        <div class="scale-size">40&ndash;48px &mdash; peso 800</div>
+        <div class="scale-text" style="font-family:var(--serif);font-size:1.9rem;font-weight:800">Treinado para a Bahia</div>
       </div>
       <div class="scale-item">
         <div class="scale-label-col">Título H2</div>
-        <div class="scale-size">28&ndash;34px</div>
-        <div class="scale-text" style="font-family:var(--serif);font-size:1.4rem;font-weight:600">O método de quem passou nos dois concursos</div>
+        <div class="scale-size">28&ndash;34px &mdash; peso 700</div>
+        <div class="scale-text" style="font-family:var(--serif);font-size:1.4rem;font-weight:700">O método de quem passou nos dois concursos</div>
       </div>
       <div class="scale-item">
         <div class="scale-label-col">Subtítulo</div>
-        <div class="scale-size">20&ndash;24px</div>
-        <div class="scale-text" style="font-family:var(--cormorant);font-size:1.15rem;font-style:italic;font-weight:300">Carreiras Policiais &mdash; PMBA, BMBA e PCBA</div>
+        <div class="scale-size">20&ndash;24px &mdash; peso 600 itálico</div>
+        <div class="scale-text" style="font-family:var(--sans);font-size:1.15rem;font-style:italic;font-weight:600">Carreiras Policiais &mdash; PMBA, BMBA e PCBA</div>
       </div>
       <div class="scale-item">
         <div class="scale-label-col">Corpo</div>
-        <div class="scale-size">16&ndash;18px</div>
-        <div class="scale-text" style="font-family:var(--baskerville);font-size:0.92rem;font-weight:400">Trilha guiada, cronograma personalizado e questões alinhadas ao perfil da banca.</div>
+        <div class="scale-size">16&ndash;18px &mdash; peso 400</div>
+        <div class="scale-text" style="font-family:var(--sans);font-size:0.92rem;font-weight:400">Trilha guiada, cronograma personalizado e questões alinhadas ao perfil da banca.</div>
       </div>
       <div class="scale-item">
         <div class="scale-label-col">Label</div>
-        <div class="scale-size">11&ndash;13px</div>
-        <div class="scale-text" style="font-family:var(--sans);font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase">Soldado PMBA &middot; R$ 767 &middot; 12 meses de acesso</div>
+        <div class="scale-size">11&ndash;13px &mdash; peso 700</div>
+        <div class="scale-text" style="font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase">Soldado PMBA &middot; R$ 767 &middot; 12 meses de acesso</div>
+      </div>
+      <div class="scale-item">
+        <div class="scale-label-col">Legenda</div>
+        <div class="scale-size">10&ndash;12px &mdash; peso 300</div>
+        <div class="scale-text" style="font-family:var(--sans);font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.45)">Documento de uso interno &mdash; Gabaritando &mdash; Abril 2026</div>
       </div>
     </div>
   </div>
@@ -1264,20 +1269,20 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(255,184,0,0.75) 0%,transparent 100%);pointer-events:none"></div>
         <!-- Conteúdo -->
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:8px;width:100%;padding-right:28%">
-          <div style="font-family:'Inter',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,184,0,0.75)">Concurso PMBA 2026</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,184,0,0.75)">Concurso PMBA 2026</div>
           <div style="width:22px;height:2px;background:#FFB800"></div>
-          <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.75rem;font-weight:900;color:#FFB800;line-height:1;text-transform:uppercase;letter-spacing:0.02em">VAGAS<br>ABER&shy;TAS</h3>
-          <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:0.7rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.75);line-height:1.5">Prepare-se com<br>quem passou.</p>
-          <div style="background:#FFB800;color:#111111;font-family:'Inter',sans-serif;font-size:0.5rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:6px 14px;margin-top:4px">QUERO PASSAR</div>
+          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.75rem;font-weight:900;color:#FFB800;line-height:1;text-transform:uppercase;letter-spacing:0.02em">VAGAS<br>ABER&shy;TAS</h3>
+          <p style="font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.75);line-height:1.5">Prepare-se com<br>quem passou.</p>
+          <div style="background:#FFB800;color:#111111;font-family:'Montserrat',sans-serif;font-size:0.5rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:6px 14px;margin-top:4px">QUERO PASSAR</div>
         </div>
         <!-- Logo no rodapé -->
         <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:7px">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png" alt="logo" style="width:18px;height:18px;object-fit:contain;display:block">
-          <span style="font-family:'Inter',sans-serif;font-size:0.44rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.44rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
         </div>
       </div>
       <div style="padding:12px 16px;background:var(--ardosia);border-top:1px solid var(--borda)">
-        <div style="font-family:'Playfair Display',Georgia,serif;font-size:0.82rem;font-weight:600;margin-bottom:3px">Anúncio de Conversão</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;margin-bottom:3px">Anúncio de Conversão</div>
         <div style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.45)">Silhueta de oficial + grade tática &mdash; CTA direto</div>
       </div>
     </div>
@@ -1291,18 +1296,18 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(255,184,0,0.75) 0%,transparent 100%);pointer-events:none"></div>
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
           <div style="width:36px;height:2px;background:#FFB800;margin-bottom:4px"></div>
-          <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:0.72rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.7);letter-spacing:0.04em;line-height:1.6">"Passei no concurso de Soldado<br>estudando 2h por dia<br>pelo Gabaritando."</p>
-          <p style="font-family:'Inter',sans-serif;font-size:0.48rem;font-weight:700;color:#FFB800;letter-spacing:0.2em;text-transform:uppercase">— Carlos M., aprovado PMBA 2024</p>
+          <p style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.7);letter-spacing:0.04em;line-height:1.6">"Passei no concurso de Soldado<br>estudando 2h por dia<br>pelo Gabaritando."</p>
+          <p style="font-family:'Montserrat',sans-serif;font-size:0.48rem;font-weight:700;color:#FFB800;letter-spacing:0.2em;text-transform:uppercase">— Carlos M., aprovado PMBA 2024</p>
           <div style="width:36px;height:2px;background:#FFB800;margin-top:4px"></div>
-          <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:700;color:#FFFFFF;line-height:1.25;margin-top:10px">Você pode ser<br><em style="color:#FFB800;font-style:italic">o próximo aprovado.</em></h3>
+          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;color:#FFFFFF;line-height:1.25;margin-top:10px">Você pode ser<br><em style="color:#FFB800;font-style:italic">o próximo aprovado.</em></h3>
         </div>
         <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:7px">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png" alt="logo" style="width:18px;height:18px;object-fit:contain;display:block">
-          <span style="font-family:'Inter',sans-serif;font-size:0.44rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.44rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
         </div>
       </div>
       <div style="padding:12px 16px;background:var(--ardosia);border-top:1px solid var(--borda)">
-        <div style="font-family:'Playfair Display',Georgia,serif;font-size:0.82rem;font-weight:600;margin-bottom:3px">Anúncio de Prova Social</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;margin-bottom:3px">Anúncio de Prova Social</div>
         <div style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.45)">Distintivo policial como marca d'água &mdash; depoimento + identidade</div>
       </div>
     </div>
@@ -1315,19 +1320,19 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <!-- Gradiente dourado inferior -->
         <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(255,184,0,0.75) 0%,transparent 100%);pointer-events:none"></div>
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;width:100%">
-          <div style="font-family:'Inter',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,184,0,0.75)">Acesso completo por</div>
-          <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;font-weight:900;color:#FFB800;line-height:0.92">12×<br><span style="font-size:1.75rem">R$79</span></h3>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,184,0,0.75)">Acesso completo por</div>
+          <h3 style="font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:900;color:#FFB800;line-height:0.92">12×<br><span style="font-size:1.75rem">R$79</span></h3>
           <div style="width:40px;height:2px;background:#FFB800;opacity:0.6"></div>
-          <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:0.68rem;font-weight:400;font-style:italic;color:rgba(255,255,255,0.7);line-height:1.5">Soldado PMBA &mdash; 12 meses de acesso</p>
-          <div style="background:#FFB800;color:#111111;font-family:'Inter',sans-serif;font-size:0.5rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:7px 16px;margin-top:4px">GARANTIR MINHA VAGA</div>
+          <p style="font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:400;font-style:italic;color:rgba(255,255,255,0.7);line-height:1.5">Soldado PMBA &mdash; 12 meses de acesso</p>
+          <div style="background:#FFB800;color:#111111;font-family:'Montserrat',sans-serif;font-size:0.5rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:7px 16px;margin-top:4px">GARANTIR MINHA VAGA</div>
         </div>
         <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:7px">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png" alt="logo" style="width:18px;height:18px;object-fit:contain;display:block">
-          <span style="font-family:'Inter',sans-serif;font-size:0.44rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.44rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
         </div>
       </div>
       <div style="padding:12px 16px;background:var(--ardosia);border-top:1px solid var(--borda)">
-        <div style="font-family:'Playfair Display',Georgia,serif;font-size:0.82rem;font-weight:600;margin-bottom:3px">Anúncio de Oferta</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;margin-bottom:3px">Anúncio de Oferta</div>
         <div style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.45)">Distintivo escuro sobre ouro &mdash; preço + urgência</div>
       </div>
     </div>
@@ -1363,25 +1368,25 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(255,184,0,0.75) 0%,transparent 100%);pointer-events:none"></div>
         <!-- Conteúdo -->
         <div style="position:relative;z-index:2">
-          <div style="font-family:'Inter',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#FFB800;margin-bottom:8px">Dica de Estudo</div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#FFB800;margin-bottom:8px">Dica de Estudo</div>
           <div style="width:22px;height:2px;background:#FFB800;margin-bottom:12px"></div>
-          <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:700;color:#FFFFFF;line-height:1.25;margin-bottom:14px">3 matérias que mais<br>caem no concurso<br><em style="color:#FFB800;font-style:italic">de Soldado PMBA</em></h3>
+          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;color:#FFFFFF;line-height:1.25;margin-bottom:14px">3 matérias que mais<br>caem no concurso<br><em style="color:#FFB800;font-style:italic">de Soldado PMBA</em></h3>
           <div style="display:flex;flex-direction:column;gap:8px">
             <div style="display:flex;align-items:center;gap:8px">
               <div style="width:18px;height:18px;background:#FFB800;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-                <span style="font-family:'Inter',sans-serif;font-size:0.5rem;font-weight:700;color:#111">01</span>
+                <span style="font-family:'Montserrat',sans-serif;font-size:0.5rem;font-weight:700;color:#111">01</span>
               </div>
               <span style="font-family:'Libre Baskerville',Georgia,serif;font-size:0.58rem;color:rgba(255,255,255,0.85)">Língua Portuguesa</span>
             </div>
             <div style="display:flex;align-items:center;gap:8px">
               <div style="width:18px;height:18px;background:#FFB800;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-                <span style="font-family:'Inter',sans-serif;font-size:0.5rem;font-weight:700;color:#111">02</span>
+                <span style="font-family:'Montserrat',sans-serif;font-size:0.5rem;font-weight:700;color:#111">02</span>
               </div>
               <span style="font-family:'Libre Baskerville',Georgia,serif;font-size:0.58rem;color:rgba(255,255,255,0.85)">Raciocínio Lógico</span>
             </div>
             <div style="display:flex;align-items:center;gap:8px">
               <div style="width:18px;height:18px;background:#FFB800;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-                <span style="font-family:'Inter',sans-serif;font-size:0.5rem;font-weight:700;color:#111">03</span>
+                <span style="font-family:'Montserrat',sans-serif;font-size:0.5rem;font-weight:700;color:#111">03</span>
               </div>
               <span style="font-family:'Libre Baskerville',Georgia,serif;font-size:0.58rem;color:rgba(255,255,255,0.85)">Direito Constitucional</span>
             </div>
@@ -1390,11 +1395,11 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <!-- Logo -->
         <div style="position:absolute;bottom:13px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:6px">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png" alt="logo" style="width:16px;height:16px;object-fit:contain;display:block">
-          <span style="font-family:'Inter',sans-serif;font-size:0.43rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.43rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
         </div>
       </div>
       <div style="padding:12px 16px;background:var(--preto);border-top:1px solid var(--borda)">
-        <div style="font-family:'Playfair Display',Georgia,serif;font-size:0.82rem;font-weight:600;margin-bottom:3px">Post Educativo — Lista</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;margin-bottom:3px">Post Educativo — Lista</div>
         <div style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.45)">Mira tática como marca d'água &mdash; salva e compartilhamento</div>
       </div>
     </div>
@@ -1408,17 +1413,17 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(255,184,0,0.75) 0%,transparent 100%);pointer-events:none"></div>
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:11px">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png" alt="logo" style="width:48px;height:48px;object-fit:contain;display:block;opacity:0.92">
-          <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.35rem;font-weight:700;color:#FFFFFF;line-height:1.2">A farda não se<br>conquista por sorte.</h3>
+          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.35rem;font-weight:700;color:#FFFFFF;line-height:1.2">A farda não se<br>conquista por sorte.</h3>
           <div style="width:38px;height:2px;background:#FFB800"></div>
-          <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:0.72rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.6);line-height:1.65">Se conquista com método,<br>disciplina e o preparatório certo.</p>
-          <div style="font-family:'Inter',sans-serif;font-size:0.48rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#FFB800;margin-top:2px">#MétodoGabaritando</div>
+          <p style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:300;font-style:italic;color:rgba(255,255,255,0.6);line-height:1.65">Se conquista com método,<br>disciplina e o preparatório certo.</p>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.48rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#FFB800;margin-top:2px">#MétodoGabaritando</div>
         </div>
         <div style="position:absolute;bottom:13px;left:50%;transform:translateX(-50%);z-index:2">
-          <span style="font-family:'Inter',sans-serif;font-size:0.42rem;font-weight:700;color:rgba(255,184,0,0.45);letter-spacing:0.12em;text-transform:uppercase">gabaritando.com.br</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.42rem;font-weight:700;color:rgba(255,184,0,0.45);letter-spacing:0.12em;text-transform:uppercase">gabaritando.com.br</span>
         </div>
       </div>
       <div style="padding:12px 16px;background:var(--preto);border-top:1px solid var(--borda)">
-        <div style="font-family:'Playfair Display',Georgia,serif;font-size:0.82rem;font-weight:600;margin-bottom:3px">Post Motivacional</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;margin-bottom:3px">Post Motivacional</div>
         <div style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.45)">Silhueta de oficial ao fundo &mdash; engajamento e identidade</div>
       </div>
     </div>
@@ -1431,19 +1436,19 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <!-- Gradiente dourado inferior -->
         <div style="position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(255,184,0,0.75) 0%,transparent 100%);pointer-events:none"></div>
         <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:9px">
-          <div style="font-family:'Inter',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:rgba(255,184,0,0.7)">Turma PMBA 2026</div>
-          <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;font-weight:900;color:#FFB800;line-height:1;text-transform:uppercase;letter-spacing:0.02em">INSCRIÇÕES<br>ABERTAS</h3>
+          <div style="font-family:'Montserrat',sans-serif;font-size:0.46rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:rgba(255,184,0,0.7)">Turma PMBA 2026</div>
+          <h3 style="font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;color:#FFB800;line-height:1;text-transform:uppercase;letter-spacing:0.02em">INSCRIÇÕES<br>ABERTAS</h3>
           <div style="width:44px;height:2px;background:#FFB800"></div>
           <p style="font-family:'Libre Baskerville',Georgia,serif;font-size:0.6rem;font-weight:400;color:rgba(255,255,255,0.75);line-height:1.65">Início em 15 de maio.<br>Vagas limitadas.</p>
-          <div style="border:1px solid #FFB800;color:#FFB800;font-family:'Inter',sans-serif;font-size:0.48rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:5px 14px;margin-top:4px">LINK NA BIO</div>
+          <div style="border:1px solid #FFB800;color:#FFB800;font-family:'Montserrat',sans-serif;font-size:0.48rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:5px 14px;margin-top:4px">LINK NA BIO</div>
         </div>
         <div style="position:absolute;bottom:13px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:6px">
           <img src="LOGOS/02_AVATAR_1000X1000PX-removebg-preview.png" alt="logo" style="width:16px;height:16px;object-fit:contain;display:block">
-          <span style="font-family:'Inter',sans-serif;font-size:0.43rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
+          <span style="font-family:'Montserrat',sans-serif;font-size:0.43rem;font-weight:700;color:#FFB800;letter-spacing:0.14em;text-transform:uppercase">GABARITANDO</span>
         </div>
       </div>
       <div style="padding:12px 16px;background:var(--preto);border-top:1px solid var(--borda)">
-        <div style="font-family:'Playfair Display',Georgia,serif;font-size:0.82rem;font-weight:600;margin-bottom:3px">Post de Lançamento</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;margin-bottom:3px">Post de Lançamento</div>
         <div style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.45)">Skyline urbana + distintivo &mdash; abertura de turma</div>
       </div>
     </div>
@@ -1483,7 +1488,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <img src="CARROSSEL 1.1.png" alt="Carrossel — Slide 1" style="width:100%;display:block;aspect-ratio:1/1;object-fit:cover">
       </div>
       <div style="padding:12px 16px;background:var(--ardosia);border-top:1px solid var(--borda)">
-        <div style="font-family:'Playfair Display',Georgia,serif;font-size:0.82rem;font-weight:600;margin-bottom:3px;color:var(--ouro)">Slide 1 de 3 &mdash; Capa</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;margin-bottom:3px;color:var(--ouro)">Slide 1 de 3 &mdash; Capa</div>
         <div style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.5)">Isca + identificação com o público-alvo. Chama para arrastar.</div>
       </div>
     </div>
@@ -1499,7 +1504,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <img src="CARROSSEL 1.2.png" alt="Carrossel — Slide 2" style="width:100%;display:block;aspect-ratio:1/1;object-fit:cover">
       </div>
       <div style="padding:12px 16px;background:var(--ardosia);border-top:1px solid var(--borda)">
-        <div style="font-family:'Playfair Display',Georgia,serif;font-size:0.82rem;font-weight:600;margin-bottom:3px;color:var(--ouro)">Slide 2 de 3 &mdash; Conteúdo</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;margin-bottom:3px;color:var(--ouro)">Slide 2 de 3 &mdash; Conteúdo</div>
         <div style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.5)">Apresentação do método ou conceito central da sequência.</div>
       </div>
     </div>
@@ -1515,7 +1520,7 @@ h3.serif em { font-style: italic; color: var(--ouro); }
         <img src="CARROSSEL 1.3.png" alt="Carrossel — Slide 3" style="width:100%;display:block;aspect-ratio:1/1;object-fit:cover">
       </div>
       <div style="padding:12px 16px;background:var(--ardosia);border-top:1px solid var(--borda)">
-        <div style="font-family:'Playfair Display',Georgia,serif;font-size:0.82rem;font-weight:600;margin-bottom:3px;color:var(--ouro)">Slide 3 de 3 &mdash; Fechamento</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:600;margin-bottom:3px;color:var(--ouro)">Slide 3 de 3 &mdash; Fechamento</div>
         <div style="font-size:0.7rem;font-weight:300;color:rgba(255,255,255,0.5)">CTA final: reforço da mensagem + chamada para ação.</div>
       </div>
     </div>
