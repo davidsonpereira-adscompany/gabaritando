@@ -9,14 +9,12 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --preto:      #080A10;
-      --navy:       #0D1117;
-      --ardosia:    #131A28;
+      --preto:      #0E0E1A;
+      --ardosia:    #1E1E2E;
       --borda:      rgba(255,255,255,0.08);
-      --laranja:    #FF5C00;
-      --laranja-dim: rgba(255,92,0,0.13);
       --ouro:       #FFB800;
-      --ouro-dim:   rgba(255,184,0,0.12);
+      --ouro-escuro: #CC9400;
+      --ouro-dim:   rgba(255,184,0,0.13);
       --texto:      rgba(255,255,255,0.82);
       --texto-dim:  rgba(255,255,255,0.42);
     }
@@ -43,7 +41,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(255,92,0,0.07) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.07) 0%, transparent 60%);
       pointer-events: none;
     }
     .hero-label {
@@ -51,7 +49,7 @@
       font-weight: 700;
       letter-spacing: 0.34em;
       text-transform: uppercase;
-      color: var(--laranja);
+      color: var(--ouro);
       margin-bottom: 22px;
       position: relative;
     }
@@ -63,8 +61,8 @@
       line-height: 1.08;
       position: relative;
     }
-    .hero h1 em { color: var(--laranja); font-style: italic; }
-    .hero-rule { width: 50px; height: 2px; background: var(--laranja); margin: 26px auto; }
+    .hero h1 em { color: var(--ouro); font-style: italic; }
+    .hero-rule { width: 50px; height: 2px; background: var(--ouro); margin: 26px auto; }
     .hero-sub {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 1.12rem;
@@ -85,7 +83,7 @@
       font-weight: 700;
       letter-spacing: 0.30em;
       text-transform: uppercase;
-      color: var(--laranja);
+      color: var(--ouro);
       margin-bottom: 28px;
       padding-bottom: 12px;
       border-bottom: 1px solid var(--borda);
@@ -102,7 +100,7 @@
     .card {
       background: var(--ardosia);
       border: 1px solid var(--borda);
-      border-left: 3px solid var(--laranja-dim);
+      border-left: 3px solid var(--ouro-dim);
       text-decoration: none;
       display: flex;
       flex-direction: column;
@@ -116,12 +114,12 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 0% 0%, rgba(255,92,0,0.04) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 0% 0%, rgba(255,184,0,0.04) 0%, transparent 60%);
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.3s;
     }
-    .card:hover { border-left-color: var(--laranja); transform: translateY(-3px); box-shadow: 0 14px 44px rgba(0,0,0,0.55); }
+    .card:hover { border-left-color: var(--ouro); transform: translateY(-3px); box-shadow: 0 14px 44px rgba(0,0,0,0.55); }
     .card:hover::before { opacity: 1; }
 
     .card-icon {
@@ -134,7 +132,7 @@
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(255,92,0,0.55);
+      color: rgba(255,184,0,0.55);
     }
     .card-title {
       font-family: 'Playfair Display', Georgia, serif;
@@ -158,7 +156,7 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--laranja);
+      color: var(--ouro);
       margin-top: 4px;
     }
     .card-cta span { transition: transform 0.2s; }
