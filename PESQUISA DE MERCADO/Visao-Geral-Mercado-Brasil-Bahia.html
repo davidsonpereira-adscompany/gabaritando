@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visão Geral do Mercado — Gabaritando</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --preto:     #080A10;
+  --navy:      #0D1117;
+  --ardosia:   #131A28;
+  --borda:     rgba(255,255,255,0.08);
+  --ouro:      #FFB800;
+  --ouro-dim:  rgba(255,184,0,0.14);
+  --texto:     rgba(255,255,255,0.82);
+  --texto-dim: rgba(255,255,255,0.45);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--preto);
+  color: var(--texto);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ── CABEÇALHO ── */
+.doc-header {
+  background: var(--ardosia);
+  border-bottom: 1px solid var(--ouro-dim);
+  padding: 52px 32px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  position: absolute;
+  top: 24px; left: 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  text-decoration: none;
+  border: 1px solid rgba(255,184,0,0.2);
+  padding: 7px 14px;
+  transition: color .2s, border-color .2s;
+}
+.back-btn:hover { color: var(--ouro); border-color: var(--ouro); }
+.header-label {
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.30em; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 16px;
+  position: relative;
+}
+.doc-header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.7rem, 4vw, 2.9rem);
+  font-weight: 900; color: #fff; line-height: 1.1;
+  position: relative;
+}
+.doc-header h1 em { color: var(--ouro); font-style: italic; }
+.header-rule { width: 44px; height: 2px; background: var(--ouro); margin: 18px auto; }
+.header-meta {
+  font-size: 0.73rem; font-weight: 400;
+  color: var(--texto-dim); letter-spacing: 0.06em;
+  position: relative;
+}
+
+/* ── LAYOUT ── */
+.page-wrap {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1160px;
+  margin: 0 auto;
+  gap: 0;
+  align-items: start;
+}
+
+/* ── SIDEBAR TOC ── */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 40px 0 40px 32px;
+  border-right: 1px solid var(--borda);
+  background: var(--navy);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--ouro-dim); border-radius: 2px; }
+.toc-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.60rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,184,0,0.55);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--borda);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 2px; }
+.toc-list li a {
+  display: block;
+  font-size: 0.77rem; font-weight: 400;
+  color: var(--texto-dim);
+  text-decoration: none;
+  padding: 6px 12px 6px 0;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  padding-left: 12px;
+  transition: color .2s, border-color .2s;
+}
+.toc-list li a:hover,
+.toc-list li a.active {
+  color: var(--ouro);
+  border-left-color: var(--ouro);
+}
+.toc-list li.toc-h3 a {
+  font-size: 0.70rem;
+  padding-left: 22px;
+  color: rgba(255,255,255,0.3);
+}
+.toc-list li.toc-h3 a:hover { color: rgba(255,184,0,0.7); }
+
+/* ── CONTEÚDO ── */
+.content {
+  padding: 56px 52px 96px 48px;
+  min-width: 0;
+}
+
+/* ── HEADINGS ── */
+h1.md { display: none; }
+
+h2.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 700; color: #fff;
+  margin: 72px 0 12px;
+  padding-top: 72px;
+  border-top: 1px solid var(--borda);
+  line-height: 1.25;
+  scroll-margin-top: 20px;
+}
+h2.md:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+h3.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.0rem; font-weight: 700;
+  color: var(--ouro);
+  margin: 40px 0 10px;
+  line-height: 1.35;
+  scroll-margin-top: 20px;
+}
+
+h4.md {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.70rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  margin: 28px 0 8px;
+}
+
+/* ── SUMÁRIO EXECUTIVO ── */
+.sumario-bloco {
+  background: var(--ardosia);
+  border-left: 3px solid var(--ouro);
+  padding: 22px 26px;
+  margin: 16px 0 36px;
+  border-radius: 0 4px 4px 0;
+}
+.sumario-bloco p.md {
+  font-size: 0.96rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO DIA (planos de conteúdo) ── */
+.day-block {
+  background: var(--ardosia);
+  border: 1px solid var(--borda);
+  border-top: 2px solid rgba(255,184,0,0.35);
+  padding: 20px 22px 16px;
+  margin: 32px 0 8px;
+  border-radius: 0 0 4px 4px;
+}
+.day-block-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.92rem; font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO OBJETIVO/NOTA inline ── */
+.inline-label {
+  background: var(--ardosia);
+  border-left: 2px solid rgba(255,184,0,0.3);
+  padding: 10px 16px;
+  margin: 12px 0;
+}
+.inline-label p.md { margin-bottom: 0; font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+
+/* ── PARÁGRAFOS ── */
+p.md {
+  font-size: 0.94rem;
+  color: var(--texto);
+  margin-bottom: 14px;
+  line-height: 1.85;
+}
+
+strong { color: #fff; font-weight: 600; }
+em { font-style: italic; color: rgba(255,255,255,0.72); }
+
+/* ── LISTAS ── */
+ul.md, ol.md {
+  margin: 4px 0 18px 0;
+  padding-left: 0;
+  list-style: none;
+}
+ul.md li, ol.md li {
+  font-size: 0.92rem;
+  color: var(--texto);
+  margin-bottom: 8px;
+  line-height: 1.75;
+  padding-left: 22px;
+  position: relative;
+}
+ul.md li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.65em;
+  width: 5px; height: 5px;
+  background: var(--ouro);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+ol.md { counter-reset: ol-counter; }
+ol.md li { counter-increment: ol-counter; }
+ol.md li::before {
+  content: counter(ol-counter) '.';
+  position: absolute; left: 0;
+  font-weight: 700; color: var(--ouro);
+  font-size: 0.78rem;
+  top: 0.05em;
+}
+/* nested */
+ul.md.nested, ol.md.nested {
+  margin: 8px 0 4px 0;
+  padding-left: 20px;
+}
+ul.md.nested li::before { width: 4px; height: 4px; background: rgba(255,184,0,0.5); }
+
+/* ── TABELAS ── */
+.table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--ouro-dim); }
+table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+thead tr { background: rgba(255,184,0,0.10); border-bottom: 1px solid rgba(255,184,0,0.4); }
+thead th {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ouro); padding: 12px 16px; text-align: left;
+}
+tbody tr { border-bottom: 1px solid var(--borda); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:nth-child(even) { background: rgba(255,255,255,0.025); }
+tbody td { padding: 10px 16px; color: var(--texto); vertical-align: top; line-height: 1.6; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  border-left: 3px solid var(--ouro);
+  background: var(--ardosia);
+  padding: 18px 22px; margin: 22px 0;
+  border-radius: 0 4px 4px 0;
+}
+blockquote p.md {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem; font-style: italic;
+  color: rgba(255,255,255,0.82); margin-bottom: 0; line-height: 1.7;
+}
+
+code {
+  font-family: 'Menlo', 'Courier New', monospace;
+  font-size: 0.82rem;
+  background: rgba(255,184,0,0.1); color: var(--ouro);
+  padding: 2px 7px; border-radius: 3px;
+}
+
+hr.md { border: none; border-top: 1px solid var(--borda); margin: 36px 0; }
+
+.fill-badge {
+  display: inline-block;
+  background: rgba(255,184,0,0.10);
+  border: 1px solid rgba(255,184,0,0.28);
+  color: var(--ouro);
+  font-size: 0.70rem; font-weight: 600;
+  letter-spacing: 0.08em; padding: 1px 8px; border-radius: 3px;
+}
+
+/* ── RODAPÉ ── */
+footer {
+  background: var(--ardosia);
+  border-top: 1px solid var(--ouro-dim);
+  text-align: center; padding: 36px 32px;
+}
+footer p { font-size: 0.72rem; color: var(--texto-dim); letter-spacing: 0.06em; line-height: 1.8; }
+footer strong { color: var(--ouro); }
+
+@media (max-width: 800px) {
+  .page-wrap { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--borda); padding: 24px 20px; }
+  .content { padding: 40px 20px 64px; }
+  .back-btn { position: static; display: inline-flex; margin-bottom: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <a class="back-btn" href="index.html">&#8592; Índice Geral</a>
+  <div class="header-label">Gabaritando &mdash; Pesquisa de Mercado</div>
+  <h1>Visão Geral do <em>Mercado</em></h1>
+  <div class="header-rule"></div>
+  <p class="header-meta">Abril de 2026 &mdash; Uso interno</p>
+</header>
+
+<div class="page-wrap">
+  <aside class="sidebar"><div class="toc-heading">Neste documento</div><ul class="toc-list"><li class=""><a href="#preparat-rios-para-concursos-policiais">Preparatórios para Concursos Policiais</a></li><li class=""><a href="#projeto-gabaritando-pesquisa-de-mercado">Projeto GABARITANDO — Pesquisa de Mercado</a></li><li class=""><a href="#sum-rio-executivo">SUMÁRIO EXECUTIVO</a></li><li class=""><a href="#1-panorama-do-mercado-nacional">1. PANORAMA DO MERCADO NACIONAL</a></li><li class="toc-h3"><a href="#tamanho-e-faturamento">Tamanho e faturamento</a></li><li class="toc-h3"><a href="#mega-concursos-que-movimentaram-o-mercado-2024">Mega-concursos que movimentaram o mercado (2024)</a></li><li class="toc-h3"><a href="#por-que-o-mercado-cresceu">Por que o mercado cresceu</a></li><li class="toc-h3"><a href="#tend-ncias-do-comportamento-do-candidato">Tendências do comportamento do candidato</a></li><li class=""><a href="#2-panorama-do-mercado-baiano-concursos-previstos">2. PANORAMA DO MERCADO BAIANO — CONCURSOS PREVISTOS</a></li><li class="toc-h3"><a href="#cen-rio-dos-concursos-na-bahia-2025-2026">Cenário dos concursos na Bahia (2025/2026)</a></li><li class="toc-h3"><a href="#mapa-de-oportunidades-por-concurso-2026">Mapa de oportunidades por concurso (2026)</a></li><li class=""><a href="#3-concorrentes-no-mercado-nacional-mapa-completo">3. CONCORRENTES NO MERCADO NACIONAL — MAPA COMPLETO</a></li><li class="toc-h3"><a href="#segmento-1-grandes-plataformas-nacionais-generalistas">Segmento 1: Grandes plataformas nacionais (generalistas)</a></li><li class="toc-h3"><a href="#segmento-2-especialistas-em-carreiras-policiais-concorr-ncia-direta">Segmento 2: Especialistas em carreiras policiais (concorrência direta)</a></li><li class=""><a href="#4-an-lise-do-p-blico-alvo-do-gabaritando">4. ANÁLISE DO PÚBLICO-ALVO DO GABARITANDO</a></li><li class="toc-h3"><a href="#perfil-demogr-fico">Perfil demográfico</a></li><li class="toc-h3"><a href="#perfil-psicogr-fico">Perfil psicográfico</a></li><li class="toc-h3"><a href="#perfil-do-p-blico-no-oeste-baiano-lem-e-regi-o">Perfil do público no oeste baiano (LEM e região)</a></li><li class=""><a href="#5-an-lise-de-pre-o-do-mercado">5. ANÁLISE DE PREÇO DO MERCADO</a></li><li class="toc-h3"><a href="#faixa-de-pre-os-dos-principais-concorrentes">Faixa de preços dos principais concorrentes</a></li><li class="toc-h3"><a href="#posicionamento-de-pre-o-recomendado-para-o-gabaritando">Posicionamento de preço recomendado para o GABARITANDO</a></li><li class=""><a href="#6-swot-do-gabaritando">6. SWOT DO GABARITANDO</a></li><li class="toc-h3"><a href="#for-as-strengths">Forças (Strengths)</a></li><li class="toc-h3"><a href="#fraquezas-weaknesses">Fraquezas (Weaknesses)</a></li><li class="toc-h3"><a href="#oportunidades-opportunities">Oportunidades (Opportunities)</a></li><li class="toc-h3"><a href="#amea-as-threats">Ameaças (Threats)</a></li><li class=""><a href="#7-conclus-es-e-recomenda-es-estrat-gicas">7. CONCLUSÕES E RECOMENDAÇÕES ESTRATÉGICAS</a></li><li class="toc-h3"><a href="#posicionamento-recomendado">Posicionamento recomendado</a></li><li class="toc-h3"><a href="#principais-a-es-priorit-rias">Principais ações prioritárias</a></li></ul></aside>
+  <main class="content">
+<h1 class="md">Visão Geral do Mercado — Brasil e Bahia</h1>
+<h2 class="md" id="preparat-rios-para-concursos-policiais">Preparatórios para Concursos Policiais</h2>
+<h2 class="md" id="projeto-gabaritando-pesquisa-de-mercado">Projeto GABARITANDO — Pesquisa de Mercado</h2>
+<p class="md"><strong>Data da análise:</strong> Abril de 2026</p>
+<hr class="md">
+<h2 class="md" id="sum-rio-executivo">SUMÁRIO EXECUTIVO</h2>
+<div class="sumario-bloco"><p class="md">O mercado de preparatórios para concursos públicos no Brasil movimenta <strong>R$ 5 bilhões em 2025</strong>, com mais de 9 milhões de inscrições estimadas em concursos. O nicho de concursos policiais é um dos mais aquecidos, com mais de 18 mil vagas abertas e previstas em 2025. Na Bahia, o momento é excepcionalmente favorável: PMBA, PCBA e BMBA têm concursos previstos ou vigentes para 2025/2026, totalizando potencialmente mais de 3 mil vagas. O GABARITANDO entra no mercado em um timing perfeito.</p></div>
+<hr class="md">
+<h2 class="md" id="1-panorama-do-mercado-nacional">1. PANORAMA DO MERCADO NACIONAL</h2>
+<h3 class="md" id="tamanho-e-faturamento">Tamanho e faturamento</h3>
+<ul class="md">
+<li><strong>Faturamento estimado 2025:</strong> R$ 5 bilhões (estimativa conservadora baseada em 9 milhões de candidatos com gasto médio de R$ 500 por candidato)</li>
+<li><strong>Crescimento de editais em 2024:</strong> +30% no número de editais publicados vs. 2023 (mais de 13.000 concursos lançados de janeiro a outubro)</li>
+<li><strong>Vagas federais previstas para 2025:</strong> 57.000 a 63.766 vagas</li>
+<li><strong>Vagas policiais previstas para 2025/2026:</strong> mais de 18.000 vagas abertas e previstas</li>
+</ul>
+<h3 class="md" id="mega-concursos-que-movimentaram-o-mercado-2024">Mega-concursos que movimentaram o mercado (2024)</h3>
+<ul class="md">
+<li>CNU 2024: 2 milhões de inscritos (1 milhão compareceram)</li>
+<li>Caixa Econômica 2024: 1,2 milhão de inscrições</li>
+<li>Correios: 1,7 milhão de candidatos</li>
+<li>INSS 2022 (referência): 1 milhão+ de candidatos</li>
+<li>Polícia Federal: 300.000 candidatos</li>
+</ul>
+<h3 class="md" id="por-que-o-mercado-cresceu">Por que o mercado cresceu</h3>
+<ol class="md">
+<li>Instabilidade econômica e desemprego elevam a atratividade do funcionalismo público</li>
+<li>Remuneração policial competitiva (acima de R$ 4.800 para investigadores e soldados; acima de R$ 13.000 para delegados)</li>
+<li>Benefícios: estabilidade, aposentadoria, plano de saúde, progressão de carreira</li>
+<li>Digitalização do setor: cursos online democratizaram o acesso à preparação de qualidade</li>
+</ol>
+<h3 class="md" id="tend-ncias-do-comportamento-do-candidato">Tendências do comportamento do candidato</h3>
+<ul class="md">
+<li><strong>Uso de IA nos estudos:</strong> crescimento acelerado — o Censo dos Concursos 2025 destacou &quot;I.A. nos estudos&quot; como tendência central</li>
+<li><strong>Mobile-first:</strong> maioria acessa conteúdo pelo smartphone</li>
+<li><strong>Comunidade e suporte:</strong> candidatos valorizam cada vez mais interação com professores e colegas</li>
+<li><strong>Verticalização:</strong> preferência por cursos focados em concurso específico (vs. cursos genéricos)</li>
+<li><strong>Resultado comprovado:</strong> aprovações de ex-alunos são o principal fator de decisão de compra</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="2-panorama-do-mercado-baiano-concursos-previstos">2. PANORAMA DO MERCADO BAIANO — CONCURSOS PREVISTOS</h2>
+<h3 class="md" id="cen-rio-dos-concursos-na-bahia-2025-2026">Cenário dos concursos na Bahia (2025/2026)</h3>
+<h4 class="md">PMBA — Polícia Militar da Bahia</h4>
+<p class="md"><strong>Histórico recente:</strong></p>
+<ul class="md">
+<li>Concurso de Soldado 2022/2023: <strong>2.000 vagas</strong>, 80.841 inscritos, prova aplicada em 22 de janeiro de 2023</li>
+<ul class="md nested">
+<li>- Provas aplicadas em: Barreiras, Feira de Santana, Ilhéus, Itaberaba, Juazeiro, Salvador e Vitória da Conquista</li>
+<li>- Barreiras (a 100 km de LEM) foi um dos locais de prova — confirma relevância regional</li>
+</ul>
+<li>Concurso de Oficial CFO 2024/2025: <strong>100 vagas</strong>, prova em 16 de fevereiro de 2025</li>
+<ul class="md nested">
+<li>- Exigência: nível médio, 18 a 30 anos, CNH categoria B, altura mínima 1,60m (M) / 1,55m (F)</li>
+<li>- Salário: R$ 3.507,78 no 3º ano de formação</li>
+</ul>
+</ul>
+<p class="md"><strong>Próximo concurso previsto:</strong></p>
+<ul class="md">
+<li><strong>Soldado PMBA 2026:</strong> anunciado pelo Comandante-Geral Coronel Magalhães</li>
+<li><strong>Edital previsto:</strong> 2º semestre de 2026</li>
+<li><strong>Vagas esperadas:</strong> principalmente para Soldado (última turma de 2.000 vagas)</li>
+<li><strong>Banca organizadora:</strong> FCC (Fundação Carlos Chagas) — padrão histórico</li>
+</ul>
+<p class="md"><strong>Conteúdo programático do Soldado PMBA (padrão FCC):</strong></p>
+<ul class="md">
+<li>Língua Portuguesa (interpretação, morfologia, sintaxe, reescrita)</li>
+<li>Matemática (aritmética, álgebra, geometria, raciocínio lógico, probabilidade)</li>
+<li>Direito (Constitucional, Administrativo, Penal, Processual Penal)</li>
+<li>Informática (noções básicas, segurança, internet)</li>
+<li>História do Brasil e Atualidades</li>
+<li>Redação dissertativa (20 a 30 linhas, tema contemporâneo)</li>
+</ul>
+<hr class="md">
+<h4 class="md">PCBA — Polícia Civil da Bahia</h4>
+<p class="md"><strong>Status atual (2026):</strong></p>
+<ul class="md">
+<li>Comissão organizadora instituída (publicação no DOE em 3 de dezembro de 2025)</li>
+<li>Edital previsto para <strong>1º semestre de 2026</strong> (secretário confirmou)</li>
+<li>Atraso na contratação da banca por questões orçamentárias e administrativas</li>
+</ul>
+<p class="md"><strong>Vagas previstas:</strong></p>
+<ul class="md">
+<li>Total: <strong>750 vagas imediatas</strong></li>
+<ul class="md nested">
+<li>- Investigador: 500 vagas</li>
+<li>- Escrivão: 150 vagas</li>
+<li>- Delegado: 100 vagas</li>
+</ul>
+</ul>
+<p class="md"><strong>Salários:</strong></p>
+<ul class="md">
+<li>Investigador e Escrivão: acima de R$ 4.800</li>
+<li>Delegado: R$ 13.032,44 inicial</li>
+</ul>
+<p class="md"><strong>Oportunidade para o GABARITANDO:</strong></p>
+<p class="md">500 vagas para Investigador é um dos maiores concursos previstos no estado. Com o edital saindo no 1º semestre de 2026, o GABARITANDO entra no timing perfeito — candidatos já estão se preparando agora.</p>
+<hr class="md">
+<h4 class="md">BMBA — Corpo de Bombeiros Militar da Bahia</h4>
+<p class="md"><strong>Status atual:</strong></p>
+<ul class="md">
+<li>Edital publicado: <strong>30 vagas para Aspirante a Oficial (CFO)</strong></li>
+<li>Inscrições: 5 de dezembro de 2024 a 5 de janeiro de 2025 (via UNEB)</li>
+<li>Prova objetiva: <strong>16 de fevereiro de 2025</strong> (já aplicada)</li>
+<li>Concurso prorrogado: vigente até <strong>agosto de 2026</strong> (prorrogação oficializada em 25 de novembro de 2025)</li>
+</ul>
+<p class="md"><strong>Vagas:</strong></p>
+<ul class="md">
+<li>21 vagas para ampla concorrência</li>
+<li>9 vagas para candidatos negros</li>
+<li>Total: 30 vagas</li>
+</ul>
+<p class="md"><strong>Salário:</strong> R$ 3.507,78 após formação</p>
+<p class="md"><strong>Observação:</strong> Para o cargo de Soldado do BMBA, um novo concurso deve ser esperado após a formação dos Oficiais. O GABARITANDO deve acompanhar o calendário da BMBA para capturar esse público no momento certo.</p>
+<hr class="md">
+<h3 class="md" id="mapa-de-oportunidades-por-concurso-2026">Mapa de oportunidades por concurso (2026)</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Concurso</th>
+<th>Status</th>
+<th>Vagas Estimadas</th>
+<th>Timing para Preparação</th>
+<th>Prioridade</th>
+</tr></thead><tbody>
+<tr>
+<td>Soldado PMBA</td>
+<td>Edital previsto para 2º sem/2026</td>
+<td>~2.000</td>
+<td>Agora (12 meses para o edital)</td>
+<td>MÁXIMA</td>
+</tr>
+<tr>
+<td>Investigador PCBA</td>
+<td>Edital previsto 1º sem/2026</td>
+<td>500</td>
+<td>Agora (6 a 9 meses)</td>
+<td>MÁXIMA</td>
+</tr>
+<tr>
+<td>Escrivão PCBA</td>
+<td>Edital previsto 1º sem/2026</td>
+<td>150</td>
+<td>Agora</td>
+<td>ALTA</td>
+</tr>
+<tr>
+<td>Oficial CFO PMBA</td>
+<td>Próximo ciclo após 2025</td>
+<td>~100</td>
+<td>Preparação contínua</td>
+<td>ALTA</td>
+</tr>
+<tr>
+<td>Soldado BMBA</td>
+<td>Aguardando novo ciclo</td>
+<td>A confirmar</td>
+<td>Preparação contínua</td>
+<td>MÉDIA</td>
+</tr>
+<tr>
+<td>Oficial BMBA</td>
+<td>Concurso vigente (prorrogado)</td>
+<td>30</td>
+<td>Imediato</td>
+<td>MÉDIA</td>
+</tr>
+</tbody></table></div>
+<hr class="md">
+<h2 class="md" id="3-concorrentes-no-mercado-nacional-mapa-completo">3. CONCORRENTES NO MERCADO NACIONAL — MAPA COMPLETO</h2>
+<h3 class="md" id="segmento-1-grandes-plataformas-nacionais-generalistas">Segmento 1: Grandes plataformas nacionais (generalistas)</h3>
+<p class="md">Concorrem indiretamente por share of wallet do candidato</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Plataforma</th>
+<th>Aprovações declaradas</th>
+<th>Foco</th>
+<th>Preço estimado</th>
+</tr></thead><tbody>
+<tr>
+<td>Gran Cursos Online</td>
+<td>Centenas de milhares</td>
+<td>Nacional, todas as carreiras</td>
+<td>R$ 400–800/ano</td>
+</tr>
+<tr>
+<td>Estratégia Concursos</td>
+<td>Alto volume</td>
+<td>Nacional, todas as carreiras</td>
+<td>R$ 400–800/ano</td>
+</tr>
+<tr>
+<td>AlfaCon</td>
+<td>+308.000 aprovados</td>
+<td>Nacional, todas as carreiras</td>
+<td>R$ 300–700/ano</td>
+</tr>
+<tr>
+<td>Aprova Concursos</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+<td>Nacional</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+</tr>
+<tr>
+<td>Focus Concursos</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+<td>Nacional</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+</tr>
+<tr>
+<td>QConcursos</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+<td>Banco de questões</td>
+<td>Freemium</td>
+</tr>
+</tbody></table></div>
+<p class="md"><strong>Fraqueza comum:</strong> Genéricos, sem especialização em PMBA/PCBA/BMBA, sem professores policiais baianos, sem presença local em LEM.</p>
+<hr class="md">
+<h3 class="md" id="segmento-2-especialistas-em-carreiras-policiais-concorr-ncia-direta">Segmento 2: Especialistas em carreiras policiais (concorrência direta)</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Plataforma</th>
+<th>Aprovações PMBA</th>
+<th>Foco</th>
+<th>Preço</th>
+<th>Base</th>
+</tr></thead><tbody>
+<tr>
+<td>RUMO Concursos</td>
+<td>877 soldados no último concurso</td>
+<td>PMBA + PCBA</td>
+<td>R$ 897–1.097</td>
+<td>Online nacional</td>
+</tr>
+<tr>
+<td>Projeto Missão</td>
+<td>54.711 histórico (todas as polícias)</td>
+<td>Todas as polícias</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+<td>Online nacional</td>
+</tr>
+<tr>
+<td>Profissão Policial</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+<td>Todas as polícias</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+<td>Online nacional</td>
+</tr>
+<tr>
+<td>Manual do Mike</td>
+<td>Centenas (2025)</td>
+<td>PM de vários estados + GCM</td>
+<td>R$ 677</td>
+<td>Online nacional</td>
+</tr>
+<tr>
+<td>Concurseiro Elite</td>
+<td>Maior referência em concursos policiais na Bahia (autodeclarado)</td>
+<td>PMBA (Bahia)</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+<td>Online + Vitória da Conquista</td>
+</tr>
+<tr>
+<td>Projeto Bravo</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+<td>PMBA + outras PMs</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+<td>Online nacional</td>
+</tr>
+<tr>
+<td>Projeto Missão</td>
+<td>1.778 aprovações no PM/BMBA 2023</td>
+<td>Todas as polícias</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+<td>Online nacional</td>
+</tr>
+</tbody></table></div>
+<p class="md"><strong>Vantagem do GABARITANDO:</strong></p>
+<ul class="md">
+<li>Dois Oficiais da PMBA como fundadores (credencial superior à maioria dos concorrentes)</li>
+<li>Presença presencial em LEM (único no segmento com essa localização)</li>
+<li>Cobertura PMBA + BMBA + PCBA (amplitude de concursos baianos)</li>
+<li>Professores policiais especializados (não apenas &quot;aprovados&quot; — são ativos na corporação)</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="4-an-lise-do-p-blico-alvo-do-gabaritando">4. ANÁLISE DO PÚBLICO-ALVO DO GABARITANDO</h2>
+<h3 class="md" id="perfil-demogr-fico">Perfil demográfico</h3>
+<ul class="md">
+<li><strong>Idade:</strong> 18 a 30 anos (faixa etária para a maioria dos concursos policiais baianos)</li>
+<li><strong>Localização:</strong> Concentração em LEM e municípios do oeste baiano; candidatos online de toda a Bahia e Brasil</li>
+<li><strong>Escolaridade:</strong> Ensino médio completo (mínimo exigido para Soldado e Investigador)</li>
+<li><strong>Situação profissional:</strong> Mix de desempregados, subempregados e trabalhadores CLT que buscam estabilidade</li>
+</ul>
+<h3 class="md" id="perfil-psicogr-fico">Perfil psicográfico</h3>
+<p class="md"><strong>Valores:</strong></p>
+<ul class="md">
+<li>Estabilidade financeira e segurança de emprego</li>
+<li>Desejo de servir e fazer parte de uma corporação com propósito</li>
+<li>Reconhecimento social (ser policial tem status na comunidade, especialmente no interior)</li>
+<li>Progressão de carreira clara e estruturada</li>
+</ul>
+<p class="md"><strong>Motivações principais:</strong></p>
+<ul class="md">
+<li>&quot;Quero sair do emprego CLT e ter estabilidade&quot;</li>
+<li>&quot;Minha família sempre quis que eu fosse servidor público&quot;</li>
+<li>&quot;Quero dar uma vida melhor para minha família&quot;</li>
+<li>&quot;Ser policial sempre foi meu sonho&quot;</li>
+<li>&quot;Quero trabalhar no interior da Bahia e ter uma carreira sólida&quot;</li>
+</ul>
+<p class="md"><strong>Medos e objeções:</strong></p>
+<ul class="md">
+<li>&quot;Não sou inteligente o suficiente para passar&quot;</li>
+<li>&quot;O concurso é muito difícil — a concorrência é enorme&quot;</li>
+<li>&quot;Não tenho tempo para estudar (trabalho, família)&quot;</li>
+<li>&quot;Já tentei antes e não passei — vou tentar de novo?&quot;</li>
+<li>&quot;Não tenho dinheiro para pagar um cursinho caro&quot;</li>
+<li>&quot;O TAF vai me eliminar&quot;</li>
+<li>&quot;O edital demora para sair — vou continuar estudando?&quot;</li>
+</ul>
+<h3 class="md" id="perfil-do-p-blico-no-oeste-baiano-lem-e-regi-o">Perfil do público no oeste baiano (LEM e região)</h3>
+<p class="md"><strong>Contexto local:</strong></p>
+<ul class="md">
+<li>Luís Eduardo Magalhães é um dos maiores polos do agronegócio nacional — alto poder aquisitivo regional</li>
+<li>A região tem crescimento econômico acelerado mas pouca oferta de cursinhos presenciais especializados</li>
+<li>O público jovem da região tem renda familiar acima da média do interior baiano (agronegócio eleva o PIB local)</li>
+<li>Candidatos locais buscam ou pagar para fazer o concurso em Barreiras (a 100 km) ou estudar online sem suporte local</li>
+</ul>
+<p class="md"><strong>Oportunidade do GABARITANDO em LEM:</strong></p>
+<p class="md">O GABARITANDO é o único preparatório policial presencial na cidade — para um público que tem renda para pagar e carece de opção local, isso é uma vantagem de mercado difícil de replicar.</p>
+<hr class="md">
+<h2 class="md" id="5-an-lise-de-pre-o-do-mercado">5. ANÁLISE DE PREÇO DO MERCADO</h2>
+<h3 class="md" id="faixa-de-pre-os-dos-principais-concorrentes">Faixa de preços dos principais concorrentes</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Produto</th>
+<th>Preço à vista</th>
+<th>Parcelamento</th>
+<th>Duração do acesso</th>
+</tr></thead><tbody>
+<tr>
+<td>Rumo Concursos — Soldado PMBA</td>
+<td>R$ 897</td>
+<td>12x R$ 88,80</td>
+<td>12 meses</td>
+</tr>
+<tr>
+<td>Rumo Concursos — CFO PMBA</td>
+<td>R$ 1.097</td>
+<td>12x R$ 108,59</td>
+<td>12 meses</td>
+</tr>
+<tr>
+<td>Manual do Mike</td>
+<td>~R$ 677</td>
+<td>10x R$ 67,74</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+</tr>
+<tr>
+<td>Gran Cursos / Estratégia / AlfaCon</td>
+<td>R$ 300–800</td>
+<td>Variável</td>
+<td>12 meses</td>
+</tr>
+<tr>
+<td>DSO Concursos — Soldado PMBA (Pré-edital)</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+</tr>
+</tbody></table></div>
+<h3 class="md" id="posicionamento-de-pre-o-recomendado-para-o-gabaritando">Posicionamento de preço recomendado para o GABARITANDO</h3>
+<p class="md"><strong>Estratégia:</strong> Preço similar ao RUMO (R$ 897–1.097) com diferencial justificado pelos dois Oficiais como professores e pelo suporte local. O preço não deve ser menor — isso desvaloriza o produto. Pode ser igual ou superior, com justificativa clara.</p>
+<p class="md"><strong>Possíveis modelos:</strong></p>
+<ul class="md">
+<li>Plano básico (online): R$ 697–797 (competitivo com Manual do Mike)</li>
+<li>Plano completo (online): R$ 897–997 (competitivo com RUMO)</li>
+<li>Plano premium (online + presencial em LEM): R$ 1.197–1.497 (produto único no mercado)</li>
+<li>Plano mensal (adesão baixa): R$ 89–129/mês (para capturar candidato com menor renda)</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="6-swot-do-gabaritando">6. SWOT DO GABARITANDO</h2>
+<h3 class="md" id="for-as-strengths">Forças (Strengths)</h3>
+<ol class="md">
+<li>Dois Oficiais da PMBA como fundadores — credencial máxima do nicho</li>
+<li>Presença presencial em Luís Eduardo Magalhães — único preparatório local</li>
+<li>Cobertura de três corporações baianas (PMBA + BMBA + PCBA)</li>
+<li>Professores que são policiais ativos — não apenas &quot;aprovados&quot;</li>
+<li>Plataforma com gerador de cronograma e questões comentadas</li>
+<li>Timing perfeito: dois grandes concursos previstos em 2026</li>
+</ol>
+<h3 class="md" id="fraquezas-weaknesses">Fraquezas (Weaknesses)</h3>
+<ol class="md">
+<li><span class="fill-badge">[A PREENCHER]</span></li>
+<li><span class="fill-badge">[A PREENCHER]</span></li>
+<li><span class="fill-badge">[A PREENCHER]</span></li>
+<li>Projeto novo vs. concorrentes estabelecidos (RUMO com 5+ anos, Projeto Missão desde 2006)</li>
+</ol>
+<h3 class="md" id="oportunidades-opportunities">Oportunidades (Opportunities)</h3>
+<ol class="md">
+<li>Edital do Soldado PMBA previsto para 2026 — janela de 12 meses de preparação</li>
+<li>Investigador PCBA: 500 vagas, edital em 2026 — candidatos buscando preparação agora</li>
+<li>Mercado local (LEM) sem concorrência presencial</li>
+<li>Tendência de candidatos valorizando preparatórios com professores policiais</li>
+<li>Gap de conteúdo hiperlocal (conteúdo para o concurseiro do interior da Bahia)</li>
+<li>Tecnologia de IA e gamificação ainda pouco explorada pelos concorrentes baianos</li>
+</ol>
+<h3 class="md" id="amea-as-threats">Ameaças (Threats)</h3>
+<ol class="md">
+<li>RUMO Concursos bem estabelecido com 877 aprovados declarados</li>
+<li>Projeto Missão com 54.711 aprovados históricos e forte presença nacional</li>
+<li>Grandes plataformas nacionais com marketing pesado e preço competitivo</li>
+<li>Incerteza sobre timing do edital de Soldado PMBA (pode demorar mais do que 2026)</li>
+<li>Candidatos começam a preparação em plataformas gratuitas (YouTube, QConcursos)</li>
+</ol>
+<hr class="md">
+<h2 class="md" id="7-conclus-es-e-recomenda-es-estrat-gicas">7. CONCLUSÕES E RECOMENDAÇÕES ESTRATÉGICAS</h2>
+<h3 class="md" id="posicionamento-recomendado">Posicionamento recomendado</h3>
+<blockquote><p class="md">&quot;O único preparatório para concursos policiais da Bahia com dois Oficiais da PMBA como professores — online e presencial em Luís Eduardo Magalhães.&quot;</p></blockquote>
+<h3 class="md" id="principais-a-es-priorit-rias">Principais ações prioritárias</h3>
+<ol class="md">
+<li><strong>Comunicar a credencial dos fundadores</strong> em todos os canais — Oficial da PMBA é superior a &quot;aprovado&quot; ou &quot;ex-soldado&quot;</li>
+<li><strong>Atacar o mercado local de LEM</strong> com presença física e conteúdo hiperlocal</li>
+<li><strong>Criar conteúdo urgente sobre o edital de 2026</strong> (PMBA e PCBA) para capturar candidatos que estão começando agora</li>
+<li><strong>Posicionar o preço no segmento médio-alto</strong> (R$ 897–1.097 para o plano completo)</li>
+<li><strong>Criar plano de conteúdo consistente</strong> no Instagram e YouTube para construir audiência antes do edital sair</li>
+</ol>
+<hr class="md">
+<p class="md"><em>Fontes: Estratégia Concursos (blog), Gran Cursos Online (blog), Direção Concursos, Nova Concursos, Revide (dados de mercado R$ 5 bi), Profissão Policial, IBFC (concurso PMBA), UNEB (edital CFO PMBA BM 2025), Secretaria de Segurança Pública da Bahia (dados PCBA).</em></p>
+  </main>
+</div>
+
+<footer>
+  <p><strong>Gabaritando</strong> &mdash; Preparatório para Carreiras Policiais da Bahia &mdash; Uso interno</p>
+  <p style="margin-top:6px">Abril de 2026</p>
+</footer>
+
+<script>
+// Highlight active TOC link on scroll
+(function() {
+  var headings = document.querySelectorAll('h2.md[id], h3.md[id]');
+  var links    = document.querySelectorAll('.toc-list a');
+  if (!headings.length || !links.length) return;
+  function activate() {
+    var scrollY = window.scrollY + 80;
+    var current = '';
+    headings.forEach(function(h) {
+      if (h.offsetTop <= scrollY) current = h.id;
+    });
+    links.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', activate, {passive: true});
+  activate();
+})();
+</script>
+
+</body>
+</html>

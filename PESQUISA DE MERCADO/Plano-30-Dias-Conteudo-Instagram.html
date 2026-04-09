@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano 30 Dias — Instagram — Gabaritando</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --preto:     #080A10;
+  --navy:      #0D1117;
+  --ardosia:   #131A28;
+  --borda:     rgba(255,255,255,0.08);
+  --ouro:      #FFB800;
+  --ouro-dim:  rgba(255,184,0,0.14);
+  --texto:     rgba(255,255,255,0.82);
+  --texto-dim: rgba(255,255,255,0.45);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--preto);
+  color: var(--texto);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ── CABEÇALHO ── */
+.doc-header {
+  background: var(--ardosia);
+  border-bottom: 1px solid var(--ouro-dim);
+  padding: 52px 32px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  position: absolute;
+  top: 24px; left: 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  text-decoration: none;
+  border: 1px solid rgba(255,184,0,0.2);
+  padding: 7px 14px;
+  transition: color .2s, border-color .2s;
+}
+.back-btn:hover { color: var(--ouro); border-color: var(--ouro); }
+.header-label {
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.30em; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 16px;
+  position: relative;
+}
+.doc-header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.7rem, 4vw, 2.9rem);
+  font-weight: 900; color: #fff; line-height: 1.1;
+  position: relative;
+}
+.doc-header h1 em { color: var(--ouro); font-style: italic; }
+.header-rule { width: 44px; height: 2px; background: var(--ouro); margin: 18px auto; }
+.header-meta {
+  font-size: 0.73rem; font-weight: 400;
+  color: var(--texto-dim); letter-spacing: 0.06em;
+  position: relative;
+}
+
+/* ── LAYOUT ── */
+.page-wrap {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1160px;
+  margin: 0 auto;
+  gap: 0;
+  align-items: start;
+}
+
+/* ── SIDEBAR TOC ── */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 40px 0 40px 32px;
+  border-right: 1px solid var(--borda);
+  background: var(--navy);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--ouro-dim); border-radius: 2px; }
+.toc-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.60rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,184,0,0.55);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--borda);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 2px; }
+.toc-list li a {
+  display: block;
+  font-size: 0.77rem; font-weight: 400;
+  color: var(--texto-dim);
+  text-decoration: none;
+  padding: 6px 12px 6px 0;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  padding-left: 12px;
+  transition: color .2s, border-color .2s;
+}
+.toc-list li a:hover,
+.toc-list li a.active {
+  color: var(--ouro);
+  border-left-color: var(--ouro);
+}
+.toc-list li.toc-h3 a {
+  font-size: 0.70rem;
+  padding-left: 22px;
+  color: rgba(255,255,255,0.3);
+}
+.toc-list li.toc-h3 a:hover { color: rgba(255,184,0,0.7); }
+
+/* ── CONTEÚDO ── */
+.content {
+  padding: 56px 52px 96px 48px;
+  min-width: 0;
+}
+
+/* ── HEADINGS ── */
+h1.md { display: none; }
+
+h2.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 700; color: #fff;
+  margin: 72px 0 12px;
+  padding-top: 72px;
+  border-top: 1px solid var(--borda);
+  line-height: 1.25;
+  scroll-margin-top: 20px;
+}
+h2.md:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+h3.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.0rem; font-weight: 700;
+  color: var(--ouro);
+  margin: 40px 0 10px;
+  line-height: 1.35;
+  scroll-margin-top: 20px;
+}
+
+h4.md {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.70rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  margin: 28px 0 8px;
+}
+
+/* ── SUMÁRIO EXECUTIVO ── */
+.sumario-bloco {
+  background: var(--ardosia);
+  border-left: 3px solid var(--ouro);
+  padding: 22px 26px;
+  margin: 16px 0 36px;
+  border-radius: 0 4px 4px 0;
+}
+.sumario-bloco p.md {
+  font-size: 0.96rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO DIA (planos de conteúdo) ── */
+.day-block {
+  background: var(--ardosia);
+  border: 1px solid var(--borda);
+  border-top: 2px solid rgba(255,184,0,0.35);
+  padding: 20px 22px 16px;
+  margin: 32px 0 8px;
+  border-radius: 0 0 4px 4px;
+}
+.day-block-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.92rem; font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO OBJETIVO/NOTA inline ── */
+.inline-label {
+  background: var(--ardosia);
+  border-left: 2px solid rgba(255,184,0,0.3);
+  padding: 10px 16px;
+  margin: 12px 0;
+}
+.inline-label p.md { margin-bottom: 0; font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+
+/* ── PARÁGRAFOS ── */
+p.md {
+  font-size: 0.94rem;
+  color: var(--texto);
+  margin-bottom: 14px;
+  line-height: 1.85;
+}
+
+strong { color: #fff; font-weight: 600; }
+em { font-style: italic; color: rgba(255,255,255,0.72); }
+
+/* ── LISTAS ── */
+ul.md, ol.md {
+  margin: 4px 0 18px 0;
+  padding-left: 0;
+  list-style: none;
+}
+ul.md li, ol.md li {
+  font-size: 0.92rem;
+  color: var(--texto);
+  margin-bottom: 8px;
+  line-height: 1.75;
+  padding-left: 22px;
+  position: relative;
+}
+ul.md li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.65em;
+  width: 5px; height: 5px;
+  background: var(--ouro);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+ol.md { counter-reset: ol-counter; }
+ol.md li { counter-increment: ol-counter; }
+ol.md li::before {
+  content: counter(ol-counter) '.';
+  position: absolute; left: 0;
+  font-weight: 700; color: var(--ouro);
+  font-size: 0.78rem;
+  top: 0.05em;
+}
+/* nested */
+ul.md.nested, ol.md.nested {
+  margin: 8px 0 4px 0;
+  padding-left: 20px;
+}
+ul.md.nested li::before { width: 4px; height: 4px; background: rgba(255,184,0,0.5); }
+
+/* ── TABELAS ── */
+.table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--ouro-dim); }
+table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+thead tr { background: rgba(255,184,0,0.10); border-bottom: 1px solid rgba(255,184,0,0.4); }
+thead th {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ouro); padding: 12px 16px; text-align: left;
+}
+tbody tr { border-bottom: 1px solid var(--borda); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:nth-child(even) { background: rgba(255,255,255,0.025); }
+tbody td { padding: 10px 16px; color: var(--texto); vertical-align: top; line-height: 1.6; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  border-left: 3px solid var(--ouro);
+  background: var(--ardosia);
+  padding: 18px 22px; margin: 22px 0;
+  border-radius: 0 4px 4px 0;
+}
+blockquote p.md {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem; font-style: italic;
+  color: rgba(255,255,255,0.82); margin-bottom: 0; line-height: 1.7;
+}
+
+code {
+  font-family: 'Menlo', 'Courier New', monospace;
+  font-size: 0.82rem;
+  background: rgba(255,184,0,0.1); color: var(--ouro);
+  padding: 2px 7px; border-radius: 3px;
+}
+
+hr.md { border: none; border-top: 1px solid var(--borda); margin: 36px 0; }
+
+.fill-badge {
+  display: inline-block;
+  background: rgba(255,184,0,0.10);
+  border: 1px solid rgba(255,184,0,0.28);
+  color: var(--ouro);
+  font-size: 0.70rem; font-weight: 600;
+  letter-spacing: 0.08em; padding: 1px 8px; border-radius: 3px;
+}
+
+/* ── RODAPÉ ── */
+footer {
+  background: var(--ardosia);
+  border-top: 1px solid var(--ouro-dim);
+  text-align: center; padding: 36px 32px;
+}
+footer p { font-size: 0.72rem; color: var(--texto-dim); letter-spacing: 0.06em; line-height: 1.8; }
+footer strong { color: var(--ouro); }
+
+@media (max-width: 800px) {
+  .page-wrap { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--borda); padding: 24px 20px; }
+  .content { padding: 40px 20px 64px; }
+  .back-btn { position: static; display: inline-flex; margin-bottom: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <a class="back-btn" href="index.html">&#8592; Índice Geral</a>
+  <div class="header-label">Gabaritando &mdash; Pesquisa de Mercado</div>
+  <h1>Plano 30 Dias — <em>Instagram</em></h1>
+  <div class="header-rule"></div>
+  <p class="header-meta">Abril de 2026 &mdash; Uso interno</p>
+</header>
+
+<div class="page-wrap">
+  <aside class="sidebar"><div class="toc-heading">Neste documento</div><ul class="toc-list"><li class=""><a href="#projeto-gabaritando-baseado-na-pesquisa-de-mercado">Projeto GABARITANDO — Baseado na Pesquisa de Mercado</a></li><li class=""><a href="#premissas-e-estrat-gia">PREMISSAS E ESTRATÉGIA</a></li><li class="toc-h3"><a href="#o-que-a-pesquisa-nos-diz-sobre-o-instagram-do-nicho">O que a pesquisa nos diz sobre o Instagram do nicho</a></li><li class="toc-h3"><a href="#estrat-gia-de-posicionamento-para-o-instagram">Estratégia de posicionamento para o Instagram</a></li><li class=""><a href="#semana-1-semana-de-apresenta-o-e-autoridade-dias-1-a-7">SEMANA 1 — SEMANA DE APRESENTAÇÃO E AUTORIDADE (Dias 1 a 7)</a></li><li class=""><a href="#semana-2-semana-educativa-dias-8-a-14">SEMANA 2 — SEMANA EDUCATIVA (Dias 8 a 14)</a></li><li class=""><a href="#semana-3-semana-de-urg-ncia-e-oportunidade-dias-15-a-21">SEMANA 3 — SEMANA DE URGÊNCIA E OPORTUNIDADE (Dias 15 a 21)</a></li><li class=""><a href="#semana-4-semana-de-convers-o-e-comunidade-dias-22-a-30">SEMANA 4 — SEMANA DE CONVERSÃO E COMUNIDADE (Dias 22 a 30)</a></li><li class=""><a href="#resumo-do-plano-vis-o-geral">RESUMO DO PLANO — VISÃO GERAL</a></li><li class=""><a href="#diretrizes-de-produ-o">DIRETRIZES DE PRODUÇÃO</a></li><li class="toc-h3"><a href="#elementos-obrigat-rios-em-todos-os-posts">Elementos obrigatórios em todos os posts</a></li><li class="toc-h3"><a href="#recomenda-es-de-produ-o-de-reels">Recomendações de produção de Reels</a></li><li class="toc-h3"><a href="#m-tricas-para-acompanhar-ao-final-dos-30-dias">Métricas para acompanhar ao final dos 30 dias</a></li></ul></aside>
+  <main class="content">
+<h1 class="md">Plano de 30 Dias de Conteúdo para Instagram</h1>
+<h2 class="md" id="projeto-gabaritando-baseado-na-pesquisa-de-mercado">Projeto GABARITANDO — Baseado na Pesquisa de Mercado</h2>
+<p class="md"><strong>Data de criação:</strong> Abril de 2026</p>
+<hr class="md">
+<h2 class="md" id="premissas-e-estrat-gia">PREMISSAS E ESTRATÉGIA</h2>
+<h3 class="md" id="o-que-a-pesquisa-nos-diz-sobre-o-instagram-do-nicho">O que a pesquisa nos diz sobre o Instagram do nicho</h3>
+<ol class="md">
+<li>O principal gancho do nicho é <strong>autoridade vivida</strong> — policial ensinando policial tem mais credibilidade que professor civil</li>
+<li>Os conteúdos que mais engajam são: depoimentos de aprovados, dicas específicas do edital, bastidores do dia a dia de policial e conteúdo de motivação com gancho forte</li>
+<li>O público tem entre 18 e 30 anos, maioria no interior da Bahia, com renda familiar impulsionada pelo agronegócio</li>
+<li>As dores centrais são: não saber o que estudar, falta de constância, medo de não passar, pouco tempo disponível</li>
+<li>O concorrente RUMO tem 85K seguidores e usa fortemente o número de aprovados como âncora</li>
+<li>O Manual do Mike usa IA e tecnologia como diferencial percebido</li>
+</ol>
+<h3 class="md" id="estrat-gia-de-posicionamento-para-o-instagram">Estratégia de posicionamento para o Instagram</h3>
+<ul class="md">
+<li><strong>Tom:</strong> Direto, motivacional, próximo — como um Oficial que fala com seu aluno, não como uma empresa falando com cliente</li>
+<li><strong>Frequência:</strong> 1 post/reel por dia (30 dias = 30 conteúdos)</li>
+<li><strong>Mix de formatos:</strong> 60% Reels, 25% Carrosséis, 15% Posts estáticos</li>
+<li><strong>CTA padrão em todos os posts:</strong> Link na bio para a plataforma / WhatsApp para tirar dúvidas</li>
+<li><strong>Hashtags base:</strong> #PMBA #ConcursoPolicial #SoldadoPMBA #PCBA #ConcursoBahia #GABARITANDO #PreparatorioPolicial #AprovadoPMBA</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="semana-1-semana-de-apresenta-o-e-autoridade-dias-1-a-7">SEMANA 1 — SEMANA DE APRESENTAÇÃO E AUTORIDADE (Dias 1 a 7)</h2>
+<p class="md"><strong>Objetivo:</strong> Apresentar os fundadores, estabelecer autoridade e criar conexão com o público</p>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 1 — Reel de Apresentação dos Fundadores</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (60 a 90 segundos)</li>
+<li><strong>Gancho:</strong> &quot;Dois Oficiais da PMBA abriram um preparatório em LEM — veja o porquê&quot;</li>
+<li><strong>Roteiro:</strong> Os dois donos aparecem juntos (em farda ou traje formal) e contam brevemente quem são, como passaram, e por que criaram o GABARITANDO</li>
+<li><strong>CTA:</strong> &quot;Segue o perfil para se preparar para o próximo concurso da PMBA, BMBA e PCBA&quot;</li>
+<li><strong>Insight da pesquisa:</strong> O RUMO tem dois aprovados como mentores — o GABARITANDO tem dois Oficiais. Essa diferença precisa ser comunicada logo no dia 1.</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 2 — Carrossel: &quot;Por que um preparatório feito por Oficiais é diferente&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Carrossel (6 a 8 slides)</li>
+<li><strong>Gancho:</strong> &quot;Qualquer um pode te ensinar o conteúdo. Só um Oficial pode te ensinar o que a banca realmente quer.&quot;</li>
+<li><strong>Conteúdo dos slides:</strong></li>
+<ul class="md nested">
+<li>- Slide 1: Gancho (headline + foto dos dois Oficiais)</li>
+<li>- Slide 2: &quot;Professor civil vs. Professor policial — a diferença que aprova&quot;</li>
+<li>- Slide 3: &quot;Nós fizemos a prova. Nós passamos pela banca. Nós sabemos o que pede.&quot;</li>
+<li>- Slide 4: &quot;Nosso método vem de dentro da corporação — não de livros&quot;</li>
+<li>- Slide 5: &quot;O que o Oficial sabe que o candidato não sabe (e que faz diferença na prova)&quot;</li>
+<li>- Slide 6: CTA — &quot;Quer estudar com quem já chegou lá? Link na bio&quot;</li>
+</ul>
+<li><strong>CTA:</strong> Link na bio para a plataforma</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 3 — Reel: &quot;Como eu passei no concurso da PMBA&quot; (Fundador 1)</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (60 a 90 segundos)</li>
+<li><strong>Gancho:</strong> &quot;[Nome do fundador] conta: quantas tentativas, quanto tempo de estudo, o que quase me reprovou e o que me salvou&quot;</li>
+<li><strong>Roteiro:</strong> História pessoal e autêntica — não um roteiro ensaiado. Câmera próxima, tom de conversa</li>
+<li><strong>CTA:</strong> &quot;Te conto tudo isso no nosso curso — link na bio&quot;</li>
+<li><strong>Insight da pesquisa:</strong> Esse formato de &quot;história pessoal de aprovação&quot; é o mais replicado pelos maiores concorrentes e o que mais gera seguidores orgânicos</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 4 — Post estático: Frases de impacto</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Arte gráfica com tipografia forte</li>
+<li><strong>Gancho:</strong> &quot;Seu sonho não liga se você esteve cansado ontem. Mas ele cobra se você parou hoje.&quot;</li>
+<li><strong>Design:</strong> Fundo nas cores do GABARITANDO, texto grande, sem poluição visual</li>
+<li><strong>CTA:</strong> &quot;Salva essa pra lembrar quando bater o desânimo&quot;</li>
+<li><strong>Insight da pesquisa:</strong> Posts de frase têm alto índice de salvamento — o algoritmo favorece conteúdo salvo</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 5 — Reel: &quot;Como eu passei no concurso da PMBA&quot; (Fundador 2)</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (60 a 90 segundos)</li>
+<li><strong>Gancho:</strong> &quot;[Nome do fundador 2] — aprovado em [cargo] da PMBA com [detalhe marcante da aprovação]&quot;</li>
+<li><strong>Roteiro:</strong> Historia pessoal do segundo Oficial, com diferentes ênfases (dores diferentes, estratégias diferentes)</li>
+<li><strong>CTA:</strong> &quot;No GABARITANDO você aprende com os dois — cada um tem um caminho diferente que leva à mesma farda&quot;</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 6 — Carrossel: &quot;PMBA, PCBA ou BMBA: qual concurso escolher?&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Carrossel (8 slides)</li>
+<li><strong>Gancho:</strong> &quot;Qual corporação é certa para você? Analise antes de estudar.&quot;</li>
+<li><strong>Conteúdo:</strong></li>
+<ul class="md nested">
+<li>- Slide 1: Gancho + foto dos três logos de corporações</li>
+<li>- Slide 2: PMBA — vagas, salário, requisitos, TAF</li>
+<li>- Slide 3: PCBA — vagas (750 previstas!), salário, diferenças</li>
+<li>- Slide 4: BMBA — vagas, salário, estilo de carreira</li>
+<li>- Slide 5: Tabela comparativa (salário, vagas, nível, concorrência)</li>
+<li>- Slide 6: &quot;O GABARITANDO te prepara para as 3 corporações&quot;</li>
+<li>- Slide 7: &quot;Maximize suas chances — prepare-se para mais de um concurso&quot;</li>
+<li>- Slide 8: CTA</li>
+</ul>
+<li><strong>Insight da pesquisa:</strong> O GABARITANDO atende 3 corporações — esse diferencial precisa ser comunicado. Os candidatos frequentemente se inscrevem em mais de um concurso.</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 7 — Reel: Bastidores da corporação (tour ou dia a dia)</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel curto (30 a 45 segundos)</li>
+<li><strong>Gancho:</strong> &quot;Isso é o que te espera quando você vestir a farda&quot; (mostra aspectos positivos da vida de policial / Oficial)</li>
+<li><strong>Roteiro:</strong> Um dos donos mostrando algo do cotidiano da corporação que seja positivo e motivador</li>
+<li><strong>CTA:</strong> &quot;Esse pode ser você. O próximo concurso está chegando — começa agora.&quot;</li>
+<li><strong>Nota:</strong> Verificar conformidade com regulamentos internos da PMBA antes de publicar conteúdo em farda ou instalações</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="semana-2-semana-educativa-dias-8-a-14">SEMANA 2 — SEMANA EDUCATIVA (Dias 8 a 14)</h2>
+<p class="md"><strong>Objetivo:</strong> Entregar valor real com conteúdo educativo específico para o edital — consolidar autoridade técnica</p>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 8 — Reel: &quot;A matéria que mais cai no concurso de Soldado PMBA (e que a maioria ignora)&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (45 a 60 segundos)</li>
+<li><strong>Gancho:</strong> &quot;[Matéria] representa X% das questões da prova — você está estudando ela certo?&quot;</li>
+<li><strong>Conteúdo:</strong> Um professor (policial ou dos donos) apresenta dados da prova anterior e mostra o padrão de cobrança</li>
+<li><strong>Insight da pesquisa:</strong> Conteúdo de &quot;o que cai&quot; é o mais buscado pelo candidato no YouTube e no Instagram</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 9 — Carrossel: &quot;7 erros que reprovam no concurso da PMBA&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Carrossel (9 slides: capa + 7 erros + CTA)</li>
+<li><strong>Gancho:</strong> &quot;Se você fez algum desses erros, você já sabe por que não passou — e como corrigir&quot;</li>
+<li><strong>Erros a listar (baseados nas dores pesquisadas):</strong></li>
+</ul>
+<ol class="md">
+<li>Estudar sem cronograma (estudar por impulso, não por plano)</li>
+<li>Estudar tudo ao mesmo tempo (sem priorizar por peso de matéria)</li>
+<li>Estudar só teoria sem resolver questões</li>
+<li>Ignorar redação até a última semana</li>
+<li>Não simular as condições reais de prova (sem treino com tempo)</li>
+<li>Estudar mais do que aguenta (burnout antes da prova)</li>
+<li>Não se preparar para o TAF junto com a parte escrita</li>
+</ol>
+<ul class="md">
+<li><strong>CTA:</strong> &quot;No GABARITANDO, seu cronograma é montado para evitar esses erros — link na bio&quot;</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 10 — Reel: Questão comentada ao vivo</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (60 segundos)</li>
+<li><strong>Gancho:</strong> &quot;Questão que caiu na prova de [matéria] da PMBA 2023 — você resolveria em 1 minuto?&quot;</li>
+<li><strong>Conteúdo:</strong> Professor na tela mostrando a questão, revelando a resposta e explicando em 60 segundos</li>
+<li><strong>CTA:</strong> &quot;Quer resolver mais questões comentadas assim? Plataforma com X mil questões — link na bio&quot;</li>
+<li><strong>Insight da pesquisa:</strong> Questões comentadas têm altíssimo valor percebido e engajamento, especialmente em formato vídeo</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 11 — Post estático: Comparativo (com e sem método)</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Arte gráfica com dois lados</li>
+<li><strong>Gancho:</strong> &quot;Quem estuda sem método vs. quem estuda com o GABARITANDO&quot;</li>
+<li><strong>Conteúdo:</strong> Lista de diferenças práticas (ex: &quot;Sem método: estuda por horas sem saber se está no caminho certo / Com GABARITANDO: cronograma personalizado, sabe exatamente onde está&quot;)</li>
+<li><strong>CTA:</strong> &quot;Qual lado você quer estar? Link na bio&quot;</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 12 — Reel: &quot;Quanto tempo preciso para passar no concurso da PMBA?&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (60 a 90 segundos)</li>
+<li><strong>Gancho:</strong> &quot;A resposta que ninguém te dá — e a que nós vamos te dar agora&quot;</li>
+<li><strong>Conteúdo:</strong> Um dos Oficiais responde com honestidade: depende do seu ponto de partida, da sua dedicação e do método. Dá um horizonte realista (ex: &quot;com 2h por dia bem dirigidas, 6 a 8 meses de antecedência são suficientes&quot;)</li>
+<li><strong>Insight da pesquisa:</strong> Candidatos têm medo de começar por não saber quanto tempo vai levar — essa resposta honesta gera confiança</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 13 — Carrossel: &quot;Como montar um cronograma de estudos em 5 passos&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Carrossel (7 slides)</li>
+<li><strong>Gancho:</strong> &quot;Para de estudar no improviso — veja como montar um cronograma que realmente funciona&quot;</li>
+<li><strong>Conteúdo:</strong></li>
+<ul class="md nested">
+<li>- Slide 1: Gancho</li>
+<li>- Slide 2: Passo 1 — Liste todas as matérias do edital</li>
+<li>- Slide 3: Passo 2 — Identifique o peso de cada matéria na prova</li>
+<li>- Slide 4: Passo 3 — Mapeie suas horas disponíveis na semana</li>
+<li>- Slide 5: Passo 4 — Distribua as matérias priorizando as de maior peso</li>
+<li>- Slide 6: Passo 5 — Inclua simulados semanais como obrigação</li>
+<li>- Slide 7: CTA — &quot;Quer um cronograma personalizado? O GABARITANDO monta pra você — link na bio&quot;</li>
+</ul>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 14 — Reel: Depoimento de aluno aprovado</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (60 a 90 segundos)</li>
+<li><strong>Gancho:</strong> &quot;[Nome do aluno] passou no concurso da [corporação] — essa é a história dele&quot;</li>
+<li><strong>Conteúdo:</strong> Aluno conta sua jornada com o GABARITANDO: de onde veio, quantas tentativas, como foi a preparação, como foi aprovado</li>
+<li><strong>CTA:</strong> &quot;Pode ser a sua história no próximo concurso. Começa agora — link na bio&quot;</li>
+<li><strong>Nota:</strong> Se não houver depoimento disponível ainda, usar o depoimento de aprovação dos próprios fundadores ou de alunos do presencial</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="semana-3-semana-de-urg-ncia-e-oportunidade-dias-15-a-21">SEMANA 3 — SEMANA DE URGÊNCIA E OPORTUNIDADE (Dias 15 a 21)</h2>
+<p class="md"><strong>Objetivo:</strong> Comunicar a oportunidade real dos concursos previstos e criar urgência para começar agora</p>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 15 — Reel: &quot;O que ninguém está te contando sobre o concurso da PMBA 2026&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (60 a 90 segundos)</li>
+<li><strong>Gancho:</strong> &quot;O Comandante-Geral confirmou: novo edital em 2026. Você tem X meses. Veja o que isso significa pra você.&quot;</li>
+<li><strong>Conteúdo:</strong> Dado real do anúncio + análise do que significa + o que fazer agora</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 16 — Carrossel: &quot;Concurso Investigador PCBA 2026: 500 vagas — o que você precisa saber&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Carrossel (8 slides)</li>
+<li><strong>Gancho:</strong> &quot;500 vagas para Investigador da Polícia Civil da Bahia estão chegando — você está preparado?&quot;</li>
+<li><strong>Conteúdo:</strong> Dados do concurso (vagas, salário, requisitos, matérias esperadas, timeline) + CTA para iniciar preparação</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 17 — Reel: &quot;Trabalho de dia e estudo de noite — como conseguir&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (45 a 60 segundos)</li>
+<li><strong>Gancho:</strong> &quot;Você acha que não tem tempo — mas tem. O problema é para onde vai o tempo que você tem.&quot;</li>
+<li><strong>Conteúdo:</strong> Dica prática de gestão de tempo para candidatos que trabalham — técnica Pomodoro adaptada para estudo de concurso</li>
+<li><strong>Insight da pesquisa:</strong> Uma das maiores dores do público é a falta de tempo. Conteúdo que endereça isso tem alto engajamento.</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 18 — Post estático: Prova social com números</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Arte gráfica com dados</li>
+<li><strong>Gancho:</strong> &quot;[Número de aprovados] aprovados no GABARITANDO. O próximo pode ser você.&quot;</li>
+<li><strong>Nota:</strong> <span class="fill-badge">[A PREENCHER]</span></li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 19 — Reel: &quot;Como é a avaliação psicológica da PMBA — e como se preparar&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (60 a 90 segundos)</li>
+<li><strong>Gancho:</strong> &quot;A etapa que reprova candidatos bem preparados na prova escrita — e que ninguém fala&quot;</li>
+<li><strong>Conteúdo:</strong> Explicação sobre como funciona a avaliação psicológica, o que avaliam, erros comuns, como se preparar</li>
+<li><strong>Insight da pesquisa:</strong> Tendência internacional mostra que candidatos têm muita ansiedade sobre a etapa psicológica — é conteúdo com alto engajamento e pouca oferta</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 20 — Carrossel: &quot;TAF da PMBA: como se preparar do zero&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Carrossel (8 slides)</li>
+<li><strong>Gancho:</strong> &quot;A prova física reprova mais candidatos do que a prova escrita. Veja como se preparar&quot;</li>
+<li><strong>Conteúdo:</strong> Cada prova física do TAF + o que é exigido + protocolo de treino progressivo</li>
+<li><strong>CTA:</strong> &quot;No GABARITANDO você aprende para todas as etapas — não só para a escrita&quot;</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 21 — Reel: &quot;Por que esperar o edital para começar é o maior erro&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (45 a 60 segundos)</li>
+<li><strong>Gancho:</strong> &quot;Todo mundo espera o edital para começar. E aí? 80 mil inscritos, você com 3 meses de estudo.&quot;</li>
+<li><strong>Conteúdo:</strong> Argumento sobre o custo de esperar vs. o benefício de começar agora</li>
+<li><strong>CTA:</strong> &quot;Não espera o edital — o edital não vai te esperar&quot;</li>
+<li><strong>Insight da pesquisa:</strong> A landing page do RUMO usa esse argumento com sucesso. É transferível para o Instagram.</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="semana-4-semana-de-convers-o-e-comunidade-dias-22-a-30">SEMANA 4 — SEMANA DE CONVERSÃO E COMUNIDADE (Dias 22 a 30)</h2>
+<p class="md"><strong>Objetivo:</strong> Converter seguidores em leads e alunos, construir senso de comunidade</p>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 22 — Reel: &quot;Respondo as perguntas mais frequentes sobre o GABARITANDO&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (60 a 90 segundos)</li>
+<li><strong>Gancho:</strong> &quot;Recebi muitas perguntas sobre o GABARITANDO — respondi as principais aqui&quot;</li>
+<li><strong>Conteúdo:</strong> FAQ em formato de vídeo rápido (3 a 5 perguntas comuns)</li>
+<li><strong>Dica:</strong> Coletar perguntas reais dos stories antes de gravar</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 23 — Carrossel: &quot;O que está incluído no GABARITANDO — veja tudo&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Carrossel (8 a 10 slides)</li>
+<li><strong>Gancho:</strong> &quot;Não é só videoaula. Veja o que você recebe quando entra no GABARITANDO.&quot;</li>
+<li><strong>Conteúdo:</strong> Cada funcionalidade da plataforma em um slide (banco de questões, cronograma, professores policiais, etc.)</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 24 — Reel: Motivação com gancho emocional</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel curto (30 a 45 segundos)</li>
+<li><strong>Gancho:</strong> &quot;[Nome de aluno aprovado] disse: &#x27;Achei que não conseguia. Mas passei.&#x27; — e a frase dele vai te marcar.&quot;</li>
+<li><strong>Conteúdo:</strong> Trecho curto e impactante de depoimento de aluno, com trilha emocional</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 25 — Post estático: Comparativo de plataformas (sem citar concorrentes pelo nome)</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Arte gráfica de comparativo</li>
+<li><strong>Gancho:</strong> &quot;Nem todo preparatório é igual. Veja o que diferencia o GABARITANDO.&quot;</li>
+<li><strong>Conteúdo:</strong> Tabela com características do GABARITANDO vs. &quot;outros preparatórios online&quot;</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 26 — Reel: &quot;Um dia na vida de quem estuda para o concurso da PMBA&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Vlog reel (60 segundos)</li>
+<li><strong>Gancho:</strong> &quot;Assim é a rotina de quem vai passar no próximo concurso&quot;</li>
+<li><strong>Conteúdo:</strong> Rotina real de um aluno do GABARITANDO (ou do próprio dono) — acorda cedo, estuda 2h antes do trabalho, questões no almoço, revisão à noite</li>
+<li><strong>Insight da pesquisa:</strong> Conteúdo de identificação (candidato se vê na rotina) tem alto engajamento e compartilhamento</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 27 — Carrossel: &quot;Cronograma de estudos semana a semana até o edital&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Carrossel (6 a 8 slides)</li>
+<li><strong>Gancho:</strong> &quot;Com [X] meses até o edital previsto, veja como dividir o estudo semana a semana&quot;</li>
+<li><strong>Conteúdo:</strong> Cronograma macro (não detalhado) dividindo o tempo restante por fase de estudo (básica, aprofundamento, simulados, revisão)</li>
+<li><strong>CTA:</strong> &quot;Quer o cronograma detalhado personalizado para sua rotina? Plataforma do GABARITANDO monta pra você.&quot;</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 28 — Reel: Pergunta de engajamento + resposta dos seguidores</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel de pergunta (30 segundos)</li>
+<li><strong>Gancho:</strong> &quot;Qual é a matéria que você mais tem medo no concurso da PMBA? Comenta aqui embaixo&quot;</li>
+<li><strong>Conteúdo:</strong> Um dos donos faz a pergunta no vídeo, incentiva comentários</li>
+<li><strong>Follow-up:</strong> Responder os comentários e criar um novo reel na semana seguinte respondendo as dúvidas mais citadas</li>
+<li><strong>Insight da pesquisa:</strong> Conteúdo que pede comentários aumenta o alcance orgânico significativamente</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 29 — Reel: &quot;O GABARITANDO é para você se...&quot;</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (45 a 60 segundos)</li>
+<li><strong>Gancho:</strong> &quot;Calma — antes de se inscrever, veja se o GABARITANDO é o preparatório certo para você&quot;</li>
+<li><strong>Conteúdo:</strong> Qualificação do lead: &quot;É para você se: trabalha e tem pouco tempo / quer material focado no edital / quer estudar com quem já passou / quer suporte de professores policiais / quer resultado, não só conteúdo&quot;</li>
+<li><strong>Insight:</strong> Esse tipo de conteúdo (&quot;é para você se&quot;) gera identificação forte e converte melhor do que propaganda direta</li>
+</ul>
+<hr class="md">
+<div class="day-block"><p class="day-block-title"><strong>DIA 30 — Reel de fechamento: Convite direto</strong></p></div>
+<ul class="md">
+<li><strong>Formato:</strong> Reel (60 segundos)</li>
+<li><strong>Gancho:</strong> &quot;O próximo concurso da PMBA está chegando. Você vai estar preparado?&quot;</li>
+<li><strong>Conteúdo:</strong> Os dois donos aparecem juntos, fazem um convite direto e sincero para conhecer o GABARITANDO, com CTA explícito para o link na bio</li>
+<li><strong>CTA:</strong> &quot;Link na bio. Plataforma online + aulas presenciais em Luís Eduardo Magalhães. Começa hoje.&quot;</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="resumo-do-plano-vis-o-geral">RESUMO DO PLANO — VISÃO GERAL</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Semana</th>
+<th>Tema</th>
+<th>Objetivo</th>
+<th>Formatos</th>
+</tr></thead><tbody>
+<tr>
+<td>Semana 1 (dias 1–7)</td>
+<td>Apresentação e Autoridade</td>
+<td>Criar conexão e credibilidade</td>
+<td>3 Reels + 2 Carrosséis + 1 Post + 1 Reel bastidores</td>
+</tr>
+<tr>
+<td>Semana 2 (dias 8–14)</td>
+<td>Educação e Valor</td>
+<td>Consolidar autoridade técnica</td>
+<td>3 Reels + 2 Carrosséis + 1 Post + 1 Depoimento</td>
+</tr>
+<tr>
+<td>Semana 3 (dias 15–21)</td>
+<td>Urgência e Oportunidade</td>
+<td>Criar desejo e urgência de agir</td>
+<td>4 Reels + 2 Carrosséis + 1 Post</td>
+</tr>
+<tr>
+<td>Semana 4 (dias 22–30)</td>
+<td>Conversão e Comunidade</td>
+<td>Converter seguidores em alunos</td>
+<td>4 Reels + 2 Carrosséis + 2 Posts + 1 Reel convite</td>
+</tr>
+</tbody></table></div>
+<hr class="md">
+<h2 class="md" id="diretrizes-de-produ-o">DIRETRIZES DE PRODUÇÃO</h2>
+<h3 class="md" id="elementos-obrigat-rios-em-todos-os-posts">Elementos obrigatórios em todos os posts</h3>
+<ul class="md">
+<li>Identidade visual do GABARITANDO (cores, fonte, logo)</li>
+<li>Handle @gabaritando na imagem ou no vídeo</li>
+<li>CTA explícito no final</li>
+<li>Hashtags: #PMBA #ConcursoPolicial #SoldadoPMBA #PCBA #ConcursoBahia #GABARITANDO #PreparatorioPolicial #LuisEduardoMagalhaes (para buscas locais)</li>
+</ul>
+<h3 class="md" id="recomenda-es-de-produ-o-de-reels">Recomendações de produção de Reels</h3>
+<ul class="md">
+<li>Gravar em boa iluminação natural (preferência por manhã ou tarde)</li>
+<li>Câmera estável (tripé simples resolve)</li>
+<li>Fundo: ambiente policial (farda, corporação) ou ambiente de estudo organizado</li>
+<li>Legendas ativadas em todos os vídeos (muitos assistem sem som)</li>
+<li>Duração ideal: 30 a 60 segundos (Reels mais curtos têm melhor retenção)</li>
+<li>Música de fundo: trilha motivacional, sem letra que interfira na fala</li>
+</ul>
+<h3 class="md" id="m-tricas-para-acompanhar-ao-final-dos-30-dias">Métricas para acompanhar ao final dos 30 dias</h3>
+<ul class="md">
+<li>Crescimento de seguidores (meta: <span class="fill-badge">[A PREENCHER]</span>)</li>
+<li>Alcance médio por post</li>
+<li>Engajamento médio (curtidas + comentários + salvamentos / alcance)</li>
+<li>Cliques no link da bio</li>
+<li>Mensagens no WhatsApp geradas via Instagram</li>
+<li>Matrículas atribuídas ao canal Instagram</li>
+</ul>
+<hr class="md">
+<p class="md"><em>Este plano foi desenvolvido com base na análise dos concorrentes (RUMO, Manual do Mike, Projeto Missão), nas dores e desejos do público pesquisados nas avaliações de livros, comentários do YouTube e comportamento documentado do candidato a concurso policial. Cada post tem âncora em dados reais de pesquisa — não é genérico.</em></p>
+  </main>
+</div>
+
+<footer>
+  <p><strong>Gabaritando</strong> &mdash; Preparatório para Carreiras Policiais da Bahia &mdash; Uso interno</p>
+  <p style="margin-top:6px">Abril de 2026</p>
+</footer>
+
+<script>
+// Highlight active TOC link on scroll
+(function() {
+  var headings = document.querySelectorAll('h2.md[id], h3.md[id]');
+  var links    = document.querySelectorAll('.toc-list a');
+  if (!headings.length || !links.length) return;
+  function activate() {
+    var scrollY = window.scrollY + 80;
+    var current = '';
+    headings.forEach(function(h) {
+      if (h.offsetTop <= scrollY) current = h.id;
+    });
+    links.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', activate, {passive: true});
+  activate();
+})();
+</script>
+
+</body>
+</html>

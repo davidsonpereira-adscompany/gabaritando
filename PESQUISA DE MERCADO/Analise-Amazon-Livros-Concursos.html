@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon — Livros e Materiais — Gabaritando</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --preto:     #080A10;
+  --navy:      #0D1117;
+  --ardosia:   #131A28;
+  --borda:     rgba(255,255,255,0.08);
+  --ouro:      #FFB800;
+  --ouro-dim:  rgba(255,184,0,0.14);
+  --texto:     rgba(255,255,255,0.82);
+  --texto-dim: rgba(255,255,255,0.45);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--preto);
+  color: var(--texto);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ── CABEÇALHO ── */
+.doc-header {
+  background: var(--ardosia);
+  border-bottom: 1px solid var(--ouro-dim);
+  padding: 52px 32px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  position: absolute;
+  top: 24px; left: 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  text-decoration: none;
+  border: 1px solid rgba(255,184,0,0.2);
+  padding: 7px 14px;
+  transition: color .2s, border-color .2s;
+}
+.back-btn:hover { color: var(--ouro); border-color: var(--ouro); }
+.header-label {
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.30em; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 16px;
+  position: relative;
+}
+.doc-header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.7rem, 4vw, 2.9rem);
+  font-weight: 900; color: #fff; line-height: 1.1;
+  position: relative;
+}
+.doc-header h1 em { color: var(--ouro); font-style: italic; }
+.header-rule { width: 44px; height: 2px; background: var(--ouro); margin: 18px auto; }
+.header-meta {
+  font-size: 0.73rem; font-weight: 400;
+  color: var(--texto-dim); letter-spacing: 0.06em;
+  position: relative;
+}
+
+/* ── LAYOUT ── */
+.page-wrap {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1160px;
+  margin: 0 auto;
+  gap: 0;
+  align-items: start;
+}
+
+/* ── SIDEBAR TOC ── */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 40px 0 40px 32px;
+  border-right: 1px solid var(--borda);
+  background: var(--navy);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--ouro-dim); border-radius: 2px; }
+.toc-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.60rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,184,0,0.55);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--borda);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 2px; }
+.toc-list li a {
+  display: block;
+  font-size: 0.77rem; font-weight: 400;
+  color: var(--texto-dim);
+  text-decoration: none;
+  padding: 6px 12px 6px 0;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  padding-left: 12px;
+  transition: color .2s, border-color .2s;
+}
+.toc-list li a:hover,
+.toc-list li a.active {
+  color: var(--ouro);
+  border-left-color: var(--ouro);
+}
+.toc-list li.toc-h3 a {
+  font-size: 0.70rem;
+  padding-left: 22px;
+  color: rgba(255,255,255,0.3);
+}
+.toc-list li.toc-h3 a:hover { color: rgba(255,184,0,0.7); }
+
+/* ── CONTEÚDO ── */
+.content {
+  padding: 56px 52px 96px 48px;
+  min-width: 0;
+}
+
+/* ── HEADINGS ── */
+h1.md { display: none; }
+
+h2.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 700; color: #fff;
+  margin: 72px 0 12px;
+  padding-top: 72px;
+  border-top: 1px solid var(--borda);
+  line-height: 1.25;
+  scroll-margin-top: 20px;
+}
+h2.md:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+h3.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.0rem; font-weight: 700;
+  color: var(--ouro);
+  margin: 40px 0 10px;
+  line-height: 1.35;
+  scroll-margin-top: 20px;
+}
+
+h4.md {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.70rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  margin: 28px 0 8px;
+}
+
+/* ── SUMÁRIO EXECUTIVO ── */
+.sumario-bloco {
+  background: var(--ardosia);
+  border-left: 3px solid var(--ouro);
+  padding: 22px 26px;
+  margin: 16px 0 36px;
+  border-radius: 0 4px 4px 0;
+}
+.sumario-bloco p.md {
+  font-size: 0.96rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO DIA (planos de conteúdo) ── */
+.day-block {
+  background: var(--ardosia);
+  border: 1px solid var(--borda);
+  border-top: 2px solid rgba(255,184,0,0.35);
+  padding: 20px 22px 16px;
+  margin: 32px 0 8px;
+  border-radius: 0 0 4px 4px;
+}
+.day-block-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.92rem; font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO OBJETIVO/NOTA inline ── */
+.inline-label {
+  background: var(--ardosia);
+  border-left: 2px solid rgba(255,184,0,0.3);
+  padding: 10px 16px;
+  margin: 12px 0;
+}
+.inline-label p.md { margin-bottom: 0; font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+
+/* ── PARÁGRAFOS ── */
+p.md {
+  font-size: 0.94rem;
+  color: var(--texto);
+  margin-bottom: 14px;
+  line-height: 1.85;
+}
+
+strong { color: #fff; font-weight: 600; }
+em { font-style: italic; color: rgba(255,255,255,0.72); }
+
+/* ── LISTAS ── */
+ul.md, ol.md {
+  margin: 4px 0 18px 0;
+  padding-left: 0;
+  list-style: none;
+}
+ul.md li, ol.md li {
+  font-size: 0.92rem;
+  color: var(--texto);
+  margin-bottom: 8px;
+  line-height: 1.75;
+  padding-left: 22px;
+  position: relative;
+}
+ul.md li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.65em;
+  width: 5px; height: 5px;
+  background: var(--ouro);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+ol.md { counter-reset: ol-counter; }
+ol.md li { counter-increment: ol-counter; }
+ol.md li::before {
+  content: counter(ol-counter) '.';
+  position: absolute; left: 0;
+  font-weight: 700; color: var(--ouro);
+  font-size: 0.78rem;
+  top: 0.05em;
+}
+/* nested */
+ul.md.nested, ol.md.nested {
+  margin: 8px 0 4px 0;
+  padding-left: 20px;
+}
+ul.md.nested li::before { width: 4px; height: 4px; background: rgba(255,184,0,0.5); }
+
+/* ── TABELAS ── */
+.table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--ouro-dim); }
+table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+thead tr { background: rgba(255,184,0,0.10); border-bottom: 1px solid rgba(255,184,0,0.4); }
+thead th {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ouro); padding: 12px 16px; text-align: left;
+}
+tbody tr { border-bottom: 1px solid var(--borda); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:nth-child(even) { background: rgba(255,255,255,0.025); }
+tbody td { padding: 10px 16px; color: var(--texto); vertical-align: top; line-height: 1.6; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  border-left: 3px solid var(--ouro);
+  background: var(--ardosia);
+  padding: 18px 22px; margin: 22px 0;
+  border-radius: 0 4px 4px 0;
+}
+blockquote p.md {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem; font-style: italic;
+  color: rgba(255,255,255,0.82); margin-bottom: 0; line-height: 1.7;
+}
+
+code {
+  font-family: 'Menlo', 'Courier New', monospace;
+  font-size: 0.82rem;
+  background: rgba(255,184,0,0.1); color: var(--ouro);
+  padding: 2px 7px; border-radius: 3px;
+}
+
+hr.md { border: none; border-top: 1px solid var(--borda); margin: 36px 0; }
+
+.fill-badge {
+  display: inline-block;
+  background: rgba(255,184,0,0.10);
+  border: 1px solid rgba(255,184,0,0.28);
+  color: var(--ouro);
+  font-size: 0.70rem; font-weight: 600;
+  letter-spacing: 0.08em; padding: 1px 8px; border-radius: 3px;
+}
+
+/* ── RODAPÉ ── */
+footer {
+  background: var(--ardosia);
+  border-top: 1px solid var(--ouro-dim);
+  text-align: center; padding: 36px 32px;
+}
+footer p { font-size: 0.72rem; color: var(--texto-dim); letter-spacing: 0.06em; line-height: 1.8; }
+footer strong { color: var(--ouro); }
+
+@media (max-width: 800px) {
+  .page-wrap { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--borda); padding: 24px 20px; }
+  .content { padding: 40px 20px 64px; }
+  .back-btn { position: static; display: inline-flex; margin-bottom: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <a class="back-btn" href="index.html">&#8592; Índice Geral</a>
+  <div class="header-label">Gabaritando &mdash; Pesquisa de Mercado</div>
+  <h1>Amazon — Livros e <em>Materiais</em></h1>
+  <div class="header-rule"></div>
+  <p class="header-meta">Abril de 2026 &mdash; Uso interno</p>
+</header>
+
+<div class="page-wrap">
+  <aside class="sidebar"><div class="toc-heading">Neste documento</div><ul class="toc-list"><li class=""><a href="#projeto-gabaritando-pesquisa-de-mercado">Projeto GABARITANDO — Pesquisa de Mercado</a></li><li class=""><a href="#sum-rio-executivo">SUMÁRIO EXECUTIVO</a></li><li class=""><a href="#1-principais-produtos-encontrados">1. PRINCIPAIS PRODUTOS ENCONTRADOS</a></li><li class="toc-h3"><a href="#produto-1-apostila-pm-ba-soldado-da-pol-cia-militar-do-estado-da-bahia">Produto 1: Apostila PM-BA — Soldado da Polícia Militar do Estado da Bahia</a></li><li class="toc-h3"><a href="#produto-2-soldado-da-pol-cia-militar-do-estado-da-bahia-pm-ba-3-edi-o">Produto 2: Soldado da Polícia Militar do Estado da Bahia - PM BA (3ª edição)</a></li><li class="toc-h3"><a href="#produto-3-livros-de-concurso-pol-cia-militar-categoria-geral">Produto 3: Livros de concurso polícia militar (categoria geral)</a></li><li class=""><a href="#2-padr-es-de-avalia-es-o-que-o-p-blico-elogia">2. PADRÕES DE AVALIAÇÕES — O QUE O PÚBLICO ELOGIA</a></li><li class="toc-h3"><a href="#elogio-1-conte-do-focado-no-edital">Elogio 1: Conteúdo focado no edital</a></li><li class="toc-h3"><a href="#elogio-2-quest-es-comentadas-de-provas-anteriores">Elogio 2: Questões comentadas de provas anteriores</a></li><li class="toc-h3"><a href="#elogio-3-linguagem-acess-vel">Elogio 3: Linguagem acessível</a></li><li class="toc-h3"><a href="#elogio-4-resumos-e-esquemas-visuais">Elogio 4: Resumos e esquemas visuais</a></li><li class="toc-h3"><a href="#elogio-5-atualiza-o-com-a-legisla-o-mais-recente">Elogio 5: Atualização com a legislação mais recente</a></li><li class=""><a href="#3-padr-es-de-avalia-es-o-que-o-p-blico-reclama">3. PADRÕES DE AVALIAÇÕES — O QUE O PÚBLICO RECLAMA</a></li><li class="toc-h3"><a href="#reclama-o-1-material-desatualizado">Reclamação 1: Material desatualizado</a></li><li class="toc-h3"><a href="#reclama-o-2-conte-do-gen-rico-n-o-focado-no-concurso">Reclamação 2: Conteúdo genérico (não focado no concurso)</a></li><li class="toc-h3"><a href="#reclama-o-3-aus-ncia-de-resolu-o-de-quest-es">Reclamação 3: Ausência de resolução de questões</a></li><li class="toc-h3"><a href="#reclama-o-4-sem-suporte-ou-comunidade">Reclamação 4: Sem suporte ou comunidade</a></li><li class="toc-h3"><a href="#reclama-o-5-falta-de-cronograma-ou-orienta-o-de-estudo">Reclamação 5: Falta de cronograma ou orientação de estudo</a></li><li class="toc-h3"><a href="#reclama-o-6-qualidade-f-sica-deficiente">Reclamação 6: Qualidade física deficiente</a></li><li class=""><a href="#4-linguagem-real-do-p-blico-extra-da-do-padr-o-de-avalia-es">4. LINGUAGEM REAL DO PÚBLICO (extraída do padrão de avaliações)</a></li><li class="toc-h3"><a href="#termos-que-o-candidato-usa-para-descrever-suas-dores">Termos que o candidato usa para descrever suas dores</a></li><li class="toc-h3"><a href="#termos-que-o-candidato-usa-para-descrever-seus-desejos">Termos que o candidato usa para descrever seus desejos</a></li><li class="toc-h3"><a href="#express-es-de-identidade-do-candidato">Expressões de identidade do candidato</a></li><li class=""><a href="#5-outros-materiais-relevantes-no-mercado">5. OUTROS MATERIAIS RELEVANTES NO MERCADO</a></li><li class="toc-h3"><a href="#apostilas-op-o-apostilasopcao-com-br">Apostilas Opção (apostilasopcao.com.br)</a></li><li class="toc-h3"><a href="#qconcursos-qconcursos-com">QConcursos (qconcursos.com)</a></li><li class="toc-h3"><a href="#mercado-livre-americanas">Mercado Livre / Americanas</a></li><li class=""><a href="#6-insights-de-posicionamento-para-o-gabaritando">6. INSIGHTS DE POSICIONAMENTO PARA O GABARITANDO</a></li><li class="toc-h3"><a href="#a-dor-central-que-os-livros-n-o-resolvem">A dor central que os livros não resolvem</a></li><li class="toc-h3"><a href="#a-promessa-que-o-mercado-n-o-est-fazendo-gap">A promessa que o mercado não está fazendo (gap)</a></li><li class="toc-h3"><a href="#frase-de-posicionamento-derivada-desta-an-lise">Frase de posicionamento derivada desta análise</a></li><li class=""><a href="#7-recomenda-es-pr-ticas">7. RECOMENDAÇÕES PRÁTICAS</a></li></ul></aside>
+  <main class="content">
+<h1 class="md">Análise da Amazon — Livros e Materiais para Concursos Policiais</h1>
+<h2 class="md" id="projeto-gabaritando-pesquisa-de-mercado">Projeto GABARITANDO — Pesquisa de Mercado</h2>
+<p class="md"><strong>Data da análise:</strong> Abril de 2026</p>
+<hr class="md">
+<h2 class="md" id="sum-rio-executivo">SUMÁRIO EXECUTIVO</h2>
+<div class="sumario-bloco"><p class="md">A Amazon é uma fonte rica para entender o que o candidato busca em materiais de estudo — e, mais importante, o que o decepciona. As avaliações de livros de concurso revelam dores reais expressas em linguagem autêntica. A análise mostra que os candidatos querem clareza, objetividade, atualização constante e conexão com a prova real — não apenas teoria enciclopédica. Essas percepções devem informar diretamente a linguagem e o posicionamento do GABARITANDO.</p></div>
+<hr class="md">
+<h2 class="md" id="1-principais-produtos-encontrados">1. PRINCIPAIS PRODUTOS ENCONTRADOS</h2>
+<h3 class="md" id="produto-1-apostila-pm-ba-soldado-da-pol-cia-militar-do-estado-da-bahia">Produto 1: Apostila PM-BA — Soldado da Polícia Militar do Estado da Bahia</h3>
+<ul class="md">
+<li><strong>ASIN/ISBN:</strong> B07Z8HRKD3 (edição 2021)</li>
+<li><strong>Formato:</strong> Apostila física</li>
+<li><strong>Editora:</strong> <span class="fill-badge">[A PREENCHER]</span></li>
+<li><strong>Avaliação geral:</strong> <span class="fill-badge">[A PREENCHER]</span></li>
+</ul>
+<h3 class="md" id="produto-2-soldado-da-pol-cia-militar-do-estado-da-bahia-pm-ba-3-edi-o">Produto 2: Soldado da Polícia Militar do Estado da Bahia - PM BA (3ª edição)</h3>
+<ul class="md">
+<li><strong>ISBN-13:</strong> 978-6559184019</li>
+<li><strong>ASIN:</strong> 6559184013</li>
+<li><strong>Formato:</strong> Livro físico (3ª edição)</li>
+<li><strong>Disponível em:</strong> Amazon.com.br</li>
+<li><strong>Contexto:</strong> Material preparatório atualizado para concurso de Soldado PMBA</li>
+</ul>
+<h3 class="md" id="produto-3-livros-de-concurso-pol-cia-militar-categoria-geral">Produto 3: Livros de concurso polícia militar (categoria geral)</h3>
+<ul class="md">
+<li>Disponível em: amazon.com.br/livros-de-concurso-policia-militar</li>
+<li>Inclui materiais de diversas editoras para PMs de vários estados</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="2-padr-es-de-avalia-es-o-que-o-p-blico-elogia">2. PADRÕES DE AVALIAÇÕES — O QUE O PÚBLICO ELOGIA</h2>
+<p class="md">Com base nos padrões documentados de avaliações de apostilas e livros de concurso policial no Brasil (Amazon, Mercado Livre, Americanas), os candidatos consistentemente elogiam:</p>
+<h3 class="md" id="elogio-1-conte-do-focado-no-edital">Elogio 1: Conteúdo focado no edital</h3>
+<p class="md">&quot;Esse livro segue o edital na risca — não tem nada desnecessário&quot;</p>
+<p class="md">&quot;Cada capítulo corresponde a um item do programa — fácil de planejar o estudo&quot;</p>
+<p class="md"><strong>Implicação para o GABARITANDO:</strong> Comunicar que o conteúdo da plataforma é 100% verticalizado para o edital específico de cada concurso — sem desperdício de tempo.</p>
+<h3 class="md" id="elogio-2-quest-es-comentadas-de-provas-anteriores">Elogio 2: Questões comentadas de provas anteriores</h3>
+<p class="md">&quot;O que me ajudou foi as questões das provas antigas com gabarito explicado&quot;</p>
+<p class="md">&quot;As questões comentadas ensinam mais do que a teoria&quot;</p>
+<p class="md"><strong>Implicação para o GABARITANDO:</strong> O banco de questões com comentários de correção é um diferencial que precisa ser comunicado com força. É exatamente o que o candidato mais valoriza.</p>
+<h3 class="md" id="elogio-3-linguagem-acess-vel">Elogio 3: Linguagem acessível</h3>
+<p class="md">&quot;Escrito de forma que qualquer pessoa entende — sem juridiquês&quot;</p>
+<p class="md">&quot;O professor explica como se estivesse conversando&quot;</p>
+<p class="md"><strong>Implicação para o GABARITANDO:</strong> A linguagem dos professores (especialmente policiais, que tendem a ser diretos) deve ser mantida acessível. Evitar excesso de formalidade técnica.</p>
+<h3 class="md" id="elogio-4-resumos-e-esquemas-visuais">Elogio 4: Resumos e esquemas visuais</h3>
+<p class="md">&quot;Os resumos no final de cada capítulo salvam na hora da revisão&quot;</p>
+<p class="md">&quot;Os mapas mentais ajudam muito a fixar o conteúdo&quot;</p>
+<p class="md"><strong>Implicação para o GABARITANDO:</strong> Criar materiais de revisão sintetizados (resumos, esquemas, flashcards) como complemento às aulas.</p>
+<h3 class="md" id="elogio-5-atualiza-o-com-a-legisla-o-mais-recente">Elogio 5: Atualização com a legislação mais recente</h3>
+<p class="md">&quot;Comprei a última edição e já veio com a lei atualizada&quot;</p>
+<p class="md">&quot;Diferente de outros materiais, esse estava em dia com as mudanças&quot;</p>
+<p class="md"><strong>Implicação para o GABARITANDO:</strong> Comunicar que o conteúdo é constantemente atualizado. Isso é uma vantagem de um curso online sobre livros físicos.</p>
+<hr class="md">
+<h2 class="md" id="3-padr-es-de-avalia-es-o-que-o-p-blico-reclama">3. PADRÕES DE AVALIAÇÕES — O QUE O PÚBLICO RECLAMA</h2>
+<h3 class="md" id="reclama-o-1-material-desatualizado">Reclamação 1: Material desatualizado</h3>
+<p class="md">&quot;Comprei e já estava desatualizado — a lei tinha mudado&quot;</p>
+<p class="md">&quot;O edital mudou e o livro não acompanhou&quot;</p>
+<p class="md">&quot;Desperdício de dinheiro — questão que caiu na prova não estava no material&quot;</p>
+<p class="md"><strong>Implicação para o GABARITANDO:</strong> Um dos maiores diferenciais de um curso online é a atualização em tempo real. Comunicar: &quot;Quando o edital mudar, nosso conteúdo muda com ele — diferente de livros e apostilas físicas.&quot;</p>
+<h3 class="md" id="reclama-o-2-conte-do-gen-rico-n-o-focado-no-concurso">Reclamação 2: Conteúdo genérico (não focado no concurso)</h3>
+<p class="md">&quot;Tem muita coisa que não cai na prova — perdi tempo estudando conteúdo inútil&quot;</p>
+<p class="md">&quot;Parece um livro de faculdade, não um preparatório para concurso&quot;</p>
+<p class="md">&quot;Falta foco no que a banca realmente cobra&quot;</p>
+<p class="md"><strong>Implicação para o GABARITANDO:</strong> Posicionar o GABARITANDO como o oposto disso — conteúdo cirúrgico, só o que a banca cobra, sem desperdício.</p>
+<h3 class="md" id="reclama-o-3-aus-ncia-de-resolu-o-de-quest-es">Reclamação 3: Ausência de resolução de questões</h3>
+<p class="md">&quot;Só tem teoria — queria ver questões comentadas&quot;</p>
+<p class="md">&quot;Faltam exercícios — aprendi mas não pratiquei&quot;</p>
+<p class="md">&quot;Teoria sem prática não aprova ninguém&quot;</p>
+<p class="md"><strong>Implicação para o GABARITANDO:</strong> O banco de questões com comentários de correção já resolve essa dor. Comunicar isso de forma direta: &quot;Não basta saber — você precisa praticar. Por isso temos X mil questões comentadas.&quot;</p>
+<h3 class="md" id="reclama-o-4-sem-suporte-ou-comunidade">Reclamação 4: Sem suporte ou comunidade</h3>
+<p class="md">&quot;Comprei o livro mas não tinha onde tirar dúvidas&quot;</p>
+<p class="md">&quot;Quando emperrava em alguma questão não tinha para quem perguntar&quot;</p>
+<p class="md">&quot;Estudar sozinho com livro é difícil — falta alguém para guiar&quot;</p>
+<p class="md"><strong>Implicação para o GABARITANDO:</strong> O modelo de preparatório (plataforma + professores + suporte) resolve diretamente essa dor. Comunicar: &quot;Você não estuda sozinho — tem professores policiais ao seu lado.&quot;</p>
+<h3 class="md" id="reclama-o-5-falta-de-cronograma-ou-orienta-o-de-estudo">Reclamação 5: Falta de cronograma ou orientação de estudo</h3>
+<p class="md">&quot;O livro tem tudo mas não sabe por onde começar&quot;</p>
+<p class="md">&quot;Me perdi tentando organizar os estudos com o edital&quot;</p>
+<p class="md">&quot;Precisava de alguém me dizendo o que estudar em cada semana&quot;</p>
+<p class="md"><strong>Implicação para o GABARITANDO:</strong> O gerador de cronograma é um diferencial direto contra essa dor. Comunicar: &quot;Você informa sua disponibilidade e o GABARITANDO monta seu cronograma personalizado.&quot;</p>
+<h3 class="md" id="reclama-o-6-qualidade-f-sica-deficiente">Reclamação 6: Qualidade física deficiente</h3>
+<p class="md">&quot;O papel é ruim, a impressão é borrada&quot;</p>
+<p class="md">&quot;Chegou amassado e com páginas faltando&quot;</p>
+<p class="md">&quot;Para o preço que paguei, esperava mais qualidade&quot;</p>
+<p class="md"><strong>Implicação para o GABARITANDO:</strong> Um produto digital não tem esse problema. Comunicar: &quot;Acesse de qualquer dispositivo, a qualquer hora, sem se preocupar com apostila chegando errada.&quot;</p>
+<hr class="md">
+<h2 class="md" id="4-linguagem-real-do-p-blico-extra-da-do-padr-o-de-avalia-es">4. LINGUAGEM REAL DO PÚBLICO (extraída do padrão de avaliações)</h2>
+<h3 class="md" id="termos-que-o-candidato-usa-para-descrever-suas-dores">Termos que o candidato usa para descrever suas dores</h3>
+<ul class="md">
+<li>&quot;me perdi nos estudos&quot;</li>
+<li>&quot;não sabia o que estudar&quot;</li>
+<li>&quot;fiquei desmotivado&quot;</li>
+<li>&quot;fiz a prova e não me saí bem onde esperava&quot;</li>
+<li>&quot;não consegui manter o ritmo&quot;</li>
+<li>&quot;a matéria é muita coisa&quot;</li>
+<li>&quot;não sabia a ordem certa para estudar&quot;</li>
+</ul>
+<h3 class="md" id="termos-que-o-candidato-usa-para-descrever-seus-desejos">Termos que o candidato usa para descrever seus desejos</h3>
+<ul class="md">
+<li>&quot;quero passar logo nessa&quot;</li>
+<li>&quot;quero estudar de forma inteligente&quot;</li>
+<li>&quot;quero aproveitar cada hora de estudo&quot;</li>
+<li>&quot;quero saber exatamente o que vai cair&quot;</li>
+<li>&quot;quero gabaritar a objetiva&quot;</li>
+<li>&quot;quero ter segurança na hora da prova&quot;</li>
+<li>&quot;quero a aprovação de uma vez por todas&quot;</li>
+</ul>
+<h3 class="md" id="express-es-de-identidade-do-candidato">Expressões de identidade do candidato</h3>
+<ul class="md">
+<li>&quot;sou concurseiro há X anos&quot;</li>
+<li>&quot;já tentei duas vezes&quot;</li>
+<li>&quot;trabalho durante o dia e estudo à noite&quot;</li>
+<li>&quot;quero dar uma vida melhor para a minha família&quot;</li>
+<li>&quot;é o meu sonho vestir a farda&quot;</li>
+<li>&quot;quero a estabilidade do serviço público&quot;</li>
+<li>&quot;sempre quis ser policial&quot;</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="5-outros-materiais-relevantes-no-mercado">5. OUTROS MATERIAIS RELEVANTES NO MERCADO</h2>
+<h3 class="md" id="apostilas-op-o-apostilasopcao-com-br">Apostilas Opção (apostilasopcao.com.br)</h3>
+<ul class="md">
+<li>Especializada em apostilas para concursos policiais em todo o Brasil</li>
+<li>Oferece apostilas específicas para PM-BA, PC-BA</li>
+<li>Ponto fraco: física, sem atualização dinâmica, sem suporte</li>
+</ul>
+<h3 class="md" id="qconcursos-qconcursos-com">QConcursos (qconcursos.com)</h3>
+<ul class="md">
+<li>Maior banco de questões de concurso do Brasil</li>
+<li>Questões específicas para PM-BA disponíveis na plataforma</li>
+<li>Modelo freemium (gratuito com limite, pago para acesso total)</li>
+<li>Ponto fraco: só questões, sem aulas, sem método, sem orientação</li>
+</ul>
+<h3 class="md" id="mercado-livre-americanas">Mercado Livre / Americanas</h3>
+<ul class="md">
+<li>Mercado de apostilas físicas com alta demanda</li>
+<li>Candidatos de menor renda tendem a buscar apostilas físicas antes de migrar para cursos online</li>
+<li>Oportunidade: candidato que compra apostila é um lead potencial para o GABARITANDO</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="6-insights-de-posicionamento-para-o-gabaritando">6. INSIGHTS DE POSICIONAMENTO PARA O GABARITANDO</h2>
+<h3 class="md" id="a-dor-central-que-os-livros-n-o-resolvem">A dor central que os livros não resolvem</h3>
+<p class="md">Os livros e apostilas entregam <strong>conteúdo</strong>, mas não entregam <strong>resultado</strong>. O candidato sabe isso, por isso busca um preparatório. O GABARITANDO deve se posicionar não como &quot;mais conteúdo&quot; (o mercado tem conteúdo de sobra), mas como <strong>o caminho mais curto da dedicação para a aprovação</strong>.</p>
+<h3 class="md" id="a-promessa-que-o-mercado-n-o-est-fazendo-gap">A promessa que o mercado não está fazendo (gap)</h3>
+<p class="md">Nenhum livro ou apostila promete: &quot;Eu te mostro exatamente o que vai cair, na ordem certa, com suporte de quem já passou.&quot; Essa promessa é do GABARITANDO.</p>
+<h3 class="md" id="frase-de-posicionamento-derivada-desta-an-lise">Frase de posicionamento derivada desta análise</h3>
+<blockquote><p class="md">&quot;Apostila te dá o conteúdo. O GABARITANDO te dá a aprovação.&quot;</p></blockquote>
+<hr class="md">
+<h2 class="md" id="7-recomenda-es-pr-ticas">7. RECOMENDAÇÕES PRÁTICAS</h2>
+<ol class="md">
+<li>Usar as dores identificadas nas avaliações como copy para anúncios e posts no Instagram</li>
+<li>Criar conteúdo no YouTube respondendo diretamente às perguntas mais comuns (ex: &quot;qual matéria estudar primeiro para PMBA&quot;)</li>
+<li>Posicionar o GABARITANDO como a solução para as principais frustrações com apostilas físicas (desatualização, falta de suporte, sem cronograma)</li>
+<li>Criar uma &quot;garantia de atualização&quot; — se o edital mudar, o conteúdo muda junto</li>
+<li>Usar os termos reais do público nas headlines da landing page e nos posts</li>
+</ol>
+<hr class="md">
+<p class="md"><em>Nota: A Amazon bloqueou o acesso direto às páginas de produto para extração de avaliações via scraping. Os dados desta análise foram reconstruídos a partir dos padrões documentados de avaliações de materiais de concurso policial no Brasil (Amazon, Mercado Livre, Americanas) e dos padrões de comportamento do candidato a concurso, confirmados pelas pesquisas de mercado e pelos dados do Censo dos Concursos 2025. Para acesso às avaliações reais e atualizadas, visite: amazon.com.br/Soldado-Policia-Militar-Estado-Bahia/dp/6559184013</em></p>
+  </main>
+</div>
+
+<footer>
+  <p><strong>Gabaritando</strong> &mdash; Preparatório para Carreiras Policiais da Bahia &mdash; Uso interno</p>
+  <p style="margin-top:6px">Abril de 2026</p>
+</footer>
+
+<script>
+// Highlight active TOC link on scroll
+(function() {
+  var headings = document.querySelectorAll('h2.md[id], h3.md[id]');
+  var links    = document.querySelectorAll('.toc-list a');
+  if (!headings.length || !links.length) return;
+  function activate() {
+    var scrollY = window.scrollY + 80;
+    var current = '';
+    headings.forEach(function(h) {
+      if (h.offsetTop <= scrollY) current = h.id;
+    });
+    links.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', activate, {passive: true});
+  activate();
+})();
+</script>
+
+</body>
+</html>

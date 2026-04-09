@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tendências Internacionais — Gabaritando</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --preto:     #080A10;
+  --navy:      #0D1117;
+  --ardosia:   #131A28;
+  --borda:     rgba(255,255,255,0.08);
+  --ouro:      #FFB800;
+  --ouro-dim:  rgba(255,184,0,0.14);
+  --texto:     rgba(255,255,255,0.82);
+  --texto-dim: rgba(255,255,255,0.45);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--preto);
+  color: var(--texto);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ── CABEÇALHO ── */
+.doc-header {
+  background: var(--ardosia);
+  border-bottom: 1px solid var(--ouro-dim);
+  padding: 52px 32px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  position: absolute;
+  top: 24px; left: 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  text-decoration: none;
+  border: 1px solid rgba(255,184,0,0.2);
+  padding: 7px 14px;
+  transition: color .2s, border-color .2s;
+}
+.back-btn:hover { color: var(--ouro); border-color: var(--ouro); }
+.header-label {
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.30em; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 16px;
+  position: relative;
+}
+.doc-header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.7rem, 4vw, 2.9rem);
+  font-weight: 900; color: #fff; line-height: 1.1;
+  position: relative;
+}
+.doc-header h1 em { color: var(--ouro); font-style: italic; }
+.header-rule { width: 44px; height: 2px; background: var(--ouro); margin: 18px auto; }
+.header-meta {
+  font-size: 0.73rem; font-weight: 400;
+  color: var(--texto-dim); letter-spacing: 0.06em;
+  position: relative;
+}
+
+/* ── LAYOUT ── */
+.page-wrap {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1160px;
+  margin: 0 auto;
+  gap: 0;
+  align-items: start;
+}
+
+/* ── SIDEBAR TOC ── */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 40px 0 40px 32px;
+  border-right: 1px solid var(--borda);
+  background: var(--navy);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--ouro-dim); border-radius: 2px; }
+.toc-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.60rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,184,0,0.55);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--borda);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 2px; }
+.toc-list li a {
+  display: block;
+  font-size: 0.77rem; font-weight: 400;
+  color: var(--texto-dim);
+  text-decoration: none;
+  padding: 6px 12px 6px 0;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  padding-left: 12px;
+  transition: color .2s, border-color .2s;
+}
+.toc-list li a:hover,
+.toc-list li a.active {
+  color: var(--ouro);
+  border-left-color: var(--ouro);
+}
+.toc-list li.toc-h3 a {
+  font-size: 0.70rem;
+  padding-left: 22px;
+  color: rgba(255,255,255,0.3);
+}
+.toc-list li.toc-h3 a:hover { color: rgba(255,184,0,0.7); }
+
+/* ── CONTEÚDO ── */
+.content {
+  padding: 56px 52px 96px 48px;
+  min-width: 0;
+}
+
+/* ── HEADINGS ── */
+h1.md { display: none; }
+
+h2.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 700; color: #fff;
+  margin: 72px 0 12px;
+  padding-top: 72px;
+  border-top: 1px solid var(--borda);
+  line-height: 1.25;
+  scroll-margin-top: 20px;
+}
+h2.md:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+h3.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.0rem; font-weight: 700;
+  color: var(--ouro);
+  margin: 40px 0 10px;
+  line-height: 1.35;
+  scroll-margin-top: 20px;
+}
+
+h4.md {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.70rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  margin: 28px 0 8px;
+}
+
+/* ── SUMÁRIO EXECUTIVO ── */
+.sumario-bloco {
+  background: var(--ardosia);
+  border-left: 3px solid var(--ouro);
+  padding: 22px 26px;
+  margin: 16px 0 36px;
+  border-radius: 0 4px 4px 0;
+}
+.sumario-bloco p.md {
+  font-size: 0.96rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO DIA (planos de conteúdo) ── */
+.day-block {
+  background: var(--ardosia);
+  border: 1px solid var(--borda);
+  border-top: 2px solid rgba(255,184,0,0.35);
+  padding: 20px 22px 16px;
+  margin: 32px 0 8px;
+  border-radius: 0 0 4px 4px;
+}
+.day-block-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.92rem; font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO OBJETIVO/NOTA inline ── */
+.inline-label {
+  background: var(--ardosia);
+  border-left: 2px solid rgba(255,184,0,0.3);
+  padding: 10px 16px;
+  margin: 12px 0;
+}
+.inline-label p.md { margin-bottom: 0; font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+
+/* ── PARÁGRAFOS ── */
+p.md {
+  font-size: 0.94rem;
+  color: var(--texto);
+  margin-bottom: 14px;
+  line-height: 1.85;
+}
+
+strong { color: #fff; font-weight: 600; }
+em { font-style: italic; color: rgba(255,255,255,0.72); }
+
+/* ── LISTAS ── */
+ul.md, ol.md {
+  margin: 4px 0 18px 0;
+  padding-left: 0;
+  list-style: none;
+}
+ul.md li, ol.md li {
+  font-size: 0.92rem;
+  color: var(--texto);
+  margin-bottom: 8px;
+  line-height: 1.75;
+  padding-left: 22px;
+  position: relative;
+}
+ul.md li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.65em;
+  width: 5px; height: 5px;
+  background: var(--ouro);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+ol.md { counter-reset: ol-counter; }
+ol.md li { counter-increment: ol-counter; }
+ol.md li::before {
+  content: counter(ol-counter) '.';
+  position: absolute; left: 0;
+  font-weight: 700; color: var(--ouro);
+  font-size: 0.78rem;
+  top: 0.05em;
+}
+/* nested */
+ul.md.nested, ol.md.nested {
+  margin: 8px 0 4px 0;
+  padding-left: 20px;
+}
+ul.md.nested li::before { width: 4px; height: 4px; background: rgba(255,184,0,0.5); }
+
+/* ── TABELAS ── */
+.table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--ouro-dim); }
+table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+thead tr { background: rgba(255,184,0,0.10); border-bottom: 1px solid rgba(255,184,0,0.4); }
+thead th {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ouro); padding: 12px 16px; text-align: left;
+}
+tbody tr { border-bottom: 1px solid var(--borda); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:nth-child(even) { background: rgba(255,255,255,0.025); }
+tbody td { padding: 10px 16px; color: var(--texto); vertical-align: top; line-height: 1.6; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  border-left: 3px solid var(--ouro);
+  background: var(--ardosia);
+  padding: 18px 22px; margin: 22px 0;
+  border-radius: 0 4px 4px 0;
+}
+blockquote p.md {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem; font-style: italic;
+  color: rgba(255,255,255,0.82); margin-bottom: 0; line-height: 1.7;
+}
+
+code {
+  font-family: 'Menlo', 'Courier New', monospace;
+  font-size: 0.82rem;
+  background: rgba(255,184,0,0.1); color: var(--ouro);
+  padding: 2px 7px; border-radius: 3px;
+}
+
+hr.md { border: none; border-top: 1px solid var(--borda); margin: 36px 0; }
+
+.fill-badge {
+  display: inline-block;
+  background: rgba(255,184,0,0.10);
+  border: 1px solid rgba(255,184,0,0.28);
+  color: var(--ouro);
+  font-size: 0.70rem; font-weight: 600;
+  letter-spacing: 0.08em; padding: 1px 8px; border-radius: 3px;
+}
+
+/* ── RODAPÉ ── */
+footer {
+  background: var(--ardosia);
+  border-top: 1px solid var(--ouro-dim);
+  text-align: center; padding: 36px 32px;
+}
+footer p { font-size: 0.72rem; color: var(--texto-dim); letter-spacing: 0.06em; line-height: 1.8; }
+footer strong { color: var(--ouro); }
+
+@media (max-width: 800px) {
+  .page-wrap { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--borda); padding: 24px 20px; }
+  .content { padding: 40px 20px 64px; }
+  .back-btn { position: static; display: inline-flex; margin-bottom: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <a class="back-btn" href="index.html">&#8592; Índice Geral</a>
+  <div class="header-label">Gabaritando &mdash; Pesquisa de Mercado</div>
+  <h1>Tendências <em>Internacionais</em></h1>
+  <div class="header-rule"></div>
+  <p class="header-meta">Abril de 2026 &mdash; Uso interno</p>
+</header>
+
+<div class="page-wrap">
+  <aside class="sidebar"><div class="toc-heading">Neste documento</div><ul class="toc-list"><li class=""><a href="#projeto-gabaritando-pesquisa-de-mercado">Projeto GABARITANDO — Pesquisa de Mercado</a></li><li class=""><a href="#sum-rio-executivo">SUMÁRIO EXECUTIVO</a></li><li class=""><a href="#1-tend-ncias-dos-eua-maior-mercado-de-preparat-rios-policiais-do-mundo">1. TENDÊNCIAS DOS EUA — MAIOR MERCADO DE PREPARATÓRIOS POLICIAIS DO MUNDO</a></li><li class="toc-h3"><a href="#contexto-do-mercado-americano">Contexto do mercado americano</a></li><li class="toc-h3"><a href="#tend-ncia-1-apps-mobile-com-simulados-gamificados">Tendência 1: Apps mobile com simulados gamificados</a></li><li class="toc-h3"><a href="#tend-ncia-2-prepara-o-para-o-processo-completo-n-o-s-a-prova-escrita">Tendência 2: Preparação para o processo completo (não só a prova escrita)</a></li><li class="toc-h3"><a href="#tend-ncia-3-comunidade-como-produto">Tendência 3: Comunidade como produto</a></li><li class="toc-h3"><a href="#tend-ncia-4-personaliza-o-por-ia">Tendência 4: Personalização por IA</a></li><li class=""><a href="#2-tend-ncias-de-portugal-mercado-mais-pr-ximo-culturalmente">2. TENDÊNCIAS DE PORTUGAL — MERCADO MAIS PRÓXIMO CULTURALMENTE</a></li><li class="toc-h3"><a href="#contexto-do-mercado-portugu-s">Contexto do mercado português</a></li><li class="toc-h3"><a href="#tend-ncia-5-prepara-o-100-mobile-first">Tendência 5: Preparação 100% mobile-first</a></li><li class="toc-h3"><a href="#tend-ncia-6-simula-o-completa-das-provas-f-sicas-com-v-deo">Tendência 6: Simulação completa das provas físicas com vídeo</a></li><li class="toc-h3"><a href="#tend-ncia-7-processo-seletivo-ampliado-psicot-cnico-e-entrevista">Tendência 7: Processo seletivo ampliado (psicotécnico e entrevista)</a></li><li class=""><a href="#3-tend-ncias-do-m-xico-e-am-rica-latina">3. TENDÊNCIAS DO MÉXICO E AMÉRICA LATINA</a></li><li class="toc-h3"><a href="#contexto">Contexto</a></li><li class="toc-h3"><a href="#tend-ncia-8-micro-certifica-es-de-compet-ncias">Tendência 8: Micro-certificações de competências</a></li><li class="toc-h3"><a href="#tend-ncia-9-cohorts-e-turmas-s-ncronas-online">Tendência 9: Cohorts e turmas síncronas online</a></li><li class=""><a href="#4-tend-ncias-de-edtech-aplic-veis-ao-nicho-brasil-e-mundo">4. TENDÊNCIAS DE EDTECH APLICÁVEIS AO NICHO (BRASIL E MUNDO)</a></li><li class="toc-h3"><a href="#tend-ncia-10-ia-como-tutor-pessoal">Tendência 10: IA como tutor pessoal</a></li><li class="toc-h3"><a href="#tend-ncia-11-gamifica-o-com-consequ-ncias-reais">Tendência 11: Gamificação com consequências reais</a></li><li class="toc-h3"><a href="#tend-ncia-12-conte-do-em-udio-podcast-e-aulas-em-udio">Tendência 12: Conteúdo em áudio (podcast e aulas em áudio)</a></li><li class="toc-h3"><a href="#tend-ncia-13-aprendizado-baseado-em-evid-ncias-science-backed">Tendência 13: Aprendizado baseado em evidências (science-backed)</a></li><li class=""><a href="#5-tabela-resumo-tend-ncias-priorizadas-para-o-gabaritando">5. TABELA RESUMO: TENDÊNCIAS PRIORIZADAS PARA O GABARITANDO</a></li><li class=""><a href="#6-recomenda-o-estrat-gica">6. RECOMENDAÇÃO ESTRATÉGICA</a></li><li class="toc-h3"><a href="#o-que-o-mercado-brasileiro-de-preparat-rios-policiais-ainda-n-o-tem-gap-internacional">O que o mercado brasileiro de preparatórios policiais ainda não tem (gap internacional)</a></li></ul></aside>
+  <main class="content">
+<h1 class="md">Tendências Internacionais — Preparatórios para Carreiras Policiais</h1>
+<h2 class="md" id="projeto-gabaritando-pesquisa-de-mercado">Projeto GABARITANDO — Pesquisa de Mercado</h2>
+<p class="md"><strong>Data da análise:</strong> Abril de 2026</p>
+<hr class="md">
+<h2 class="md" id="sum-rio-executivo">SUMÁRIO EXECUTIVO</h2>
+<div class="sumario-bloco"><p class="md">O mercado internacional de preparação para carreiras policiais está evoluindo rapidamente em torno de três eixos: tecnologia adaptativa (IA e gamificação), método baseado em dados (análise de desempenho individual) e comunidade (aprendizado social e accountability). Essas tendências chegam com atraso ao Brasil — o que significa que o GABARITANDO pode implementar agora o que será padrão de mercado em 3 a 5 anos, saindo na frente dos concorrentes.</p></div>
+<hr class="md">
+<h2 class="md" id="1-tend-ncias-dos-eua-maior-mercado-de-preparat-rios-policiais-do-mundo">1. TENDÊNCIAS DOS EUA — MAIOR MERCADO DE PREPARATÓRIOS POLICIAIS DO MUNDO</h2>
+<h3 class="md" id="contexto-do-mercado-americano">Contexto do mercado americano</h3>
+<p class="md">Nos EUA, o processo seletivo policial é feito por cada departamento individualmente (não há um concurso nacional unificado), mas o formato de preparação criou um mercado robusto de apps e cursos online. As lições são transferíveis para o modelo brasileiro.</p>
+<h3 class="md" id="tend-ncia-1-apps-mobile-com-simulados-gamificados">Tendência 1: Apps mobile com simulados gamificados</h3>
+<p class="md"><strong>O que está acontecendo:</strong></p>
+<ul class="md">
+<li>Apps como &quot;US Police Test Prep Study 2025&quot; e &quot;LEAB Police Exam Prep 2025&quot; disponíveis na App Store e Google Play</li>
+<li>Formato: banco de questões + simulados com tempo + análise de desempenho + plano de estudo adaptativo</li>
+<li>Diferenciais comuns: &quot;desenvolvido por instrutores policiais experientes&quot;, &quot;simula as condições reais da prova&quot;</li>
+</ul>
+<p class="md"><strong>Como aplicar no GABARITANDO:</strong></p>
+<ul class="md">
+<li>Criar ou integrar um app mobile para o banco de questões (ou garantir que a plataforma seja mobile-friendly com UX de app)</li>
+<li>Comunicar que as questões são &quot;desenvolvidas por Oficiais da PMBA&quot; — equivalente ao &quot;seasoned police instructors&quot; americano</li>
+<li>Incluir simulados com timer e análise pós-simulado (&quot;você acertou X% de Português, precisa reforçar Matemática&quot;)</li>
+</ul>
+<h3 class="md" id="tend-ncia-2-prepara-o-para-o-processo-completo-n-o-s-a-prova-escrita">Tendência 2: Preparação para o processo completo (não só a prova escrita)</h3>
+<p class="md"><strong>O que está acontecendo:</strong></p>
+<p class="md">O curso &quot;PoliceExam911&quot; (Sgt. George Godoy) é considerado o melhor dos EUA porque cobre <strong>todo o processo seletivo</strong>: inscrição, triagem, redação de carta motivacional, testes físicos, entrevistas e avaliações psicológicas. Não apenas a prova objetiva.</p>
+<p class="md"><strong>Como aplicar no GABARITANDO:</strong></p>
+<ul class="md">
+<li>Criar módulos específicos para cada etapa do processo seletivo brasileiro: prova objetiva, redação, TAF, exame médico, avaliação psicológica</li>
+<li>Posicionar como &quot;do edital à nomeação&quot; — não apenas &quot;do zero à prova&quot;</li>
+<li>Especialmente valioso: preparação para a avaliação psicológica (etapa que muitos candidatos ignoram e que elimina muitos)</li>
+</ul>
+<h3 class="md" id="tend-ncia-3-comunidade-como-produto">Tendência 3: Comunidade como produto</h3>
+<p class="md"><strong>O que está acontecendo:</strong></p>
+<p class="md">Plataformas americanas perceberam que a retenção e o sucesso dos alunos aumentam exponencialmente com comunidade ativa. Forums, grupos de estudo, accountability partners e rankings internos viram features pagas do produto.</p>
+<p class="md"><strong>Como aplicar no GABARITANDO:</strong></p>
+<ul class="md">
+<li>Criar grupos de estudo por turma (WhatsApp, Telegram ou dentro da plataforma)</li>
+<li>Sistema de ranking interno com pontuação por questões respondidas, simulados feitos e dias de acesso</li>
+<li>&quot;Dupla de estudos&quot; — conectar alunos para accountability mútuo</li>
+<li>Hall da fama dos aprovados (mural atualizado mensalmente)</li>
+</ul>
+<h3 class="md" id="tend-ncia-4-personaliza-o-por-ia">Tendência 4: Personalização por IA</h3>
+<p class="md"><strong>O que está acontecendo:</strong></p>
+<p class="md">Plataformas como uCertify oferecem &quot;adaptive learning paths&quot; — o sistema identifica os pontos fracos do aluno e adapta o conteúdo apresentado. Não é mais &quot;você decide o que estudar&quot; — é &quot;o sistema te diz o que você mais precisa agora&quot;.</p>
+<p class="md"><strong>Como aplicar no GABARITANDO:</strong></p>
+<ul class="md">
+<li>Mesmo sem tecnologia de IA própria, criar um &quot;diagnóstico inicial&quot; que mapeia os pontos fracos e gera uma recomendação de estudo personalizada</li>
+<li>No futuro próximo: integrar IA para análise de desempenho e recomendação de conteúdo (tecnologia cada vez mais acessível via API)</li>
+<li>Comunicar como diferencial: &quot;O GABARITANDO identifica onde você está errando e te diz exatamente onde focar&quot;</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="2-tend-ncias-de-portugal-mercado-mais-pr-ximo-culturalmente">2. TENDÊNCIAS DE PORTUGAL — MERCADO MAIS PRÓXIMO CULTURALMENTE</h2>
+<h3 class="md" id="contexto-do-mercado-portugu-s">Contexto do mercado português</h3>
+<p class="md">Portugal tem concursos para PSP (Polícia de Segurança Pública) e GNR (Guarda Nacional Republicana) com formato semelhante ao brasileiro. O mercado de preparação é menor mas tecnologicamente mais avançado.</p>
+<h3 class="md" id="tend-ncia-5-prepara-o-100-mobile-first">Tendência 5: Preparação 100% mobile-first</h3>
+<p class="md"><strong>O que está acontecendo:</strong></p>
+<p class="md">A plataforma &quot;Eu Quero Entrar&quot; (euqueroentrar.pt) é referência em Portugal para GNR e PSP. Permite treinar em &quot;telemóvel, tablet ou computador&quot; e <strong>analisa o desempenho automaticamente para identificar os tópicos que precisam reforço</strong>. Não é um app de questões — é um sistema de diagnóstico contínuo.</p>
+<p class="md">Resultado: 98% dos formandos da Master D aprovaram na prova de conhecimentos do concurso GNR/PSP em 2024.</p>
+<p class="md"><strong>Como aplicar no GABARITANDO:</strong></p>
+<ul class="md">
+<li>Garantir que 100% da plataforma funcione bem no celular (a maioria dos candidatos estuda pelo smartphone)</li>
+<li>Criar relatório semanal de desempenho enviado por WhatsApp: &quot;Esta semana você acertou X questões de Português e Y de Matemática — continue forte!&quot;</li>
+<li>O diferencial de &quot;diagnóstico automático&quot; pode ser implementado de forma simples com relatórios manuais em um primeiro momento</li>
+</ul>
+<h3 class="md" id="tend-ncia-6-simula-o-completa-das-provas-f-sicas-com-v-deo">Tendência 6: Simulação completa das provas físicas com vídeo</h3>
+<p class="md"><strong>O que está acontecendo:</strong></p>
+<p class="md">Plataformas portuguesas incluem módulos de preparação física com vídeos de demonstração dos exercícios exigidos no concurso. O candidato vê exatamente como executar cada movimento e quais são os critérios de aprovação.</p>
+<p class="md"><strong>Como aplicar no GABARITANDO:</strong></p>
+<ul class="md">
+<li>Criar módulo de TAF (Teste de Aptidão Física) com:</li>
+<ul class="md nested">
+<li>- Descrição detalhada de cada prova física do concurso</li>
+<li>- Vídeos demonstrativos dos movimentos (gravados pelos próprios Oficiais)</li>
+<li>- Protocolo de treino progressivo para atingir os índices exigidos</li>
+<li>- &quot;Simulador de TAF&quot; — o aluno registra seus resultados e vê se passaria</li>
+</ul>
+</ul>
+<h3 class="md" id="tend-ncia-7-processo-seletivo-ampliado-psicot-cnico-e-entrevista">Tendência 7: Processo seletivo ampliado (psicotécnico e entrevista)</h3>
+<p class="md"><strong>O que está acontecendo:</strong></p>
+<p class="md">Em Portugal, a preparação inclui obrigatoriamente módulos para avaliação psicológica e entrevistas de seleção — etapas que eliminam muitos candidatos. A plataforma Master D tem aprovação de 98% na prova de conhecimentos e alta taxa nas outras etapas justamente por cobrir o processo completo.</p>
+<p class="md"><strong>Como aplicar no GABARITANDO:</strong></p>
+<ul class="md">
+<li>Módulo de preparação para avaliação psicológica (o que é, como funciona, como se preparar mentalmente)</li>
+<li>Simulação de entrevistas com feedback</li>
+<li>Comunicar: &quot;Nós te preparamos para todas as etapas — não só para a prova escrita&quot;</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="3-tend-ncias-do-m-xico-e-am-rica-latina">3. TENDÊNCIAS DO MÉXICO E AMÉRICA LATINA</h2>
+<h3 class="md" id="contexto">Contexto</h3>
+<p class="md">O México tem o CENAPP (Centro Nacional de Profesionalización y Formación Policial) e processos seletivos para policías federais e estaduais. A América Latina de forma geral está digitalizando seus processos seletivos policiais.</p>
+<h3 class="md" id="tend-ncia-8-micro-certifica-es-de-compet-ncias">Tendência 8: Micro-certificações de competências</h3>
+<p class="md"><strong>O que está acontecendo:</strong></p>
+<p class="md">Plataformas de preparação policiais na América Latina começam a oferecer &quot;certificados de proficiência por disciplina&quot; — o candidato estuda Direito Constitucional, faz uma prova e recebe um certificado de proficiência. Isso cria gamificação natural (coletar certificados) e prova social extra.</p>
+<p class="md"><strong>Como aplicar no GABARITANDO:</strong></p>
+<ul class="md">
+<li>Criar &quot;Badges de Proficiência&quot; por matéria dentro da plataforma</li>
+<li>Aluno que conclui o módulo de Português e atinge nota acima de X nos simulados ganha o badge &quot;Proficiente em Português para Concurso Policial&quot;</li>
+<li>Publicar os badges no Instagram como prova social (reels de conquistas)</li>
+</ul>
+<h3 class="md" id="tend-ncia-9-cohorts-e-turmas-s-ncronas-online">Tendência 9: Cohorts e turmas síncronas online</h3>
+<p class="md"><strong>O que está acontecendo:</strong></p>
+<p class="md">Ao invés de cursos individuais e assíncronos, preparatórios começam a criar turmas com início e fim definidos, estudando juntos em um calendário. O modelo cria senso de pertencimento, urgência de início e accountability social.</p>
+<p class="md"><strong>Como aplicar no GABARITANDO:</strong></p>
+<ul class="md">
+<li>Criar turmas com data de início (ex: &quot;Turma PMBA 2026 — início em 15 de março&quot;)</li>
+<li>Gerar urgência: &quot;Turma fechar em X dias&quot;</li>
+<li>Dentro da turma: cronograma semanal coletivo, lives em datas fixas, grupo exclusivo</li>
+<li>Permite criar campanhas de lançamento com deadline real</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="4-tend-ncias-de-edtech-aplic-veis-ao-nicho-brasil-e-mundo">4. TENDÊNCIAS DE EDTECH APLICÁVEIS AO NICHO (BRASIL E MUNDO)</h2>
+<h3 class="md" id="tend-ncia-10-ia-como-tutor-pessoal">Tendência 10: IA como tutor pessoal</h3>
+<p class="md"><strong>O que está acontecendo globalmente:</strong></p>
+<p class="md">Plataformas como Khan Academy, Duolingo e Coursera integram chatbots de IA que respondem dúvidas dos alunos em tempo real. O Profissão Policial já anunciou &quot;IA disponível 24h para dúvidas&quot; como diferencial. O Manual do Mike tem &quot;RedaMike IA&quot; para correção de redações.</p>
+<p class="md"><strong>Como aplicar no GABARITANDO:</strong></p>
+<ul class="md">
+<li>No curto prazo: integrar um assistente baseado em ChatGPT/Claude para responder dúvidas de conteúdo (simples de implementar via API)</li>
+<li>No médio prazo: usar IA para correção automatizada de redações (diferencial que o Rumo não tem)</li>
+<li>Comunicar como diferencial: &quot;Professor disponível 24h — mesmo às 2h da manhã quando você está estudando&quot;</li>
+</ul>
+<h3 class="md" id="tend-ncia-11-gamifica-o-com-consequ-ncias-reais">Tendência 11: Gamificação com consequências reais</h3>
+<p class="md"><strong>O que está acontecendo:</strong></p>
+<p class="md">A gamificação evoluiu de simples pontos e badges para sistemas com consequências reais para o aluno:</p>
+<ul class="md">
+<li>Streak diário (se parar de estudar, perde a sequência)</li>
+<li>Ranking público com nomes dos alunos (pressão social positiva)</li>
+<li>Desafios semanais com prêmios (livros, desconto em renovação, kit físico)</li>
+<li>&quot;Missões&quot; com objetivos semanais (ex: &quot;resolva 50 questões de Português esta semana&quot;)</li>
+</ul>
+<p class="md"><strong>Como aplicar no GABARITANDO:</strong></p>
+<ul class="md">
+<li>Criar ranking semanal dos alunos mais ativos na plataforma</li>
+<li>Divulgar o ranking no Instagram stories como prova social e motivação</li>
+<li>Criar sistema de &quot;missões semanais&quot; alinhadas ao cronograma</li>
+<li>Prêmio mensal para o aluno mais dedicado (livro, camiseta, sessão de mentoria bônus)</li>
+</ul>
+<h3 class="md" id="tend-ncia-12-conte-do-em-udio-podcast-e-aulas-em-udio">Tendência 12: Conteúdo em áudio (podcast e aulas em áudio)</h3>
+<p class="md"><strong>O que está acontecendo:</strong></p>
+<p class="md">Candidatos a concurso estão se preparando durante deslocamentos, academia e tarefas domésticas. Plataformas que oferecem conteúdo em áudio (podcasts de conteúdo, aulas em MP3) capturam essas horas extras de estudo.</p>
+<p class="md"><strong>Como aplicar no GABARITANDO:</strong></p>
+<ul class="md">
+<li>Criar podcast curto (10 a 15 min) sobre o concurso policial da Bahia</li>
+<li>&quot;GABARITANDO Talks&quot; — episódios semanais com dicas, depoimentos e análise de edital</li>
+<li>Disponibilizar aulas em formato áudio para candidatos ouvirem no trânsito</li>
+<li>Distribuir no Spotify e plataformas de podcast (sem custo adicional)</li>
+</ul>
+<h3 class="md" id="tend-ncia-13-aprendizado-baseado-em-evid-ncias-science-backed">Tendência 13: Aprendizado baseado em evidências (science-backed)</h3>
+<p class="md"><strong>O que está acontecendo:</strong></p>
+<p class="md">Preparatórios mais sofisticados baseiam seus métodos em ciência cognitiva: repetição espaçada (spaced repetition), efeito de teste (retrieval practice) e intercalação de matérias (interleaving). Plataformas como Anki popularizaram o flashcard com espaçamento.</p>
+<p class="md"><strong>Como aplicar no GABARITANDO:</strong></p>
+<ul class="md">
+<li>Implementar flashcards com repetição espaçada (tecnologia já disponível gratuitamente via Anki)</li>
+<li>Comunicar a ciência por trás do método: &quot;Usamos repetição espaçada — a técnica de memorização comprovada pela neurociência&quot;</li>
+<li>Criar conteúdo educativo sobre como estudar de forma eficiente (diferencial para quem tem pouco tempo)</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="5-tabela-resumo-tend-ncias-priorizadas-para-o-gabaritando">5. TABELA RESUMO: TENDÊNCIAS PRIORIZADAS PARA O GABARITANDO</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Tendência</th>
+<th>Origem</th>
+<th>Impacto Estimado</th>
+<th>Facilidade de Implementação</th>
+<th>Prioridade</th>
+</tr></thead><tbody>
+<tr>
+<td>App/plataforma mobile-first</td>
+<td>Portugal / EUA</td>
+<td>Alto</td>
+<td>Médio</td>
+<td>ALTA</td>
+</tr>
+<tr>
+<td>Simulados com análise de desempenho</td>
+<td>EUA</td>
+<td>Alto</td>
+<td>Médio</td>
+<td>ALTA</td>
+</tr>
+<tr>
+<td>Cobertura do processo completo (TAF, psico)</td>
+<td>Portugal</td>
+<td>Alto</td>
+<td>Baixo</td>
+<td>ALTA</td>
+</tr>
+<tr>
+<td>Turmas síncronas com data de início</td>
+<td>América Latina</td>
+<td>Alto</td>
+<td>Alto</td>
+<td>ALTA</td>
+</tr>
+<tr>
+<td>Gamificação com ranking e missões</td>
+<td>Global</td>
+<td>Médio-Alto</td>
+<td>Médio</td>
+<td>MÉDIA</td>
+</tr>
+<tr>
+<td>IA como tutor 24h</td>
+<td>Global</td>
+<td>Alto</td>
+<td>Médio</td>
+<td>MÉDIA</td>
+</tr>
+<tr>
+<td>Podcast/conteúdo em áudio</td>
+<td>Global</td>
+<td>Médio</td>
+<td>Alto</td>
+<td>MÉDIA</td>
+</tr>
+<tr>
+<td>Micro-certificações por matéria</td>
+<td>América Latina</td>
+<td>Médio</td>
+<td>Alto</td>
+<td>MÉDIA</td>
+</tr>
+<tr>
+<td>Flashcards com repetição espaçada</td>
+<td>Global</td>
+<td>Alto</td>
+<td>Alto</td>
+<td>ALTA</td>
+</tr>
+<tr>
+<td>Personalização por diagnóstico inicial</td>
+<td>EUA/Portugal</td>
+<td>Alto</td>
+<td>Alto</td>
+<td>ALTA</td>
+</tr>
+</tbody></table></div>
+<hr class="md">
+<h2 class="md" id="6-recomenda-o-estrat-gica">6. RECOMENDAÇÃO ESTRATÉGICA</h2>
+<h3 class="md" id="o-que-o-mercado-brasileiro-de-preparat-rios-policiais-ainda-n-o-tem-gap-internacional">O que o mercado brasileiro de preparatórios policiais ainda não tem (gap internacional)</h3>
+<ol class="md">
+<li><strong>Preparação para avaliação psicológica</strong> — todas as etapas exigem avaliação psicológica; nenhum preparatório nacional tem módulo específico para isso</li>
+<li><strong>Módulo de TAF com protocolo de treino</strong> — candidatos têm medo do físico, mas nenhum preparatório digital oferece preparação física estruturada</li>
+<li><strong>Conteúdo em áudio</strong> — nenhum preparatório policial do Brasil tem podcast ativo com conteúdo de qualidade</li>
+<li><strong>Turmas síncronas</strong> — a maioria dos cursos é assíncrono; o modelo de turma com início definido é diferenciador</li>
+</ol>
+<p class="md"><strong>Oportunidade do GABARITANDO:</strong> Ser o primeiro preparatório policial do Brasil a cobrir todas as etapas do processo seletivo — da prova escrita ao TAF, da redação à avaliação psicológica. Esse posicionamento de &quot;preparação completa&quot; justifica preço premium e tem diferencial claro frente ao RUMO, Projeto Missão e concorrentes nacionais.</p>
+<hr class="md">
+<p class="md"><em>Fontes: Análise de apps na Apple App Store (EUA), sites euqueroentrar.pt e masterd.pt (Portugal), relatórios de tendências educacionais 2025 (Rubeus, Mestres EAD, TOTVS, Fundação Telefônica Vivo), análise comparativa de plataformas brasileiras.</em></p>
+  </main>
+</div>
+
+<footer>
+  <p><strong>Gabaritando</strong> &mdash; Preparatório para Carreiras Policiais da Bahia &mdash; Uso interno</p>
+  <p style="margin-top:6px">Abril de 2026</p>
+</footer>
+
+<script>
+// Highlight active TOC link on scroll
+(function() {
+  var headings = document.querySelectorAll('h2.md[id], h3.md[id]');
+  var links    = document.querySelectorAll('.toc-list a');
+  if (!headings.length || !links.length) return;
+  function activate() {
+    var scrollY = window.scrollY + 80;
+    var current = '';
+    headings.forEach(function(h) {
+      if (h.offsetTop <= scrollY) current = h.id;
+    });
+    links.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', activate, {passive: true});
+  activate();
+})();
+</script>
+
+</body>
+</html>

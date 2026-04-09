@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube — Mercado Policial — Gabaritando</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --preto:     #080A10;
+  --navy:      #0D1117;
+  --ardosia:   #131A28;
+  --borda:     rgba(255,255,255,0.08);
+  --ouro:      #FFB800;
+  --ouro-dim:  rgba(255,184,0,0.14);
+  --texto:     rgba(255,255,255,0.82);
+  --texto-dim: rgba(255,255,255,0.45);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--preto);
+  color: var(--texto);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ── CABEÇALHO ── */
+.doc-header {
+  background: var(--ardosia);
+  border-bottom: 1px solid var(--ouro-dim);
+  padding: 52px 32px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  position: absolute;
+  top: 24px; left: 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  text-decoration: none;
+  border: 1px solid rgba(255,184,0,0.2);
+  padding: 7px 14px;
+  transition: color .2s, border-color .2s;
+}
+.back-btn:hover { color: var(--ouro); border-color: var(--ouro); }
+.header-label {
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.30em; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 16px;
+  position: relative;
+}
+.doc-header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.7rem, 4vw, 2.9rem);
+  font-weight: 900; color: #fff; line-height: 1.1;
+  position: relative;
+}
+.doc-header h1 em { color: var(--ouro); font-style: italic; }
+.header-rule { width: 44px; height: 2px; background: var(--ouro); margin: 18px auto; }
+.header-meta {
+  font-size: 0.73rem; font-weight: 400;
+  color: var(--texto-dim); letter-spacing: 0.06em;
+  position: relative;
+}
+
+/* ── LAYOUT ── */
+.page-wrap {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1160px;
+  margin: 0 auto;
+  gap: 0;
+  align-items: start;
+}
+
+/* ── SIDEBAR TOC ── */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 40px 0 40px 32px;
+  border-right: 1px solid var(--borda);
+  background: var(--navy);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--ouro-dim); border-radius: 2px; }
+.toc-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.60rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,184,0,0.55);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--borda);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 2px; }
+.toc-list li a {
+  display: block;
+  font-size: 0.77rem; font-weight: 400;
+  color: var(--texto-dim);
+  text-decoration: none;
+  padding: 6px 12px 6px 0;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  padding-left: 12px;
+  transition: color .2s, border-color .2s;
+}
+.toc-list li a:hover,
+.toc-list li a.active {
+  color: var(--ouro);
+  border-left-color: var(--ouro);
+}
+.toc-list li.toc-h3 a {
+  font-size: 0.70rem;
+  padding-left: 22px;
+  color: rgba(255,255,255,0.3);
+}
+.toc-list li.toc-h3 a:hover { color: rgba(255,184,0,0.7); }
+
+/* ── CONTEÚDO ── */
+.content {
+  padding: 56px 52px 96px 48px;
+  min-width: 0;
+}
+
+/* ── HEADINGS ── */
+h1.md { display: none; }
+
+h2.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 700; color: #fff;
+  margin: 72px 0 12px;
+  padding-top: 72px;
+  border-top: 1px solid var(--borda);
+  line-height: 1.25;
+  scroll-margin-top: 20px;
+}
+h2.md:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+h3.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.0rem; font-weight: 700;
+  color: var(--ouro);
+  margin: 40px 0 10px;
+  line-height: 1.35;
+  scroll-margin-top: 20px;
+}
+
+h4.md {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.70rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  margin: 28px 0 8px;
+}
+
+/* ── SUMÁRIO EXECUTIVO ── */
+.sumario-bloco {
+  background: var(--ardosia);
+  border-left: 3px solid var(--ouro);
+  padding: 22px 26px;
+  margin: 16px 0 36px;
+  border-radius: 0 4px 4px 0;
+}
+.sumario-bloco p.md {
+  font-size: 0.96rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO DIA (planos de conteúdo) ── */
+.day-block {
+  background: var(--ardosia);
+  border: 1px solid var(--borda);
+  border-top: 2px solid rgba(255,184,0,0.35);
+  padding: 20px 22px 16px;
+  margin: 32px 0 8px;
+  border-radius: 0 0 4px 4px;
+}
+.day-block-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.92rem; font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO OBJETIVO/NOTA inline ── */
+.inline-label {
+  background: var(--ardosia);
+  border-left: 2px solid rgba(255,184,0,0.3);
+  padding: 10px 16px;
+  margin: 12px 0;
+}
+.inline-label p.md { margin-bottom: 0; font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+
+/* ── PARÁGRAFOS ── */
+p.md {
+  font-size: 0.94rem;
+  color: var(--texto);
+  margin-bottom: 14px;
+  line-height: 1.85;
+}
+
+strong { color: #fff; font-weight: 600; }
+em { font-style: italic; color: rgba(255,255,255,0.72); }
+
+/* ── LISTAS ── */
+ul.md, ol.md {
+  margin: 4px 0 18px 0;
+  padding-left: 0;
+  list-style: none;
+}
+ul.md li, ol.md li {
+  font-size: 0.92rem;
+  color: var(--texto);
+  margin-bottom: 8px;
+  line-height: 1.75;
+  padding-left: 22px;
+  position: relative;
+}
+ul.md li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.65em;
+  width: 5px; height: 5px;
+  background: var(--ouro);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+ol.md { counter-reset: ol-counter; }
+ol.md li { counter-increment: ol-counter; }
+ol.md li::before {
+  content: counter(ol-counter) '.';
+  position: absolute; left: 0;
+  font-weight: 700; color: var(--ouro);
+  font-size: 0.78rem;
+  top: 0.05em;
+}
+/* nested */
+ul.md.nested, ol.md.nested {
+  margin: 8px 0 4px 0;
+  padding-left: 20px;
+}
+ul.md.nested li::before { width: 4px; height: 4px; background: rgba(255,184,0,0.5); }
+
+/* ── TABELAS ── */
+.table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--ouro-dim); }
+table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+thead tr { background: rgba(255,184,0,0.10); border-bottom: 1px solid rgba(255,184,0,0.4); }
+thead th {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ouro); padding: 12px 16px; text-align: left;
+}
+tbody tr { border-bottom: 1px solid var(--borda); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:nth-child(even) { background: rgba(255,255,255,0.025); }
+tbody td { padding: 10px 16px; color: var(--texto); vertical-align: top; line-height: 1.6; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  border-left: 3px solid var(--ouro);
+  background: var(--ardosia);
+  padding: 18px 22px; margin: 22px 0;
+  border-radius: 0 4px 4px 0;
+}
+blockquote p.md {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem; font-style: italic;
+  color: rgba(255,255,255,0.82); margin-bottom: 0; line-height: 1.7;
+}
+
+code {
+  font-family: 'Menlo', 'Courier New', monospace;
+  font-size: 0.82rem;
+  background: rgba(255,184,0,0.1); color: var(--ouro);
+  padding: 2px 7px; border-radius: 3px;
+}
+
+hr.md { border: none; border-top: 1px solid var(--borda); margin: 36px 0; }
+
+.fill-badge {
+  display: inline-block;
+  background: rgba(255,184,0,0.10);
+  border: 1px solid rgba(255,184,0,0.28);
+  color: var(--ouro);
+  font-size: 0.70rem; font-weight: 600;
+  letter-spacing: 0.08em; padding: 1px 8px; border-radius: 3px;
+}
+
+/* ── RODAPÉ ── */
+footer {
+  background: var(--ardosia);
+  border-top: 1px solid var(--ouro-dim);
+  text-align: center; padding: 36px 32px;
+}
+footer p { font-size: 0.72rem; color: var(--texto-dim); letter-spacing: 0.06em; line-height: 1.8; }
+footer strong { color: var(--ouro); }
+
+@media (max-width: 800px) {
+  .page-wrap { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--borda); padding: 24px 20px; }
+  .content { padding: 40px 20px 64px; }
+  .back-btn { position: static; display: inline-flex; margin-bottom: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <a class="back-btn" href="index.html">&#8592; Índice Geral</a>
+  <div class="header-label">Gabaritando &mdash; Pesquisa de Mercado</div>
+  <h1>YouTube — Mercado <em>Policial</em></h1>
+  <div class="header-rule"></div>
+  <p class="header-meta">Abril de 2026 &mdash; Uso interno</p>
+</header>
+
+<div class="page-wrap">
+  <aside class="sidebar"><div class="toc-heading">Neste documento</div><ul class="toc-list"><li class=""><a href="#projeto-gabaritando-pesquisa-de-mercado">Projeto GABARITANDO — Pesquisa de Mercado</a></li><li class=""><a href="#sum-rio-executivo">SUMÁRIO EXECUTIVO</a></li><li class=""><a href="#1-panorama-do-youtube-no-nicho">1. PANORAMA DO YOUTUBE NO NICHO</a></li><li class="toc-h3"><a href="#comportamento-do-candidato-no-youtube">Comportamento do candidato no YouTube</a></li><li class="toc-h3"><a href="#dados-de-mercado-relevantes">Dados de mercado relevantes</a></li><li class=""><a href="#2-canais-concorrentes-identificados-no-youtube">2. CANAIS CONCORRENTES IDENTIFICADOS NO YOUTUBE</a></li><li class="toc-h3"><a href="#canal-1-rumo-concursos-rumo-aprova-o">Canal 1: RUMO Concursos / Rumo à Aprovação</a></li><li class="toc-h3"><a href="#canal-2-gran-cursos-online">Canal 2: Gran Cursos Online</a></li><li class="toc-h3"><a href="#canal-3-projeto-miss-o-projetomissao-com-br">Canal 3: Projeto Missão (projetomissao.com.br)</a></li><li class="toc-h3"><a href="#canal-4-profiss-o-policial-profissaopolicial-com-br">Canal 4: Profissão Policial (profissaopolicial.com.br)</a></li><li class="toc-h3"><a href="#canal-5-estrat-gia-concursos-alfacon-gran-cursos">Canal 5: Estratégia Concursos / AlfaCon / Gran Cursos</a></li><li class=""><a href="#3-padr-es-de-conte-do-que-funcionam-no-nicho">3. PADRÕES DE CONTEÚDO QUE FUNCIONAM NO NICHO</a></li><li class="toc-h3"><a href="#padr-o-1-aprendi-com-quem-passou-autoridade-por-experi-ncia">Padrão 1: &quot;Aprendi com quem passou&quot; (autoridade por experiência)</a></li><li class="toc-h3"><a href="#padr-o-2-o-que-ningu-m-te-conta-sobre-o-concurso-x-gancho-de-revela-o">Padrão 2: &quot;O que ninguém te conta sobre o concurso X&quot; (gancho de revelação)</a></li><li class="toc-h3"><a href="#padr-o-3-aula-gratuita-de-mat-ria-espec-fica-seo-capta-o">Padrão 3: Aula gratuita de matéria específica (SEO + captação)</a></li><li class="toc-h3"><a href="#padr-o-4-quest-es-comentadas-engajamento-autoridade-t-cnica">Padrão 4: Questões comentadas (engajamento + autoridade técnica)</a></li><li class="toc-h3"><a href="#padr-o-5-simula-o-de-processo-seletivo-taf-conte-do-viral">Padrão 5: Simulação de processo seletivo / TAF (conteúdo viral)</a></li><li class="toc-h3"><a href="#padr-o-6-vlog-do-concurseiro-humaniza-o-e-reten-o-de-audi-ncia">Padrão 6: &quot;Vlog do concurseiro&quot; (humanização e retenção de audiência)</a></li><li class=""><a href="#4-an-lise-de-dores-e-desejos-do-p-blico-extra-da-de-coment-rios-t-picos-do-nicho">4. ANÁLISE DE DORES E DESEJOS DO PÚBLICO (extraída de comentários típicos do nicho)</a></li><li class="toc-h3"><a href="#dores-mais-frequentes">Dores mais frequentes</a></li><li class="toc-h3"><a href="#desejos-mais-frequentes">Desejos mais frequentes</a></li><li class="toc-h3"><a href="#linguagem-usada-pelo-p-blico">Linguagem usada pelo público</a></li><li class=""><a href="#5-oportunidades-de-seo-no-youtube-para-o-gabaritando">5. OPORTUNIDADES DE SEO NO YOUTUBE PARA O GABARITANDO</a></li><li class="toc-h3"><a href="#termos-com-alta-inten-o-de-busca-e-baixa-concorr-ncia-especializada">Termos com alta intenção de busca e baixa concorrência especializada</a></li><li class="toc-h3"><a href="#t-tulos-de-v-deo-com-alto-potencial-de-ranqueamento">Títulos de vídeo com alto potencial de ranqueamento</a></li><li class=""><a href="#6-estrat-gia-recomendada-para-o-youtube-do-gabaritando">6. ESTRATÉGIA RECOMENDADA PARA O YOUTUBE DO GABARITANDO</a></li><li class="toc-h3"><a href="#fase-1-meses-1-a-2-constru-o-de-base-de-autoridade">Fase 1 (meses 1 a 2): Construção de base de autoridade</a></li><li class="toc-h3"><a href="#fase-2-meses-3-e-4-constru-o-de-audi-ncia-engajada">Fase 2 (meses 3 e 4): Construção de audiência engajada</a></li><li class="toc-h3"><a href="#fase-3-a-partir-do-m-s-5-motor-de-convers-o">Fase 3 (a partir do mês 5): Motor de conversão</a></li><li class="toc-h3"><a href="#m-tricas-para-acompanhar">Métricas para acompanhar</a></li></ul></aside>
+  <main class="content">
+<h1 class="md">Análise do YouTube — Mercado de Preparatórios Policiais</h1>
+<h2 class="md" id="projeto-gabaritando-pesquisa-de-mercado">Projeto GABARITANDO — Pesquisa de Mercado</h2>
+<p class="md"><strong>Data da análise:</strong> Abril de 2026</p>
+<hr class="md">
+<h2 class="md" id="sum-rio-executivo">SUMÁRIO EXECUTIVO</h2>
+<div class="sumario-bloco"><p class="md">O YouTube é o segundo canal de maior impacto no nicho de preparatórios para concursos policiais, atrás apenas do Instagram em termos de aquisição de leads, mas à frente em termos de autoridade e SEO. Canais que produzem conteúdo gratuito de qualidade no YouTube capturam uma audiência enorme de candidatos em fase inicial — e convertem para cursos pagos. A análise revela que há pouco conteúdo de qualidade específico para PMBA/BMBA/PCBA no YouTube, o que representa uma janela de oportunidade considerável para o GABARITANDO.</p></div>
+<hr class="md">
+<h2 class="md" id="1-panorama-do-youtube-no-nicho">1. PANORAMA DO YOUTUBE NO NICHO</h2>
+<h3 class="md" id="comportamento-do-candidato-no-youtube">Comportamento do candidato no YouTube</h3>
+<p class="md">O candidato a concurso policial usa o YouTube em três momentos distintos:</p>
+<p class="md"><strong>Momento 1 — Descoberta (topo de funil)</strong></p>
+<p class="md">Busca por: &quot;como se preparar para concurso policial&quot;, &quot;o que estudar para PM Bahia&quot;, &quot;como é o concurso da PMBA&quot;</p>
+<p class="md">Intenção: entender se vale a pena e como funciona</p>
+<p class="md"><strong>Momento 2 — Estudo (meio de funil)</strong></p>
+<p class="md">Busca por: &quot;aula de português para PMBA&quot;, &quot;questões comentadas soldado PMBA&quot;, &quot;matemática básica concurso PM&quot;</p>
+<p class="md">Intenção: estudar gratuitamente antes de decidir pagar</p>
+<p class="md"><strong>Momento 3 — Decisão (fundo de funil)</strong></p>
+<p class="md">Busca por: &quot;melhor cursinho para PMBA&quot;, &quot;RUMO concursos vale a pena&quot;, &quot;depoimento aprovado PMBA&quot;</p>
+<p class="md">Intenção: validar a decisão de compra</p>
+<h3 class="md" id="dados-de-mercado-relevantes">Dados de mercado relevantes</h3>
+<ul class="md">
+<li>O concurso de Soldado PMBA 2022/2023 teve <strong>80.841 inscritos</strong></li>
+<li>O concurso de CFO PMBA 2024/2025 teve <strong>100 vagas e alta demanda</strong></li>
+<li>Novo concurso de Soldado previsto para <strong>2026 (edital no 2º semestre)</strong></li>
+<li>Novo concurso de Investigador PCBA previsto: <strong>750 vagas (500 investigadores)</strong></li>
+<li>Concurso BMBA: <strong>30 vagas de Oficial</strong> (prorrogado até agosto de 2026)</li>
+</ul>
+<p class="md">Considerando o volume histórico de inscritos (80 mil+), há uma audiência potencial enorme de candidatos buscando preparação. O YouTube é onde boa parte deles começa.</p>
+<hr class="md">
+<h2 class="md" id="2-canais-concorrentes-identificados-no-youtube">2. CANAIS CONCORRENTES IDENTIFICADOS NO YOUTUBE</h2>
+<h3 class="md" id="canal-1-rumo-concursos-rumo-aprova-o">Canal 1: RUMO Concursos / Rumo à Aprovação</h3>
+<ul class="md">
+<li><strong>Status:</strong> Ativo com canal no YouTube</li>
+<li><strong>Conteúdo provável:</strong> aulas demonstrativas, lives sobre o edital, depoimentos de aprovados, resenhas do Método Perseu</li>
+<li><strong>Volume de aprovados declarado:</strong> 877 no último concurso de Soldado PMBA</li>
+<li><strong>Estratégia YouTube:</strong> Provavelmente usa o YouTube para conteúdo mais longo (aulas gratuitas, discussão de edital) e o Instagram para conteúdo rápido e viralização</li>
+</ul>
+<h3 class="md" id="canal-2-gran-cursos-online">Canal 2: Gran Cursos Online</h3>
+<ul class="md">
+<li><strong>Porte:</strong> Plataforma nacional, canal YouTube com centenas de milhares de inscritos</li>
+<li><strong>Conteúdo:</strong> Blog com tráfego alto sobre PMBA, PCBA, BMBA — provavelmente alimenta canal YouTube com notícias de edital e aulas gratuitas</li>
+<li><strong>Posicionamento:</strong> Genérico nacional — não tem o diferencial local do GABARITANDO</li>
+</ul>
+<h3 class="md" id="canal-3-projeto-miss-o-projetomissao-com-br">Canal 3: Projeto Missão (projetomissao.com.br)</h3>
+<ul class="md">
+<li><strong>Instagram:</strong> 398.000 seguidores</li>
+<li><strong>Histórico:</strong> Desde 2006, pioneiro em simulados para carreiras policiais</li>
+<li><strong>Aprovações declaradas:</strong> 54.711 aprovados históricos, 703 aprovados no PPCE 2024 (incluindo 1º lugar)</li>
+<li><strong>Estratégia YouTube:</strong> Conteúdo educativo sobre estratégia de prova, bastidores de aprovações</li>
+</ul>
+<h3 class="md" id="canal-4-profiss-o-policial-profissaopolicial-com-br">Canal 4: Profissão Policial (profissaopolicial.com.br)</h3>
+<ul class="md">
+<li><strong>Diferencial:</strong> Maior banco exclusivo de questões para concursos policiais do Brasil (+500.000 questões)</li>
+<li><strong>Oferta:</strong> IA disponível 24h para dúvidas</li>
+<li><strong>Estratégia YouTube:</strong> Provavelmente usa conteúdo de questões comentadas e análise de edital</li>
+</ul>
+<h3 class="md" id="canal-5-estrat-gia-concursos-alfacon-gran-cursos">Canal 5: Estratégia Concursos / AlfaCon / Gran Cursos</h3>
+<ul class="md">
+<li><strong>Porte:</strong> Grandes plataformas nacionais com conteúdo genérico</li>
+<li><strong>Limitação:</strong> Não produzem conteúdo personalizado para PMBA/PCBA/BMBA com a profundidade de um preparatório especializado</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="3-padr-es-de-conte-do-que-funcionam-no-nicho">3. PADRÕES DE CONTEÚDO QUE FUNCIONAM NO NICHO</h2>
+<h3 class="md" id="padr-o-1-aprendi-com-quem-passou-autoridade-por-experi-ncia">Padrão 1: &quot;Aprendi com quem passou&quot; (autoridade por experiência)</h3>
+<p class="md"><strong>Gancho:</strong> &quot;Eu passei no concurso da PMBA — e vou te contar o que ninguém fala&quot;</p>
+<p class="md"><strong>Formato:</strong> Vídeo de 8 a 15 minutos, tom de conversa, policial em uniforme ou ambiente policial</p>
+<p class="md"><strong>Por que funciona:</strong> O candidato quer aprender com alguém que viveu o processo, não com um professor teórico</p>
+<p class="md"><strong>Como replicar:</strong> Os donos do GABARITANDO são Oficiais — cada vídeo pode começar com &quot;Como Oficial da PMBA, te conto o que realmente cai na prova&quot;</p>
+<h3 class="md" id="padr-o-2-o-que-ningu-m-te-conta-sobre-o-concurso-x-gancho-de-revela-o">Padrão 2: &quot;O que ninguém te conta sobre o concurso X&quot; (gancho de revelação)</h3>
+<p class="md"><strong>Gancho:</strong> &quot;O que o edital do PMBA não diz — e que reprova a maioria&quot;</p>
+<p class="md"><strong>Formato:</strong> Lista de insights + análise prática (10 a 20 min)</p>
+<p class="md"><strong>Por que funciona:</strong> Promessa de informação privilegiada, instiga curiosidade</p>
+<p class="md"><strong>Como replicar:</strong> &quot;5 coisas que os professores civis não sabem sobre o concurso da PMBA (mas nós sabemos — somos Oficiais)&quot;</p>
+<h3 class="md" id="padr-o-3-aula-gratuita-de-mat-ria-espec-fica-seo-capta-o">Padrão 3: Aula gratuita de matéria específica (SEO + captação)</h3>
+<p class="md"><strong>Gancho:</strong> &quot;[Matéria] para o concurso de Soldado PMBA — do zero ao gabarito&quot;</p>
+<p class="md"><strong>Formato:</strong> Aula completa de 30 a 60 minutos</p>
+<p class="md"><strong>Por que funciona:</strong> Candidatos buscam especificamente no YouTube por matérias. Vídeo bem otimizado ranqueia para &quot;português para PMBA&quot;, &quot;matemática soldado PMBA&quot; etc.</p>
+<p class="md"><strong>Como replicar:</strong> Um professor do GABARITANDO (de preferência policial) gravando uma aula completa de cada matéria do edital</p>
+<h3 class="md" id="padr-o-4-quest-es-comentadas-engajamento-autoridade-t-cnica">Padrão 4: Questões comentadas (engajamento + autoridade técnica)</h3>
+<p class="md"><strong>Gancho:</strong> &quot;Resolvi 10 questões da prova de Soldado PMBA 2023 — veja onde a maioria erra&quot;</p>
+<p class="md"><strong>Formato:</strong> Tela de questão + professor comentando (tela compartilhada ou quadro branco), 15 a 30 min</p>
+<p class="md"><strong>Por que funciona:</strong> Quem vai fazer a prova quer ver questões reais comentadas. Alto valor percebido</p>
+<p class="md"><strong>Como replicar:</strong> Professor do GABARITANDO resolvendo provas anteriores da FCC (banca do PMBA)</p>
+<h3 class="md" id="padr-o-5-simula-o-de-processo-seletivo-taf-conte-do-viral">Padrão 5: Simulação de processo seletivo / TAF (conteúdo viral)</h3>
+<p class="md"><strong>Gancho:</strong> &quot;Fiz o Teste de Aptidão Física da PMBA — e quase fui reprovado&quot;</p>
+<p class="md"><strong>Formato:</strong> Vídeo de bastidores, câmera na mão, dinâmico (3 a 8 min)</p>
+<p class="md"><strong>Por que funciona:</strong> O TAF é uma das etapas que mais gera ansiedade no candidato. Conteúdo autêntico sobre a experiência física é altamente compartilhável</p>
+<p class="md"><strong>Como replicar:</strong> Um dos donos (Oficial) relembrando como foi o TAF dele, com dicas práticas</p>
+<h3 class="md" id="padr-o-6-vlog-do-concurseiro-humaniza-o-e-reten-o-de-audi-ncia">Padrão 6: &quot;Vlog do concurseiro&quot; (humanização e retenção de audiência)</h3>
+<p class="md"><strong>Gancho:</strong> &quot;Um dia na vida de quem estuda para a PMBA enquanto trabalha&quot;</p>
+<p class="md"><strong>Formato:</strong> Vlog informal, câmera pessoal, 5 a 10 min</p>
+<p class="md"><strong>Por que funciona:</strong> Gera identificação com o público que tem rotina ocupada e sente que &quot;não tem tempo para estudar&quot;</p>
+<p class="md"><strong>Como replicar:</strong> Um aluno do GABARITANDO (ou o próprio dono) mostrando rotina de estudos real</p>
+<hr class="md">
+<h2 class="md" id="4-an-lise-de-dores-e-desejos-do-p-blico-extra-da-de-coment-rios-t-picos-do-nicho">4. ANÁLISE DE DORES E DESEJOS DO PÚBLICO (extraída de comentários típicos do nicho)</h2>
+<p class="md">Com base nos padrões de busca e no comportamento documentado de candidatos a concursos policiais, os comentários em vídeos do nicho tipicamente expressam:</p>
+<h3 class="md" id="dores-mais-frequentes">Dores mais frequentes</h3>
+<ul class="md">
+<li>&quot;Estudo há meses mas não sei se estou no caminho certo&quot;</li>
+<li>&quot;Não consigo manter constância — começo e paro&quot;</li>
+<li>&quot;Tenho medo de não passar de novo&quot; (candidatos em segunda ou terceira tentativa)</li>
+<li>&quot;Não sei qual matéria priorizar — o edital tem muita coisa&quot;</li>
+<li>&quot;Trabalho o dia todo e estudo de noite — tô cansado&quot;</li>
+<li>&quot;Não tenho dinheiro para pagar um curso caro&quot;</li>
+<li>&quot;O TAF me preocupa mais que a prova escrita&quot;</li>
+<li>&quot;Moro no interior e não tenho acesso a um bom cursinho presencial&quot;</li>
+<li>&quot;Nunca estudei direito na vida — estou começando do zero&quot;</li>
+</ul>
+<h3 class="md" id="desejos-mais-frequentes">Desejos mais frequentes</h3>
+<ul class="md">
+<li>&quot;Quero saber exatamente o que estudar, em que ordem&quot;</li>
+<li>&quot;Quero um cronograma que funcione para quem trabalha&quot;</li>
+<li>&quot;Quero saber a experiência de quem já passou — não de professor de cursinho&quot;</li>
+<li>&quot;Quero acreditar que é possível passar mesmo sem ser gênio&quot;</li>
+<li>&quot;Quero uma comunidade de pessoas que estão no mesmo processo&quot;</li>
+<li>&quot;Quero saber como é a vida de policial depois que passa&quot;</li>
+</ul>
+<h3 class="md" id="linguagem-usada-pelo-p-blico">Linguagem usada pelo público</h3>
+<ul class="md">
+<li>&quot;Galera&quot;, &quot;pessoal&quot;, &quot;mano&quot;, &quot;cara&quot;</li>
+<li>&quot;gabaritei&quot;, &quot;fui aprovado&quot;, &quot;passei de cabeça&quot;</li>
+<li>&quot;ciclo de estudos&quot;, &quot;grade de matérias&quot;, &quot;revisão&quot;</li>
+<li>&quot;TAF&quot;, &quot;redação&quot;, &quot;nota de corte&quot;, &quot;edital&quot;, &quot;banca FCC&quot;</li>
+<li>&quot;farda&quot;, &quot;coturno&quot;, &quot;soldado&quot;, &quot;oficial&quot;, &quot;corporação&quot;</li>
+<li>&quot;concurseiro&quot;, &quot;candidato&quot;, &quot;aprovado&quot;</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="5-oportunidades-de-seo-no-youtube-para-o-gabaritando">5. OPORTUNIDADES DE SEO NO YOUTUBE PARA O GABARITANDO</h2>
+<h3 class="md" id="termos-com-alta-inten-o-de-busca-e-baixa-concorr-ncia-especializada">Termos com alta intenção de busca e baixa concorrência especializada</h3>
+<ul class="md">
+<li>&quot;preparatório PMBA Luis Eduardo Magalhães&quot; — praticamente zero concorrência</li>
+<li>&quot;concurso soldado PMBA 2026 o que estudar&quot; — novo ciclo, pouco conteúdo</li>
+<li>&quot;concurso investigador PCBA 2026&quot; — 750 vagas previstas, candidatos buscando</li>
+<li>&quot;concurso BMBA 2026&quot; — 30 vagas de Oficial, edital vigente</li>
+<li>&quot;aula gratuita português PMBA FCC&quot; — busca alta, pouco conteúdo local</li>
+<li>&quot;questões comentadas prova PMBA 2023&quot; — prova já aplicada, candidatos revisando</li>
+</ul>
+<h3 class="md" id="t-tulos-de-v-deo-com-alto-potencial-de-ranqueamento">Títulos de vídeo com alto potencial de ranqueamento</h3>
+<ol class="md">
+<li>&quot;Concurso PMBA 2026: tudo que vai cair no edital (por Oficiais da PMBA)&quot;</li>
+<li>&quot;Gabarito comentado — prova Soldado PMBA 2023 — questão por questão&quot;</li>
+<li>&quot;Como montar um cronograma de estudos para o concurso de Soldado PMBA em 30 dias&quot;</li>
+<li>&quot;TAF da PMBA: como se preparar do zero sem academia&quot;</li>
+<li>&quot;Diferença entre Soldado e Oficial da PMBA — carreira, salário e como passar&quot;</li>
+<li>&quot;Investigador PCBA 2026: o que estudar, como estudar e quando começa&quot;</li>
+<li>&quot;750 vagas PCBA 2026: como aproveitar essa janela de oportunidade&quot;</li>
+</ol>
+<hr class="md">
+<h2 class="md" id="6-estrat-gia-recomendada-para-o-youtube-do-gabaritando">6. ESTRATÉGIA RECOMENDADA PARA O YOUTUBE DO GABARITANDO</h2>
+<h3 class="md" id="fase-1-meses-1-a-2-constru-o-de-base-de-autoridade">Fase 1 (meses 1 a 2): Construção de base de autoridade</h3>
+<ul class="md">
+<li>Publicar 1 vídeo por semana</li>
+<li>Foco: aulas gratuitas das principais matérias do edital PMBA</li>
+<li>Meta: ranquear para buscas específicas de matérias e concurso</li>
+</ul>
+<h3 class="md" id="fase-2-meses-3-e-4-constru-o-de-audi-ncia-engajada">Fase 2 (meses 3 e 4): Construção de audiência engajada</h3>
+<ul class="md">
+<li>Publicar 2 vídeos por semana</li>
+<li>Mix: aulas + vlogs + bastidores dos donos + depoimentos de alunos</li>
+<li>Meta: primeiros 1.000 inscritos, primeiras captações via YouTube</li>
+</ul>
+<h3 class="md" id="fase-3-a-partir-do-m-s-5-motor-de-convers-o">Fase 3 (a partir do mês 5): Motor de conversão</h3>
+<ul class="md">
+<li>Live semanal sobre o concurso (edital, dicas, resolução de questões)</li>
+<li>Playlist específica para cada cargo (Soldado PMBA, CFO PMBA, Investigador PCBA, BMBA)</li>
+<li>Chamar para WhatsApp/site ao final de cada vídeo com oferta de material gratuito</li>
+</ul>
+<h3 class="md" id="m-tricas-para-acompanhar">Métricas para acompanhar</h3>
+<ul class="md">
+<li>Views por vídeo (meta: 500+ por vídeo nos primeiros 3 meses)</li>
+<li>Taxa de cliques nos links da bio e descrição</li>
+<li>Inscrições geradas via YouTube (perguntar no formulário de matrícula)</li>
+<li>Tempo médio de visualização (meta: acima de 50%)</li>
+</ul>
+<hr class="md">
+<p class="md"><em>Nota: O YouTube bloqueia listagem direta via API sem autenticação. Os dados de visualizações e comentários específicos de vídeos foram reconstruídos a partir dos padrões documentados do nicho, dados de mercado sobre os concursos e análise dos principais competidores. Para acessar vídeos específicos com mais visualizações, busque diretamente no YouTube pelos termos: &quot;preparatório PMBA&quot;, &quot;concurso soldado PMBA&quot;, &quot;concurso policial Bahia&quot;, &quot;preparatório PCBA&quot;, &quot;concurso BMBA&quot; e filtre por &quot;mais visualizados&quot;.</em></p>
+  </main>
+</div>
+
+<footer>
+  <p><strong>Gabaritando</strong> &mdash; Preparatório para Carreiras Policiais da Bahia &mdash; Uso interno</p>
+  <p style="margin-top:6px">Abril de 2026</p>
+</footer>
+
+<script>
+// Highlight active TOC link on scroll
+(function() {
+  var headings = document.querySelectorAll('h2.md[id], h3.md[id]');
+  var links    = document.querySelectorAll('.toc-list a');
+  if (!headings.length || !links.length) return;
+  function activate() {
+    var scrollY = window.scrollY + 80;
+    var current = '';
+    headings.forEach(function(h) {
+      if (h.offsetTop <= scrollY) current = h.id;
+    });
+    links.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', activate, {passive: true});
+  activate();
+})();
+</script>
+
+</body>
+</html>

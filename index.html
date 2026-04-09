@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabaritando — Central de Documentos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --preto:      #080A10;
+      --navy:       #0D1117;
+      --ardosia:    #131A28;
+      --borda:      rgba(255,255,255,0.08);
+      --laranja:    #FF5C00;
+      --laranja-dim: rgba(255,92,0,0.13);
+      --ouro:       #FFB800;
+      --ouro-dim:   rgba(255,184,0,0.12);
+      --texto:      rgba(255,255,255,0.82);
+      --texto-dim:  rgba(255,255,255,0.42);
+    }
+
+    html { font-size: 16px; }
+    body {
+      background: var(--preto);
+      color: var(--texto);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--ardosia);
+      border-bottom: 1px solid var(--borda);
+      padding: 88px 32px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,92,0,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--laranja);
+      margin-bottom: 22px;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.08;
+      position: relative;
+    }
+    .hero h1 em { color: var(--laranja); font-style: italic; }
+    .hero-rule { width: 50px; height: 2px; background: var(--laranja); margin: 26px auto; }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.12rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      position: relative;
+    }
+
+    /* GRID */
+    .grid-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 72px 32px 100px;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.30em;
+      text-transform: uppercase;
+      color: var(--laranja);
+      margin-bottom: 28px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 64px;
+    }
+
+    /* CARD */
+    .card {
+      background: var(--ardosia);
+      border: 1px solid var(--borda);
+      border-left: 3px solid var(--laranja-dim);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 32px 28px;
+      transition: border-left-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 0% 0%, rgba(255,92,0,0.04) 0%, transparent 60%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .card:hover { border-left-color: var(--laranja); transform: translateY(-3px); box-shadow: 0 14px 44px rgba(0,0,0,0.55); }
+    .card:hover::before { opacity: 1; }
+
+    .card-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+    .card-tag {
+      font-size: 0.60rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,92,0,0.55);
+    }
+    .card-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+    }
+    .card-desc {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--texto-dim);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .card-cta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--laranja);
+      margin-top: 4px;
+    }
+    .card-cta span { transition: transform 0.2s; }
+    .card:hover .card-cta span { transform: translateX(4px); }
+
+    /* CARD destaque (pesquisa de mercado) */
+    .card.destaque {
+      border-left-color: var(--ouro-dim);
+      grid-column: 1 / -1;
+      flex-direction: row;
+      align-items: center;
+      gap: 32px;
+      padding: 28px 32px;
+    }
+    .card.destaque::before { background: radial-gradient(ellipse at 0% 50%, rgba(255,184,0,0.04) 0%, transparent 60%); }
+    .card.destaque:hover { border-left-color: var(--ouro); }
+    .card.destaque .card-cta { color: var(--ouro); }
+    .card.destaque .card-tag { color: rgba(255,184,0,0.55); }
+    .card.destaque .destaque-text { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+    .card.destaque .destaque-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      min-width: 140px;
+    }
+    .destaque-count {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--ouro);
+      line-height: 1;
+    }
+    .destaque-count-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,184,0,0.5);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ardosia);
+      border-top: 1px solid var(--borda);
+      text-align: center;
+      padding: 44px 32px;
+    }
+    footer p { font-size: 0.72rem; color: var(--texto-dim); letter-spacing: 0.06em; line-height: 1.9; }
+    footer strong { color: rgba(255,255,255,0.7); }
+
+    @media (max-width: 700px) {
+      .grid-wrap { padding: 48px 20px 72px; }
+      .grid { grid-template-columns: 1fr; }
+      .card.destaque { flex-direction: column; align-items: flex-start; }
+      .card.destaque .destaque-meta { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-label">Gabaritando &mdash; Carreiras Policiais da Bahia</div>
+  <h1>Central de <em>Documentos</em></h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">Todos os materiais estratégicos do projeto &mdash; Abril 2026</p>
+</header>
+
+<div class="grid-wrap">
+
+  <!-- ESTRATÉGIA -->
+  <div class="section-label">Estratégia e Posicionamento</div>
+  <div class="grid">
+
+    <a class="card" href="Briefing-Completo-Gabaritando.html">
+      <div class="card-tag">Estratégia</div>
+      <div class="card-title">Briefing Completo</div>
+      <p class="card-desc">Os 12 blocos estratégicos do projeto — público-alvo, posicionamento, oferta, concorrência, tom de voz e objetivos de campanha.</p>
+      <div class="card-cta">Abrir documento <span>&#8594;</span></div>
+    </a>
+
+    <a class="card" href="Big-Idea-Campanha-Gabaritando.html">
+      <div class="card-tag">Campanha</div>
+      <div class="card-title">Big Idea da Campanha</div>
+      <p class="card-desc">O conceito central que unifica toda a comunicação do Gabaritando — a ideia-força que orienta copy, criativos e estratégia de mídia.</p>
+      <div class="card-cta">Abrir documento <span>&#8594;</span></div>
+    </a>
+
+  </div>
+
+  <!-- IDENTIDADE -->
+  <div class="section-label">Identidade e Marca</div>
+  <div class="grid">
+
+    <a class="card" href="Brandbook-Gabaritando.html">
+      <div class="card-tag">Identidade Visual</div>
+      <div class="card-title">Brandbook</div>
+      <p class="card-desc">Manual completo de identidade — paleta de cores, tipografia, tom de voz, aplicações e diretrizes visuais da marca Gabaritando.</p>
+      <div class="card-cta">Abrir documento <span>&#8594;</span></div>
+    </a>
+
+  </div>
+
+  <!-- PESQUISA -->
+  <div class="section-label">Inteligência de Mercado</div>
+  <div class="grid">
+
+    <a class="card destaque" href="PESQUISA DE MERCADO/index.html">
+      <div class="destaque-text">
+        <div class="card-tag">Pesquisa de Mercado</div>
+        <div class="card-title">Central de Pesquisas</div>
+        <p class="card-desc">Análise completa do mercado — concorrentes, tendências internacionais, comportamento do candidato, planos de conteúdo para Instagram e YouTube.</p>
+        <div class="card-cta">Ver todos os documentos <span>&#8594;</span></div>
+      </div>
+      <div class="destaque-meta">
+        <div class="destaque-count">9</div>
+        <div class="destaque-count-label">documentos</div>
+      </div>
+    </a>
+
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>Gabaritando</strong> &mdash; Preparatório para Carreiras Policiais da Bahia</p>
+  <p>Documentos estratégicos &mdash; Abril 2026 &mdash; Uso interno</p>
+</footer>
+
+</body>
+</html>

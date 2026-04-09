@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano 30 Dias — YouTube — Gabaritando</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --preto:     #080A10;
+  --navy:      #0D1117;
+  --ardosia:   #131A28;
+  --borda:     rgba(255,255,255,0.08);
+  --ouro:      #FFB800;
+  --ouro-dim:  rgba(255,184,0,0.14);
+  --texto:     rgba(255,255,255,0.82);
+  --texto-dim: rgba(255,255,255,0.45);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--preto);
+  color: var(--texto);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ── CABEÇALHO ── */
+.doc-header {
+  background: var(--ardosia);
+  border-bottom: 1px solid var(--ouro-dim);
+  padding: 52px 32px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  position: absolute;
+  top: 24px; left: 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  text-decoration: none;
+  border: 1px solid rgba(255,184,0,0.2);
+  padding: 7px 14px;
+  transition: color .2s, border-color .2s;
+}
+.back-btn:hover { color: var(--ouro); border-color: var(--ouro); }
+.header-label {
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.30em; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 16px;
+  position: relative;
+}
+.doc-header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.7rem, 4vw, 2.9rem);
+  font-weight: 900; color: #fff; line-height: 1.1;
+  position: relative;
+}
+.doc-header h1 em { color: var(--ouro); font-style: italic; }
+.header-rule { width: 44px; height: 2px; background: var(--ouro); margin: 18px auto; }
+.header-meta {
+  font-size: 0.73rem; font-weight: 400;
+  color: var(--texto-dim); letter-spacing: 0.06em;
+  position: relative;
+}
+
+/* ── LAYOUT ── */
+.page-wrap {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1160px;
+  margin: 0 auto;
+  gap: 0;
+  align-items: start;
+}
+
+/* ── SIDEBAR TOC ── */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 40px 0 40px 32px;
+  border-right: 1px solid var(--borda);
+  background: var(--navy);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--ouro-dim); border-radius: 2px; }
+.toc-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.60rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,184,0,0.55);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--borda);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 2px; }
+.toc-list li a {
+  display: block;
+  font-size: 0.77rem; font-weight: 400;
+  color: var(--texto-dim);
+  text-decoration: none;
+  padding: 6px 12px 6px 0;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  padding-left: 12px;
+  transition: color .2s, border-color .2s;
+}
+.toc-list li a:hover,
+.toc-list li a.active {
+  color: var(--ouro);
+  border-left-color: var(--ouro);
+}
+.toc-list li.toc-h3 a {
+  font-size: 0.70rem;
+  padding-left: 22px;
+  color: rgba(255,255,255,0.3);
+}
+.toc-list li.toc-h3 a:hover { color: rgba(255,184,0,0.7); }
+
+/* ── CONTEÚDO ── */
+.content {
+  padding: 56px 52px 96px 48px;
+  min-width: 0;
+}
+
+/* ── HEADINGS ── */
+h1.md { display: none; }
+
+h2.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 700; color: #fff;
+  margin: 72px 0 12px;
+  padding-top: 72px;
+  border-top: 1px solid var(--borda);
+  line-height: 1.25;
+  scroll-margin-top: 20px;
+}
+h2.md:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+h3.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.0rem; font-weight: 700;
+  color: var(--ouro);
+  margin: 40px 0 10px;
+  line-height: 1.35;
+  scroll-margin-top: 20px;
+}
+
+h4.md {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.70rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  margin: 28px 0 8px;
+}
+
+/* ── SUMÁRIO EXECUTIVO ── */
+.sumario-bloco {
+  background: var(--ardosia);
+  border-left: 3px solid var(--ouro);
+  padding: 22px 26px;
+  margin: 16px 0 36px;
+  border-radius: 0 4px 4px 0;
+}
+.sumario-bloco p.md {
+  font-size: 0.96rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO DIA (planos de conteúdo) ── */
+.day-block {
+  background: var(--ardosia);
+  border: 1px solid var(--borda);
+  border-top: 2px solid rgba(255,184,0,0.35);
+  padding: 20px 22px 16px;
+  margin: 32px 0 8px;
+  border-radius: 0 0 4px 4px;
+}
+.day-block-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.92rem; font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO OBJETIVO/NOTA inline ── */
+.inline-label {
+  background: var(--ardosia);
+  border-left: 2px solid rgba(255,184,0,0.3);
+  padding: 10px 16px;
+  margin: 12px 0;
+}
+.inline-label p.md { margin-bottom: 0; font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+
+/* ── PARÁGRAFOS ── */
+p.md {
+  font-size: 0.94rem;
+  color: var(--texto);
+  margin-bottom: 14px;
+  line-height: 1.85;
+}
+
+strong { color: #fff; font-weight: 600; }
+em { font-style: italic; color: rgba(255,255,255,0.72); }
+
+/* ── LISTAS ── */
+ul.md, ol.md {
+  margin: 4px 0 18px 0;
+  padding-left: 0;
+  list-style: none;
+}
+ul.md li, ol.md li {
+  font-size: 0.92rem;
+  color: var(--texto);
+  margin-bottom: 8px;
+  line-height: 1.75;
+  padding-left: 22px;
+  position: relative;
+}
+ul.md li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.65em;
+  width: 5px; height: 5px;
+  background: var(--ouro);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+ol.md { counter-reset: ol-counter; }
+ol.md li { counter-increment: ol-counter; }
+ol.md li::before {
+  content: counter(ol-counter) '.';
+  position: absolute; left: 0;
+  font-weight: 700; color: var(--ouro);
+  font-size: 0.78rem;
+  top: 0.05em;
+}
+/* nested */
+ul.md.nested, ol.md.nested {
+  margin: 8px 0 4px 0;
+  padding-left: 20px;
+}
+ul.md.nested li::before { width: 4px; height: 4px; background: rgba(255,184,0,0.5); }
+
+/* ── TABELAS ── */
+.table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--ouro-dim); }
+table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+thead tr { background: rgba(255,184,0,0.10); border-bottom: 1px solid rgba(255,184,0,0.4); }
+thead th {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ouro); padding: 12px 16px; text-align: left;
+}
+tbody tr { border-bottom: 1px solid var(--borda); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:nth-child(even) { background: rgba(255,255,255,0.025); }
+tbody td { padding: 10px 16px; color: var(--texto); vertical-align: top; line-height: 1.6; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  border-left: 3px solid var(--ouro);
+  background: var(--ardosia);
+  padding: 18px 22px; margin: 22px 0;
+  border-radius: 0 4px 4px 0;
+}
+blockquote p.md {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem; font-style: italic;
+  color: rgba(255,255,255,0.82); margin-bottom: 0; line-height: 1.7;
+}
+
+code {
+  font-family: 'Menlo', 'Courier New', monospace;
+  font-size: 0.82rem;
+  background: rgba(255,184,0,0.1); color: var(--ouro);
+  padding: 2px 7px; border-radius: 3px;
+}
+
+hr.md { border: none; border-top: 1px solid var(--borda); margin: 36px 0; }
+
+.fill-badge {
+  display: inline-block;
+  background: rgba(255,184,0,0.10);
+  border: 1px solid rgba(255,184,0,0.28);
+  color: var(--ouro);
+  font-size: 0.70rem; font-weight: 600;
+  letter-spacing: 0.08em; padding: 1px 8px; border-radius: 3px;
+}
+
+/* ── RODAPÉ ── */
+footer {
+  background: var(--ardosia);
+  border-top: 1px solid var(--ouro-dim);
+  text-align: center; padding: 36px 32px;
+}
+footer p { font-size: 0.72rem; color: var(--texto-dim); letter-spacing: 0.06em; line-height: 1.8; }
+footer strong { color: var(--ouro); }
+
+@media (max-width: 800px) {
+  .page-wrap { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--borda); padding: 24px 20px; }
+  .content { padding: 40px 20px 64px; }
+  .back-btn { position: static; display: inline-flex; margin-bottom: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <a class="back-btn" href="index.html">&#8592; Índice Geral</a>
+  <div class="header-label">Gabaritando &mdash; Pesquisa de Mercado</div>
+  <h1>Plano 30 Dias — <em>YouTube</em></h1>
+  <div class="header-rule"></div>
+  <p class="header-meta">Abril de 2026 &mdash; Uso interno</p>
+</header>
+
+<div class="page-wrap">
+  <aside class="sidebar"><div class="toc-heading">Neste documento</div><ul class="toc-list"><li class=""><a href="#projeto-gabaritando-baseado-na-pesquisa-de-mercado">Projeto GABARITANDO — Baseado na Pesquisa de Mercado</a></li><li class=""><a href="#premissas-e-estrat-gia">PREMISSAS E ESTRATÉGIA</a></li><li class="toc-h3"><a href="#o-que-a-pesquisa-nos-diz-sobre-o-youtube-no-nicho">O que a pesquisa nos diz sobre o YouTube no nicho</a></li><li class="toc-h3"><a href="#estrat-gia-para-o-canal">Estratégia para o canal</a></li><li class=""><a href="#semana-1-v-deo-de-funda-o-do-canal">SEMANA 1 — VÍDEO DE FUNDAÇÃO DO CANAL</a></li><li class="toc-h3"><a href="#v-deo-1-dia-3-por-que-dois-oficiais-da-pmba-abriram-um-preparat-rio-e-o-que-isso-muda-para-voc">Vídeo 1 (Dia 3): &quot;Por que dois Oficiais da PMBA abriram um preparatório — e o que isso muda para você&quot;</a></li><li class=""><a href="#semana-2-semana-de-valor-t-cnico">SEMANA 2 — SEMANA DE VALOR TÉCNICO</a></li><li class="toc-h3"><a href="#v-deo-2-dia-8-aula-completa-gratuita-portugu-s-para-o-concurso-de-soldado-pmba">Vídeo 2 (Dia 8): Aula Completa Gratuita — Português para o Concurso de Soldado PMBA</a></li><li class="toc-h3"><a href="#v-deo-3-dia-12-gabarito-comentado-prova-de-soldado-pmba-2023-quest-o-por-quest-o">Vídeo 3 (Dia 12): &quot;Gabarito Comentado — Prova de Soldado PMBA 2023 (questão por questão)&quot;</a></li><li class=""><a href="#semana-3-conte-do-de-motiva-o-e-m-todo">SEMANA 3 — CONTEÚDO DE MOTIVAÇÃO E MÉTODO</a></li><li class="toc-h3"><a href="#v-deo-4-dia-17-como-passar-no-concurso-da-pmba-trabalhando-o-dia-todo-m-todo-de-2-horas-por-dia">Vídeo 4 (Dia 17): &quot;Como passar no concurso da PMBA trabalhando o dia todo — método de 2 horas por dia&quot;</a></li><li class=""><a href="#semana-4-conte-do-de-convers-o-e-vis-o-ampla">SEMANA 4 — CONTEÚDO DE CONVERSÃO E VISÃO AMPLA</a></li><li class="toc-h3"><a href="#v-deo-5-dia-24-pmba-pcba-ou-bmba-qual-concurso-policial-da-bahia-vale-mais-a-pena-em-2026">Vídeo 5 (Dia 24): &quot;PMBA, PCBA ou BMBA: qual concurso policial da Bahia vale mais a pena em 2026?&quot;</a></li><li class=""><a href="#estrutura-de-seo-para-todos-os-v-deos">ESTRUTURA DE SEO PARA TODOS OS VÍDEOS</a></li><li class="toc-h3"><a href="#checklist-de-otimiza-o-obrigat-ria">Checklist de otimização obrigatória</a></li><li class=""><a href="#tipos-de-v-deo-para-os-pr-ximos-meses-banco-de-ideias">TIPOS DE VÍDEO PARA OS PRÓXIMOS MESES (Banco de Ideias)</a></li><li class="toc-h3"><a href="#s-rie-aulas-gratuitas-por-mat-ria-seo-de-longo-prazo">Série: Aulas Gratuitas por Matéria (SEO de longo prazo)</a></li><li class="toc-h3"><a href="#s-rie-bastidores-da-corpora-o-engajamento-e-autoridade">Série: Bastidores da Corporação (engajamento e autoridade)</a></li><li class="toc-h3"><a href="#s-rie-depoimentos-de-aprovados">Série: Depoimentos de Aprovados</a></li><li class="toc-h3"><a href="#s-rie-an-lise-de-editais">Série: Análise de Editais</a></li><li class="toc-h3"><a href="#s-rie-m-todo-de-estudo">Série: Método de Estudo</a></li><li class=""><a href="#m-tricas-e-metas-do-canal-primeiros-30-dias">MÉTRICAS E METAS DO CANAL (PRIMEIROS 30 DIAS)</a></li><li class=""><a href="#equipamento-m-nimo-recomendado-para-produ-o">EQUIPAMENTO MÍNIMO RECOMENDADO PARA PRODUÇÃO</a></li><li class="toc-h3"><a href="#op-o-1-m-nimo-vi-vel-custo-zero">Opção 1 — Mínimo viável (custo zero)</a></li><li class="toc-h3"><a href="#op-o-2-profissional-b-sico-investimento-r-500-a-1-000">Opção 2 — Profissional básico (investimento R$ 500 a 1.000)</a></li><li class=""><a href="#estrat-gia-de-distribui-o-dos-v-deos">ESTRATÉGIA DE DISTRIBUIÇÃO DOS VÍDEOS</a></li><li class="toc-h3"><a href="#passo-a-passo-ap-s-publicar-cada-v-deo">Passo a passo após publicar cada vídeo</a></li><li class=""><a href="#integra-o-youtube-x-instagram-x-whatsapp">INTEGRAÇÃO YOUTUBE X INSTAGRAM X WHATSAPP</a></li></ul></aside>
+  <main class="content">
+<h1 class="md">Plano de 30 Dias de Conteúdo para YouTube</h1>
+<h2 class="md" id="projeto-gabaritando-baseado-na-pesquisa-de-mercado">Projeto GABARITANDO — Baseado na Pesquisa de Mercado</h2>
+<p class="md"><strong>Data de criação:</strong> Abril de 2026</p>
+<hr class="md">
+<h2 class="md" id="premissas-e-estrat-gia">PREMISSAS E ESTRATÉGIA</h2>
+<h3 class="md" id="o-que-a-pesquisa-nos-diz-sobre-o-youtube-no-nicho">O que a pesquisa nos diz sobre o YouTube no nicho</h3>
+<ol class="md">
+<li>O YouTube é o canal de maior credibilidade e autoridade no nicho — quem publica boas aulas gratuitas se torna referência</li>
+<li>Candidatos buscam no YouTube em três momentos: descoberta do concurso, estudo de matérias específicas e validação de cursinhos</li>
+<li>Há pouco conteúdo de qualidade específico para PMBA/PCBA/BMBA no YouTube — os grandes canais são genéricos</li>
+<li>Vídeos com SEO bem feito ranqueiam por anos — investimento de longo prazo</li>
+<li>O canal do GABARITANDO com professores policiais tem um ângulo que ninguém mais oferece no YouTube baiano</li>
+</ol>
+<h3 class="md" id="estrat-gia-para-o-canal">Estratégia para o canal</h3>
+<ul class="md">
+<li><strong>Frequência:</strong> 1 vídeo por semana durante 4 semanas = 4 vídeos no mês</li>
+<li><strong>Exceção:</strong> Semana 2 terá 2 vídeos (uma aula mais curta de conteúdo + o vídeo principal)</li>
+<li><strong>Total de vídeos no plano:</strong> Aproximadamente 5 vídeos em 30 dias (ritmo sustentável para início de canal)</li>
+<li><strong>Foco SEO:</strong> Otimizar cada vídeo para ranquear no Google e no YouTube</li>
+<li><strong>CTA padrão:</strong> Assinar o canal + link na descrição para o GABARITANDO + WhatsApp</li>
+</ul>
+<p class="md"><strong>Nota sobre frequência:</strong> No YouTube, qualidade supera quantidade no início. 1 vídeo muito bom por semana é melhor do que 3 vídeos medíocres.</p>
+<hr class="md">
+<h2 class="md" id="semana-1-v-deo-de-funda-o-do-canal">SEMANA 1 — VÍDEO DE FUNDAÇÃO DO CANAL</h2>
+<h3 class="md" id="v-deo-1-dia-3-por-que-dois-oficiais-da-pmba-abriram-um-preparat-rio-e-o-que-isso-muda-para-voc">Vídeo 1 (Dia 3): &quot;Por que dois Oficiais da PMBA abriram um preparatório — e o que isso muda para você&quot;</h3>
+<p class="md"><strong>Tipo:</strong> Vídeo de apresentação + autoridade</p>
+<p class="md"><strong>Duração ideal:</strong> 15 a 20 minutos</p>
+<p class="md"><strong>Thumbnail:</strong> Foto dos dois donos em farda, com texto &quot;2 OFICIAIS DA PMBA&quot; em letras grandes e chamativo</p>
+<p class="md"><strong>Título para SEO:</strong></p>
+<p class="md">&quot;Preparatório PMBA em Luís Eduardo Magalhães — Conheça o GABARITANDO (2 Oficiais da PMBA)&quot;</p>
+<p class="md"><strong>Descrição otimizada (para SEO):</strong></p>
+<p class="md">O GABARITANDO é o único preparatório para concursos policiais com dois Oficiais da PMBA como professores e presença presencial em Luís Eduardo Magalhães, Bahia. Neste vídeo, [nome dos fundadores] apresentam o projeto, contam como passaram nos concursos da PMBA e explicam o que diferencia o GABARITANDO dos demais preparatórios.</p>
+<p class="md">Concursos: PMBA (Soldado e Oficial CFO) | BMBA (Soldado e Oficial) | PCBA (Investigador)</p>
+<p class="md">Modalidades: Online (plataforma com questões, cronograma e aulas) + Presencial em LEM</p>
+<p class="md"><strong>Tags:</strong> preparatório PMBA, concurso soldado PMBA, PMBA 2026, preparatório PCBA, BMBA, Luís Eduardo Magalhães, concurso policial Bahia, cursinho preparatório policial Bahia</p>
+<p class="md"><strong>Roteiro estruturado:</strong></p>
+<ol class="md">
+<li>Gancho (30 segundos): &quot;Se você quer passar no próximo concurso da PMBA, PCBA ou BMBA, fica aqui — vou te mostrar algo que faz toda a diferença&quot;</li>
+<li>Apresentação dos fundadores (2 min): Quem são, cargo na PMBA, historico de aprovação</li>
+<li>Por que criaram o GABARITANDO (3 min): Problema que identificaram, falta de preparatório local qualificado em LEM</li>
+<li>O que é o GABARITANDO (5 min): Plataforma online, presencial, banco de questões, cronograma, professores</li>
+<li>Por que faz diferença estudar com Oficial (3 min): Perspectiva interna da corporação, conhecimento da banca por experiência</li>
+<li>Convite e CTA (2 min): Link na bio, WhatsApp, assinar o canal</li>
+</ol>
+<p class="md"><strong>Insight da pesquisa:</strong> Este é o vídeo de fundação do canal — deve responder &quot;quem são vocês e por que devo confiar em vocês?&quot; antes de qualquer conteúdo técnico.</p>
+<hr class="md">
+<h2 class="md" id="semana-2-semana-de-valor-t-cnico">SEMANA 2 — SEMANA DE VALOR TÉCNICO</h2>
+<h3 class="md" id="v-deo-2-dia-8-aula-completa-gratuita-portugu-s-para-o-concurso-de-soldado-pmba">Vídeo 2 (Dia 8): Aula Completa Gratuita — Português para o Concurso de Soldado PMBA</h3>
+<p class="md"><strong>Tipo:</strong> Aula completa (SEO de longo prazo)</p>
+<p class="md"><strong>Duração ideal:</strong> 30 a 45 minutos</p>
+<p class="md"><strong>Thumbnail:</strong> Professor (de preferência um dos Oficiais ou professor policial) + texto &quot;PORTUGUÊS PMBA — AULA COMPLETA GRATUITA&quot; + logo do GABARITANDO</p>
+<p class="md"><strong>Título para SEO:</strong></p>
+<p class="md">&quot;Português para o Concurso Soldado PMBA — Aula Completa Gratuita (FCC 2023 + 2026)&quot;</p>
+<p class="md"><strong>Descrição otimizada:</strong></p>
+<p class="md">Aula completa de Língua Portuguesa para o concurso de Soldado da Polícia Militar da Bahia (PMBA), seguindo o edital da banca FCC. O professor [nome + cargo] ensina os tópicos que mais caem: interpretação de texto, morfologia, sintaxe e reescrita de frases. Com questões comentadas da prova de 2023.</p>
+<p class="md"><strong>Tags:</strong> português PMBA, língua portuguesa concurso policial Bahia, português para soldado PMBA, FCC PMBA português, interpretação de texto concurso policial</p>
+<p class="md"><strong>Roteiro estruturado:</strong></p>
+<ol class="md">
+<li>Introdução rápida (2 min): &quot;Esta aula cobre os tópicos de Português que mais caem no concurso da PMBA pela FCC&quot;</li>
+<li>Análise da prova anterior (5 min): Mostrar dados de quantas questões de cada tópico caíram em 2023</li>
+<li>Tópico 1 — Interpretação de texto (10 min): Teoria + exemplo + questão resolvida</li>
+<li>Tópico 2 — Morfologia / Classe gramatical (10 min): Teoria + exemplo + questão resolvida</li>
+<li>Tópico 3 — Reescrita / Equivalência (8 min): Teoria + exemplo + questão resolvida</li>
+<li>Simulado rápido (5 min): 3 questões para o aluno resolver antes da resposta</li>
+<li>CTA final (2 min): &quot;Quer mais questões comentadas? Na plataforma do GABARITANDO você tem X mil...&quot;</li>
+</ol>
+<p class="md"><strong>Insight da pesquisa:</strong> Aulas de conteúdo específico por matéria ranqueiam no YouTube por meses e anos — são o principal motor de SEO orgânico. Uma boa aula de Português para PMBA pode gerar centenas de leads.</p>
+<hr class="md">
+<h3 class="md" id="v-deo-3-dia-12-gabarito-comentado-prova-de-soldado-pmba-2023-quest-o-por-quest-o">Vídeo 3 (Dia 12): &quot;Gabarito Comentado — Prova de Soldado PMBA 2023 (questão por questão)&quot;</h3>
+<p class="md"><strong>Tipo:</strong> Conteúdo de alto valor técnico + SEO</p>
+<p class="md"><strong>Duração ideal:</strong> 40 a 60 minutos</p>
+<p class="md"><strong>Thumbnail:</strong> Foto da capa da prova real + texto &quot;GABARITO COMENTADO&quot; + nota de aprovação</p>
+<p class="md"><strong>Título para SEO:</strong></p>
+<p class="md">&quot;Gabarito Comentado — Prova Soldado PMBA 2023 (FCC) | Análise completa do que caiu&quot;</p>
+<p class="md"><strong>Descrição otimizada:</strong></p>
+<p class="md">Resolução comentada de todas as questões da prova de Soldado da PMBA 2023, aplicada pela banca FCC. Os professores do GABARITANDO analisam cada questão, explicam o raciocínio correto e identificam os padrões de cobrança da banca para o próximo concurso.</p>
+<p class="md"><strong>Tags:</strong> gabarito PMBA 2023, prova soldado PMBA 2023 comentada, FCC PMBA resolução, concurso soldado PMBA gabarito</p>
+<p class="md"><strong>Roteiro estruturado:</strong></p>
+<ol class="md">
+<li>Apresentação (3 min): &quot;Esta é a análise da prova de 2023 — o próximo concurso terá o mesmo padrão&quot;</li>
+<li>Dados gerais da prova (3 min): Distribuição de matérias, dificuldade geral, nota de corte</li>
+<li>Resolução das questões (principal bloco — 40 a 50 min):</li>
+<ul class="md nested">
+<li>- Organizar por matéria (todas as de Português juntas, depois Matemática, etc.)</li>
+<li>- Para cada questão: ler o enunciado → identificar o que pede → resolver → comentar por que cada alternativa está certa ou errada</li>
+</ul>
+<li>Análise final (5 min): &quot;O que esse gabarito nos ensina sobre como estudar para o próximo concurso&quot;</li>
+<li>CTA (2 min)</li>
+</ol>
+<p class="md"><strong>Insight da pesquisa:</strong> Gabarito comentado de provas anteriores é um dos termos mais buscados no YouTube no nicho de concursos. Candidatos assistem a esse tipo de vídeo intensamente nas semanas próximas à nova prova.</p>
+<hr class="md">
+<h2 class="md" id="semana-3-conte-do-de-motiva-o-e-m-todo">SEMANA 3 — CONTEÚDO DE MOTIVAÇÃO E MÉTODO</h2>
+<h3 class="md" id="v-deo-4-dia-17-como-passar-no-concurso-da-pmba-trabalhando-o-dia-todo-m-todo-de-2-horas-por-dia">Vídeo 4 (Dia 17): &quot;Como passar no concurso da PMBA trabalhando o dia todo — método de 2 horas por dia&quot;</h3>
+<p class="md"><strong>Tipo:</strong> Conteúdo de método e motivação (alta identificação)</p>
+<p class="md"><strong>Duração ideal:</strong> 15 a 25 minutos</p>
+<p class="md"><strong>Thumbnail:</strong> Relógio + livro + farda + texto &quot;2 HORAS POR DIA PARA PASSAR&quot;</p>
+<p class="md"><strong>Título para SEO:</strong></p>
+<p class="md">&quot;Como passar no Concurso PMBA 2026 Trabalhando o Dia Todo — Método de 2 Horas por Dia&quot;</p>
+<p class="md"><strong>Descrição otimizada:</strong></p>
+<p class="md">É possível passar no concurso da PMBA tendo pouco tempo para estudar? Neste vídeo, [nome do Oficial] mostra o método que ele usou quando se preparou trabalhando — e que seus alunos no GABARITANDO replicam para passar com menos de 3 horas diárias de estudo.</p>
+<p class="md"><strong>Tags:</strong> como estudar para PMBA trabalhando, pouco tempo para estudar concurso, método concurso policial, rotina de estudos PMBA, como passar no concurso policial</p>
+<p class="md"><strong>Roteiro estruturado:</strong></p>
+<ol class="md">
+<li>Gancho (1 min): &quot;Você acha que não tem tempo — mas você tem. O problema é como você usa esse tempo.&quot;</li>
+<li>A mentira do &quot;precisa estudar muito&quot; (3 min): Qualidade vs. quantidade de estudo</li>
+<li>Os 5 princípios do estudo eficiente com pouco tempo (8 min):</li>
+<ul class="md nested">
+<li>- Princípio 1: Foco total no que cai (não em tudo)</li>
+<li>- Princípio 2: Questões antes de teoria (aprender na prática)</li>
+<li>- Princípio 3: Revisão espaçada (não estudar a mesma coisa todo dia)</li>
+<li>- Princípio 4: Simular antes da prova (treinar as condições reais)</li>
+<li>- Princípio 5: Descanso como parte do método (não como fraqueza)</li>
+</ul>
+<li>O cronograma de 2 horas por dia (5 min): Modelo prático semana a semana</li>
+<li>Depoimento (3 min): Aluno que passou aplicando esse método</li>
+<li>CTA (2 min): &quot;Quer o cronograma personalizado para sua rotina? GABARITANDO gera pra você&quot;</li>
+</ol>
+<p class="md"><strong>Insight da pesquisa:</strong> &quot;Trabalho de dia e estudo de noite&quot; é uma das dores mais citadas pelo público. Um vídeo que endereça diretamente esse problema tem enorme potencial de visualizações e compartilhamento.</p>
+<hr class="md">
+<h2 class="md" id="semana-4-conte-do-de-convers-o-e-vis-o-ampla">SEMANA 4 — CONTEÚDO DE CONVERSÃO E VISÃO AMPLA</h2>
+<h3 class="md" id="v-deo-5-dia-24-pmba-pcba-ou-bmba-qual-concurso-policial-da-bahia-vale-mais-a-pena-em-2026">Vídeo 5 (Dia 24): &quot;PMBA, PCBA ou BMBA: qual concurso policial da Bahia vale mais a pena em 2026?&quot;</h3>
+<p class="md"><strong>Tipo:</strong> Conteúdo de orientação e decisão (alta intenção de compra)</p>
+<p class="md"><strong>Duração ideal:</strong> 20 a 30 minutos</p>
+<p class="md"><strong>Thumbnail:</strong> Logos das três corporações + texto &quot;QUAL ESCOLHER EM 2026?&quot; + foto dos dois fundadores</p>
+<p class="md"><strong>Título para SEO:</strong></p>
+<p class="md">&quot;PMBA, PCBA ou BMBA: Qual Concurso Policial da Bahia Vale Mais a Pena em 2026? (Análise Completa)&quot;</p>
+<p class="md"><strong>Descrição otimizada:</strong></p>
+<p class="md">Análise comparativa dos três principais concursos policiais da Bahia em 2026: PMBA (Polícia Militar), PCBA (Polícia Civil) e BMBA (Bombeiros). Dois Oficiais da PMBA analisam vagas, salário, dificuldade da prova, carreira de longo prazo e qual vale mais a pena para cada perfil de candidato.</p>
+<p class="md"><strong>Tags:</strong> concurso policial Bahia 2026, PMBA PCBA BMBA comparativo, qual concurso policial fazer Bahia, concurso soldado PMBA 2026, investigador PCBA 2026</p>
+<p class="md"><strong>Roteiro estruturado:</strong></p>
+<ol class="md">
+<li>Gancho (2 min): &quot;Se você está em dúvida entre PMBA, PCBA e BMBA — esse vídeo vai te ajudar a decidir&quot;</li>
+<li>Panorama dos concursos previstos (5 min): O que está previsto para 2026 e os números de vagas</li>
+<li>Análise PMBA (7 min): Vagas, salário, carreira, estilo de trabalho, dificuldade da prova, quem deve escolher</li>
+<li>Análise PCBA (6 min): Vagas (500 investigadores!), salário, carreira, dificuldade da prova, quem deve escolher</li>
+<li>Análise BMBA (4 min): Vagas, salário, carreira, diferenças em relação à PM</li>
+<li>Recomendação por perfil de candidato (3 min): Quem tem menos tempo → Quem quer maior salário → Quem prefere trabalho investigativo</li>
+<li>A estratégia de estudar para os 3 ao mesmo tempo (2 min): É possível? 70% do conteúdo é igual</li>
+<li>CTA (2 min): &quot;O GABARITANDO prepara para os 3 — link na descrição&quot;</li>
+</ol>
+<p class="md"><strong>Insight da pesquisa:</strong> Vídeos de decisão e comparação têm alta intenção de compra — quem assiste está considerando seriamente fazer o concurso. É o momento ideal para apresentar o GABARITANDO.</p>
+<hr class="md">
+<h2 class="md" id="estrutura-de-seo-para-todos-os-v-deos">ESTRUTURA DE SEO PARA TODOS OS VÍDEOS</h2>
+<h3 class="md" id="checklist-de-otimiza-o-obrigat-ria">Checklist de otimização obrigatória</h3>
+<p class="md"><strong>Título:</strong></p>
+<ul class="md">
+<li>Incluir o nome do concurso (PMBA, PCBA, BMBA, Soldado, Investigador)</li>
+<li>Incluir o ano (2026)</li>
+<li>Incluir a cidade/estado quando relevante (Bahia, LEM)</li>
+<li>Não ultrapassar 60 caracteres (para não ser cortado nos resultados)</li>
+</ul>
+<p class="md"><strong>Descrição:</strong></p>
+<ul class="md">
+<li>Primeiras 2 linhas devem ser atrativas (aparecem antes do &quot;ver mais&quot;)</li>
+<li>Incluir todas as palavras-chave naturalmente</li>
+<li>Incluir timestamps (capítulos do vídeo) — ex: 0:00 Introdução / 3:00 Por que o GABARITANDO</li>
+<li>Incluir links: site, WhatsApp, Instagram</li>
+<li>Incluir call-to-action explícito</li>
+</ul>
+<p class="md"><strong>Tags:</strong></p>
+<ul class="md">
+<li>10 a 15 tags relevantes</li>
+<li>Mix de específicas (PMBA 2026) e genéricas (concurso policial Bahia)</li>
+</ul>
+<p class="md"><strong>Thumbnail:</strong></p>
+<ul class="md">
+<li>Rosto do professor/apresentador em boa resolução (rostos humanos aumentam o CTR)</li>
+<li>Texto grande e legível (máximo 5 palavras)</li>
+<li>Contraste alto (fundo escuro + texto claro ou vice-versa)</li>
+<li>Cores da identidade do GABARITANDO</li>
+</ul>
+<p class="md"><strong>Nos primeiros 24h após publicação:</strong></p>
+<ul class="md">
+<li>Compartilhar em todos os grupos de WhatsApp de candidatos</li>
+<li>Publicar no Instagram com trecho do vídeo e link na bio</li>
+<li>Postar no Stories com enquete ou pergunta para gerar engajamento</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="tipos-de-v-deo-para-os-pr-ximos-meses-banco-de-ideias">TIPOS DE VÍDEO PARA OS PRÓXIMOS MESES (Banco de Ideias)</h2>
+<h3 class="md" id="s-rie-aulas-gratuitas-por-mat-ria-seo-de-longo-prazo">Série: Aulas Gratuitas por Matéria (SEO de longo prazo)</h3>
+<ul class="md">
+<li>&quot;Matemática para o Concurso Soldado PMBA — Do zero ao gabarito&quot;</li>
+<li>&quot;Direito Penal para o Concurso Investigador PCBA — O que cai e como estudar&quot;</li>
+<li>&quot;Direito Administrativo para Concursos Policiais Bahia — Aula completa&quot;</li>
+<li>&quot;Língua Portuguesa — Interpretação de Texto para Concursos Policiais&quot;</li>
+<li>&quot;Informática para Concursos Policiais da Bahia — Tópicos que mais caem&quot;</li>
+</ul>
+<h3 class="md" id="s-rie-bastidores-da-corpora-o-engajamento-e-autoridade">Série: Bastidores da Corporação (engajamento e autoridade)</h3>
+<ul class="md">
+<li>&quot;Como é o dia a dia de um Oficial da PMBA — rotina real&quot;</li>
+<li>&quot;Como é o Curso de Formação de Oficiais da PMBA (CFO) — por dentro&quot;</li>
+<li>&quot;Como é o TAF da PMBA — testamos ao vivo todas as provas físicas&quot;</li>
+<li>&quot;Quanto ganha um Oficial da PMBA em 2026 — salário real e completo&quot;</li>
+<li>&quot;Como é a hierarquia da PMBA — de Soldado a General&quot;</li>
+</ul>
+<h3 class="md" id="s-rie-depoimentos-de-aprovados">Série: Depoimentos de Aprovados</h3>
+<ul class="md">
+<li>&quot;Ele morava em [cidade do interior] e passou no concurso da PMBA&quot;</li>
+<li>&quot;Ela trabalhou e estudou ao mesmo tempo — e passou em primeiro lugar&quot;</li>
+<li>&quot;Terceira tentativa: como eu passei no concurso da PCBA&quot;</li>
+</ul>
+<h3 class="md" id="s-rie-an-lise-de-editais">Série: Análise de Editais</h3>
+<ul class="md">
+<li>&quot;Edital do Concurso PMBA 2026: análise completa por um Oficial da PM&quot;</li>
+<li>&quot;Tudo sobre o Edital do Investigador PCBA 2026&quot;</li>
+<li>&quot;Análise da banca FCC para o concurso da PMBA&quot;</li>
+</ul>
+<h3 class="md" id="s-rie-m-todo-de-estudo">Série: Método de Estudo</h3>
+<ul class="md">
+<li>&quot;Como estudar para concurso policial do zero — guia completo para iniciantes&quot;</li>
+<li>&quot;Flashcards para concurso policial — como usar e quais matérias priorizar&quot;</li>
+<li>&quot;Repetição espaçada para concurso — a técnica que funciona segundo a ciência&quot;</li>
+<li>&quot;Como fazer anotações de forma eficiente para o concurso policial&quot;</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="m-tricas-e-metas-do-canal-primeiros-30-dias">MÉTRICAS E METAS DO CANAL (PRIMEIROS 30 DIAS)</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Métrica</th>
+<th>Meta Mínima</th>
+<th>Meta Desejada</th>
+</tr></thead><tbody>
+<tr>
+<td>Inscritos no canal</td>
+<td>100</td>
+<td>300</td>
+</tr>
+<tr>
+<td>Views totais (30 dias)</td>
+<td>500</td>
+<td>2.000</td>
+</tr>
+<tr>
+<td>Watch time médio</td>
+<td>40% do vídeo</td>
+<td>55% do vídeo</td>
+</tr>
+<tr>
+<td>Cliques no link da descrição</td>
+<td>20</td>
+<td>80</td>
+</tr>
+<tr>
+<td>Leads no WhatsApp via YouTube</td>
+<td>10</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Shares (compartilhamentos)</td>
+<td>10</td>
+<td>50</td>
+</tr>
+</tbody></table></div>
+<p class="md"><strong>Como medir:</strong> YouTube Analytics (nativo, gratuito) + perguntar nas matrículas &quot;como você nos encontrou&quot;</p>
+<hr class="md">
+<h2 class="md" id="equipamento-m-nimo-recomendado-para-produ-o">EQUIPAMENTO MÍNIMO RECOMENDADO PARA PRODUÇÃO</h2>
+<h3 class="md" id="op-o-1-m-nimo-vi-vel-custo-zero">Opção 1 — Mínimo viável (custo zero)</h3>
+<ul class="md">
+<li>Smartphone com câmera boa (qualquer iPhone ou Samsung intermediário)</li>
+<li>Tripé de celular (R$ 50 a 100)</li>
+<li>Iluminação natural (gravar de frente para uma janela)</li>
+<li>Microfone de lapela para celular (R$ 30 a 80 — melhora muito o áudio)</li>
+<li>Edição: CapCut (gratuito, fácil, já tem templates)</li>
+</ul>
+<h3 class="md" id="op-o-2-profissional-b-sico-investimento-r-500-a-1-000">Opção 2 — Profissional básico (investimento R$ 500 a 1.000)</h3>
+<ul class="md">
+<li>Câmera mirrorless ou webcam 4K (ou usar o iPhone mais recente)</li>
+<li>Ring light LED (R$ 200 a 400)</li>
+<li>Microfone condensador USB (R$ 200 a 400)</li>
+<li>Fundo neutro ou lousa física (R$ 100 a 200)</li>
+<li>Software de edição: DaVinci Resolve (gratuito)</li>
+</ul>
+<p class="md"><strong>Dica:</strong> O áudio é mais importante que o vídeo. Um vídeo com imagem mediana mas áudio limpo e claro é melhor do que vídeo HD com áudio horrível.</p>
+<hr class="md">
+<h2 class="md" id="estrat-gia-de-distribui-o-dos-v-deos">ESTRATÉGIA DE DISTRIBUIÇÃO DOS VÍDEOS</h2>
+<h3 class="md" id="passo-a-passo-ap-s-publicar-cada-v-deo">Passo a passo após publicar cada vídeo</h3>
+<ol class="md">
+<li><strong>Mesmo dia da publicação:</strong></li>
+<ul class="md nested">
+<li>- Compartilhar o link em todos os grupos de WhatsApp de candidatos a concurso policial</li>
+<li>- Publicar no Instagram Stories com o trecho mais impactante do vídeo (15 segundos)</li>
+<li>- Publicar no feed do Instagram como Reel curto com &quot;link na bio para o vídeo completo&quot;</li>
+</ul>
+</ol>
+<ol class="md">
+<li><strong>24h após a publicação:</strong></li>
+<ul class="md nested">
+<li>- Responder todos os comentários do YouTube (o algoritmo favorece vídeos com interação nos primeiros dias)</li>
+<li>- Criar um poll no Stories do Instagram sobre o tema do vídeo</li>
+</ul>
+</ol>
+<ol class="md">
+<li><strong>7 dias após a publicação:</strong></li>
+<ul class="md nested">
+<li>- Verificar as métricas (views, watch time, cliques)</li>
+<li>- Identificar o que funcionou e o que não funcionou</li>
+<li>- Aplicar aprendizados ao próximo vídeo</li>
+</ul>
+</ol>
+<hr class="md">
+<h2 class="md" id="integra-o-youtube-x-instagram-x-whatsapp">INTEGRAÇÃO YOUTUBE X INSTAGRAM X WHATSAPP</h2>
+<p class="md">O YouTube deve ser o centro do ecossistema de conteúdo do GABARITANDO:</p>
+<p class="md"><code>`</code></p>
+<p class="md">YouTube (conteúdo longo) → Instagram (conteúdo curto + stories) → WhatsApp (comunidade + suporte) → Plataforma GABARITANDO (conversão)</p>
+<p class="md"><code>`</code></p>
+<p class="md">Cada vídeo do YouTube gera ao menos:</p>
+<ul class="md">
+<li>1 Reel no Instagram (trecho de 30 a 60 segundos)</li>
+<li>1 Carrossel no Instagram (os principais pontos do vídeo)</li>
+<li>1 mensagem no WhatsApp de candidatos com o link</li>
+</ul>
+<p class="md">Isso multiplica o alcance de cada vídeo por 3 sem precisar criar conteúdo extra.</p>
+<hr class="md">
+<p class="md"><em>Este plano foi desenvolvido com base nos padrões de SEO do YouTube para o nicho de concursos públicos no Brasil, nas oportunidades de baixa concorrência identificadas para termos específicos de PMBA/PCBA/BMBA, e nas tendências de conteúdo documentadas pelos maiores canais do nicho (Gran Cursos Online, Estratégia Concursos, Profissão Policial). Cada vídeo tem uma hipótese de ranqueamento baseada em dados reais.</em></p>
+  </main>
+</div>
+
+<footer>
+  <p><strong>Gabaritando</strong> &mdash; Preparatório para Carreiras Policiais da Bahia &mdash; Uso interno</p>
+  <p style="margin-top:6px">Abril de 2026</p>
+</footer>
+
+<script>
+// Highlight active TOC link on scroll
+(function() {
+  var headings = document.querySelectorAll('h2.md[id], h3.md[id]');
+  var links    = document.querySelectorAll('.toc-list a');
+  if (!headings.length || !links.length) return;
+  function activate() {
+    var scrollY = window.scrollY + 80;
+    var current = '';
+    headings.forEach(function(h) {
+      if (h.offsetTop <= scrollY) current = h.id;
+    });
+    links.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', activate, {passive: true});
+  activate();
+})();
+</script>
+
+</body>
+</html>

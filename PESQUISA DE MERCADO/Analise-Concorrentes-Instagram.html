@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concorrentes no Instagram — Gabaritando</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --preto:     #080A10;
+  --navy:      #0D1117;
+  --ardosia:   #131A28;
+  --borda:     rgba(255,255,255,0.08);
+  --ouro:      #FFB800;
+  --ouro-dim:  rgba(255,184,0,0.14);
+  --texto:     rgba(255,255,255,0.82);
+  --texto-dim: rgba(255,255,255,0.45);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--preto);
+  color: var(--texto);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ── CABEÇALHO ── */
+.doc-header {
+  background: var(--ardosia);
+  border-bottom: 1px solid var(--ouro-dim);
+  padding: 52px 32px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  position: absolute;
+  top: 24px; left: 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  text-decoration: none;
+  border: 1px solid rgba(255,184,0,0.2);
+  padding: 7px 14px;
+  transition: color .2s, border-color .2s;
+}
+.back-btn:hover { color: var(--ouro); border-color: var(--ouro); }
+.header-label {
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.30em; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 16px;
+  position: relative;
+}
+.doc-header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.7rem, 4vw, 2.9rem);
+  font-weight: 900; color: #fff; line-height: 1.1;
+  position: relative;
+}
+.doc-header h1 em { color: var(--ouro); font-style: italic; }
+.header-rule { width: 44px; height: 2px; background: var(--ouro); margin: 18px auto; }
+.header-meta {
+  font-size: 0.73rem; font-weight: 400;
+  color: var(--texto-dim); letter-spacing: 0.06em;
+  position: relative;
+}
+
+/* ── LAYOUT ── */
+.page-wrap {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1160px;
+  margin: 0 auto;
+  gap: 0;
+  align-items: start;
+}
+
+/* ── SIDEBAR TOC ── */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 40px 0 40px 32px;
+  border-right: 1px solid var(--borda);
+  background: var(--navy);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--ouro-dim); border-radius: 2px; }
+.toc-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.60rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,184,0,0.55);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--borda);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 2px; }
+.toc-list li a {
+  display: block;
+  font-size: 0.77rem; font-weight: 400;
+  color: var(--texto-dim);
+  text-decoration: none;
+  padding: 6px 12px 6px 0;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  padding-left: 12px;
+  transition: color .2s, border-color .2s;
+}
+.toc-list li a:hover,
+.toc-list li a.active {
+  color: var(--ouro);
+  border-left-color: var(--ouro);
+}
+.toc-list li.toc-h3 a {
+  font-size: 0.70rem;
+  padding-left: 22px;
+  color: rgba(255,255,255,0.3);
+}
+.toc-list li.toc-h3 a:hover { color: rgba(255,184,0,0.7); }
+
+/* ── CONTEÚDO ── */
+.content {
+  padding: 56px 52px 96px 48px;
+  min-width: 0;
+}
+
+/* ── HEADINGS ── */
+h1.md { display: none; }
+
+h2.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 700; color: #fff;
+  margin: 72px 0 12px;
+  padding-top: 72px;
+  border-top: 1px solid var(--borda);
+  line-height: 1.25;
+  scroll-margin-top: 20px;
+}
+h2.md:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+h3.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.0rem; font-weight: 700;
+  color: var(--ouro);
+  margin: 40px 0 10px;
+  line-height: 1.35;
+  scroll-margin-top: 20px;
+}
+
+h4.md {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.70rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  margin: 28px 0 8px;
+}
+
+/* ── SUMÁRIO EXECUTIVO ── */
+.sumario-bloco {
+  background: var(--ardosia);
+  border-left: 3px solid var(--ouro);
+  padding: 22px 26px;
+  margin: 16px 0 36px;
+  border-radius: 0 4px 4px 0;
+}
+.sumario-bloco p.md {
+  font-size: 0.96rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO DIA (planos de conteúdo) ── */
+.day-block {
+  background: var(--ardosia);
+  border: 1px solid var(--borda);
+  border-top: 2px solid rgba(255,184,0,0.35);
+  padding: 20px 22px 16px;
+  margin: 32px 0 8px;
+  border-radius: 0 0 4px 4px;
+}
+.day-block-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.92rem; font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO OBJETIVO/NOTA inline ── */
+.inline-label {
+  background: var(--ardosia);
+  border-left: 2px solid rgba(255,184,0,0.3);
+  padding: 10px 16px;
+  margin: 12px 0;
+}
+.inline-label p.md { margin-bottom: 0; font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+
+/* ── PARÁGRAFOS ── */
+p.md {
+  font-size: 0.94rem;
+  color: var(--texto);
+  margin-bottom: 14px;
+  line-height: 1.85;
+}
+
+strong { color: #fff; font-weight: 600; }
+em { font-style: italic; color: rgba(255,255,255,0.72); }
+
+/* ── LISTAS ── */
+ul.md, ol.md {
+  margin: 4px 0 18px 0;
+  padding-left: 0;
+  list-style: none;
+}
+ul.md li, ol.md li {
+  font-size: 0.92rem;
+  color: var(--texto);
+  margin-bottom: 8px;
+  line-height: 1.75;
+  padding-left: 22px;
+  position: relative;
+}
+ul.md li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.65em;
+  width: 5px; height: 5px;
+  background: var(--ouro);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+ol.md { counter-reset: ol-counter; }
+ol.md li { counter-increment: ol-counter; }
+ol.md li::before {
+  content: counter(ol-counter) '.';
+  position: absolute; left: 0;
+  font-weight: 700; color: var(--ouro);
+  font-size: 0.78rem;
+  top: 0.05em;
+}
+/* nested */
+ul.md.nested, ol.md.nested {
+  margin: 8px 0 4px 0;
+  padding-left: 20px;
+}
+ul.md.nested li::before { width: 4px; height: 4px; background: rgba(255,184,0,0.5); }
+
+/* ── TABELAS ── */
+.table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--ouro-dim); }
+table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+thead tr { background: rgba(255,184,0,0.10); border-bottom: 1px solid rgba(255,184,0,0.4); }
+thead th {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ouro); padding: 12px 16px; text-align: left;
+}
+tbody tr { border-bottom: 1px solid var(--borda); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:nth-child(even) { background: rgba(255,255,255,0.025); }
+tbody td { padding: 10px 16px; color: var(--texto); vertical-align: top; line-height: 1.6; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  border-left: 3px solid var(--ouro);
+  background: var(--ardosia);
+  padding: 18px 22px; margin: 22px 0;
+  border-radius: 0 4px 4px 0;
+}
+blockquote p.md {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem; font-style: italic;
+  color: rgba(255,255,255,0.82); margin-bottom: 0; line-height: 1.7;
+}
+
+code {
+  font-family: 'Menlo', 'Courier New', monospace;
+  font-size: 0.82rem;
+  background: rgba(255,184,0,0.1); color: var(--ouro);
+  padding: 2px 7px; border-radius: 3px;
+}
+
+hr.md { border: none; border-top: 1px solid var(--borda); margin: 36px 0; }
+
+.fill-badge {
+  display: inline-block;
+  background: rgba(255,184,0,0.10);
+  border: 1px solid rgba(255,184,0,0.28);
+  color: var(--ouro);
+  font-size: 0.70rem; font-weight: 600;
+  letter-spacing: 0.08em; padding: 1px 8px; border-radius: 3px;
+}
+
+/* ── RODAPÉ ── */
+footer {
+  background: var(--ardosia);
+  border-top: 1px solid var(--ouro-dim);
+  text-align: center; padding: 36px 32px;
+}
+footer p { font-size: 0.72rem; color: var(--texto-dim); letter-spacing: 0.06em; line-height: 1.8; }
+footer strong { color: var(--ouro); }
+
+@media (max-width: 800px) {
+  .page-wrap { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--borda); padding: 24px 20px; }
+  .content { padding: 40px 20px 64px; }
+  .back-btn { position: static; display: inline-flex; margin-bottom: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <a class="back-btn" href="index.html">&#8592; Índice Geral</a>
+  <div class="header-label">Gabaritando &mdash; Pesquisa de Mercado</div>
+  <h1>Concorrentes no <em>Instagram</em></h1>
+  <div class="header-rule"></div>
+  <p class="header-meta">Abril de 2026 &mdash; Uso interno</p>
+</header>
+
+<div class="page-wrap">
+  <aside class="sidebar"><div class="toc-heading">Neste documento</div><ul class="toc-list"><li class=""><a href="#projeto-gabaritando-pesquisa-de-mercado">Projeto GABARITANDO — Pesquisa de Mercado</a></li><li class=""><a href="#sum-rio-executivo">SUMÁRIO EXECUTIVO</a></li><li class=""><a href="#concorrente-1-manualdomike">CONCORRENTE 1: @manualdomike</a></li><li class="toc-h3"><a href="#perfil-e-posicionamento">Perfil e Posicionamento</a></li><li class="toc-h3"><a href="#diferenciais-declarados">Diferenciais declarados</a></li><li class="toc-h3"><a href="#tom-de-comunica-o">Tom de comunicação</a></li><li class="toc-h3"><a href="#ganchos-identificados-baseados-no-site-e-posicionamento">Ganchos identificados (baseados no site e posicionamento)</a></li><li class="toc-h3"><a href="#tipos-de-conte-do-prov-veis-para-instagram">Tipos de conteúdo prováveis para Instagram</a></li><li class="toc-h3"><a href="#pre-o">Preço</a></li><li class="toc-h3"><a href="#o-que-replicar-para-o-gabaritando">O que replicar para o GABARITANDO</a></li><li class=""><a href="#concorrente-2-franciscojunior060">CONCORRENTE 2: @franciscojunior060</a></li><li class="toc-h3"><a href="#perfil-e-posicionamento">Perfil e Posicionamento</a></li><li class="toc-h3"><a href="#m-todo-ensinado-m-todo-perseu">Método ensinado: Método Perseu</a></li><li class="toc-h3"><a href="#tom-de-comunica-o">Tom de comunicação</a></li><li class="toc-h3"><a href="#ganchos-identificados">Ganchos identificados</a></li><li class="toc-h3"><a href="#tipo-de-conte-do-instagram-rumoconcursos-85k-seguidores">Tipo de conteúdo (Instagram @rumoconcursos_ — 85K seguidores)</a></li><li class="toc-h3"><a href="#oferta-rumo-concursos-rumo-aprova-o">Oferta (Rumo Concursos / Rumo à Aprovação)</a></li><li class="toc-h3"><a href="#n-meros-declarados">Números declarados</a></li><li class="toc-h3"><a href="#o-que-replicar-para-o-gabaritando">O que replicar para o GABARITANDO</a></li><li class=""><a href="#concorrente-3-leonardo-umburana">CONCORRENTE 3: @leonardo.umburana</a></li><li class="toc-h3"><a href="#perfil-e-posicionamento">Perfil e Posicionamento</a></li><li class="toc-h3"><a href="#diferencial-da-autoridade">Diferencial da autoridade</a></li><li class="toc-h3"><a href="#tom-de-comunica-o-estimado-com-base-no-site-e-posicionamento">Tom de comunicação (estimado com base no site e posicionamento)</a></li><li class="toc-h3"><a href="#ganchos-identificados">Ganchos identificados</a></li><li class="toc-h3"><a href="#tipo-de-conte-do-estimado">Tipo de conteúdo (estimado)</a></li><li class="toc-h3"><a href="#o-que-replicar-para-o-gabaritando">O que replicar para o GABARITANDO</a></li><li class=""><a href="#an-lise-comparativa-dos-3-perfis">ANÁLISE COMPARATIVA DOS 3 PERFIS</a></li><li class=""><a href="#gaps-identificados-oportunidades-para-o-gabaritando">GAPS IDENTIFICADOS — OPORTUNIDADES PARA O GABARITANDO</a></li><li class="toc-h3"><a href="#gap-1-credencial-local-presencial">Gap 1: Credencial local + presencial</a></li><li class="toc-h3"><a href="#gap-2-dois-oficiais-como-donos">Gap 2: Dois Oficiais como donos</a></li><li class="toc-h3"><a href="#gap-3-conte-do-hiperlocal">Gap 3: Conteúdo hiperlocal</a></li><li class="toc-h3"><a href="#gap-4-cobertura-bmba-pcba-pmba">Gap 4: Cobertura BMBA + PCBA + PMBA</a></li><li class="toc-h3"><a href="#gap-5-professores-policiais-especializados">Gap 5: Professores policiais especializados</a></li><li class=""><a href="#recomenda-es-de-conte-do-para-o-instagram-do-gabaritando">RECOMENDAÇÕES DE CONTEÚDO PARA O INSTAGRAM DO GABARITANDO</a></li><li class="toc-h3"><a href="#formatos-que-mais-convertem-no-nicho">Formatos que mais convertem no nicho</a></li><li class="toc-h3"><a href="#ganchos-de-alto-desempenho-para-o-gabaritando">Ganchos de alto desempenho para o GABARITANDO</a></li></ul></aside>
+  <main class="content">
+<h1 class="md">Análise de Concorrentes no Instagram</h1>
+<h2 class="md" id="projeto-gabaritando-pesquisa-de-mercado">Projeto GABARITANDO — Pesquisa de Mercado</h2>
+<p class="md"><strong>Data da pesquisa:</strong> Abril de 2026</p>
+<hr class="md">
+<h2 class="md" id="sum-rio-executivo">SUMÁRIO EXECUTIVO</h2>
+<div class="sumario-bloco"><p class="md">O Instagram é o principal canal de aquisição de leads no mercado de preparatórios policiais no Brasil. Os três perfis analisados representam concorrentes diretos e indiretos do GABARITANDO, com estratégias distintas de posicionamento e conteúdo. A análise revela padrões replicáveis e gaps que o GABARITANDO pode explorar.</p></div>
+<hr class="md">
+<h2 class="md" id="concorrente-1-manualdomike">CONCORRENTE 1: @manualdomike</h2>
+<h3 class="md" id="perfil-e-posicionamento">Perfil e Posicionamento</h3>
+<ul class="md">
+<li><strong>Marca:</strong> Manual do Mike</li>
+<li><strong>Site oficial:</strong> manualdomike.com.br</li>
+<li><strong>Alcunha do fundador:</strong> Mikael (policial que &quot;veste a farda&quot;)</li>
+<li><strong>Posicionamento:</strong> &quot;O preparatório mais completo das carreiras policiais&quot;</li>
+<li><strong>Tagline central:</strong> &quot;DO ZERO À FARDA&quot; / &quot;Transformando concurseiros em policiais&quot;</li>
+<li><strong>Concursos atendidos:</strong> PM-BA, PM-AL, PM-SE, PM-PE, PM-SP, GCM Aracaju, GCM Salvador</li>
+</ul>
+<h3 class="md" id="diferenciais-declarados">Diferenciais declarados</h3>
+<ul class="md">
+<li>Banco com 30+ mil questões</li>
+<li>RedaMike IA (corretor automático de redações com inteligência artificial)</li>
+<li>Gerador de questões e flashcards por IA</li>
+<li>Simulados personalizados</li>
+<li>Mentoria coletiva semanal</li>
+<li>Método estruturado em 3 etapas: diagnóstico → execução com metas diárias → análise por simulados e métricas</li>
+</ul>
+<h3 class="md" id="tom-de-comunica-o">Tom de comunicação</h3>
+<ul class="md">
+<li>Motivacional e informal</li>
+<li>Linguagem de garra, esforço e superação</li>
+<li>Frases como: &quot;Enquanto uns dormem, você evolui&quot;</li>
+<li>Direcionado a candidatos iniciantes ou com dificuldades para manter constância</li>
+<li>Usa a identidade de &quot;quem veste a farda&quot; como autoridade (policial ensinando policial)</li>
+</ul>
+<h3 class="md" id="ganchos-identificados-baseados-no-site-e-posicionamento">Ganchos identificados (baseados no site e posicionamento)</h3>
+<ul class="md">
+<li><strong>Gancho de urgência:</strong> &quot;O edital pode sair a qualquer momento — quem começa agora chega na frente&quot;</li>
+<li><strong>Gancho de transformação:</strong> &quot;Do zero à farda&quot; (promessa de jornada completa)</li>
+<li><strong>Gancho de pertencimento:</strong> &quot;Feito por quem veste a farda&quot;</li>
+<li><strong>Gancho de tecnologia:</strong> &quot;IA corrige sua redação como se fosse um professor&quot;</li>
+<li><strong>Gancho de garantia:</strong> &quot;Risco zero — 7 dias de garantia incondicional&quot;</li>
+</ul>
+<h3 class="md" id="tipos-de-conte-do-prov-veis-para-instagram">Tipos de conteúdo prováveis para Instagram</h3>
+<ul class="md">
+<li>Reels motivacionais com frases de impacto + trilha sonora épica</li>
+<li>Conteúdo de bastidores (policial em serviço falando sobre o concurso)</li>
+<li>Depoimentos de alunos aprovados em vídeo</li>
+<li>Dicas rápidas de matérias (questões comentadas em formato reel)</li>
+<li>Comparativos: &quot;quem estuda com método X quem estuda no improviso&quot;</li>
+<li>Conteúdo de rotina de estudos (&quot;Como estudar 2 horas por dia e passar no concurso&quot;)</li>
+</ul>
+<h3 class="md" id="pre-o">Preço</h3>
+<ul class="md">
+<li>Produto principal: R$ 67,74 x 10 parcelas (aprox. R$ 677)</li>
+<li>Garantia: 7 dias incondicional</li>
+</ul>
+<h3 class="md" id="o-que-replicar-para-o-gabaritando">O que replicar para o GABARITANDO</h3>
+<ol class="md">
+<li>A narrativa &quot;feito por quem veste a farda&quot; é extremamente poderosa — os donos do GABARITANDO são Oficiais da PMBA, o que é ainda mais forte que um Soldado aprovado</li>
+<li>O posicionamento &quot;do zero à aprovação&quot; funciona bem para público iniciante</li>
+<li>A tecnologia de IA (gerador de questões, corretor de redação) é um diferencial percebido — o GABARITANDO já tem gerador de cronograma, o que pode ser comunicado com mais força</li>
+<li>Reels curtos com dicas de questões que caem no concurso específico da PMBA/PCBA têm alto potencial de viralização regional</li>
+</ol>
+<hr class="md">
+<h2 class="md" id="concorrente-2-franciscojunior060">CONCORRENTE 2: @franciscojunior060</h2>
+<h3 class="md" id="perfil-e-posicionamento">Perfil e Posicionamento</h3>
+<ul class="md">
+<li><strong>Nome completo:</strong> Francisco Júnior</li>
+<li><strong>Vínculo institucional:</strong> Co-fundador do método RUMO à Aprovação e Rumo Concursos</li>
+<li><strong>Instagram do projeto:</strong> @rumoconcursos_ (85 mil seguidores confirmados)</li>
+<li><strong>Credenciais:</strong></li>
+<ul class="md nested">
+<li>- Aprovado como Soldado da PMBA em 2017, com 19 anos</li>
+<li>- Aprovado como Oficial (CFO PMBA) em 2019, com 21 anos</li>
+<li>- Aprovado também na OAB e no MPERJ/MPBA</li>
+<li>- Mais de 7.000 alunos no histórico</li>
+<li>- Mais de 1.000 aprovações em corporações militares do país</li>
+</ul>
+</ul>
+<h3 class="md" id="m-todo-ensinado-m-todo-perseu">Método ensinado: Método Perseu</h3>
+<p class="md">O Método Perseu é a metodologia proprietária co-criada por Francisco Júnior e Leonardo Umburana. Combina:</p>
+<ul class="md">
+<li>Teoria verticalizada (focada no edital específico)</li>
+<li>Banco de questões comentadas</li>
+<li>Cronograma personalizado</li>
+<li>Simulados com análise de desempenho</li>
+<li>Grupo de suporte dos mentores</li>
+<li>Lives semanais</li>
+</ul>
+<h3 class="md" id="tom-de-comunica-o">Tom de comunicação</h3>
+<ul class="md">
+<li>Pessoal e próximo</li>
+<li>Conta sua própria história de aprovação jovem como prova social central</li>
+<li>Posicionamento: &quot;Eu passei cedo e jovem porque tive método — você também pode&quot;</li>
+<li>Linguagem acessível, sem academicismo excessivo</li>
+</ul>
+<h3 class="md" id="ganchos-identificados">Ganchos identificados</h3>
+<ul class="md">
+<li><strong>Gancho de prova social pessoal:</strong> &quot;Passei no CFO com 21 anos — te conto como&quot;</li>
+<li><strong>Gancho de método proprietário:</strong> &quot;O Método Perseu que aprovou mais de 1.000 pessoas&quot;</li>
+<li><strong>Gancho de resultado específico:</strong> &quot;Colocamos mais alunos acima da nota de corte no CFO PMBA do que qualquer outro curso&quot;</li>
+<li><strong>Gancho de comunidade:</strong> &quot;Estude junto com quem já passou por isso&quot;</li>
+</ul>
+<h3 class="md" id="tipo-de-conte-do-instagram-rumoconcursos-85k-seguidores">Tipo de conteúdo (Instagram @rumoconcursos_ — 85K seguidores)</h3>
+<ul class="md">
+<li>Conteúdo educativo sobre dicas de estudo (como montar cronograma, como revisar)</li>
+<li>Posts de resultado: fotos e vídeos de alunos aprovados com suas histórias</li>
+<li>Reels com &quot;erros que te reprovam no concurso&quot;</li>
+<li>Conteúdo de motivação com âncora na aprovação (&quot;Falta X dias para o edital sair&quot;)</li>
+<li>Conteúdo de bastidores: Francisco em treinamento, em serviço, no CFO</li>
+<li>Depoimentos em vídeo</li>
+</ul>
+<h3 class="md" id="oferta-rumo-concursos-rumo-aprova-o">Oferta (Rumo Concursos / Rumo à Aprovação)</h3>
+<ul class="md">
+<li>Plano Soldado PMBA: R$ 897,00 à vista / 12x R$ 88,80</li>
+<li>Plano Oficial PMBA: R$ 1.097,00 à vista / 12x R$ 108,59</li>
+<li>Garantia: 10 dias (acima dos 7 legais)</li>
+<li>Inclui: plataforma gamificada, cronograma personalizado, lives semanais, grupo com mentores, simulados exclusivos, bônus AfiliaRUMO</li>
+</ul>
+<h3 class="md" id="n-meros-declarados">Números declarados</h3>
+<ul class="md">
+<li>877 aprovados no último concurso de Soldado PMBA</li>
+<li>+10.000 alunos desde 2019</li>
+<li>+2.000 aprovações em concursos públicos</li>
+<li>+5.000 avaliações 5 estrelas</li>
+</ul>
+<h3 class="md" id="o-que-replicar-para-o-gabaritando">O que replicar para o GABARITANDO</h3>
+<ol class="md">
+<li>A história pessoal dos donos (Oficiais da PMBA) é o maior ativo — deve ser o centro da comunicação</li>
+<li>O número de aprovados precisa ser comunicado de forma clara e constante</li>
+<li>O formato de &quot;lives semanais com mentores&quot; cria engajamento e senso de comunidade</li>
+<li>O programa de indicação (tipo AfiliaRUMO) é uma estratégia de crescimento que o GABARITANDO pode considerar</li>
+<li>A gamificação da plataforma (metas, rankings, fases) é um diferencial percebido que o GABARITANDO pode comunicar</li>
+</ol>
+<hr class="md">
+<h2 class="md" id="concorrente-3-leonardo-umburana">CONCORRENTE 3: @leonardo.umburana</h2>
+<h3 class="md" id="perfil-e-posicionamento">Perfil e Posicionamento</h3>
+<ul class="md">
+<li><strong>Nome completo:</strong> Leonardo Umburana</li>
+<li><strong>Vínculo institucional:</strong> Co-fundador do método RUMO à Aprovação, parceiro de Francisco Júnior</li>
+<li><strong>Credenciais:</strong></li>
+<ul class="md nested">
+<li>- Aprovado em Direito na UESB com 17 anos</li>
+<li>- Aprovado como Soldado da PMBA com 18 anos</li>
+<li>- Aprovado na Caixa Econômica Federal (CEF) com 19 anos</li>
+<li>- <strong>1º lugar no CFO da PMBA</strong> (maior credencial — aprovado em primeiro lugar no Curso de Formação de Oficiais)</li>
+<li>- Co-autor do Método Perseu</li>
+</ul>
+</ul>
+<h3 class="md" id="diferencial-da-autoridade">Diferencial da autoridade</h3>
+<p class="md">Leonardo tem o diferencial de ter sido aprovado em <strong>1º lugar no CFO da PMBA</strong>, o que é uma credencial de autoridade máxima no nicho. Diferente de Francisco (que se aproveitou mais do posicionamento como &quot;jovem aprovado cedo&quot;), Leonardo tem o &quot;primeiro lugar&quot; como âncora de credibilidade.</p>
+<h3 class="md" id="tom-de-comunica-o-estimado-com-base-no-site-e-posicionamento">Tom de comunicação (estimado com base no site e posicionamento)</h3>
+<ul class="md">
+<li>Acadêmico-estratégico: usa sua história de 1º lugar como prova de método</li>
+<li>Posicionamento: &quot;Não é sorte — é método. E eu provei com o 1º lugar&quot;</li>
+<li>Direciona conteúdo para quem quer se destacar, não apenas passar</li>
+</ul>
+<h3 class="md" id="ganchos-identificados">Ganchos identificados</h3>
+<ul class="md">
+<li><strong>Gancho de excelência:</strong> &quot;1º lugar no CFO da PMBA — não por acidente&quot;</li>
+<li><strong>Gancho de método comprovado:</strong> &quot;O mesmo método que me levou ao 1º lugar está disponível para você&quot;</li>
+<li><strong>Gancho de jovem vitorioso:</strong> &quot;Aprovado com 18 anos como soldado, 1º lugar como oficial&quot;</li>
+<li><strong>Gancho de transformação total:</strong> &quot;De vestibulando a Oficial da PMBA&quot;</li>
+</ul>
+<h3 class="md" id="tipo-de-conte-do-estimado">Tipo de conteúdo (estimado)</h3>
+<ul class="md">
+<li>Conteúdo de estratégia de estudo (foco em técnica, não em esforço bruto)</li>
+<li>Análise de edital: &quot;As 10 matérias que mais caem no CFO&quot;</li>
+<li>Conteúdo de lifestyle policial: rotina de Oficial, dia a dia na corporação</li>
+<li>Reels motivacionais com foco em excelência</li>
+</ul>
+<h3 class="md" id="o-que-replicar-para-o-gabaritando">O que replicar para o GABARITANDO</h3>
+<ol class="md">
+<li>O diferencial de ser Oficial é uma credencial de elite — o GABARITANDO deve comunicar explicitamente o que significa ser Oficial vs. Soldado</li>
+<li>O storytelling do 1º lugar é extremamente poderoso para o público que quer não apenas passar, mas se destacar</li>
+<li>Conteúdo sobre &quot;como é a vida de Oficial&quot; gera muito engajamento e atrai o público do CFO (que paga mais)</li>
+</ol>
+<hr class="md">
+<h2 class="md" id="an-lise-comparativa-dos-3-perfis">ANÁLISE COMPARATIVA DOS 3 PERFIS</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Critério</th>
+<th>@manualdomike</th>
+<th>@franciscojunior060 / RUMO</th>
+<th>@leonardo.umburana / RUMO</th>
+</tr></thead><tbody>
+<tr>
+<td>Concursos foco</td>
+<td>PM nacional + GCM</td>
+<td>PMBA + PCBA (foco Bahia)</td>
+<td>PMBA (foco CFO)</td>
+</tr>
+<tr>
+<td>Credencial central</td>
+<td>Policial com método + IA</td>
+<td>Aprovado jovem (Soldado + Oficial)</td>
+<td>1º lugar CFO PMBA</td>
+</tr>
+<tr>
+<td>Tom</td>
+<td>Motivacional/garra</td>
+<td>Pessoal/próximo</td>
+<td>Estratégico/excelência</td>
+</tr>
+<tr>
+<td>Tecnologia</td>
+<td>Alta (IA, métricas)</td>
+<td>Média (plataforma gamificada)</td>
+<td>Média</td>
+</tr>
+<tr>
+<td>Preço aprox.</td>
+<td>R$ 677</td>
+<td>R$ 897–R$ 1.097</td>
+<td>(compartilha com Francisco)</td>
+</tr>
+<tr>
+<td>Aprovações declaradas</td>
+<td>Centenas (2025)</td>
+<td>877 soldados + 1.000+ total</td>
+<td>(compartilha com Francisco)</td>
+</tr>
+<tr>
+<td>Alcance estimado</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+<td>85K (perfil RUMO)</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+</tr>
+</tbody></table></div>
+<hr class="md">
+<h2 class="md" id="gaps-identificados-oportunidades-para-o-gabaritando">GAPS IDENTIFICADOS — OPORTUNIDADES PARA O GABARITANDO</h2>
+<h3 class="md" id="gap-1-credencial-local-presencial">Gap 1: Credencial local + presencial</h3>
+<p class="md">Nenhum dos concorrentes tem <strong>base física em Luís Eduardo Magalhães</strong>. O GABARITANDO é o único com presença presencial no oeste baiano. Isso é uma vantagem competitiva enorme para o público local que prefere aula presencial ou que se identifica com professores da região.</p>
+<h3 class="md" id="gap-2-dois-oficiais-como-donos">Gap 2: Dois Oficiais como donos</h3>
+<p class="md">O RUMO tem dois aprovados (Soldado + Oficial), mas o GABARITANDO tem <strong>dois Oficiais da PMBA como fundadores</strong>. Essa credencial é superior — Oficial é a carreira de elite dentro da PM. Esse diferencial precisa estar no centro de toda comunicação.</p>
+<h3 class="md" id="gap-3-conte-do-hiperlocal">Gap 3: Conteúdo hiperlocal</h3>
+<p class="md">Nenhum concorrente produz conteúdo específico para o contexto do concurseiro do interior da Bahia, do oeste baiano, das cidades do agronegócio. O GABARITANDO pode dominar esse segmento geográfico com conteúdo que ressoa com a realidade local (&quot;o concurso mais disputado da Bahia para quem mora no LEM&quot;).</p>
+<h3 class="md" id="gap-4-cobertura-bmba-pcba-pmba">Gap 4: Cobertura BMBA + PCBA + PMBA</h3>
+<p class="md">O Rumo tem foco principalmente em PMBA e PCBA. O GABARITANDO atende PMBA, BMBA e PCBA — essa amplitude de cobertura, comunicada de forma clara, é um diferencial para quem quer se preparar para múltiplos concursos.</p>
+<h3 class="md" id="gap-5-professores-policiais-especializados">Gap 5: Professores policiais especializados</h3>
+<p class="md">O GABARITANDO tem professores que são policiais ativos. Isso é mais poderoso do que professores civis — significa que quem ensina já foi aprovado e viveu o que o aluno quer viver.</p>
+<hr class="md">
+<h2 class="md" id="recomenda-es-de-conte-do-para-o-instagram-do-gabaritando">RECOMENDAÇÕES DE CONTEÚDO PARA O INSTAGRAM DO GABARITANDO</h2>
+<h3 class="md" id="formatos-que-mais-convertem-no-nicho">Formatos que mais convertem no nicho</h3>
+<ol class="md">
+<li><strong>Reels de prova social</strong> — vídeo curto de aluno aprovado contando a história</li>
+<li><strong>Reels de dica rápida</strong> — &quot;A questão que mais cai no concurso de Soldado PMBA em [matéria]&quot;</li>
+<li><strong>Reels de bastidores</strong> — os donos (Oficiais) mostrando o dia a dia na corporação</li>
+<li><strong>Carrossel de conteúdo</strong> — &quot;5 erros que reprovam no CFO da PMBA&quot;</li>
+<li><strong>Reels de motivação com gancho forte</strong> — começar com dor do público e terminar com solução</li>
+<li><strong>Stories de acompanhamento</strong> — ranking semanal de alunos mais dedicados na plataforma</li>
+</ol>
+<h3 class="md" id="ganchos-de-alto-desempenho-para-o-gabaritando">Ganchos de alto desempenho para o GABARITANDO</h3>
+<ul class="md">
+<li>&quot;Dois Oficiais da PMBA te ensinando como eles passaram&quot;</li>
+<li>&quot;O único preparatório com base em Luís Eduardo Magalhães&quot;</li>
+<li>&quot;Enquanto o edital não sai, quem estuda agora sai na frente&quot;</li>
+<li>&quot;Aprovado no concurso da PMBA? Pode ter sido aluno nosso&quot;</li>
+<li>&quot;BMBA + PMBA + PCBA: prepare-se para os 3 no mesmo lugar&quot;</li>
+<li>&quot;O concurso mais disputado da Bahia — e nós sabemos como passar&quot;</li>
+</ul>
+<hr class="md">
+<p class="md"><em>Nota: O Instagram bloqueia scraping automatizado. Os dados de seguidores e conteúdo específico dos perfis individuais @manualdomike, @franciscojunior060 e @leonardo.umburana foram reconstruídos a partir dos sites oficiais, páginas de vendas e buscas cruzadas. Para dados exatos de seguidores e engajamento, acesse os perfis diretamente e registre: número de seguidores, média de curtidas por post, média de visualizações de Reels, últimas postagens e destaques.</em></p>
+  </main>
+</div>
+
+<footer>
+  <p><strong>Gabaritando</strong> &mdash; Preparatório para Carreiras Policiais da Bahia &mdash; Uso interno</p>
+  <p style="margin-top:6px">Abril de 2026</p>
+</footer>
+
+<script>
+// Highlight active TOC link on scroll
+(function() {
+  var headings = document.querySelectorAll('h2.md[id], h3.md[id]');
+  var links    = document.querySelectorAll('.toc-list a');
+  if (!headings.length || !links.length) return;
+  function activate() {
+    var scrollY = window.scrollY + 80;
+    var current = '';
+    headings.forEach(function(h) {
+      if (h.offsetTop <= scrollY) current = h.id;
+    });
+    links.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', activate, {passive: true});
+  activate();
+})();
+</script>
+
+</body>
+</html>

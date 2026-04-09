@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn e Blogs do Nicho — Gabaritando</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --preto:     #080A10;
+  --navy:      #0D1117;
+  --ardosia:   #131A28;
+  --borda:     rgba(255,255,255,0.08);
+  --ouro:      #FFB800;
+  --ouro-dim:  rgba(255,184,0,0.14);
+  --texto:     rgba(255,255,255,0.82);
+  --texto-dim: rgba(255,255,255,0.45);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--preto);
+  color: var(--texto);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ── CABEÇALHO ── */
+.doc-header {
+  background: var(--ardosia);
+  border-bottom: 1px solid var(--ouro-dim);
+  padding: 52px 32px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  position: absolute;
+  top: 24px; left: 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  text-decoration: none;
+  border: 1px solid rgba(255,184,0,0.2);
+  padding: 7px 14px;
+  transition: color .2s, border-color .2s;
+}
+.back-btn:hover { color: var(--ouro); border-color: var(--ouro); }
+.header-label {
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.30em; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 16px;
+  position: relative;
+}
+.doc-header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.7rem, 4vw, 2.9rem);
+  font-weight: 900; color: #fff; line-height: 1.1;
+  position: relative;
+}
+.doc-header h1 em { color: var(--ouro); font-style: italic; }
+.header-rule { width: 44px; height: 2px; background: var(--ouro); margin: 18px auto; }
+.header-meta {
+  font-size: 0.73rem; font-weight: 400;
+  color: var(--texto-dim); letter-spacing: 0.06em;
+  position: relative;
+}
+
+/* ── LAYOUT ── */
+.page-wrap {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1160px;
+  margin: 0 auto;
+  gap: 0;
+  align-items: start;
+}
+
+/* ── SIDEBAR TOC ── */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 40px 0 40px 32px;
+  border-right: 1px solid var(--borda);
+  background: var(--navy);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--ouro-dim); border-radius: 2px; }
+.toc-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.60rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,184,0,0.55);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--borda);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 2px; }
+.toc-list li a {
+  display: block;
+  font-size: 0.77rem; font-weight: 400;
+  color: var(--texto-dim);
+  text-decoration: none;
+  padding: 6px 12px 6px 0;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  padding-left: 12px;
+  transition: color .2s, border-color .2s;
+}
+.toc-list li a:hover,
+.toc-list li a.active {
+  color: var(--ouro);
+  border-left-color: var(--ouro);
+}
+.toc-list li.toc-h3 a {
+  font-size: 0.70rem;
+  padding-left: 22px;
+  color: rgba(255,255,255,0.3);
+}
+.toc-list li.toc-h3 a:hover { color: rgba(255,184,0,0.7); }
+
+/* ── CONTEÚDO ── */
+.content {
+  padding: 56px 52px 96px 48px;
+  min-width: 0;
+}
+
+/* ── HEADINGS ── */
+h1.md { display: none; }
+
+h2.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 700; color: #fff;
+  margin: 72px 0 12px;
+  padding-top: 72px;
+  border-top: 1px solid var(--borda);
+  line-height: 1.25;
+  scroll-margin-top: 20px;
+}
+h2.md:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+h3.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.0rem; font-weight: 700;
+  color: var(--ouro);
+  margin: 40px 0 10px;
+  line-height: 1.35;
+  scroll-margin-top: 20px;
+}
+
+h4.md {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.70rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  margin: 28px 0 8px;
+}
+
+/* ── SUMÁRIO EXECUTIVO ── */
+.sumario-bloco {
+  background: var(--ardosia);
+  border-left: 3px solid var(--ouro);
+  padding: 22px 26px;
+  margin: 16px 0 36px;
+  border-radius: 0 4px 4px 0;
+}
+.sumario-bloco p.md {
+  font-size: 0.96rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO DIA (planos de conteúdo) ── */
+.day-block {
+  background: var(--ardosia);
+  border: 1px solid var(--borda);
+  border-top: 2px solid rgba(255,184,0,0.35);
+  padding: 20px 22px 16px;
+  margin: 32px 0 8px;
+  border-radius: 0 0 4px 4px;
+}
+.day-block-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.92rem; font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO OBJETIVO/NOTA inline ── */
+.inline-label {
+  background: var(--ardosia);
+  border-left: 2px solid rgba(255,184,0,0.3);
+  padding: 10px 16px;
+  margin: 12px 0;
+}
+.inline-label p.md { margin-bottom: 0; font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+
+/* ── PARÁGRAFOS ── */
+p.md {
+  font-size: 0.94rem;
+  color: var(--texto);
+  margin-bottom: 14px;
+  line-height: 1.85;
+}
+
+strong { color: #fff; font-weight: 600; }
+em { font-style: italic; color: rgba(255,255,255,0.72); }
+
+/* ── LISTAS ── */
+ul.md, ol.md {
+  margin: 4px 0 18px 0;
+  padding-left: 0;
+  list-style: none;
+}
+ul.md li, ol.md li {
+  font-size: 0.92rem;
+  color: var(--texto);
+  margin-bottom: 8px;
+  line-height: 1.75;
+  padding-left: 22px;
+  position: relative;
+}
+ul.md li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.65em;
+  width: 5px; height: 5px;
+  background: var(--ouro);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+ol.md { counter-reset: ol-counter; }
+ol.md li { counter-increment: ol-counter; }
+ol.md li::before {
+  content: counter(ol-counter) '.';
+  position: absolute; left: 0;
+  font-weight: 700; color: var(--ouro);
+  font-size: 0.78rem;
+  top: 0.05em;
+}
+/* nested */
+ul.md.nested, ol.md.nested {
+  margin: 8px 0 4px 0;
+  padding-left: 20px;
+}
+ul.md.nested li::before { width: 4px; height: 4px; background: rgba(255,184,0,0.5); }
+
+/* ── TABELAS ── */
+.table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--ouro-dim); }
+table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+thead tr { background: rgba(255,184,0,0.10); border-bottom: 1px solid rgba(255,184,0,0.4); }
+thead th {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ouro); padding: 12px 16px; text-align: left;
+}
+tbody tr { border-bottom: 1px solid var(--borda); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:nth-child(even) { background: rgba(255,255,255,0.025); }
+tbody td { padding: 10px 16px; color: var(--texto); vertical-align: top; line-height: 1.6; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  border-left: 3px solid var(--ouro);
+  background: var(--ardosia);
+  padding: 18px 22px; margin: 22px 0;
+  border-radius: 0 4px 4px 0;
+}
+blockquote p.md {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem; font-style: italic;
+  color: rgba(255,255,255,0.82); margin-bottom: 0; line-height: 1.7;
+}
+
+code {
+  font-family: 'Menlo', 'Courier New', monospace;
+  font-size: 0.82rem;
+  background: rgba(255,184,0,0.1); color: var(--ouro);
+  padding: 2px 7px; border-radius: 3px;
+}
+
+hr.md { border: none; border-top: 1px solid var(--borda); margin: 36px 0; }
+
+.fill-badge {
+  display: inline-block;
+  background: rgba(255,184,0,0.10);
+  border: 1px solid rgba(255,184,0,0.28);
+  color: var(--ouro);
+  font-size: 0.70rem; font-weight: 600;
+  letter-spacing: 0.08em; padding: 1px 8px; border-radius: 3px;
+}
+
+/* ── RODAPÉ ── */
+footer {
+  background: var(--ardosia);
+  border-top: 1px solid var(--ouro-dim);
+  text-align: center; padding: 36px 32px;
+}
+footer p { font-size: 0.72rem; color: var(--texto-dim); letter-spacing: 0.06em; line-height: 1.8; }
+footer strong { color: var(--ouro); }
+
+@media (max-width: 800px) {
+  .page-wrap { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--borda); padding: 24px 20px; }
+  .content { padding: 40px 20px 64px; }
+  .back-btn { position: static; display: inline-flex; margin-bottom: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <a class="back-btn" href="index.html">&#8592; Índice Geral</a>
+  <div class="header-label">Gabaritando &mdash; Pesquisa de Mercado</div>
+  <h1>LinkedIn e Blogs do <em>Nicho</em></h1>
+  <div class="header-rule"></div>
+  <p class="header-meta">Abril de 2026 &mdash; Uso interno</p>
+</header>
+
+<div class="page-wrap">
+  <aside class="sidebar"><div class="toc-heading">Neste documento</div><ul class="toc-list"><li class=""><a href="#projeto-gabaritando-pesquisa-de-mercado">Projeto GABARITANDO — Pesquisa de Mercado</a></li><li class=""><a href="#sum-rio-executivo">SUMÁRIO EXECUTIVO</a></li><li class=""><a href="#1-an-lise-do-linkedin-no-nicho">1. ANÁLISE DO LINKEDIN NO NICHO</a></li><li class="toc-h3"><a href="#presen-a-geral-do-nicho-no-linkedin">Presença geral do nicho no LinkedIn</a></li><li class="toc-h3"><a href="#perfis-relevantes-identificados-no-linkedin">Perfis relevantes identificados no LinkedIn</a></li><li class="toc-h3"><a href="#recomenda-es-de-uso-do-linkedin-para-o-gabaritando">Recomendações de uso do LinkedIn para o GABARITANDO</a></li><li class=""><a href="#2-an-lise-dos-blogs-com-maior-tr-fego-no-nicho">2. ANÁLISE DOS BLOGS COM MAIOR TRÁFEGO NO NICHO</a></li><li class="toc-h3"><a href="#blog-1-gran-cursos-online-blog-grancursosonline-com-br">Blog 1: Gran Cursos Online (blog.grancursosonline.com.br)</a></li><li class="toc-h3"><a href="#blog-2-estrat-gia-concursos-estrategiaconcursos-com-br-blog">Blog 2: Estratégia Concursos (estrategiaconcursos.com.br/blog)</a></li><li class="toc-h3"><a href="#blog-3-alfacon-blog-alfaconcursos-com-br">Blog 3: AlfaCon (blog.alfaconcursos.com.br)</a></li><li class="toc-h3"><a href="#blog-4-dire-o-concursos-direcaoconcursos-com-br-noticias">Blog 4: Direção Concursos (direcaoconcursos.com.br/noticias)</a></li><li class="toc-h3"><a href="#blog-5-profiss-o-policial-profissaopolicial-com-br">Blog 5: Profissão Policial (profissaopolicial.com.br)</a></li><li class="toc-h3"><a href="#blog-6-projeto-miss-o-projetomissao-com-br">Blog 6: Projeto Missão (projetomissao.com.br)</a></li><li class="toc-h3"><a href="#blog-7-pr-ximos-concursos-proximosconcursos-com">Blog 7: Próximos Concursos (proximosconcursos.com)</a></li><li class=""><a href="#3-an-lise-de-conte-do-que-gera-mais-engajamento">3. ANÁLISE DE CONTEÚDO QUE GERA MAIS ENGAJAMENTO</a></li><li class="toc-h3"><a href="#tipo-1-not-cias-de-edital-maior-tr-fego">Tipo 1: Notícias de edital (maior tráfego)</a></li><li class="toc-h3"><a href="#tipo-2-o-que-estudar-para-concurso-segundo-maior-tr-fego">Tipo 2: &quot;O que estudar para [concurso]&quot; (segundo maior tráfego)</a></li><li class="toc-h3"><a href="#tipo-3-an-lise-de-banca-alto-engajamento-t-cnico">Tipo 3: Análise de banca (alto engajamento técnico)</a></li><li class="toc-h3"><a href="#tipo-4-motiva-o-e-identidade-alto-compartilhamento">Tipo 4: Motivação e identidade (alto compartilhamento)</a></li><li class="toc-h3"><a href="#tipo-5-dicas-pr-ticas-de-estudo-alto-valor-percebido">Tipo 5: Dicas práticas de estudo (alto valor percebido)</a></li><li class=""><a href="#4-estrat-gia-de-blog-para-o-gabaritando">4. ESTRATÉGIA DE BLOG PARA O GABARITANDO</a></li><li class="toc-h3"><a href="#proposta-de-blog-o-blog-de-concursos-policiais-da-bahia">Proposta de blog: o blog de concursos policiais da Bahia</a></li><li class=""><a href="#5-instrutores-professores-relevantes-no-mercado">5. INSTRUTORES/PROFESSORES RELEVANTES NO MERCADO</a></li><li class="toc-h3"><a href="#perfil-de-instructor-que-mais-converte-no-nicho">Perfil de instructor que mais converte no nicho</a></li><li class="toc-h3"><a href="#o-gabaritando-tem-esse-perfil">O GABARITANDO tem esse perfil?</a></li><li class=""><a href="#6-gaps-do-mercado-no-mbito-de-blogs-e-linkedin">6. GAPS DO MERCADO NO ÂMBITO DE BLOGS E LINKEDIN</a></li></ul></aside>
+  <main class="content">
+<h1 class="md">Análise de LinkedIn e Blogs — Mercado de Preparatórios Policiais</h1>
+<h2 class="md" id="projeto-gabaritando-pesquisa-de-mercado">Projeto GABARITANDO — Pesquisa de Mercado</h2>
+<p class="md"><strong>Data da análise:</strong> Abril de 2026</p>
+<hr class="md">
+<h2 class="md" id="sum-rio-executivo">SUMÁRIO EXECUTIVO</h2>
+<div class="sumario-bloco"><p class="md">O LinkedIn é pouco explorado no nicho de preparatórios para concursos policiais — o que representa uma oportunidade de diferenciação para o GABARITANDO. Os blogs com maior tráfego são das grandes plataformas nacionais (Gran Cursos, Estratégia Concursos, AlfaCon), que publicam conteúdo informativo sobre editais e concursos. Há uma escassez notável de blogs e perfis especializados em concursos policiais baianos com voz autêntica e local. Esta é uma janela estratégica para o GABARITANDO.</p></div>
+<hr class="md">
+<h2 class="md" id="1-an-lise-do-linkedin-no-nicho">1. ANÁLISE DO LINKEDIN NO NICHO</h2>
+<h3 class="md" id="presen-a-geral-do-nicho-no-linkedin">Presença geral do nicho no LinkedIn</h3>
+<p class="md">O LinkedIn é majoritariamente ignorado pelos preparatórios policiais. Isso ocorre porque o público-alvo (candidatos de 18 a 30 anos buscando concurso policial) não está ativamente no LinkedIn como canal de consumo de conteúdo educacional. No entanto, o LinkedIn tem valor estratégico para:</p>
+<ol class="md">
+<li><strong>Autoridade profissional dos donos do GABARITANDO:</strong> Um perfil bem estruturado de Oficiais da PMBA no LinkedIn reforça a credibilidade institucional</li>
+<li><strong>Parcerias B2B:</strong> Conectar com empresas do agronegócio em LEM (que podem subsidiar cursos para funcionários que querem prestar concurso)</li>
+<li><strong>Imprensa e relações públicas:</strong> Jornalistas de concursos verificam LinkedIn antes de citar especialistas</li>
+</ol>
+<h3 class="md" id="perfis-relevantes-identificados-no-linkedin">Perfis relevantes identificados no LinkedIn</h3>
+<p class="md"><strong>Perfil tipo: Instrutor/Professor de preparatório policial</strong></p>
+<ul class="md">
+<li>Padrão observado: Policiais aprovados que criam conteúdo educacional normalmente têm LinkedIn para credenciais institucionais, mas não usam a plataforma como canal de aquisição</li>
+<li>Oportunidade: Publicar artigos sobre o mercado de concursos policiais no LinkedIn pode gerar autoridade e aparecer em buscas do Google (artigos do LinkedIn ranqueiam bem)</li>
+</ul>
+<p class="md"><strong>Perfil tipo: Candidato aprovado que vira professor</strong></p>
+<ul class="md">
+<li>Padrão: Candidatos aprovados em concursos policiais usam o LinkedIn para documentar a aprovação e, eventualmente, anunciar que viraram instrutores</li>
+<li>Oportunidade: Recrutar professores para o GABARITANDO via LinkedIn (policiais aprovados que querem ensinar)</li>
+</ul>
+<h3 class="md" id="recomenda-es-de-uso-do-linkedin-para-o-gabaritando">Recomendações de uso do LinkedIn para o GABARITANDO</h3>
+<ol class="md">
+<li>Criar perfis profissionais dos dois donos com destaque para &quot;Oficial da PMBA + Fundador do GABARITANDO&quot;</li>
+<li>Publicar artigos mensais sobre o mercado de concursos policiais na Bahia (ex: &quot;Novo edital PMBA 2026: o que esperar e como se preparar&quot;)</li>
+<li>Criar página da empresa GABARITANDO no LinkedIn com publicações regulares</li>
+<li>Usar LinkedIn Ads para atingir formandos de ensino médio e superior na região de LEM e municípios vizinhos</li>
+</ol>
+<hr class="md">
+<h2 class="md" id="2-an-lise-dos-blogs-com-maior-tr-fego-no-nicho">2. ANÁLISE DOS BLOGS COM MAIOR TRÁFEGO NO NICHO</h2>
+<h3 class="md" id="blog-1-gran-cursos-online-blog-grancursosonline-com-br">Blog 1: Gran Cursos Online (blog.grancursosonline.com.br)</h3>
+<p class="md"><strong>Posicionamento:</strong> Maior blog de concursos públicos do Brasil em volume de conteúdo</p>
+<p class="md"><strong>Tráfego estimado:</strong> Milhões de visitas/mês (plataforma nacional)</p>
+<p class="md"><strong>Conteúdo sobre PMBA/PCBA/BMBA:</strong></p>
+<ul class="md">
+<li>Artigo: &quot;Concurso PM BA: novo edital em 2026 — veja últimas notícias&quot; (alta demanda)</li>
+<li>Artigo: &quot;Concurso PC BA: 750 vagas — banca e edital em breve&quot;</li>
+<li>Artigo: &quot;Concurso Bombeiros BA Oficial: 30 vagas, prorrogado até 2026&quot;</li>
+</ul>
+<p class="md"><strong>Estratégia de conteúdo:</strong> Notícias de edital, análise de prova, análise de banca, o que estudar</p>
+<p class="md"><strong>Monetização:</strong> Direciona para cursos da Gran Cursos Online</p>
+<p class="md"><strong>Fraqueza:</strong> Conteúdo genérico nacional, sem voz local, sem autoridade vivida</p>
+<h3 class="md" id="blog-2-estrat-gia-concursos-estrategiaconcursos-com-br-blog">Blog 2: Estratégia Concursos (estrategiaconcursos.com.br/blog)</h3>
+<p class="md"><strong>Posicionamento:</strong> Blog de análise técnica e notícias de concursos</p>
+<p class="md"><strong>Tráfego estimado:</strong> Alto (plataforma nacional)</p>
+<p class="md"><strong>Conteúdo sobre PMBA/PCBA/BMBA:</strong></p>
+<ul class="md">
+<li>&quot;Concurso PM BA: novo edital em 2026. Veja últimas notícias&quot;</li>
+<li>&quot;Concurso PC BA: 750 vagas — banca e edital&quot;</li>
+<li>Análises de prova, matérias cobradas, banca organizadora</li>
+</ul>
+<p class="md"><strong>Estratégia de conteúdo:</strong> SEO agressivo com palavras-chave de concurso, conteúdo atualizado a cada nova notícia</p>
+<p class="md"><strong>Monetização:</strong> Direciona para cursos da Estratégia Concursos</p>
+<p class="md"><strong>Fraqueza:</strong> Tom corporativo, distante do candidato real</p>
+<h3 class="md" id="blog-3-alfacon-blog-alfaconcursos-com-br">Blog 3: AlfaCon (blog.alfaconcursos.com.br)</h3>
+<p class="md"><strong>Posicionamento:</strong> Blog educativo e motivacional sobre carreiras em concursos públicos</p>
+<p class="md"><strong>Tráfego:</strong> Alto (referência nacional com +308.000 aprovados)</p>
+<p class="md"><strong>Conteúdo relevante:</strong></p>
+<ul class="md">
+<li>&quot;7 dicas de livros para quem estuda para carreira policial&quot;</li>
+<li>Análises de concursos PM estaduais</li>
+</ul>
+<p class="md"><strong>Estratégia de conteúdo:</strong> Mistura de notícias, dicas de estudo e motivação</p>
+<p class="md"><strong>Fraqueza:</strong> Genérico nacional, sem especialização em Bahia</p>
+<h3 class="md" id="blog-4-dire-o-concursos-direcaoconcursos-com-br-noticias">Blog 4: Direção Concursos (direcaoconcursos.com.br/noticias)</h3>
+<p class="md"><strong>Posicionamento:</strong> Notícias e análises rápidas de concursos</p>
+<p class="md"><strong>Conteúdo relevante:</strong></p>
+<ul class="md">
+<li>&quot;Concurso PM BA certame registra mais de 80 mil inscritos&quot;</li>
+<li>&quot;Concurso Policial: mais de 18 mil vagas abertas e previstas em 2025&quot;</li>
+</ul>
+<p class="md"><strong>Estratégia:</strong> Velocidade na publicação de notícias de concurso</p>
+<p class="md"><strong>Fraqueza:</strong> Sem profundidade pedagógica, sem voz especializada</p>
+<h3 class="md" id="blog-5-profiss-o-policial-profissaopolicial-com-br">Blog 5: Profissão Policial (profissaopolicial.com.br)</h3>
+<p class="md"><strong>Posicionamento:</strong> O único blog especializado exclusivamente em carreiras policiais no Brasil</p>
+<p class="md"><strong>Tráfego:</strong> Relevante no nicho específico</p>
+<p class="md"><strong>Diferenciais:</strong></p>
+<ul class="md">
+<li>Maior banco exclusivo de questões para concursos policiais (+500.000 questões)</li>
+<li>IA disponível 24h para dúvidas</li>
+<li>Professores que são policiais ou aprovados em grandes concursos</li>
+<li>Conteúdo específico para carreira policial (não mistura com outras carreiras)</li>
+</ul>
+<p class="md"><strong>Fraqueza:</strong> Nacional, sem foco em Bahia/LEM</p>
+<h3 class="md" id="blog-6-projeto-miss-o-projetomissao-com-br">Blog 6: Projeto Missão (projetomissao.com.br)</h3>
+<p class="md"><strong>Posicionamento:</strong> Pioneiro em simulados para carreiras policiais (desde 2006)</p>
+<p class="md"><strong>Tráfego:</strong> Relevante, especialmente entre candidatos policiais</p>
+<p class="md"><strong>Aprovações declaradas:</strong> 54.711 aprovados históricos</p>
+<p class="md"><strong>Conteúdo:</strong> Simulados, PDFs, análise de desempenho</p>
+<p class="md"><strong>Fraqueza:</strong> Não tem voz pedagógica forte, mais focado em produto do que em conteúdo educativo gratuito</p>
+<h3 class="md" id="blog-7-pr-ximos-concursos-proximosconcursos-com">Blog 7: Próximos Concursos (proximosconcursos.com)</h3>
+<p class="md"><strong>Posicionamento:</strong> Agregador de notícias de concursos</p>
+<p class="md"><strong>Conteúdo:</strong> Listagem de editais abertos e previstos, sem profundidade pedagógica</p>
+<p class="md"><strong>Tráfego:</strong> Alto por volume de concursos cobertos</p>
+<p class="md"><strong>Fraqueza:</strong> Conteúdo superficial, sem autoridade especializada</p>
+<hr class="md">
+<h2 class="md" id="3-an-lise-de-conte-do-que-gera-mais-engajamento">3. ANÁLISE DE CONTEÚDO QUE GERA MAIS ENGAJAMENTO</h2>
+<h3 class="md" id="tipo-1-not-cias-de-edital-maior-tr-fego">Tipo 1: Notícias de edital (maior tráfego)</h3>
+<p class="md"><strong>Padrão:</strong> &quot;Concurso [nome] 2026: edital publicado — veja datas, vagas e salário&quot;</p>
+<p class="md"><strong>Motivo:</strong> Alta intenção de busca quando um edital é publicado ou anunciado</p>
+<p class="md"><strong>Como usar:</strong> O GABARITANDO deve publicar notícias sobre editais de PMBA, PCBA e BMBA imediatamente — e rankear para as buscas locais</p>
+<h3 class="md" id="tipo-2-o-que-estudar-para-concurso-segundo-maior-tr-fego">Tipo 2: &quot;O que estudar para [concurso]&quot; (segundo maior tráfego)</h3>
+<p class="md"><strong>Padrão:</strong> &quot;Concurso Soldado PMBA: matérias cobradas, pesos e como priorizar&quot;</p>
+<p class="md"><strong>Motivo:</strong> Candidato que descobriu o concurso quer saber por onde começar</p>
+<p class="md"><strong>Como usar:</strong> Criar guia completo do edital para cada concurso atendido pelo GABARITANDO</p>
+<h3 class="md" id="tipo-3-an-lise-de-banca-alto-engajamento-t-cnico">Tipo 3: Análise de banca (alto engajamento técnico)</h3>
+<p class="md"><strong>Padrão:</strong> &quot;FCC para PM BA: como a banca cobra [matéria] — análise de provas anteriores&quot;</p>
+<p class="md"><strong>Motivo:</strong> Candidatos experientes querem entender o estilo da banca</p>
+<p class="md"><strong>Como usar:</strong> Os professores do GABARITANDO (especialmente policiais) podem gravar vídeos e escrever artigos sobre os padrões de cobrança da FCC</p>
+<h3 class="md" id="tipo-4-motiva-o-e-identidade-alto-compartilhamento">Tipo 4: Motivação e identidade (alto compartilhamento)</h3>
+<p class="md"><strong>Padrão:</strong> &quot;Por que eu quero ser policial — e como me preparei para isso&quot;</p>
+<p class="md"><strong>Motivo:</strong> Conteúdo de identificação — candidatos se veem nas histórias</p>
+<p class="md"><strong>Como usar:</strong> Histórias dos donos e de alunos aprovados, em formato de texto longo no blog e vídeo no YouTube</p>
+<h3 class="md" id="tipo-5-dicas-pr-ticas-de-estudo-alto-valor-percebido">Tipo 5: Dicas práticas de estudo (alto valor percebido)</h3>
+<p class="md"><strong>Padrão:</strong> &quot;Como estudar 2 horas por dia e passar no concurso da PMBA&quot;</p>
+<p class="md"><strong>Motivo:</strong> Candidatos que trabalham e têm pouco tempo querem soluções práticas</p>
+<p class="md"><strong>Como usar:</strong> Conteúdo de método de estudo com credencial de Oficial da PMBA é altamente diferenciado</p>
+<hr class="md">
+<h2 class="md" id="4-estrat-gia-de-blog-para-o-gabaritando">4. ESTRATÉGIA DE BLOG PARA O GABARITANDO</h2>
+<h3 class="md" id="proposta-de-blog-o-blog-de-concursos-policiais-da-bahia">Proposta de blog: o blog de concursos policiais da Bahia</h3>
+<p class="md">O GABARITANDO pode criar <strong>o blog de referência em concursos policiais no estado da Bahia</strong> — nicho que as grandes plataformas nacionais não cobrem com profundidade local.</p>
+<p class="md"><strong>Tópicos prioritários para os primeiros 12 artigos:</strong></p>
+<ol class="md">
+<li>&quot;Concurso PMBA 2026: guia completo do edital, vagas, matérias e como se preparar&quot;</li>
+<li>&quot;Concurso Investigador PCBA 2026: 500 vagas — o que estudar agora&quot;</li>
+<li>&quot;Concurso Oficial BMBA 2026: 30 vagas, edital vigente — como aproveitar&quot;</li>
+<li>&quot;Diferença entre Soldado e Oficial da PMBA: salário, carreira e como escolher&quot;</li>
+<li>&quot;Quanto ganha um policial militar na Bahia em 2026&quot;</li>
+<li>&quot;Como é o TAF (Teste de Aptidão Física) da PMBA: provas, notas e como se preparar&quot;</li>
+<li>&quot;Como é a vida de Oficial da PMBA — rotina, responsabilidades e benefícios&quot;</li>
+<li>&quot;Matérias que mais caem no concurso de Soldado PMBA pela banca FCC&quot;</li>
+<li>&quot;Como montar um cronograma de estudos para o concurso da PMBA em 60 dias&quot;</li>
+<li>&quot;Depoimento: como um morador de [LEM] passou no concurso da PMBA&quot;</li>
+<li>&quot;PMBA, PCBA ou BMBA: qual concurso escolher — análise comparativa&quot;</li>
+<li>&quot;Como estudar para concurso policial trabalhando o dia todo&quot;</li>
+</ol>
+<p class="md"><strong>SEO local:</strong></p>
+<ul class="md">
+<li>Incluir referências a LEM, Barreiras, oeste baiano, região de Luís Eduardo Magalhães</li>
+<li>&quot;preparatório PMBA Luís Eduardo Magalhães&quot; — praticamente sem concorrência</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="5-instrutores-professores-relevantes-no-mercado">5. INSTRUTORES/PROFESSORES RELEVANTES NO MERCADO</h2>
+<h3 class="md" id="perfil-de-instructor-que-mais-converte-no-nicho">Perfil de instructor que mais converte no nicho</h3>
+<p class="md">Com base nos padrões do mercado, o instructor que mais gera credibilidade e conversão no nicho de preparatório policial tem:</p>
+<ul class="md">
+<li><strong>Aprovação própria no concurso para o qual ensina</strong> (obrigatório)</li>
+<li><strong>Múltiplas aprovações</strong> (diferencial)</li>
+<li><strong>Posição de destaque</strong> na corporação (1º lugar, Oficial, etc.)</li>
+<li><strong>Linguagem autêntica</strong> — fala como policial, não como professor acadêmico</li>
+<li><strong>Presença digital ativa</strong> — Instagram, YouTube, WhatsApp</li>
+<li><strong>História pessoal</strong> — de onde veio, quantas tentativas, como superou</li>
+</ul>
+<h3 class="md" id="o-gabaritando-tem-esse-perfil">O GABARITANDO tem esse perfil?</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Critério</th>
+<th>GABARITANDO</th>
+</tr></thead><tbody>
+<tr>
+<td>Aprovação própria</td>
+<td>Sim — dois Oficiais da PMBA</td>
+</tr>
+<tr>
+<td>Múltiplas aprovações</td>
+<td>Sim — Oficial é mais alto que Soldado</td>
+</tr>
+<tr>
+<td>Posição de destaque</td>
+<td>Sim — Oficial é a elite da corporação</td>
+</tr>
+<tr>
+<td>Linguagem autêntica</td>
+<td>Potencial alto — policiais tendem a ser diretos</td>
+</tr>
+<tr>
+<td>Presença digital</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+</tr>
+<tr>
+<td>História pessoal</td>
+<td><span class="fill-badge">[A PREENCHER]</span></td>
+</tr>
+</tbody></table></div>
+<p class="md"><strong>Conclusão:</strong> O GABARITANDO já tem o perfil de instructor mais desejado pelo mercado. O trabalho é comunicar isso de forma clara e consistente em todos os canais.</p>
+<hr class="md">
+<h2 class="md" id="6-gaps-do-mercado-no-mbito-de-blogs-e-linkedin">6. GAPS DO MERCADO NO ÂMBITO DE BLOGS E LINKEDIN</h2>
+<ol class="md">
+<li><strong>Nenhum blog especializado em concursos policiais baianos</strong> — oportunidade de domínio regional</li>
+<li><strong>Nenhum instrutor policial baiano com blog ativo</strong> sobre preparação para PMBA/PCBA/BMBA</li>
+<li><strong>Nenhum conteúdo de qualidade sobre o concurso em LEM e região</strong> — o GABARITANDO pode ser a referência local</li>
+<li><strong>LinkedIn do nicho vazio</strong> — primeiros a criar autoridade lá terão vantagem de longo prazo</li>
+</ol>
+<hr class="md">
+<p class="md"><em>Fontes consultadas: Busca no Google e WebSearch por blogs e perfis relevantes no nicho de preparatórios policiais; dados de plataformas (Gran Cursos Online, Estratégia Concursos, AlfaCon, Profissão Policial, Projeto Missão) obtidos via análise de sites.</em></p>
+  </main>
+</div>
+
+<footer>
+  <p><strong>Gabaritando</strong> &mdash; Preparatório para Carreiras Policiais da Bahia &mdash; Uso interno</p>
+  <p style="margin-top:6px">Abril de 2026</p>
+</footer>
+
+<script>
+// Highlight active TOC link on scroll
+(function() {
+  var headings = document.querySelectorAll('h2.md[id], h3.md[id]');
+  var links    = document.querySelectorAll('.toc-list a');
+  if (!headings.length || !links.length) return;
+  function activate() {
+    var scrollY = window.scrollY + 80;
+    var current = '';
+    headings.forEach(function(h) {
+      if (h.offsetTop <= scrollY) current = h.id;
+    });
+    links.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', activate, {passive: true});
+  activate();
+})();
+</script>
+
+</body>
+</html>

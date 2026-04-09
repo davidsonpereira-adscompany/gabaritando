@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análise de Concorrente — RUMO — Gabaritando</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --preto:     #080A10;
+  --navy:      #0D1117;
+  --ardosia:   #131A28;
+  --borda:     rgba(255,255,255,0.08);
+  --ouro:      #FFB800;
+  --ouro-dim:  rgba(255,184,0,0.14);
+  --texto:     rgba(255,255,255,0.82);
+  --texto-dim: rgba(255,255,255,0.45);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--preto);
+  color: var(--texto);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ── CABEÇALHO ── */
+.doc-header {
+  background: var(--ardosia);
+  border-bottom: 1px solid var(--ouro-dim);
+  padding: 52px 32px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  position: absolute;
+  top: 24px; left: 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  text-decoration: none;
+  border: 1px solid rgba(255,184,0,0.2);
+  padding: 7px 14px;
+  transition: color .2s, border-color .2s;
+}
+.back-btn:hover { color: var(--ouro); border-color: var(--ouro); }
+.header-label {
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.30em; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 16px;
+  position: relative;
+}
+.doc-header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.7rem, 4vw, 2.9rem);
+  font-weight: 900; color: #fff; line-height: 1.1;
+  position: relative;
+}
+.doc-header h1 em { color: var(--ouro); font-style: italic; }
+.header-rule { width: 44px; height: 2px; background: var(--ouro); margin: 18px auto; }
+.header-meta {
+  font-size: 0.73rem; font-weight: 400;
+  color: var(--texto-dim); letter-spacing: 0.06em;
+  position: relative;
+}
+
+/* ── LAYOUT ── */
+.page-wrap {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1160px;
+  margin: 0 auto;
+  gap: 0;
+  align-items: start;
+}
+
+/* ── SIDEBAR TOC ── */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 40px 0 40px 32px;
+  border-right: 1px solid var(--borda);
+  background: var(--navy);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--ouro-dim); border-radius: 2px; }
+.toc-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.60rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,184,0,0.55);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--borda);
+}
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 2px; }
+.toc-list li a {
+  display: block;
+  font-size: 0.77rem; font-weight: 400;
+  color: var(--texto-dim);
+  text-decoration: none;
+  padding: 6px 12px 6px 0;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  padding-left: 12px;
+  transition: color .2s, border-color .2s;
+}
+.toc-list li a:hover,
+.toc-list li a.active {
+  color: var(--ouro);
+  border-left-color: var(--ouro);
+}
+.toc-list li.toc-h3 a {
+  font-size: 0.70rem;
+  padding-left: 22px;
+  color: rgba(255,255,255,0.3);
+}
+.toc-list li.toc-h3 a:hover { color: rgba(255,184,0,0.7); }
+
+/* ── CONTEÚDO ── */
+.content {
+  padding: 56px 52px 96px 48px;
+  min-width: 0;
+}
+
+/* ── HEADINGS ── */
+h1.md { display: none; }
+
+h2.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 700; color: #fff;
+  margin: 72px 0 12px;
+  padding-top: 72px;
+  border-top: 1px solid var(--borda);
+  line-height: 1.25;
+  scroll-margin-top: 20px;
+}
+h2.md:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+h3.md {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.0rem; font-weight: 700;
+  color: var(--ouro);
+  margin: 40px 0 10px;
+  line-height: 1.35;
+  scroll-margin-top: 20px;
+}
+
+h4.md {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.70rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,184,0,0.65);
+  margin: 28px 0 8px;
+}
+
+/* ── SUMÁRIO EXECUTIVO ── */
+.sumario-bloco {
+  background: var(--ardosia);
+  border-left: 3px solid var(--ouro);
+  padding: 22px 26px;
+  margin: 16px 0 36px;
+  border-radius: 0 4px 4px 0;
+}
+.sumario-bloco p.md {
+  font-size: 0.96rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO DIA (planos de conteúdo) ── */
+.day-block {
+  background: var(--ardosia);
+  border: 1px solid var(--borda);
+  border-top: 2px solid rgba(255,184,0,0.35);
+  padding: 20px 22px 16px;
+  margin: 32px 0 8px;
+  border-radius: 0 0 4px 4px;
+}
+.day-block-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.92rem; font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 0;
+}
+
+/* ── BLOCO OBJETIVO/NOTA inline ── */
+.inline-label {
+  background: var(--ardosia);
+  border-left: 2px solid rgba(255,184,0,0.3);
+  padding: 10px 16px;
+  margin: 12px 0;
+}
+.inline-label p.md { margin-bottom: 0; font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+
+/* ── PARÁGRAFOS ── */
+p.md {
+  font-size: 0.94rem;
+  color: var(--texto);
+  margin-bottom: 14px;
+  line-height: 1.85;
+}
+
+strong { color: #fff; font-weight: 600; }
+em { font-style: italic; color: rgba(255,255,255,0.72); }
+
+/* ── LISTAS ── */
+ul.md, ol.md {
+  margin: 4px 0 18px 0;
+  padding-left: 0;
+  list-style: none;
+}
+ul.md li, ol.md li {
+  font-size: 0.92rem;
+  color: var(--texto);
+  margin-bottom: 8px;
+  line-height: 1.75;
+  padding-left: 22px;
+  position: relative;
+}
+ul.md li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.65em;
+  width: 5px; height: 5px;
+  background: var(--ouro);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+ol.md { counter-reset: ol-counter; }
+ol.md li { counter-increment: ol-counter; }
+ol.md li::before {
+  content: counter(ol-counter) '.';
+  position: absolute; left: 0;
+  font-weight: 700; color: var(--ouro);
+  font-size: 0.78rem;
+  top: 0.05em;
+}
+/* nested */
+ul.md.nested, ol.md.nested {
+  margin: 8px 0 4px 0;
+  padding-left: 20px;
+}
+ul.md.nested li::before { width: 4px; height: 4px; background: rgba(255,184,0,0.5); }
+
+/* ── TABELAS ── */
+.table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--ouro-dim); }
+table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+thead tr { background: rgba(255,184,0,0.10); border-bottom: 1px solid rgba(255,184,0,0.4); }
+thead th {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ouro); padding: 12px 16px; text-align: left;
+}
+tbody tr { border-bottom: 1px solid var(--borda); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:nth-child(even) { background: rgba(255,255,255,0.025); }
+tbody td { padding: 10px 16px; color: var(--texto); vertical-align: top; line-height: 1.6; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  border-left: 3px solid var(--ouro);
+  background: var(--ardosia);
+  padding: 18px 22px; margin: 22px 0;
+  border-radius: 0 4px 4px 0;
+}
+blockquote p.md {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem; font-style: italic;
+  color: rgba(255,255,255,0.82); margin-bottom: 0; line-height: 1.7;
+}
+
+code {
+  font-family: 'Menlo', 'Courier New', monospace;
+  font-size: 0.82rem;
+  background: rgba(255,184,0,0.1); color: var(--ouro);
+  padding: 2px 7px; border-radius: 3px;
+}
+
+hr.md { border: none; border-top: 1px solid var(--borda); margin: 36px 0; }
+
+.fill-badge {
+  display: inline-block;
+  background: rgba(255,184,0,0.10);
+  border: 1px solid rgba(255,184,0,0.28);
+  color: var(--ouro);
+  font-size: 0.70rem; font-weight: 600;
+  letter-spacing: 0.08em; padding: 1px 8px; border-radius: 3px;
+}
+
+/* ── RODAPÉ ── */
+footer {
+  background: var(--ardosia);
+  border-top: 1px solid var(--ouro-dim);
+  text-align: center; padding: 36px 32px;
+}
+footer p { font-size: 0.72rem; color: var(--texto-dim); letter-spacing: 0.06em; line-height: 1.8; }
+footer strong { color: var(--ouro); }
+
+@media (max-width: 800px) {
+  .page-wrap { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--borda); padding: 24px 20px; }
+  .content { padding: 40px 20px 64px; }
+  .back-btn { position: static; display: inline-flex; margin-bottom: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <a class="back-btn" href="index.html">&#8592; Índice Geral</a>
+  <div class="header-label">Gabaritando &mdash; Pesquisa de Mercado</div>
+  <h1>Análise de Concorrente — <em>RUMO</em></h1>
+  <div class="header-rule"></div>
+  <p class="header-meta">Abril de 2026 &mdash; Uso interno</p>
+</header>
+
+<div class="page-wrap">
+  <aside class="sidebar"><div class="toc-heading">Neste documento</div><ul class="toc-list"><li class=""><a href="#rumo-concursos-rumoconcursos-com-br-soldado-pmba">RUMO Concursos (rumoconcursos.com.br/soldado-pmba)</a></li><li class=""><a href="#sum-rio-executivo">SUMÁRIO EXECUTIVO</a></li><li class=""><a href="#1-headline-principal">1. HEADLINE PRINCIPAL</a></li><li class=""><a href="#2-subheadlines-e-argumentos-de-abertura">2. SUBHEADLINES E ARGUMENTOS DE ABERTURA</a></li><li class=""><a href="#3-estrutura-completa-da-p-gina">3. ESTRUTURA COMPLETA DA PÁGINA</a></li><li class="toc-h3"><a href="#bloco-1-hero-section-abertura">Bloco 1 — Hero Section (Abertura)</a></li><li class="toc-h3"><a href="#bloco-2-prova-social-num-rica">Bloco 2 — Prova Social Numérica</a></li><li class="toc-h3"><a href="#bloco-3-apresenta-o-dos-mentores">Bloco 3 — Apresentação dos Mentores</a></li><li class="toc-h3"><a href="#bloco-4-diferenciais-do-m-todo-8-pilares">Bloco 4 — Diferenciais do Método (8 pilares)</a></li><li class="toc-h3"><a href="#bloco-5-depoimentos-visuais">Bloco 5 — Depoimentos Visuais</a></li><li class="toc-h3"><a href="#bloco-6-oferta-e-pre-o">Bloco 6 — Oferta e Preço</a></li><li class="toc-h3"><a href="#bloco-7-faq-obje-es-tratadas">Bloco 7 — FAQ (Objeções Tratadas)</a></li><li class="toc-h3"><a href="#bloco-8-garantia">Bloco 8 — Garantia</a></li><li class="toc-h3"><a href="#bloco-9-ctas-distribu-dos">Bloco 9 — CTAs Distribuídos</a></li><li class=""><a href="#4-argumentos-de-venda-mapeamento-completo">4. ARGUMENTOS DE VENDA — MAPEAMENTO COMPLETO</a></li><li class="toc-h3"><a href="#argumento-1-credibilidade-por-n-meros-prova-social-quantitativa">Argumento 1: Credibilidade por números (prova social quantitativa)</a></li><li class="toc-h3"><a href="#argumento-2-urg-ncia-por-contexto-externo">Argumento 2: Urgência por contexto externo</a></li><li class="toc-h3"><a href="#argumento-3-autoridade-dos-mentores">Argumento 3: Autoridade dos mentores</a></li><li class="toc-h3"><a href="#argumento-4-m-todo-propriet-rio">Argumento 4: Método proprietário</a></li><li class="toc-h3"><a href="#argumento-5-tecnologia-e-personaliza-o">Argumento 5: Tecnologia e personalização</a></li><li class="toc-h3"><a href="#argumento-6-comunidade-e-suporte">Argumento 6: Comunidade e suporte</a></li><li class="toc-h3"><a href="#argumento-7-compara-o-impl-cita">Argumento 7: Comparação implícita</a></li><li class="toc-h3"><a href="#argumento-8-garantia-ampliada">Argumento 8: Garantia ampliada</a></li><li class=""><a href="#5-tom-de-comunica-o">5. TOM DE COMUNICAÇÃO</a></li><li class=""><a href="#6-elementos-de-confian-a">6. ELEMENTOS DE CONFIANÇA</a></li><li class=""><a href="#7-o-que-o-rumo-faz-bem-li-es-para-o-gabaritando">7. O QUE O RUMO FAZ BEM — LIÇÕES PARA O GABARITANDO</a></li><li class=""><a href="#8-gaps-do-rumo-oportunidades-para-o-gabaritando">8. GAPS DO RUMO — OPORTUNIDADES PARA O GABARITANDO</a></li><li class="toc-h3"><a href="#gap-1-aus-ncia-de-presencial">Gap 1: Ausência de presencial</a></li><li class="toc-h3"><a href="#gap-2-foco-apenas-em-pmba">Gap 2: Foco apenas em PMBA</a></li><li class="toc-h3"><a href="#gap-3-sem-presen-a-regional-marcante">Gap 3: Sem presença regional marcante</a></li><li class="toc-h3"><a href="#gap-4-pre-o-espa-o-para-produto-de-entrada">Gap 4: Preço — espaço para produto de entrada</a></li><li class="toc-h3"><a href="#gap-5-ticket-m-dio-menor-com-mais-professores-policiais">Gap 5: Ticket médio menor com mais professores policiais</a></li><li class=""><a href="#9-modelo-de-cta-para-o-gabaritando-inspirado-no-rumo">9. MODELO DE CTA PARA O GABARITANDO (inspirado no Rumo)</a></li></ul></aside>
+  <main class="content">
+<h1 class="md">Análise de Concorrente — Site e Landing Page</h1>
+<h2 class="md" id="rumo-concursos-rumoconcursos-com-br-soldado-pmba">RUMO Concursos (rumoconcursos.com.br/soldado-pmba)</h2>
+<p class="md"><strong>Data da análise:</strong> Abril de 2026</p>
+<p class="md"><strong>URL analisada:</strong> https://rumoconcursos.com.br/soldado-pmba/</p>
+<hr class="md">
+<h2 class="md" id="sum-rio-executivo">SUMÁRIO EXECUTIVO</h2>
+<div class="sumario-bloco"><p class="md">A landing page do RUMO para o concurso de Soldado da PMBA é a referência mais direta de concorrência para o GABARITANDO. É uma página de vendas madura, com provas sociais sólidas (877 aprovados declarados), estrutura persuasiva completa e preços no ticket médio-alto do nicho (R$ 897 à vista). A análise revela os padrões que funcionam no mercado e os gaps que o GABARITANDO pode explorar para se diferenciar.</p></div>
+<hr class="md">
+<h2 class="md" id="1-headline-principal">1. HEADLINE PRINCIPAL</h2>
+<blockquote><p class="md"><strong>&quot;Você não precisa ser um gênio. Precisa de RUMO!&quot;</strong></p></blockquote>
+<p class="md"><strong>Por que funciona:</strong> Destrói a objeção mais comum do público — &quot;não sou inteligente o suficiente para passar&quot;. Atribui o sucesso ao método, não à capacidade inata. Alivia a culpa e transfere a responsabilidade para o produto.</p>
+<p class="md"><strong>Repetição:</strong> A headline é usada duas vezes na página com destaque visual, reforçando o posicionamento.</p>
+<hr class="md">
+<h2 class="md" id="2-subheadlines-e-argumentos-de-abertura">2. SUBHEADLINES E ARGUMENTOS DE ABERTURA</h2>
+<ul class="md">
+<li>&quot;877 SOLDADOS foram aprovados no último concurso com nossa preparação&quot;</li>
+<li>&quot;O Comandante-Geral da PMBA já confirmou: novo concurso pode sair em 2025&quot;</li>
+<li>&quot;A preparação mais eficiente, mais recomendada e mais respeitada para PMBA&quot;</li>
+</ul>
+<p class="md"><strong>Análise:</strong> O número 877 é o maior ativo de credibilidade da página. Abre a prova social logo no início, antes mesmo de apresentar o produto. A menção ao Comandante-Geral cria urgência real (não fabricada). O terceiro argumento usa três superlatos de categoria (&quot;mais eficiente, mais recomendada, mais respeitada&quot;) — um padrão clássico de domínio de mercado.</p>
+<hr class="md">
+<h2 class="md" id="3-estrutura-completa-da-p-gina">3. ESTRUTURA COMPLETA DA PÁGINA</h2>
+<h3 class="md" id="bloco-1-hero-section-abertura">Bloco 1 — Hero Section (Abertura)</h3>
+<ul class="md">
+<li>Headline principal com destaque visual</li>
+<li>Número de aprovados (877) em destaque</li>
+<li>Declaração de urgência (edital em 2025)</li>
+<li>CTA principal: &quot;QUERO GARANTIR MINHA APROVAÇÃO NA PMBA&quot;</li>
+</ul>
+<h3 class="md" id="bloco-2-prova-social-num-rica">Bloco 2 — Prova Social Numérica</h3>
+<ul class="md">
+<li>877 aprovações no último concurso</li>
+<li>+10.000 alunos desde 2019</li>
+<li>+2.000 aprovações em concursos públicos</li>
+<li>+5.000 avaliações com 5 estrelas</li>
+</ul>
+<h3 class="md" id="bloco-3-apresenta-o-dos-mentores">Bloco 3 — Apresentação dos Mentores</h3>
+<p class="md"><strong>Francisco Júnior:</strong></p>
+<ul class="md">
+<li>Aprovado como Soldado PMBA em 2017 (19 anos)</li>
+<li>Aprovado como Oficial CFO-PMBA em 2019 (21 anos)</li>
+<li>Aprovado na OAB e MPERJ/MPBA</li>
+<li>Mais de 7.000 alunos</li>
+</ul>
+<p class="md"><strong>Leonardo Umburana:</strong></p>
+<ul class="md">
+<li>Aprovado em Direito na UESB com 17 anos</li>
+<li>Soldado PMBA com 18 anos</li>
+<li>CEF com 19 anos</li>
+<li><strong>1º lugar no CFO da PMBA</strong></li>
+</ul>
+<h3 class="md" id="bloco-4-diferenciais-do-m-todo-8-pilares">Bloco 4 — Diferenciais do Método (8 pilares)</h3>
+<ol class="md">
+<li>Método RUMO: Teoria + Questões + Resumo + Revisão</li>
+<li>Cronograma personalizado à rotina individual</li>
+<li>Plataforma gamificada (metas, fases, rankings)</li>
+<li>Lives semanais com mentores</li>
+<li>Grupo de alunos com suporte dos mentores</li>
+<li>Simulados exclusivos com correção detalhada</li>
+<li>Mentoria estratégica do zero à aprovação</li>
+<li>Bônus AfiliaRUMO (programa de indicação com ganho)</li>
+</ol>
+<h3 class="md" id="bloco-5-depoimentos-visuais">Bloco 5 — Depoimentos Visuais</h3>
+<ul class="md">
+<li>12 imagens de clientes aprovados com histórias</li>
+<li>Citação de plataforma externa: &quot;Melhor curso do Brasil para PMBA&quot; (ONV)</li>
+<li>Mais de 5.000 reviews com 5 estrelas</li>
+</ul>
+<h3 class="md" id="bloco-6-oferta-e-pre-o">Bloco 6 — Oferta e Preço</h3>
+<p class="md"><strong>Plano Soldado:</strong></p>
+<ul class="md">
+<li>À vista: R$ 897,00</li>
+<li>Parcelado: 12x R$ 88,80</li>
+<li>Acesso: 12 meses completos</li>
+</ul>
+<p class="md"><strong>Plano CFO (Oficial):</strong></p>
+<ul class="md">
+<li>À vista: R$ 1.097,00</li>
+<li>Parcelado: 12x R$ 108,59</li>
+</ul>
+<h3 class="md" id="bloco-7-faq-obje-es-tratadas">Bloco 7 — FAQ (Objeções Tratadas)</h3>
+<ul class="md">
+<li>Duração do acesso (12 meses)</li>
+<li>Adequação para iniciantes (&quot;100% para todos os níveis&quot;)</li>
+<li>Parcelamento disponível</li>
+<li>Acesso imediato após matrícula</li>
+<li>Contato com mentores garantido</li>
+<li>Como funciona a garantia</li>
+<li>Como funciona o bônus AfiliaRUMO</li>
+</ul>
+<h3 class="md" id="bloco-8-garantia">Bloco 8 — Garantia</h3>
+<ul class="md">
+<li>10 dias de garantia (acima dos 7 dias do CDC)</li>
+<li>&quot;Acesso completo durante o período de testes&quot;</li>
+<li>&quot;Reembolso 100% sem burocracia — um e-mail basta&quot;</li>
+</ul>
+<h3 class="md" id="bloco-9-ctas-distribu-dos">Bloco 9 — CTAs Distribuídos</h3>
+<ul class="md">
+<li>&quot;QUERO GARANTIR MINHA APROVAÇÃO NA PMBA&quot;</li>
+<li>&quot;QUERO ME PREPARAR COM O CURSO MAIS APROVADO&quot;</li>
+<li>&quot;EU ESCOLHO ESTUDAR COM QUEM MAIS APROVA&quot;</li>
+<li>&quot;QUERO COMEÇAR ANTES DE TODO MUNDO&quot;</li>
+<li>&quot;QUERO ENTRAR PARA O RUMO E VESTIR A FARDA&quot;</li>
+<li>Link direto para WhatsApp com suporte</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="4-argumentos-de-venda-mapeamento-completo">4. ARGUMENTOS DE VENDA — MAPEAMENTO COMPLETO</h2>
+<h3 class="md" id="argumento-1-credibilidade-por-n-meros-prova-social-quantitativa">Argumento 1: Credibilidade por números (prova social quantitativa)</h3>
+<p class="md">&quot;877 aprovados no último concurso&quot; é o argumento mais poderoso da página. Números específicos são mais críveis que afirmações vagas. 877 é específico o suficiente para parecer real e grande o suficiente para impressionar.</p>
+<h3 class="md" id="argumento-2-urg-ncia-por-contexto-externo">Argumento 2: Urgência por contexto externo</h3>
+<p class="md">&quot;O edital pode sair em 2025&quot; — usa uma informação real do mercado (declaração do Comandante-Geral da PMBA) para criar urgência sem manipulação. Quem lê entende que esperar tem custo real.</p>
+<h3 class="md" id="argumento-3-autoridade-dos-mentores">Argumento 3: Autoridade dos mentores</h3>
+<p class="md">Dois jovens que passaram cedo. Francisco com 21 anos, Leonardo em 1º lugar. A narrativa implícita é: &quot;eles não são gênios — tinham método. Você também pode ter o método deles.&quot;</p>
+<h3 class="md" id="argumento-4-m-todo-propriet-rio">Argumento 4: Método proprietário</h3>
+<p class="md">&quot;Método RUMO&quot; nomeia a abordagem, dando sensação de sistema exclusivo e comprovado. Não são apenas &quot;videoaulas&quot; — é um método.</p>
+<h3 class="md" id="argumento-5-tecnologia-e-personaliza-o">Argumento 5: Tecnologia e personalização</h3>
+<p class="md">Cronograma personalizado + plataforma gamificada + simulados com análise de desempenho. Responde à objeção &quot;não sei como estudar&quot;.</p>
+<h3 class="md" id="argumento-6-comunidade-e-suporte">Argumento 6: Comunidade e suporte</h3>
+<p class="md">Grupo de alunos + mentores acessíveis + lives semanais. Responde à objeção &quot;vou estudar sozinho e desistir&quot;.</p>
+<h3 class="md" id="argumento-7-compara-o-impl-cita">Argumento 7: Comparação implícita</h3>
+<p class="md">&quot;Enquanto outros cursos vendem aulas, nós entregamos aprovação.&quot; — Destrói concorrentes sem citar nomes.</p>
+<h3 class="md" id="argumento-8-garantia-ampliada">Argumento 8: Garantia ampliada</h3>
+<p class="md">10 dias (vs. 7 do CDC) com &quot;um e-mail basta&quot; reduz o risco percebido e aumenta a confiança.</p>
+<hr class="md">
+<h2 class="md" id="5-tom-de-comunica-o">5. TOM DE COMUNICAÇÃO</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Dimensão</th>
+<th>Característica</th>
+</tr></thead><tbody>
+<tr>
+<td>Registro</td>
+<td>Informal-próximo, sem jargão técnico excessivo</td>
+</tr>
+<tr>
+<td>Energia</td>
+<td>Alta — motivacional, urgente</td>
+</tr>
+<tr>
+<td>Perspectiva</td>
+<td>Do candidato (&quot;você&quot;) sempre em foco</td>
+</tr>
+<tr>
+<td>Autoridade</td>
+<td>Construída por resultados, não por títulos</td>
+</tr>
+<tr>
+<td>CTAs</td>
+<td>Sempre em 1ª pessoa (&quot;QUERO...&quot;) — técnica de micro-comprometimento</td>
+</tr>
+<tr>
+<td>Objeções</td>
+<td>Tratadas de forma direta no FAQ, sem defensividade</td>
+</tr>
+</tbody></table></div>
+<hr class="md">
+<h2 class="md" id="6-elementos-de-confian-a">6. ELEMENTOS DE CONFIANÇA</h2>
+<ul class="md">
+<li>Selos de compra segura no rodapé</li>
+<li>Links de pagamento via Eduzz/Tutory (plataformas conhecidas)</li>
+<li>Suporte via WhatsApp com número visível</li>
+<li>Google Tag Manager (rastreamento ativo — indica investimento em marketing pago)</li>
+<li>Hotjar ou ferramenta similar de heatmap (indicado pelo script GTM)</li>
+</ul>
+<hr class="md">
+<h2 class="md" id="7-o-que-o-rumo-faz-bem-li-es-para-o-gabaritando">7. O QUE O RUMO FAZ BEM — LIÇÕES PARA O GABARITANDO</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>O que o Rumo faz</th>
+<th>Como o GABARITANDO pode superar</th>
+</tr></thead><tbody>
+<tr>
+<td>Usa 877 aprovados como âncora</td>
+<td>Comunicar o número de aprovados do GABARITANDO com destaque igual ou maior</td>
+</tr>
+<tr>
+<td>Mentores com história de aprovação jovem</td>
+<td>Os donos são Oficiais — hierarquia maior. Comunicar isso com clareza</td>
+</tr>
+<tr>
+<td>Plataforma gamificada como diferencial</td>
+<td>O GABARITANDO também tem gerador de cronograma — comunicar como tecnologia</td>
+</tr>
+<tr>
+<td>Lives semanais</td>
+<td>Criar conteúdo ao vivo como diferencial percebido</td>
+</tr>
+<tr>
+<td>Garantia 10 dias</td>
+<td>Oferecer garantia equivalente ou superior</td>
+</tr>
+<tr>
+<td>Método com nome proprietário</td>
+<td>Criar um nome para o método do GABARITANDO</td>
+</tr>
+<tr>
+<td>AfiliaRUMO (indicação com ganho)</td>
+<td>Considerar programa de indicação com bônus</td>
+</tr>
+</tbody></table></div>
+<hr class="md">
+<h2 class="md" id="8-gaps-do-rumo-oportunidades-para-o-gabaritando">8. GAPS DO RUMO — OPORTUNIDADES PARA O GABARITANDO</h2>
+<h3 class="md" id="gap-1-aus-ncia-de-presencial">Gap 1: Ausência de presencial</h3>
+<p class="md">O RUMO é 100% online. O GABARITANDO tem modalidade presencial em LEM. Para o público que aprende melhor presencialmente ou que quer contato direto com os professores, o GABARITANDO é a única opção com esse diferencial.</p>
+<h3 class="md" id="gap-2-foco-apenas-em-pmba">Gap 2: Foco apenas em PMBA</h3>
+<p class="md">O RUMO tem produtos para PMBA (Soldado e CFO) e PCBA, mas não comunica claramente o atendimento ao BMBA. O GABARITANDO atende PMBA + BMBA + PCBA — três corporações na Bahia.</p>
+<h3 class="md" id="gap-3-sem-presen-a-regional-marcante">Gap 3: Sem presença regional marcante</h3>
+<p class="md">O RUMO não tem presença específica no interior da Bahia ou no oeste baiano. O GABARITANDO pode dominar a narrativa da &quot;escola do concurseiro do interior&quot;.</p>
+<h3 class="md" id="gap-4-pre-o-espa-o-para-produto-de-entrada">Gap 4: Preço — espaço para produto de entrada</h3>
+<p class="md">O menor plano do RUMO é R$ 897. Há espaço para o GABARITANDO oferecer um produto de entrada (menor preço) para capturar candidatos com menor poder aquisitivo, ou um produto premium justificado pelos dois Oficiais como professores diretos.</p>
+<h3 class="md" id="gap-5-ticket-m-dio-menor-com-mais-professores-policiais">Gap 5: Ticket médio menor com mais professores policiais</h3>
+<p class="md">O GABARITANDO tem &quot;alguns professores que são policiais&quot; — isso é uma prova social de produto diferente do Rumo, onde os mentores são apenas dois. Mais professores policiais = mais perspectivas reais = produto mais rico.</p>
+<hr class="md">
+<h2 class="md" id="9-modelo-de-cta-para-o-gabaritando-inspirado-no-rumo">9. MODELO DE CTA PARA O GABARITANDO (inspirado no Rumo)</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>CTA Rumo</th>
+<th>Adaptação para GABARITANDO</th>
+</tr></thead><tbody>
+<tr>
+<td>&quot;QUERO GARANTIR MINHA APROVAÇÃO NA PMBA&quot;</td>
+<td>&quot;QUERO ESTUDAR COM DOIS OFICIAIS DA PMBA&quot;</td>
+</tr>
+<tr>
+<td>&quot;EU ESCOLHO ESTUDAR COM QUEM MAIS APROVA&quot;</td>
+<td>&quot;EU ESCOLHO APRENDER COM QUEM JÁ PASSOU&quot;</td>
+</tr>
+<tr>
+<td>&quot;QUERO VESTIR A FARDA&quot;</td>
+<td>&quot;QUERO VESTIR A FARDA — E VOCÊ ME ENSINA COMO&quot;</td>
+</tr>
+<tr>
+<td>&quot;QUERO COMEÇAR ANTES DE TODO MUNDO&quot;</td>
+<td>&quot;QUERO COMEÇAR HOJE — O EDITAL NÃO AVISA&quot;</td>
+</tr>
+</tbody></table></div>
+<hr class="md">
+<p class="md"><em>Fonte primária: análise direta da URL https://rumoconcursos.com.br/soldado-pmba/ em abril de 2026.</em></p>
+<p class="md"><em>Fonte secundária: buscas cruzadas sobre Rumo Concursos e Rumo à Aprovação (rumoaprovacao.com).</em></p>
+  </main>
+</div>
+
+<footer>
+  <p><strong>Gabaritando</strong> &mdash; Preparatório para Carreiras Policiais da Bahia &mdash; Uso interno</p>
+  <p style="margin-top:6px">Abril de 2026</p>
+</footer>
+
+<script>
+// Highlight active TOC link on scroll
+(function() {
+  var headings = document.querySelectorAll('h2.md[id], h3.md[id]');
+  var links    = document.querySelectorAll('.toc-list a');
+  if (!headings.length || !links.length) return;
+  function activate() {
+    var scrollY = window.scrollY + 80;
+    var current = '';
+    headings.forEach(function(h) {
+      if (h.offsetTop <= scrollY) current = h.id;
+    });
+    links.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', activate, {passive: true});
+  activate();
+})();
+</script>
+
+</body>
+</html>

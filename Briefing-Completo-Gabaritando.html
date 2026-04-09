@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Completo &mdash; Gabaritando</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --laranja: #FF5C00;
+    --preto: #0A0A0A;
+    --card: #141414;
+    --medio: #1E1E1E;
+    --escuro: #252525;
+    --borda: rgba(255,255,255,0.07);
+    --cinza: #666;
+    --branco: #FFFFFF;
+    --verde: #22C55E;
+    --amarelo: #F59E0B;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--preto);
+    color: var(--branco);
+    font-family: var(--sans);
+    font-size: 14.5px;
+    line-height: 1.7;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media print {
+    body { background:#fff; color:#111; padding:20px; font-size:12px; }
+    .card, .field-value, .offer-card, .nivel-option { background:#f7f7f7 !important; color:#111 !important; border-color:#ccc !important; }
+    .section-tag { color:#CC4400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    h1, h2 { color:#111 !important; }
+    .hl { background: #fff8f5 !important; border-color:#CC4400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .badge { background:#ffe8de !important; color:#CC4400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .divider, .scale-fill, .header-line { background:#CC4400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .obj-table th { background:#eee !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .nivel-option.sel { background:#fff3ee !important; border-color:#CC4400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .status-bar { background:#f0fff0 !important; color:#166534 !important; border-color:#bbf7d0 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .no-print { display:none !important; }
+    .market-card { background:#f7f7f7 !important; border-color:#ddd !important; }
+    .market-card .mc-num { color:#CC4400 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .offer-card { border-color:#CC4400 !important; }
+  }
+
+  /* HEADER */
+  .header { margin-bottom:60px; padding-bottom:44px; border-bottom:1px solid var(--borda); text-align:center; }
+  .pill { display:inline-block; background:var(--laranja); color:var(--preto); font-size:0.66rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; padding:5px 18px; margin-bottom:22px; }
+  .header-sup { font-size:0.68rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--cinza); font-weight:400; margin-bottom:14px; }
+  .header h1 { font-family:var(--serif); font-size:2.7rem; font-weight:400; line-height:1.15; }
+  .header h1 em { font-style:italic; color:var(--laranja); }
+  .header-line { width:46px; height:2px; background:var(--laranja); margin:22px auto; }
+  .header-desc { font-size:0.84rem; color:var(--cinza); font-weight:300; max-width:600px; margin:0 auto 26px; line-height:1.75; }
+  .status-bar { display:inline-flex; align-items:center; gap:9px; background:rgba(34,197,94,0.07); border:1px solid rgba(34,197,94,0.2); padding:9px 24px; font-size:0.74rem; color:var(--verde); font-weight:500; letter-spacing:0.06em; }
+  .dot { width:7px; height:7px; background:var(--verde); border-radius:50%; flex-shrink:0; }
+
+  /* SECTION */
+  .section { margin-bottom:52px; }
+  .section-tag { font-size:0.66rem; font-weight:700; letter-spacing:0.38em; text-transform:uppercase; color:var(--laranja); margin-bottom:10px; }
+  .section h2 { font-family:var(--serif); font-size:1.5rem; font-weight:400; margin-bottom:26px; line-height:1.25; }
+  .section h2 em { font-style:italic; color:var(--laranja); }
+
+  /* FIELDS */
+  .field { margin-bottom:16px; }
+  .lbl { font-size:0.66rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--cinza); margin-bottom:7px; }
+  .field-value {
+    background:var(--card);
+    border:1px solid rgba(255,92,0,0.14);
+    padding:16px 20px;
+    font-size:0.89rem;
+    font-weight:300;
+    color:rgba(255,255,255,0.88);
+    line-height:1.75;
+  }
+  .field-value b, .field-value strong { color:var(--laranja); font-weight:600; }
+
+  /* GRIDS */
+  .g2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+  @media(max-width:640px){ .g2,.g3{ grid-template-columns:1fr; } }
+
+  /* OFFER CARDS */
+  .offer-wrap { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+  @media(max-width:640px){ .offer-wrap{ grid-template-columns:1fr; } }
+  .offer-card { background:var(--card); border:1px solid rgba(255,92,0,0.16); padding:20px 22px; }
+  .offer-card.dest { border-color:var(--laranja); }
+  .offer-tag { font-size:0.64rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--laranja); margin-bottom:10px; }
+  .offer-price { font-family:var(--serif); font-size:1.8rem; font-weight:700; line-height:1; margin-bottom:4px; }
+  .offer-parcel { font-size:0.77rem; color:var(--cinza); font-weight:300; }
+
+  /* TABLE */
+  .tbl { width:100%; border-collapse:collapse; font-size:0.83rem; margin-bottom:14px; }
+  .tbl th { background:var(--escuro); padding:11px 16px; text-align:left; font-size:0.65rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--cinza); }
+  .tbl td { padding:13px 16px; border-bottom:1px solid var(--borda); vertical-align:top; color:rgba(255,255,255,0.82); font-weight:300; line-height:1.6; }
+  .tbl td:first-child { width:32px; text-align:center; color:var(--laranja); font-weight:700; padding:13px 8px; }
+  .tbl tr:last-child td { border-bottom:none; }
+
+  /* BULLET LIST */
+  .bl { list-style:none; padding:0; }
+  .bl li { padding:9px 0 9px 20px; border-bottom:1px solid var(--borda); font-size:0.87rem; font-weight:300; color:rgba(255,255,255,0.84); position:relative; line-height:1.65; }
+  .bl li:last-child { border-bottom:none; }
+  .bl li::before { content:"—"; position:absolute; left:0; color:var(--laranja); font-weight:700; }
+  .bl li b, .bl li strong { color:var(--laranja); font-weight:600; }
+
+  /* SCALE */
+  .scale-row { display:flex; align-items:center; gap:14px; margin-bottom:13px; }
+  .scale-lbl { width:220px; font-size:0.83rem; color:rgba(255,255,255,0.6); flex-shrink:0; }
+  .scale-track { flex:1; height:5px; background:var(--escuro); }
+  .scale-fill { height:100%; background:var(--laranja); }
+  .scale-val { width:52px; text-align:right; font-size:0.8rem; color:var(--laranja); font-weight:700; flex-shrink:0; }
+
+  /* NIVEL */
+  .nivel { display:flex; align-items:flex-start; gap:14px; padding:13px 17px; background:var(--card); border:1px solid var(--borda); margin-bottom:8px; }
+  .nivel.sel { border-color:var(--laranja); background:rgba(255,92,0,0.05); }
+  .ndot { width:14px; height:14px; border-radius:50%; border:2px solid var(--cinza); flex-shrink:0; margin-top:3px; }
+  .nivel.sel .ndot { background:var(--laranja); border-color:var(--laranja); }
+  .nivel-label { font-size:0.86rem; font-weight:500; flex:1; }
+  .nivel-desc { font-size:0.77rem; color:var(--cinza); font-weight:300; margin-top:2px; }
+
+  /* HIGHLIGHT */
+  .hl { background:rgba(255,92,0,0.05); border-left:3px solid var(--laranja); padding:17px 22px; margin-bottom:16px; font-size:0.87rem; font-weight:300; color:rgba(255,255,255,0.88); line-height:1.8; }
+  .hl b, .hl strong { color:var(--laranja); font-weight:600; }
+  .hl-amarelo { background:rgba(245,158,11,0.05); border-left:3px solid var(--amarelo); padding:14px 20px; margin-bottom:14px; font-size:0.84rem; color:rgba(255,255,255,0.72); font-weight:300; line-height:1.75; }
+  .hl-amarelo b { color:var(--amarelo); font-weight:600; }
+
+  /* BADGES */
+  .badge { display:inline-block; background:rgba(255,92,0,0.11); color:var(--laranja); font-size:0.67rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:4px 11px; margin:2px 3px 2px 0; }
+
+  /* MARKET CARDS */
+  .mc-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:16px; }
+  @media(max-width:640px){ .mc-grid{ grid-template-columns:1fr; } }
+  .market-card { background:var(--card); border:1px solid var(--borda); padding:20px 22px; }
+  .mc-num { font-family:var(--serif); font-size:2rem; font-weight:700; color:var(--laranja); line-height:1; margin-bottom:7px; }
+  .mc-lbl { font-size:0.74rem; font-weight:400; color:rgba(255,255,255,0.55); line-height:1.45; }
+
+  /* DIVIDER */
+  .divider { width:100%; height:1px; background:linear-gradient(90deg,var(--laranja),rgba(255,92,0,0)); margin:56px 0; }
+
+  /* BUTTONS */
+  .btn-bar { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:24px; }
+  .btn { display:inline-block; padding:14px 42px; font-family:var(--sans); font-size:0.79rem; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; border:none; cursor:pointer; transition:opacity .2s; }
+  .btn:hover { opacity:.82; }
+  .btn-primary { background:var(--laranja); color:var(--preto); }
+  .btn-outline { background:transparent; color:var(--laranja); border:1px solid var(--laranja); }
+  .pendente { color:var(--amarelo); font-style:italic; }
+</style>
+</head>
+<body>
+
+<div style="position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(10,10,10,0.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.07);padding:10px 28px;">
+  <a href="index.html" style="font-family:'Inter',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#FF5C00'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">&#8592; &nbsp;Índice Geral</a>
+</div>
+<div style="height:38px"></div>
+
+<!-- ══════════════════════════════════════════
+     CABEÇALHO
+══════════════════════════════════════════ -->
+<div class="header">
+  <div class="pill">Projeto Gabaritando</div>
+  <div class="header-sup">Briefing Estratégico Completo</div>
+  <h1>Briefing <em>Completo</em></h1>
+  <div class="header-line"></div>
+  <p class="header-desc">Documento estratégico com os 12 blocos do projeto. Construído com base no briefing do fundador, nas informações de ofertas e na pesquisa de mercado completa realizada em abril de 2026.</p>
+  <div class="status-bar"><div class="dot"></div>12 blocos completos &mdash; Abril de 2026</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     01 — VISÃO GERAL
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">01 &mdash; Visão Geral</div>
+  <h2>Sobre o <em>projeto</em></h2>
+
+  <div class="field">
+    <div class="lbl">Nome do projeto</div>
+    <div class="field-value">Gabaritando</div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">O que é</div>
+    <div class="field-value">Cursinho preparatório especializado em concursos públicos de carreiras policiais do estado da Bahia. Criado por fundadores aprovados tanto no concurso de Soldado quanto no CFO PMBA (Curso de Formação de Oficiais). Atende os seguintes concursos: <strong>Soldado e Oficial da PMBA, Soldado e Oficial do BMBA, e Investigador da Polícia Civil da Bahia (PCBA).</strong></div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Resultado que entrega</div>
+    <div class="field-value">Aprovação no concurso público de carreira policial do estado da Bahia &mdash; com trilha de estudos estruturada, cronograma personalizado, banco de questões alinhado ao perfil da banca do concurso e acompanhamento de professores que já percorreram esse mesmo caminho.</div>
+  </div>
+
+  <div class="g2">
+    <div class="field">
+      <div class="lbl">Formato &mdash; Online</div>
+      <div class="field-value">Plataforma de área de membros com videoaulas, banco de questões com comentários de correção, simulados, gerador automático de cronograma personalizado e acompanhamento de professores especializados, incluindo professores com experiência nas próprias carreiras policiais. Acesso por <strong>12 meses.</strong> Atende o estado da Bahia inteiro.</div>
+    </div>
+    <div class="field">
+      <div class="lbl">Formato &mdash; Presencial</div>
+      <div class="field-value">Aulas regulares na cidade de <strong>Luís Eduardo Magalhães &mdash; Bahia.</strong> Único preparatório policial com presença física no Oeste baiano. Para o candidato da região, combina o acesso à plataforma digital com o suporte presencial direto.</div>
+    </div>
+  </div>
+
+  <div class="hl">
+    <strong>Posicionamento central:</strong> Enquanto concorrentes nacionais oferecem preparação genérica para concursos policiais de todo o Brasil, o Gabaritando é especialista: fala Bahia, conhece os concursos por dentro e foi construído por quem realmente viveu essa jornada &mdash; do concurso de Soldado ao CFO PMBA. Único preparatório policial baiano com plataforma digital completa <em>e</em> presença presencial no interior do estado.
+  </div>
+
+  <!-- Dados de mercado -->
+  <div class="field">
+    <div class="lbl">Contexto de mercado &mdash; janela estratégica atual</div>
+    <div class="field-value">
+      O mercado de preparatórios para concursos públicos movimenta <strong>R$ 5 bilhões no Brasil</strong>, com mais de 9 milhões de candidatos e crescimento de +30% no número de editais em 2024. O nicho policial é um dos mais aquecidos, com mais de 18.000 vagas abertas e previstas para 2025/2026. Na Bahia, a janela é excepcionalmente favorável:
+      <br><br>
+      <ul class="bl">
+        <li><strong>Soldado PMBA 2026:</strong> novo concurso anunciado, edital previsto para o 2.º semestre de 2026, expectativa de aproximadamente 2.000 vagas. Último concurso teve 80.841 inscritos</li>
+        <li><strong>Investigador PCBA 2026:</strong> 500 vagas, edital previsto para o 1.º semestre de 2026 &mdash; um dos maiores concursos previstos no estado</li>
+        <li><strong>BMBA:</strong> concurso de Oficial em andamento, prorrogado até agosto de 2026; concurso de Soldado esperado na sequência</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mc-grid">
+    <div class="market-card">
+      <div class="mc-num">R$ 5bi</div>
+      <div class="mc-lbl">Faturamento estimado do mercado de preparatórios no Brasil em 2025</div>
+    </div>
+    <div class="market-card">
+      <div class="mc-num">80.841</div>
+      <div class="mc-lbl">Candidatos inscritos no último concurso de Soldado PMBA (2022/2023)</div>
+    </div>
+    <div class="market-card">
+      <div class="mc-num">+3.000</div>
+      <div class="mc-lbl">Vagas policiais previstas para a Bahia em 2026 (PMBA + PCBA + BMBA)</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     02 — PÚBLICO-ALVO
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">02 &mdash; Público-Alvo</div>
+  <h2>Quem é o <em>cliente ideal</em></h2>
+
+  <div class="g2">
+    <div class="field">
+      <div class="lbl">Perfil demográfico</div>
+      <div class="field-value">Homens e mulheres de <strong>18 a 29 anos</strong>, residentes no estado da Bahia (capital e interior). O limite máximo de ingresso para a maioria dos concursos policiais baianos é 30 anos &mdash; o que cria urgência cronológica real e natural para o candidato.</div>
+    </div>
+    <div class="field">
+      <div class="lbl">Ocupação e renda</div>
+      <div class="field-value">Geralmente CLTs em empregos de baixa renda que querem um cargo público. Mix de desempregados, subempregados e trabalhadores que buscam estabilidade. Candidatos de toda a Bahia pelo canal online; candidatos da região Oeste pela modalidade presencial em LEM.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Perfil psicográfico (extraído da pesquisa de mercado)</div>
+    <div class="field-value">
+      <strong>Valores centrais:</strong> estabilidade financeira e segurança de emprego, desejo de servir e fazer parte de uma corporação com propósito, reconhecimento social (ser policial tem status especialmente no interior), progressão de carreira clara e estruturada.<br><br>
+      <strong>Motivações que expressam em comentários e buscas:</strong>
+      <ul class="bl" style="margin-top:8px">
+        <li>"Quero sair do emprego CLT e ter estabilidade de uma vez por todas"</li>
+        <li>"Minha família sempre quis que eu fosse servidor público"</li>
+        <li>"Quero dar uma vida melhor para minha família"</li>
+        <li>"Ser policial sempre foi meu sonho"</li>
+        <li>"Quero trabalhar no interior da Bahia e ter uma carreira sólida"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Dor principal</div>
+    <div class="field-value">
+      <strong>Falta de estabilidade financeira</strong> &mdash; é o motor da decisão de tentar o concurso. Mas a dor que trava o processo de compra e de preparação é outra: o candidato não sabe por onde começar, não sabe o que estudar em que ordem, e desconfia que vai desperdiçar dinheiro em mais um curso que não entrega.<br><br>
+      <strong>Dores práticas recorrentes identificadas na pesquisa (comentários e buscas):</strong>
+      <ul class="bl" style="margin-top:8px">
+        <li>"Estudo há meses mas não sei se estou no caminho certo"</li>
+        <li>"Não consigo manter constância &mdash; começo e paro"</li>
+        <li>"Tenho medo de não passar de novo" (segunda ou terceira tentativa)</li>
+        <li>"Não sei qual matéria priorizar &mdash; o edital tem muita coisa"</li>
+        <li>"Trabalho o dia todo e estudo de noite &mdash; tô cansado"</li>
+        <li>"Não tenho dinheiro para pagar um curso caro"</li>
+        <li>"Moro no interior e não tenho acesso a um bom cursinho presencial"</li>
+        <li>"Nunca estudei direito na vida &mdash; estou começando do zero"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Desejo mais forte</div>
+    <div class="field-value">
+      <strong>Ser policial.</strong> Mas o que esse desejo representa na prática é: vestir a farda e sentir que chegou a algum lugar, dar orgulho à família, sair do emprego informal, conquistar estabilidade financeira definitiva e pertencer a uma corporação com identidade e respeito social.<br><br>
+      <strong>Desejos que o público expressa diretamente:</strong>
+      <ul class="bl" style="margin-top:8px">
+        <li>"Quero saber exatamente o que estudar, em que ordem"</li>
+        <li>"Quero um cronograma que funcione para quem trabalha"</li>
+        <li>"Quero saber a experiência de quem já passou &mdash; não de professor de cursinho"</li>
+        <li>"Quero acreditar que é possível passar mesmo sem ser gênio"</li>
+        <li>"Quero uma comunidade de pessoas que estão no mesmo processo"</li>
+        <li>"Quero gabaritar a objetiva" / "Quero ter segurança na hora da prova"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="field">
+      <div class="lbl">Situação atual</div>
+      <div class="field-value">Trabalhando em emprego de baixa renda ou desempregado. Tentando estudar sozinho com material gratuito (YouTube, PDFs), sem método definido e sem saber se está estudando o que a banca cobra. Pode já ter tentado o concurso sem êxito. Vive sob pressão do limite de idade se aproximando.</div>
+    </div>
+    <div class="field">
+      <div class="lbl">Situação desejada</div>
+      <div class="field-value">Aprovado no concurso, vestindo a farda, com salário estável acima de <strong>R$ 4.800</strong> (Soldado / Investigador) ou acima de <strong>R$ 13.000</strong> (Delegado), com progressão de carreira garantida e o reconhecimento social de ser parte de uma corporação.</div>
+    </div>
+  </div>
+
+  <div class="hl">
+    <strong>Perfil do público em Luís Eduardo Magalhães (presencial):</strong> LEM é um dos maiores polos do agronegócio nacional &mdash; alto poder aquisitivo regional. A cidade tem crescimento econômico acelerado mas pouca oferta de cursinhos presenciais especializados. Candidatos locais carecem de opção presencial e têm renda familiar acima da média do interior baiano. O Gabaritando é o único preparatório policial presencial na cidade.
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     03 — OFERTA
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">03 &mdash; Oferta</div>
+  <h2>O que você <em>vende</em></h2>
+
+  <div class="offer-wrap">
+    <div class="offer-card dest">
+      <div class="offer-tag">Soldado PMBA e BMBA</div>
+      <div class="offer-price">R$ 767</div>
+      <div class="offer-parcel">ou 12x de R$ 79,33</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-tag">Oficial PMBA e BMBA</div>
+      <div class="offer-price">R$ 967</div>
+      <div class="offer-parcel">ou 12x de R$ 100,01</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-tag">SGT PMBA</div>
+      <div class="offer-price">R$ 967</div>
+      <div class="offer-parcel">ou 12x de R$ 100,01</div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-tag">Investigador Polícia Civil da Bahia</div>
+      <div class="offer-price">R$ 767</div>
+      <div class="offer-parcel">ou 12x de R$ 79,33</div>
+    </div>
+  </div>
+
+  <div class="offer-card" style="margin-bottom:16px">
+    <div class="offer-tag">Produto de Entrada &mdash; Cadernos de Treino / Disciplinas Específicas Soldado PMBA e CBMBA 2025</div>
+    <div class="offer-price">R$ 147</div>
+    <div class="offer-parcel">ou 12x de R$ 15,30</div>
+  </div>
+
+  <div class="g2">
+    <div class="field">
+      <div class="lbl">Garantia</div>
+      <div class="field-value"><strong>7 dias</strong> incondicional. O candidato pode testar a plataforma com acesso completo e solicitar reembolso sem burocracia.</div>
+    </div>
+    <div class="field">
+      <div class="lbl">Período de acesso</div>
+      <div class="field-value"><strong>12 meses</strong> completos de acesso à plataforma, com todas as atualizações de conteúdo incluídas.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">O que está incluso na plataforma</div>
+    <div class="field-value">
+      <ul class="bl">
+        <li><strong>Videoaulas completas</strong> organizadas por disciplina e alinhadas ao perfil da banca do concurso &mdash; sem conteúdo que não cai na prova</li>
+        <li><strong>Banco de questões com comentários de correção detalhados</strong> &mdash; o candidato aprende a pensar como a banca cobra, não apenas a decorar</li>
+        <li><strong>Simulados completos</strong> no formato dos concursos PMBA, BMBA e PCBA</li>
+        <li><strong>Gerador automático de cronograma personalizado</strong> conforme a rotina de trabalho do aluno &mdash; feito para quem trabalha e tem pouco tempo</li>
+        <li><strong>Acompanhamento de professores especializados</strong>, incluindo professores com experiência ativa nas carreiras policiais</li>
+        <li>Acesso a grupos de suporte com alunos e professores</li>
+        <li>Conteúdo 100% focado nos concursos da Bahia: PMBA, BMBA e PCBA</li>
+        <li>Todas as atualizações de conteúdo durante os 12 meses de acesso &mdash; diferente de livros e apostilas físicas que ficam desatualizadas</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Bônus diferencial</div>
+    <div class="field-value">Acesso e acompanhamento dos fundadores &mdash; aprovados tanto no concurso de Soldado quanto no CFO PMBA &mdash; credencial que nenhum concorrente nacional possui. Para alunos da região Oeste da Bahia: modalidade presencial exclusiva em Luís Eduardo Magalhães, sem necessidade de se deslocar para outra cidade.</div>
+  </div>
+
+  <div class="hl">
+    <strong>Ancoragem de valor para copy e vendas:</strong> R$ 79,33 por mês é menos do que um plano de celular intermediário. O retorno é um salário acima de R$ 4.800 todo mês, com estabilidade que nenhum chefe pode tirar. Comparativo direto com o principal concorrente: RUMO cobra R$ 897 (R$ 130 a mais) sem ter presença presencial e sem a credencial de quem passou pelos dois concursos.
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     04 — OBJEÇÕES
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">04 &mdash; Objeções</div>
+  <h2>Por que <em>não</em> comprariam</h2>
+
+  <table class="tbl">
+    <thead>
+      <tr><th>#</th><th>Objeção</th><th>Resposta do Gabaritando</th><th>Prova que sustenta</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>"Não sou inteligente o suficiente para passar"</td>
+        <td>Aprovação não é uma questão de inteligência &mdash; é questão de método. Quem tem a trilha certa, o cronograma certo e treina com as questões certas chega preparado. Os fundadores passaram nos dois concursos com método, não com sorte.</td>
+        <td>A headline mais forte do mercado (usada pelo RUMO com sucesso) já comprova que essa objeção é universal e vencível: "Você não precisa ser um gênio. Precisa de método." Alunos aprovados que começaram do zero.</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>"É mais um curso enganação"</td>
+        <td>Os fundadores foram aprovados nos dois caminhos &mdash; Soldado e CFO PMBA. Eles ensinam o que viveram. Além disso, o candidato pode testar tudo com 7 dias de garantia incondicional, sem risco algum.</td>
+        <td>Credencial verificável: aprovação no concurso de Soldado e no CFO PMBA. Alunos aprovados com o Gabaritando. Garantia de 7 dias sem burocracia.</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>"Dá pra passar só com YouTube"</td>
+        <td>YouTube é mar de informação sem sequência, sem foco no perfil da banca do seu concurso e sem ninguém verificando se você está estudando o que vai cair. O candidato que depende só do YouTube não sabe o que errou nem onde melhorar. A aprovação exige trilha estruturada.</td>
+        <td>Pesquisa de mercado: padrão de busca "estudo há meses mas não sei se estou no caminho certo" é o comentário mais recorrente de candidatos que estudam sem método. Depoimentos de aprovados que tentaram sozinhos e só foram aprovados com preparatório.</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>"O conteúdo não é focado no meu concurso"</td>
+        <td>O Gabaritando existe exclusivamente para PMBA, BMBA e PCBA. Todo o conteúdo é construído com base no histórico e no perfil da banca de cada um desses concursos. Não é curso nacional recortado &mdash; é preparação específica para quem vai disputar uma vaga na Bahia.</td>
+        <td>Plataforma exclusiva para os três concursos baianos. Análise de mercado aponta que "conteúdo genérico" é a principal reclamação de candidatos em relação a grandes plataformas nacionais.</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>"Tenho pouco tempo, não vou dar conta"</td>
+        <td>O gerador de cronograma foi criado exatamente para quem trabalha. O aluno informa sua rotina e recebe um plano de estudos executável com 2 a 4 horas por dia. Você não precisa de tempo livre &mdash; precisa de organização.</td>
+        <td>Funcionalidade real da plataforma: gerador automático de cronograma personalizado. Pesquisa de mercado: "quero um cronograma que funcione para quem trabalha" é um dos desejos mais frequentes do público.</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>"O curso é caro para o meu orçamento"</td>
+        <td>R$ 79,33 por mês é o investimento. O retorno é um salário estável acima de R$ 4.800 todo mês para o resto da carreira. Além disso, o Gabaritando é mais barato que o principal concorrente (RUMO cobra R$ 897 à vista) e oferece mais: presencial em LEM, fundadores com a maior credencial do mercado.</td>
+        <td>Comparativo direto: Gabaritando R$ 767 vs. RUMO R$ 897 (o mesmo período de acesso). Parcelamento em 12x torna o valor mais acessível que a maioria das assinaturas mensais.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     05 — CONCORRENTES
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">05 &mdash; Concorrentes</div>
+  <h2>Quem mais <em>resolve</em> esse problema</h2>
+
+  <table class="tbl">
+    <thead>
+      <tr><th>#</th><th>Concorrente</th><th>O que faz bem</th><th>O que falta</th><th>Diferencial do Gabaritando</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>RUMO Concursos</strong><br><small style="color:var(--cinza); font-weight:300">@franciscojunior060 / @leonardo.umburana — R$ 897–1.097</small></td>
+        <td>Prova social forte (877 aprovados no último Soldado PMBA), método proprietário nomeado (Perseu), plataforma gamificada, lives semanais, 85 mil seguidores, 10 anos de mercado</td>
+        <td>100% online, sem presença presencial em lugar algum; não cobre o BMBA com clareza; preço mais alto que o Gabaritando; sem conexão com o interior e o Oeste baiano</td>
+        <td>Gabaritando tem fundadores aprovados nos dois concursos (Soldado e CFO PMBA), preço R$ 130 menor, única opção com presencial em LEM, cobertura PMBA + BMBA + PCBA, professores com experiência nas carreiras policiais baianas</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>Manual do Mike</strong><br><small style="color:var(--cinza); font-weight:300">@manualdomike — R$ 677</small></td>
+        <td>"Do zero à farda", tecnologia de IA na plataforma (corretor de redação, gerador de questões), posicionamento "policial ensinando policial", banco com 30+ mil questões</td>
+        <td>Não especialista na Bahia, atende PM de vários estados, conteúdo não alinhado ao perfil específico da banca dos concursos baianos, sem presença presencial</td>
+        <td>Gabaritando é especialista exclusivo nos concursos baianos, conteúdo alinhado ao perfil da banca de cada concurso, fundadores com credencial mais alta (aprovados no CFO PMBA), comunidade e presença local em LEM</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Gran Cursos / Estratégia / AlfaCon</strong><br><small style="color:var(--cinza); font-weight:300">Plataformas nacionais — R$ 300–800</small></td>
+        <td>Enorme banco de questões, professores reconhecidos, marca consolidada, blogs com alto tráfego e SEO dominante nas buscas sobre concursos policiais baianos</td>
+        <td>Genéricos demais: cobrem centenas de concursos, sem especialização em PMBA/BMBA/PCBA, sem professores que passaram nesses concursos especificamente, atendimento impessoal, sem presença local</td>
+        <td>Especialização total em PMBA/BMBA/PCBA, professores com experiência nas carreiras policiais baianas, atendimento humanizado pelos próprios fundadores, pertencimento regional que grandes plataformas não conseguem criar</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="hl">
+    <strong>Janela de mercado identificada na pesquisa:</strong> Nenhum concorrente tem presença física em Luís Eduardo Magalhães. A pesquisa de mercado confirma: "candidatos locais buscam ou pagar para fazer o concurso em Barreiras (100 km) ou estudar online sem suporte local." O Gabaritando é o único preparatório policial presencial na cidade &mdash; para um público com renda para pagar e sem opção local, essa é uma vantagem difícil de replicar.
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     06 — ÂNGULOS DE CAMPANHA
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">06 &mdash; Ângulos de Campanha</div>
+  <h2>Formas de <em>abordar</em> o público</h2>
+
+  <div class="field">
+    <div class="lbl">Ângulo 1 &mdash; Dor (identificação imediata)</div>
+    <div class="field-value">Você estuda, baixa material, assiste aula no YouTube &mdash; mas não sabe se está no caminho certo. O edital tem muita coisa, você não sabe o que priorizar, a constância vai embora na primeira semana difícil. E o relógio da idade não para. Se nada mudar, você vai chegar nos 30 anos sem a farda.</div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Ângulo 2 &mdash; Desejo (pintar o futuro)</div>
+    <div class="field-value">Imagine ter um salário estável todo mês, a estabilidade que nenhum chefe pode tirar, e a sua família orgulhosa de você. Ser policial não é só um emprego &mdash; é uma identidade, um pertencimento, uma segurança que poucos têm. Com o caminho certo, isso deixa de ser sonho.</div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Ângulo 3 &mdash; Prova (resultados reais)</div>
+    <div class="field-value">Aluno do Gabaritando aprovado no último CFO PMBA. Enquanto você lê isso, ex-alunos nossos já vestem a farda. Não foi sorte &mdash; foi método. Os mesmos fundadores que ensinam passaram pelos dois concursos: Soldado e CFO PMBA. Agora estão te passando o caminho exato.</div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Ângulo 4 &mdash; Urgência (janela real)</div>
+    <div class="field-value">Novo concurso de Soldado PMBA previsto para o 2.º semestre de 2026: aproximadamente 2.000 vagas. Investigador PCBA: edital previsto para o 1.º semestre de 2026, com 500 vagas. Os candidatos que começam a se preparar agora chegam no edital com vantagem real. Quem espera, estuda correndo.</div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Ângulo 5 &mdash; Curiosidade (o que ninguém conta)</div>
+    <div class="field-value">O que duas pessoas aprovadas nos dois concursos &mdash; Soldado e CFO PMBA &mdash; sabem sobre a prova, a banca e o processo que os professores civis de cursinho não sabem? E por que isso faz toda a diferença na preparação de quem estuda na Bahia?</div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Ângulo 6 &mdash; Autoridade local (para o interior da Bahia)</div>
+    <div class="field-value">O único preparatório policial com base em Luís Eduardo Magalhães. Enquanto todo curso indica você a estudar em Salvador ou em plataforma de fora da Bahia, o Gabaritando está aqui, na sua região, conhecendo o candidato que você é de verdade.</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     07 — PROMESSAS
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">07 &mdash; Promessas</div>
+  <h2>O que você <em>promete</em></h2>
+
+  <div class="field">
+    <div class="lbl">Promessa central</div>
+    <div class="field-value">Aprovação nos concursos policiais da Bahia com a trilha construída por quem foi aprovado nos dois caminhos &mdash; Soldado e CFO PMBA. Do zero à farda: com método estruturado, cronograma personalizado para quem trabalha e o acompanhamento de professores que viveram essa jornada antes de você.</div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Sub-promessa 1 &mdash; Direção</div>
+    <div class="field-value">Você nunca mais vai estudar sem saber se está no caminho certo. O gerador de cronograma do Gabaritando monta o seu plano personalizado com base na sua rotina de trabalho e no perfil da banca do concurso que você escolheu. Sem achismo, sem desperdício de tempo.</div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Sub-promessa 2 &mdash; Treino eficiente</div>
+    <div class="field-value">Você vai treinar com questões alinhadas ao perfil da banca do concurso, com comentários de correção que explicam o raciocínio por trás de cada resposta. Não é decoreba: é entender exatamente como a banca cobra para acertar na hora que importa.</div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Sub-promessa 3 &mdash; Acompanhamento real</div>
+    <div class="field-value">Você vai ser acompanhado por professores que passaram nos mesmos concursos que você quer passar. Incluindo quem foi aprovado no CFO PMBA &mdash; o concurso de maior nível de dificuldade. Não é teoria: é quem viveu a prova, o TAF e o processo te dizendo onde focar.</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     08 — PROVAS
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">08 &mdash; Provas</div>
+  <h2>Por que devem <em>acreditar</em></h2>
+
+  <div class="field">
+    <div class="lbl">Credenciais dos fundadores</div>
+    <div class="field-value">
+      <ul class="bl">
+        <li>Aprovados tanto no <strong>concurso de Soldado quanto no CFO PMBA</strong> (Curso de Formação de Oficiais) &mdash; percorreram os dois caminhos que ensinam. Credencial que nenhum concorrente nacional possui na mesma combinação</li>
+        <li>Conhecimento profundo do histórico dos concursos PMBA, BMBA e PCBA e do perfil da banca de cada um deles</li>
+        <li>Presença regional consolidada em Luís Eduardo Magalhães &mdash; principal polo do Oeste baiano</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Credibilidade do corpo docente</div>
+    <div class="field-value">
+      <ul class="bl">
+        <li>Professores especializados por disciplina com <strong>experiência ativa nas carreiras policiais baianas</strong></li>
+        <li>Parceria com nomes de peso da segurança pública da Bahia &mdash; Delegado, Major e Juíza participaram do Aulão Beneficente (março 2026)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Resultados numéricos</div>
+    <div class="field-value">
+      <ul class="bl">
+        <li>Aluno do Gabaritando aprovado no último CFO PMBA &mdash; o concurso de maior prestígio e nível de dificuldade do estado</li>
+        <li><span class="pendente">[A PREENCHER: número total de alunos e total de aprovados no histórico do projeto &mdash; abordar fundadores diretamente para confirmar]</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="hl-amarelo">
+    <b>Ação prioritária &mdash; Depoimentos:</b> Os fundadores conhecem os aprovados pessoalmente. Abordar diretamente via WhatsApp solicitando um vídeo de 30 a 60 segundos com: nome, cidade, concurso que passou, quanto tempo estudou no Gabaritando e o que fez a diferença. Prioridade: candidatos do interior, que trabalhavam e tinham pouco tempo &mdash; perfil que gera maior identificação com o público.
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     09 — MECANISMO ÚNICO
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">09 &mdash; Mecanismo Único</div>
+  <h2>O método que <em>faz funcionar</em></h2>
+
+  <div class="field">
+    <div class="lbl">Nome do método</div>
+    <div class="field-value"><strong>Sistema GABA</strong> &mdash; abreviação direta de Gabaritando. Soa como código de operação, referência natural à cultura policial. Posicionamento: "Um sistema. Uma trilha. Um resultado." Nome provisório &mdash; pode ser ajustado futuramente conforme o posicionamento evoluir.</div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Por que funciona &mdash; os 4 pilares do Sistema GABA</div>
+    <div class="field-value">
+      O candidato não reprova por falta de inteligência &mdash; reprova por falta de direção. O Sistema GABA elimina esse problema com quatro pilares simultâneos:<br><br>
+      <strong>1. Trilha guiada</strong> &mdash; Conteúdo na sequência correta do edital, sem sobrecarga de informação. O aluno sabe exatamente o que estudar hoje, amanhã e na semana que vem. Resolve a dor mais frequente do mercado: "não sei por onde começar".<br><br>
+      <strong>2. Cronograma personalizado</strong> &mdash; Gerado automaticamente pela plataforma com base na rotina de trabalho do aluno. Feito para quem trabalha e tem 2 a 4 horas disponíveis por dia &mdash; não para quem tem o dia livre.<br><br>
+      <strong>3. Treino por questões</strong> &mdash; Banco de questões com comentários de correção alinhado ao perfil da banca do concurso. Ensina o aluno a pensar como a banca, não apenas a memorizar. Resolve a reclamação mais frequente sobre materiais de estudo: "só tem teoria, falta prática".<br><br>
+      <strong>4. Autoridade de quem passou</strong> &mdash; Professores aprovados nos mesmos concursos, incluindo aprovados no CFO PMBA, que sabem o que a banca cobra, o que o TAF exige e como é a formação por dentro.
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">O que diferencia o Sistema GABA dos concorrentes</div>
+    <div class="field-value">Concorrentes nacionais ensinam "concurso policial" de forma genérica. O Sistema GABA foi construído especificamente para PMBA, BMBA e PCBA &mdash; o perfil da banca que o candidato baiano vai enfrentar, o edital que ele vai estudar, a farda que ele quer vestir. Combinado com a única presença presencial no Oeste baiano, é um sistema que nenhum concorrente consegue replicar com a mesma autenticidade regional.</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     10 — NÍVEL DE CONSCIÊNCIA
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">10 &mdash; Nível de Consciência (Schwartz)</div>
+  <h2>Onde o público <em>está</em></h2>
+  <p style="font-size:0.84rem;color:var(--cinza);font-weight:300;margin-bottom:22px;line-height:1.75">O público do Gabaritando se distribui entre dois níveis com estratégias distintas:</p>
+
+  <div class="nivel">
+    <div class="ndot"></div>
+    <div><div class="nivel-label">Inconsciente</div><div class="nivel-desc">Não sabe que tem o problema</div></div>
+  </div>
+  <div class="nivel">
+    <div class="ndot"></div>
+    <div><div class="nivel-label">Consciente do Problema</div><div class="nivel-desc">Sabe que está perdido nos estudos, não conhece a solução</div></div>
+  </div>
+  <div class="nivel sel">
+    <div class="ndot"></div>
+    <div>
+      <div class="nivel-label">Consciente da Solução <span class="badge" style="margin-left:8px;vertical-align:middle">Maioria do público</span></div>
+      <div class="nivel-desc">Sabe que preparatórios existem, não conhece o Gabaritando especificamente &mdash; estratégia: posicionar autoridade e especialização regional para criar preferência de marca antes da decisão de compra</div>
+    </div>
+  </div>
+  <div class="nivel sel">
+    <div class="ndot"></div>
+    <div>
+      <div class="nivel-label">Consciente do Produto <span class="badge" style="margin-left:8px;vertical-align:middle;background:rgba(245,158,11,0.12);color:var(--amarelo)">Leads quentes</span></div>
+      <div class="nivel-desc">Já teve contato com o Gabaritando (aulão, grupos, Instagram), não comprou ainda &mdash; estratégia: quebrar as últimas objeções e conduzir diretamente ao fechamento</div>
+    </div>
+  </div>
+  <div class="nivel">
+    <div class="ndot"></div>
+    <div><div class="nivel-label">Mais Consciente</div><div class="nivel-desc">Pronto para comprar &mdash; estratégia: facilitar o caminho ao checkout (CTA claro, parcelamento visível, garantia destacada)</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     11 — TOM DE COMUNICAÇÃO
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">11 &mdash; Tom de Comunicação</div>
+  <h2>Como a marca <em>fala</em></h2>
+
+  <div class="scale-row"><span class="scale-lbl">Formal &harr; Casual</span><div class="scale-track"><div class="scale-fill" style="width:30%"></div></div><span class="scale-val">30/100</span></div>
+  <div class="scale-row"><span class="scale-lbl">Sério &harr; Divertido</span><div class="scale-track"><div class="scale-fill" style="width:35%"></div></div><span class="scale-val">35/100</span></div>
+  <div class="scale-row"><span class="scale-lbl">Técnico &harr; Acessível</span><div class="scale-track"><div class="scale-fill" style="width:25%"></div></div><span class="scale-val">25/100</span></div>
+  <div class="scale-row"><span class="scale-lbl">Autoritário &harr; Amigável</span><div class="scale-track"><div class="scale-fill" style="width:40%"></div></div><span class="scale-val">40/100</span></div>
+
+  <div class="field" style="margin-top:20px">
+    <div class="lbl">Persona da marca</div>
+    <div class="field-value"><strong>Mentor-parceiro com autoridade de quem passou.</strong> Fala como alguém que está do seu lado: direto, sem enrolação, sem superioridade &mdash; mas com a firmeza de quem conhece o caminho por ter percorrido. Mistura motivação com técnica. Usa linguagem baiana e referências do universo policial. Não é professor de cursinho &mdash; é alguém que chegou antes de você e agora está te dando o mapa.</div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Vocabulário e referências da marca</div>
+    <div class="field-value">
+      <span class="badge">Papo reto</span>
+      <span class="badge">Sem enrolação</span>
+      <span class="badge">Missão</span>
+      <span class="badge">Farda</span>
+      <span class="badge">Trilha guiada</span>
+      <span class="badge">Caminho das pedras</span>
+      <span class="badge">Do zero à aprovação</span>
+      <span class="badge">Quem passou ensina</span>
+      <span class="badge">Só o que cai</span>
+      <span class="badge">Constância vence</span>
+      <span class="badge">Bahia</span>
+      <span class="badge">QAP</span>
+      <span class="badge">Soldo</span>
+      <span class="badge">Gabaritar</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">O que NÃO usar</div>
+    <div class="field-value">Linguagem corporativa distante. Promessas de aprovação garantida. Jargões genéricos de marketing sem conexão com a realidade do candidato. Qualquer tom que soe como um curso nacional que não conhece a Bahia. Nunca citar nomes de bancas organizadoras. Nunca mencionar o cargo atual dos fundadores de forma direta &mdash; usar sempre a narrativa da aprovação nos dois concursos.</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     12 — RESTRIÇÕES E CONTEXTO
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">12 &mdash; Restrições e Contexto</div>
+  <h2>Limites e <em>prazos</em></h2>
+
+  <div class="g2">
+    <div class="field">
+      <div class="lbl">Momento atual e prazo estratégico</div>
+      <div class="field-value">Projeto em operação. Janela crítica: edital do Investigador PCBA previsto para o <strong>1.º semestre de 2026</strong> (500 vagas) e edital do Soldado PMBA previsto para o <strong>2.º semestre de 2026</strong> (estimativa de 2.000 vagas). Landing page em produção. Tráfego pago a ser ativado após estruturação do conteúdo orgânico.</div>
+    </div>
+    <div class="field">
+      <div class="lbl">Orçamento</div>
+      <div class="field-value"><span class="pendente">[A PREENCHER: valor disponível para tráfego pago e produção de conteúdo]</span><br><br>Decisão estratégica: tráfego potencializa o que já existe. Ativar somente após o perfil e a estrutura comercial estarem consolidados.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Canais prioritários (em ordem de prioridade)</div>
+    <div class="field-value">
+      <ul class="bl">
+        <li><strong>Instagram:</strong> principal canal de aquisição no nicho. Meta mínima: 1 post por dia (ideal: 3). Foco em Reels e Stories com os 6 ângulos de campanha mapeados neste briefing. Referência de volume e estilo de conteúdo operacional: @manualdomike</li>
+        <li><strong>WhatsApp:</strong> aquecimento de leads e conversão. Grupos por concurso (CFO, Soldado). Conteúdo de valor 3 vezes por semana mais pitches estratégicos. Script de atendimento estruturado para garantir condução ao fechamento</li>
+        <li><strong>YouTube:</strong> canal de autoridade e SEO orgânico com alta oportunidade no nicho baiano. A pesquisa de mercado confirma: há pouco conteúdo de qualidade específico para PMBA/BMBA/PCBA &mdash; janela aberta para dominar buscas orgânicas com aulas e análises de edital</li>
+        <li><strong>Tráfego pago:</strong> ativar após consolidação do perfil e estrutura comercial. O tráfego amplifica o que já existe &mdash; se a base não estiver boa, ele não resolve</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Restrições obrigatórias de comunicação</div>
+    <div class="field-value">
+      <ul class="bl">
+        <li>Nunca citar nomes de bancas organizadoras &mdash; usar sempre: <strong>"alinhado ao perfil da banca do concurso"</strong></li>
+        <li>Nunca mencionar o cargo atual dos fundadores de forma direta &mdash; usar sempre: <strong>"aprovados tanto no concurso de Soldado quanto no CFO PMBA"</strong></li>
+        <li>Nunca afirmar que o método ou o projeto "foi construído de dentro da corporação"</li>
+        <li>Nunca prometer aprovação garantida &mdash; prometer método, trilha estruturada e suporte de quem passou</li>
+        <li>Parcelamento sempre visível em toda comunicação de oferta &mdash; público de baixa renda decide pela parcela, não pelo total</li>
+        <li>Limite de 30 anos: tratar como urgência cronológica real, nunca como pressão excessiva ou discriminatória</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     AÇÕES PRIORITÁRIAS
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">Próximos Passos</div>
+  <h2>O que fazer <em>agora</em></h2>
+
+  <div class="hl">
+    <strong>As 3 ações que desbloqueiam o crescimento imediato:</strong><br><br>
+    <strong>1.</strong> Coletar depoimentos em vídeo dos aprovados &mdash; é o maior gap de prova social do projeto hoje. Abordar via WhatsApp diretamente.<br>
+    <strong>2.</strong> Confirmar o número total de alunos e aprovados para completar o Bloco 08.<br>
+    <strong>3.</strong> Iniciar a produção massiva de Reels usando os 6 ângulos de campanha mapeados neste briefing &mdash; mínimo 1 por dia.
+  </div>
+
+  <table class="tbl">
+    <thead>
+      <tr><th>#</th><th>Ação</th><th>Responsável</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Abordar aprovados via WhatsApp e solicitar depoimento em vídeo (30–60 segundos): nome, cidade, concurso, tempo de estudo e o que fez a diferença</td>
+        <td>Fundadores</td>
+        <td><span class="pendente">Pendente</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Confirmar número total de alunos e total de aprovados históricos</td>
+        <td>Fundadores</td>
+        <td><span class="pendente">Pendente</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Confirmar orçamento disponível para tráfego pago e produção</td>
+        <td>Fundadores</td>
+        <td><span class="pendente">Pendente</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Landing page: briefing estratégico completo e pronto para repassar ao desenvolvedor</td>
+        <td>Davidson (briefing) + Vitória (dev)</td>
+        <td><span style="color:var(--amarelo)">Em andamento</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Início da produção de Reels com os 6 ângulos de campanha &mdash; 1 por dia no mínimo</td>
+        <td>Fundadores + equipe</td>
+        <td><span style="color:var(--amarelo)">Em andamento</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="divider"></div>
+
+<div style="text-align:center;padding:36px 0" class="no-print">
+  <p style="font-size:0.88rem;color:rgba(255,255,255,0.45);font-weight:300;margin-bottom:20px">Briefing completo. Abra no navegador e clique em Salvar como PDF para distribuir à equipe.</p>
+  <div class="btn-bar">
+    <button class="btn btn-primary" onclick="window.print()">Salvar como PDF</button>
+  </div>
+</div>
+
+<div style="text-align:center;padding:28px 0;border-top:1px solid var(--borda)">
+  <p style="font-family:var(--serif);font-size:1rem;color:rgba(255,255,255,0.6)">Gabaritando &mdash; <em style="color:var(--laranja)">Carreiras Policiais da Bahia</em></p>
+  <p style="font-size:0.7rem;color:var(--cinza);margin-top:5px;font-weight:300">Briefing Estratégico Completo &mdash; Gabaritando &mdash; Abril 2026</p>
+</div>
+
+</body>
+</html>

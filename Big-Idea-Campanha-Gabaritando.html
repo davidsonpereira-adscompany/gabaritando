@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Idea da Campanha &mdash; Gabaritando</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --laranja: #FF5C00;
+    --preto: #0A0A0A;
+    --card: #141414;
+    --medio: #1E1E1E;
+    --escuro: #252525;
+    --borda: rgba(255,255,255,0.07);
+    --cinza: #666;
+    --branco: #FFFFFF;
+    --verde: #22C55E;
+    --amarelo: #F59E0B;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--preto);
+    color: var(--branco);
+    font-family: var(--sans);
+    font-size: 14.5px;
+    line-height: 1.7;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media print {
+    * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+    @page { margin: 15mm 14mm; }
+
+    body {
+      background: #fff !important;
+      color: #111 !important;
+      padding: 0 !important;
+      font-size: 11.5px !important;
+      max-width: 100% !important;
+    }
+
+    .no-print { display:none !important; }
+
+    /* ── Elementos com rgba(255,255,255,x) ficam invisíveis no branco — override global ── */
+    .field-value, .bi-expande, .bl li, .hl, .hl-amarelo,
+    .comp-texto, .aut-texto, .gc-nota, .gc-frase,
+    .manifesto-texto, .mapa-card .mc-conteudo, .pr-regra,
+    .tl-frase, .tl-texto, .bi-tese,
+    .tagline-card, .headline-card, .gancho-card, .proibido-item,
+    .componente, .mapa-card, .autoridade-box, .manifesto-box,
+    .aut-titulo, .header-desc, .section h2,
+    [style*="rgba(255,255,255"] { color: #222 !important; }
+
+    /* ── Fundos escuros → claro ── */
+    body, .card, .field-value, .tagline-card, .headline-card,
+    .gancho-card, .proibido-item, .componente, .mapa-card,
+    .autoridade-box, .manifesto-box { background: #f8f8f8 !important; }
+
+    /* ── Bordas ── */
+    .card, .field-value, .tagline-card, .headline-card,
+    .gancho-card, .proibido-item, .componente, .mapa-card,
+    .autoridade-box, .manifesto-box { border-color: #ddd !important; }
+
+    /* ── Laranja preservado ── */
+    .section-tag, .pill, .comp-rotulo, .gc-angulo, .tl-rotulo,
+    .mc-tag, .bi-rotulo, .lbl, .header-tag,
+    .field-value b, .field-value strong,
+    .hl b, .hl strong, .comp-texto strong, .aut-texto strong,
+    .manifesto-texto strong, .bl li b, .bl li strong,
+    .hl-amarelo b, .bi-expande strong,
+    .section h2 em, .header h1 em, .tl-texto em, .bi-tese em,
+    .aut-titulo em, .divider, .header-line, .badge { color: #CC4400 !important; }
+
+    /* ── Elementos de destaque ── */
+    .big-idea-box   { background: #fff5f0 !important; border-color: #CC4400 !important; }
+    .bi-tese        { color: #111 !important; font-size: 1.6rem !important; }
+    .bi-tese em     { color: #CC4400 !important; }
+
+    .tagline-principal { background: #fff5f0 !important; border-color: #CC4400 !important; }
+    .tl-texto       { color: #111 !important; }
+    .tl-texto em    { color: #CC4400 !important; }
+
+    .hl             { background: #fff5f0 !important; border-left-color: #CC4400 !important; }
+    .hl-amarelo     { background: #fffbf0 !important; border-left-color: #B45309 !important; }
+    .hl-amarelo b   { color: #B45309 !important; }
+
+    .manifesto-box  { background: #f8f8f8 !important; border-color: #ddd !important; }
+    .manifesto-texto { color: #333 !important; font-style: italic !important; }
+    .manifesto-texto strong { color: #CC4400 !important; }
+
+    .status-bar     { background: #f0fdf4 !important; color: #166534 !important; border-color: #bbf7d0 !important; }
+    .dot            { background: #166534 !important; }
+
+    /* ── Números decorativos ── */
+    .tl-num, .hl-num { color: rgba(204,68,0,0.25) !important; }
+
+    /* ── Proibido ── */
+    .pr-x     { color: #dc2626 !important; }
+    .pr-regra { color: #111 !important; }
+    .pr-porque { color: #555 !important; }
+
+    /* ── Texto secundário ── */
+    .header-sup, .tl-angulo, .gc-segundos, .pr-porque,
+    [style*="var(--cinza)"] { color: #666 !important; }
+
+    /* ── Divisores ── */
+    .divider { background: linear-gradient(90deg,#CC4400,rgba(204,68,0,0.05)) !important; }
+    .header-line { background: #CC4400 !important; }
+
+    /* ── Badge ── */
+    .badge { background: #ffe8de !important; color: #CC4400 !important; }
+
+    /* ── Quebras de página ── */
+    .section     { page-break-inside: auto; }
+    .section-tag { page-break-after: avoid; }
+    .section h2  { page-break-after: avoid; }
+    .componente, .tagline-card, .headline-card,
+    .gancho-card, .proibido-item, .mapa-card { page-break-inside: avoid; }
+    .big-idea-box, .manifesto-box, .tagline-principal { page-break-inside: avoid; }
+    .divider { page-break-after: avoid; margin: 20px 0 !important; }
+  }
+
+  /* HEADER */
+  .header { margin-bottom:60px; padding-bottom:44px; border-bottom:1px solid var(--borda); text-align:center; }
+  .pill { display:inline-block; background:var(--laranja); color:var(--preto); font-size:0.66rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; padding:5px 18px; margin-bottom:22px; }
+  .header-sup { font-size:0.68rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--cinza); font-weight:400; margin-bottom:14px; }
+  .header h1 { font-family:var(--serif); font-size:2.7rem; font-weight:400; line-height:1.15; }
+  .header h1 em { font-style:italic; color:var(--laranja); }
+  .header-line { width:46px; height:2px; background:var(--laranja); margin:22px auto; }
+  .header-desc { font-size:0.84rem; color:var(--cinza); font-weight:300; max-width:600px; margin:0 auto 26px; line-height:1.75; }
+  .status-bar { display:inline-flex; align-items:center; gap:9px; background:rgba(34,197,94,0.07); border:1px solid rgba(34,197,94,0.2); padding:9px 24px; font-size:0.74rem; color:var(--verde); font-weight:500; letter-spacing:0.06em; }
+  .dot { width:7px; height:7px; background:var(--verde); border-radius:50%; flex-shrink:0; }
+
+  /* SECTION */
+  .section { margin-bottom:56px; }
+  .section-tag { font-size:0.66rem; font-weight:700; letter-spacing:0.38em; text-transform:uppercase; color:var(--laranja); margin-bottom:10px; }
+  .section h2 { font-family:var(--serif); font-size:1.5rem; font-weight:400; margin-bottom:26px; line-height:1.25; }
+  .section h2 em { font-style:italic; color:var(--laranja); }
+
+  /* FIELDS */
+  .field { margin-bottom:16px; }
+  .lbl { font-size:0.66rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--cinza); margin-bottom:7px; }
+  .field-value {
+    background:var(--card);
+    border:1px solid rgba(255,92,0,0.14);
+    padding:16px 20px;
+    font-size:0.89rem;
+    font-weight:300;
+    color:rgba(255,255,255,0.88);
+    line-height:1.75;
+  }
+  .field-value b, .field-value strong { color:var(--laranja); font-weight:600; }
+
+  /* GRIDS */
+  .g2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+  @media(max-width:640px){ .g2,.g3{ grid-template-columns:1fr; } }
+
+  /* HIGHLIGHT */
+  .hl { background:rgba(255,92,0,0.05); border-left:3px solid var(--laranja); padding:17px 22px; margin-bottom:16px; font-size:0.87rem; font-weight:300; color:rgba(255,255,255,0.88); line-height:1.8; }
+  .hl b, .hl strong { color:var(--laranja); font-weight:600; }
+  .hl-amarelo { background:rgba(245,158,11,0.05); border-left:3px solid var(--amarelo); padding:14px 20px; margin-bottom:14px; font-size:0.84rem; color:rgba(255,255,255,0.72); font-weight:300; line-height:1.75; }
+  .hl-amarelo b { color:var(--amarelo); font-weight:600; }
+
+  /* BADGES */
+  .badge { display:inline-block; background:rgba(255,92,0,0.11); color:var(--laranja); font-size:0.67rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:4px 11px; margin:2px 3px 2px 0; }
+
+  /* BULLET LIST */
+  .bl { list-style:none; padding:0; }
+  .bl li { padding:9px 0 9px 20px; border-bottom:1px solid var(--borda); font-size:0.87rem; font-weight:300; color:rgba(255,255,255,0.84); position:relative; line-height:1.65; }
+  .bl li:last-child { border-bottom:none; }
+  .bl li::before { content:"—"; position:absolute; left:0; color:var(--laranja); font-weight:700; }
+  .bl li b, .bl li strong { color:var(--laranja); font-weight:600; }
+
+  /* DIVIDER */
+  .divider { width:100%; height:1px; background:linear-gradient(90deg,var(--laranja),rgba(255,92,0,0)); margin:56px 0; }
+
+  /* BIG IDEA BOX — destaque máximo */
+  .big-idea-box {
+    border:1px solid var(--laranja);
+    background:rgba(255,92,0,0.04);
+    padding:48px 44px;
+    margin-bottom:20px;
+    position:relative;
+  }
+  .big-idea-box::before {
+    content:"BIG IDEA";
+    position:absolute;
+    top:-1px;
+    left:0;
+    background:var(--laranja);
+    color:var(--preto);
+    font-size:0.58rem;
+    font-weight:700;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    padding:4px 14px;
+  }
+  .bi-rotulo { font-size:0.66rem; font-weight:700; letter-spacing:0.38em; text-transform:uppercase; color:var(--laranja); margin-bottom:18px; margin-top:10px; }
+  .bi-tese {
+    font-family:var(--serif);
+    font-size:2.1rem;
+    font-weight:400;
+    line-height:1.25;
+    color:var(--branco);
+    margin-bottom:24px;
+  }
+  .bi-tese em { font-style:italic; color:var(--laranja); }
+  .bi-expande { font-size:0.91rem; font-weight:300; color:rgba(255,255,255,0.75); line-height:1.85; }
+  .bi-expande strong { color:var(--branco); font-weight:500; }
+
+  /* COMPONENTES DA BIG IDEA */
+  .componente { background:var(--card); border:1px solid rgba(255,92,0,0.14); padding:22px 24px; margin-bottom:12px; }
+  .comp-rotulo { font-size:0.62rem; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:var(--laranja); margin-bottom:9px; }
+  .comp-texto { font-size:0.88rem; font-weight:300; color:rgba(255,255,255,0.86); line-height:1.75; }
+  .comp-texto strong { color:var(--laranja); font-weight:600; }
+
+  /* TAGLINE PRINCIPAL */
+  .tagline-principal {
+    border:1px solid rgba(255,92,0,0.5);
+    background:rgba(255,92,0,0.03);
+    padding:34px 38px;
+    text-align:center;
+    margin-bottom:14px;
+  }
+  .tl-rotulo { font-size:0.62rem; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:var(--laranja); margin-bottom:14px; }
+  .tl-texto {
+    font-family:var(--serif);
+    font-size:1.75rem;
+    font-weight:400;
+    line-height:1.3;
+    color:var(--branco);
+  }
+  .tl-texto em { color:var(--laranja); font-style:italic; }
+
+  /* TAGLINE ALTERNATIVA */
+  .tagline-card {
+    background:var(--card);
+    border:1px solid var(--borda);
+    padding:20px 24px;
+    margin-bottom:10px;
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+  }
+  .tl-num {
+    font-family:var(--serif);
+    font-size:1.5rem;
+    font-weight:700;
+    color:rgba(255,92,0,0.3);
+    flex-shrink:0;
+    line-height:1;
+    margin-top:2px;
+  }
+  .tl-conteudo { flex:1; }
+  .tl-frase { font-size:1rem; font-weight:400; color:var(--branco); line-height:1.4; margin-bottom:6px; }
+  .tl-angulo { font-size:0.72rem; font-weight:400; color:var(--cinza); }
+
+  /* AUTORIDADE */
+  .autoridade-box {
+    background:var(--card);
+    border:1px solid rgba(255,92,0,0.2);
+    padding:28px 30px;
+    margin-bottom:14px;
+  }
+  .aut-titulo { font-family:var(--serif); font-size:1.1rem; font-weight:400; color:var(--branco); margin-bottom:12px; line-height:1.35; }
+  .aut-titulo em { color:var(--laranja); font-style:italic; }
+  .aut-texto { font-size:0.87rem; font-weight:300; color:rgba(255,255,255,0.78); line-height:1.8; margin-bottom:14px; }
+  .aut-texto strong { color:var(--laranja); font-weight:600; }
+
+  /* HEADLINE CARDS */
+  .headline-card {
+    background:var(--card);
+    border:1px solid rgba(255,92,0,0.14);
+    padding:24px 26px;
+    margin-bottom:10px;
+    display:flex;
+    gap:22px;
+    align-items:flex-start;
+  }
+  .hl-num {
+    font-family:var(--serif);
+    font-size:2rem;
+    font-weight:700;
+    color:rgba(255,92,0,0.22);
+    flex-shrink:0;
+    line-height:1;
+    margin-top:1px;
+  }
+  .hl-corpo { flex:1; }
+  .hl-titulo { font-size:1.05rem; font-weight:500; color:var(--branco); line-height:1.4; margin-bottom:7px; }
+  .hl-metadado { display:flex; gap:8px; flex-wrap:wrap; }
+
+  /* GANCHO CARDS */
+  .gancho-card {
+    background:var(--card);
+    border-left:3px solid var(--laranja);
+    border-top:1px solid var(--borda);
+    border-right:1px solid var(--borda);
+    border-bottom:1px solid var(--borda);
+    padding:22px 24px;
+    margin-bottom:12px;
+  }
+  .gc-angulo { font-size:0.62rem; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:var(--laranja); margin-bottom:10px; }
+  .gc-segundos { font-size:0.72rem; color:var(--cinza); font-weight:400; margin-bottom:12px; }
+  .gc-frase { font-size:1rem; font-weight:500; color:var(--branco); line-height:1.5; margin-bottom:10px; font-style:italic; }
+  .gc-nota { font-size:0.8rem; font-weight:300; color:rgba(255,255,255,0.55); line-height:1.65; }
+
+  /* MANIFESTO */
+  .manifesto-box {
+    border:1px solid rgba(255,92,0,0.3);
+    background:var(--card);
+    padding:40px 44px;
+    margin-bottom:16px;
+    position:relative;
+  }
+  .manifesto-box::before {
+    content:'"';
+    position:absolute;
+    top:22px;
+    left:28px;
+    font-family:var(--serif);
+    font-size:5rem;
+    color:rgba(255,92,0,0.12);
+    line-height:1;
+  }
+  .manifesto-texto {
+    font-family:var(--serif);
+    font-size:1.05rem;
+    font-weight:400;
+    color:rgba(255,255,255,0.9);
+    line-height:1.95;
+    font-style:italic;
+  }
+  .manifesto-texto strong { color:var(--laranja); font-style:normal; font-weight:700; }
+
+  /* NAO E — proibido */
+  .proibido-item {
+    background:var(--card);
+    border:1px solid var(--borda);
+    border-left:3px solid rgba(239,68,68,0.5);
+    padding:16px 22px;
+    margin-bottom:10px;
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+  }
+  .pr-x {
+    font-size:0.75rem;
+    font-weight:700;
+    color:rgba(239,68,68,0.7);
+    flex-shrink:0;
+    margin-top:2px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .pr-corpo { flex:1; }
+  .pr-regra { font-size:0.9rem; font-weight:500; color:rgba(255,255,255,0.85); margin-bottom:4px; }
+  .pr-porque { font-size:0.8rem; font-weight:300; color:var(--cinza); line-height:1.6; }
+
+  /* MAPA ESTRATEGICO */
+  .mapa-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
+  @media(max-width:640px){ .mapa-grid{ grid-template-columns:1fr; } }
+  .mapa-card { background:var(--card); border:1px solid var(--borda); padding:20px 22px; }
+  .mc-tag { font-size:0.61rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--laranja); margin-bottom:8px; }
+  .mc-conteudo { font-size:0.86rem; font-weight:300; color:rgba(255,255,255,0.82); line-height:1.7; }
+  .mc-conteudo strong { color:var(--branco); font-weight:500; }
+
+  /* BUTTONS */
+  .btn-bar { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:24px; }
+  .btn { display:inline-block; padding:14px 42px; font-family:var(--sans); font-size:0.79rem; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; border:none; cursor:pointer; transition:opacity .2s; }
+  .btn:hover { opacity:.82; }
+  .btn-primary { background:var(--laranja); color:var(--preto); }
+  .btn-outline { background:transparent; color:var(--laranja); border:1px solid var(--laranja); }
+</style>
+</head>
+<body>
+
+<div style="position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(10,10,10,0.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.07);padding:10px 28px;">
+  <a href="index.html" style="font-family:'Inter',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#FF5C00'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">&#8592; &nbsp;Índice Geral</a>
+</div>
+<div style="height:38px"></div>
+
+<!-- ══════════════════════════════════════════
+     CABEÇALHO
+══════════════════════════════════════════ -->
+<div class="header">
+  <div class="pill">Projeto Gabaritando</div>
+  <div class="header-sup">Estratégia de Campanha</div>
+  <h1>Big Idea da <em>Campanha</em></h1>
+  <div class="header-line"></div>
+  <p class="header-desc">Documento estratégico da tese central da campanha. Define a Big Idea, o conceito criativo, as taglines, os headlines, os ganchos de vídeo e o manifesto da marca. Base obrigatória para toda a execução criativa do Gabaritando.</p>
+  <div class="status-bar"><div class="dot"></div>Big Idea validada &mdash; Abril de 2026</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     01 — A BIG IDEA CENTRAL
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">01 &mdash; A Tese Central</div>
+  <h2>A Big <em>Idea</em></h2>
+
+  <div class="big-idea-box">
+    <div class="bi-rotulo">Tese da campanha</div>
+    <div class="bi-tese">
+      Não é a falta de estudo que reprova o candidato baiano.<br>
+      É estudar sem saber <em>o que a Bahia cobra.</em>
+    </div>
+    <div class="bi-expande">
+      Enquanto os grandes cursos nacionais ensinam para um concurso genérico, o candidato da PMBA, do BMBA e da PCBA enfrenta uma banca específica, com perfil próprio de cobrança, nuances que só quem foi aprovado aqui conhece. O Gabaritando existe para corrigir esse desvio: <strong>preparação construída de dentro para fora, por quem entrou pela mesma porta.</strong>
+    </div>
+  </div>
+
+  <div class="hl-amarelo">
+    <b>Por que esta tese funciona:</b> Ela nomeia um erro que o público comete sem saber &mdash; estudar com material nacional para uma prova regional. Isso cria contraste imediato com qualquer concorrente de fora da Bahia, valida o posicionamento local do Gabaritando e transforma o método em resposta direta à dor do reprovado.
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     02 — COMPONENTES ESTRATÉGICOS
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">02 &mdash; Anatomia</div>
+  <h2>Os quatro <em>pilares</em> da Big Idea</h2>
+
+  <div class="componente">
+    <div class="comp-rotulo">Crença dominante do público (o que acreditam hoje)</div>
+    <div class="comp-texto">
+      "Se eu estudar bastante, vou passar." O candidato acredita que o problema é quantidade de estudo ou disciplina. Busca concursos genéricos, plataformas nacionais, qualquer coisa que pareça completa. Não percebe que <strong>o volume errado de conteúdo é tão prejudicial quanto a falta de estudo.</strong>
+    </div>
+  </div>
+
+  <div class="componente">
+    <div class="comp-rotulo">A falha nessa crença (o que a Big Idea revela)</div>
+    <div class="comp-texto">
+      Concurso policial na Bahia tem perfil de cobrança próprio. O candidato que estuda por material genérico treina para uma prova que não existe. Ele chega na prova sabendo o que não cai e ignorando o que é recorrente. <strong>O problema não é o quanto estuda. É para quê está estudando.</strong>
+    </div>
+  </div>
+
+  <div class="componente">
+    <div class="comp-rotulo">O mecanismo único (por que o Gabaritando resolve)</div>
+    <div class="comp-texto">
+      Sistema GABA: trilha guiada + cronograma personalizado + treino por questões alinhado ao perfil da banca do concurso + autoridade de quem passou. Cada um dos quatro pilares responde diretamente à falha identificada. <strong>Não é um curso a mais. É o único treinamento calibrado para o concurso que o aluno vai fazer.</strong>
+    </div>
+  </div>
+
+  <div class="componente">
+    <div class="comp-rotulo">A promessa implícita (o que o aluno sente ao entender a tese)</div>
+    <div class="comp-texto">
+      "Agora entendo por que não passei antes." A tese oferece ao candidato uma nova narrativa para a reprovação &mdash; não é falta de capacidade, é falta de direcionamento. Isso libera o candidato da culpa e cria espaço para a solução. <strong>Quem entende a tese já está a um passo de comprar.</strong>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     03 — CONCEITO CRIATIVO
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">03 &mdash; Conceito</div>
+  <h2>A ideia <em>expandida</em></h2>
+
+  <div class="field">
+    <div class="lbl">Nome do conceito criativo</div>
+    <div class="field-value"><strong>Treinado para a Bahia</strong></div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">O que significa</div>
+    <div class="field-value">
+      Toda a comunicação do Gabaritando parte de um princípio único: <strong>preparação específica supera estudo genérico.</strong> "Treinado para a Bahia" não é apenas um slogan. É a lógica que organiza o produto, o conteúdo, a prova e o discurso dos fundadores. O candidato que escolhe o Gabaritando não está apenas estudando mais &mdash; está estudando <strong>o que a Bahia cobra, da forma que a Bahia cobra, com quem passou na Bahia.</strong>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="field">
+      <div class="lbl">Como aparece no produto</div>
+      <div class="field-value">Banco de questões filtrado pelo perfil da banca do concurso. Cronograma que distribui carga conforme o peso real de cada disciplina no concurso alvo. Professores que fizeram as mesmas provas.</div>
+    </div>
+    <div class="field">
+      <div class="lbl">Como aparece na comunicação</div>
+      <div class="field-value">Todo conteúdo orgânico parte do comparativo: o que os nacionais ensinam versus o que a banca do concurso baiano realmente cobra. A autoridade local é sempre o argumento de fechamento.</div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <div class="field">
+      <div class="lbl">Como aparece na oferta</div>
+      <div class="field-value">A landing page não vende "curso completo". Vende treinamento para um concurso específico &mdash; Soldado PMBA, Oficial, Investigador. Cada página fala diretamente para quem quer aquela vaga.</div>
+    </div>
+    <div class="field">
+      <div class="lbl">Como aparece na experiência</div>
+      <div class="field-value">No presencial de LEM, o conceito é ainda mais literal: o aluno senta na mesma sala com professores que usaram a mesma farda que ele quer conquistar. O produto vive o que promete.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     04 — TAGLINES
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">04 &mdash; Taglines</div>
+  <h2>A frase que <em>resume tudo</em></h2>
+
+  <div class="tagline-principal">
+    <div class="tl-rotulo">Tagline Principal</div>
+    <div class="tl-texto">Treinado para a Bahia.<br><em>Aprovado de verdade.</em></div>
+  </div>
+
+  <div class="hl" style="margin-bottom:28px;">
+    A tagline principal une o conceito criativo ("Treinado para a Bahia") com a promessa de resultado ("Aprovado de verdade"). O segundo verso responde à objeção implícita: aprovação em concurso genérico não é aprovação de verdade para quem quer policial baiano.
+  </div>
+
+  <div class="lbl" style="margin-bottom:14px;">Taglines alternativas para testes A/B</div>
+
+  <div class="tagline-card">
+    <div class="tl-num">A</div>
+    <div class="tl-conteudo">
+      <div class="tl-frase">Quem passou te ensina como passar.</div>
+      <div class="tl-angulo">Angulo de autoridade &mdash; foco na credencial dos fundadores. Funciona em topo de funil para quem ainda nao conhece o Gabaritando.</div>
+    </div>
+  </div>
+
+  <div class="tagline-card">
+    <div class="tl-num">B</div>
+    <div class="tl-conteudo">
+      <div class="tl-frase">Estudo sem rumo nao vira farda.</div>
+      <div class="tl-angulo">Angulo de dor &mdash; confronta diretamente o comportamento do candidato que estuda sem método. Alta fricção, ideal para retargeting de quem ja foi reprovado.</div>
+    </div>
+  </div>
+
+  <div class="tagline-card">
+    <div class="tl-num">C</div>
+    <div class="tl-conteudo">
+      <div class="tl-frase">A Bahia tem concurso próprio. Seu preparo tambem precisa ser.</div>
+      <div class="tl-angulo">Angulo racional &mdash; argumento direto contra os nacionais. Funciona bem em copy longa, email e conteudo organico mais aprofundado.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     05 — ARGUMENTO DE AUTORIDADE
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">05 &mdash; Autoridade</div>
+  <h2>A credencial que nenhum <em>concorrente tem</em></h2>
+
+  <div class="autoridade-box">
+    <div class="aut-titulo">O argumento central de <em>autoridade</em></div>
+    <div class="aut-texto">
+      O Gabaritando foi fundado por pessoas que foram aprovadas <strong>nos dois caminhos que o candidato baiano pode seguir</strong> &mdash; tanto no concurso de Soldado quanto no CFO PMBA, o Curso de Formação de Oficiais. Isso significa que os fundadores não ensinam teoria sobre o processo: eles passaram por ele do início ao fim, em ambas as trilhas de ingresso, na Bahia.
+    </div>
+    <div class="aut-texto">
+      Nenhum concorrente nacional pode afirmar isso. Um cursinho de São Paulo pode ter bons professores de Direito Penal &mdash; mas não tem ninguém que fez a prova na Bahia, foi aprovado na Bahia e hoje conhece de dentro o que a banca exige. <strong>Esse é o diferencial que não se compra e não se copia.</strong>
+    </div>
+  </div>
+
+  <div class="lbl" style="margin-bottom:14px;">Como usar a autoridade na comunicação &mdash; formatos práticos</div>
+
+  <div class="field">
+    <div class="lbl">Formato narrativo (story para redes sociais)</div>
+    <div class="field-value">
+      "Antes de criar o Gabaritando, a gente passou pela mesma prova que você quer fazer. Não uma vez &mdash; passamos no concurso de Soldado e no CFO PMBA. Sabemos exatamente o que cai, como a banca pensa e o que separa quem passa de quem repete. Foi esse conhecimento que virou o Gabaritando."
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Formato direto (copy de anuncio e landing page)</div>
+    <div class="field-value">
+      "Fundado por aprovados tanto no concurso de Soldado quanto no CFO PMBA &mdash; os dois caminhos de ingresso na PMBA. O Gabaritando nao foi construido por academicos. Foi construido por quem passou pela mesma porta que voce quer entrar."
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="lbl">Formato comparativo (contexto de objeção &mdash; "por que não o grande nacional?")</div>
+    <div class="field-value">
+      "Os grandes cursos nacionais têm bons professores. O Gabaritando tem fundadores aprovados especificamente nos concursos que você quer passar, na Bahia, com o perfil de banca que você vai enfrentar. Essa diferença vale mais que qualquer plataforma bonita."
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     06 — HEADLINES DE ANÚNCIO
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">06 &mdash; Headlines</div>
+  <h2>5 títulos para <em>tráfego</em></h2>
+
+  <div class="headline-card">
+    <div class="hl-num">01</div>
+    <div class="hl-corpo">
+      <div class="hl-titulo">O que reprova a maioria dos candidatos à PMBA não é falta de estudo. É estudar para a prova errada.</div>
+      <div class="hl-metadado">
+        <span class="badge">Curiosidade</span>
+        <span class="badge">Consciência da solução</span>
+        <span class="badge">Topo de funil</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="headline-card">
+    <div class="hl-num">02</div>
+    <div class="hl-corpo">
+      <div class="hl-titulo">80 mil candidatos vão disputar Soldado PMBA em 2026. Os que passam estudam diferente &mdash; e não é segredo.</div>
+      <div class="hl-metadado">
+        <span class="badge">Urgência</span>
+        <span class="badge">Prova social</span>
+        <span class="badge">Concurso específico</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="headline-card">
+    <div class="hl-num">03</div>
+    <div class="hl-corpo">
+      <div class="hl-titulo">Fundado por aprovados no concurso de Soldado e no CFO PMBA. Esse é o preparatório que foi pelos dois caminhos antes de você.</div>
+      <div class="hl-metadado">
+        <span class="badge">Autoridade</span>
+        <span class="badge">Diferenciação</span>
+        <span class="badge">Meio de funil</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="headline-card">
+    <div class="hl-num">04</div>
+    <div class="hl-corpo">
+      <div class="hl-titulo">Você não precisa de mais conteúdo. Precisa do conteúdo certo para o concurso que a Bahia vai abrir ainda esse ano.</div>
+      <div class="hl-metadado">
+        <span class="badge">Dor</span>
+        <span class="badge">Urgência</span>
+        <span class="badge">Retargeting</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="headline-card">
+    <div class="hl-num">05</div>
+    <div class="hl-corpo">
+      <div class="hl-titulo">Enquanto os nacionais ensinam o Brasil inteiro, o Gabaritando treina quem quer passar na Bahia. Tem diferença.</div>
+      <div class="hl-metadado">
+        <span class="badge">Comparativo</span>
+        <span class="badge">Posicionamento local</span>
+        <span class="badge">Fundo de funil</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     07 — GANCHOS DE REEL
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">07 &mdash; Ganchos de Vídeo</div>
+  <h2>Os primeiros <em>3 segundos</em> de cada Reel</h2>
+
+  <div class="hl" style="margin-bottom:28px;">
+    Os primeiros 3 segundos definem se o vídeo para ou não. O gancho precisa ser <strong>uma afirmação que gera desconforto, curiosidade ou identificação imediata</strong> com a realidade do candidato baiano. Sem enrolação, sem apresentação, sem "oi gente".
+  </div>
+
+  <div class="gancho-card">
+    <div class="gc-angulo">Angulo de Dor</div>
+    <div class="gc-segundos">Primeiros 3 segundos &mdash; fala direta para câmera</div>
+    <div class="gc-frase">"Se você já estudou mais de seis meses para concurso policial e ainda não passou, o problema provavelmente não é você."</div>
+    <div class="gc-nota">Continua com a revelação da tese: o candidato está estudando o material errado para o concurso errado. O gancho retira a culpa e abre espaço para a solução. Funciona especialmente para candidatos que já tentaram e falharam.</div>
+  </div>
+
+  <div class="gancho-card">
+    <div class="gc-angulo">Angulo de Urgência</div>
+    <div class="gc-segundos">Primeiros 3 segundos &mdash; dado de mercado direto</div>
+    <div class="gc-frase">"O concurso de Soldado PMBA deve abrir ainda em 2026. Você tem tempo &mdash; se começar agora e estudar o que cai de verdade."</div>
+    <div class="gc-nota">Continua com dados do concurso, volume de vagas e o que o candidato precisa dominar. Cria senso de janela de oportunidade sem gerar pânico. Ideal para topo de funil com público frio que ainda está avaliando se vale começar a estudar.</div>
+  </div>
+
+  <div class="gancho-card">
+    <div class="gc-angulo">Angulo de Prova</div>
+    <div class="gc-segundos">Primeiros 3 segundos &mdash; abertura com resultado</div>
+    <div class="gc-frase">"A gente passou no concurso de Soldado e no CFO PMBA. Aí decidimos montar o curso que queria ter tido quando estava do seu lado."</div>
+    <div class="gc-nota">Continua com a história de fundação do Gabaritando e o que o Sistema GABA resolve. O gancho usa a autoridade dos fundadores como prova viva, não como currículo. Ideal para conteúdo de meio de funil com audiência que já conhece o problema mas ainda não escolheu solução.</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     08 — MANIFESTO DA MARCA
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">08 &mdash; Manifesto</div>
+  <h2>A <em>alma</em> do Gabaritando</h2>
+
+  <div class="manifesto-box">
+    <div class="manifesto-texto">
+      O Gabaritando nasceu de uma convicção simples: <strong>quem passou pelo processo sabe o que ninguém mais pode ensinar.</strong>
+      Não criamos um curso porque o mercado estava crescendo.
+      Criamos porque passamos pelos dois caminhos &mdash; Soldado e Oficial &mdash;
+      e vimos de perto o quanto o candidato baiano estuda com material que não foi feito para ele.
+      Plataformas grandes, conteúdo nacional, professores que nunca pisaram numa banca de concurso policial na Bahia.
+      O resultado é previsível: candidato esforçado, resultado medíocre.
+      <strong>Isso não é falta de capacidade. É falta de direcionamento.</strong>
+      O Gabaritando existe para corrigir esse desvio.
+      Para transformar esforço em aprovação com um método que foi construído
+      a partir da prova que você vai fazer, do perfil da banca que vai te avaliar,
+      e da experiência de quem cruzou essa linha antes de você.
+      Você quer vestir a farda. Dar orgulho pra família. Ter estabilidade.
+      <strong>A Bahia vai abrir concurso. E você vai estar pronto.</strong>
+    </div>
+  </div>
+
+  <div class="hl-amarelo">
+    <b>Uso do manifesto:</b> Landing page (acima do dobra), Instagram (carrossel ou legenda longa), vídeo de marca (narrado em off), WhatsApp de boas-vindas para novos alunos. Não alterar o texto &mdash; ele foi calibrado para o tom da marca. Adaptações para espaços menores devem usar os dois trechos em negrito como ancora.
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     09 — O QUE A BIG IDEA NAO E
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">09 &mdash; Fronteiras</div>
+  <h2>O que a campanha <em>jamais</em> vai comunicar</h2>
+
+  <div class="hl" style="margin-bottom:28px;">
+    Posicionamento nítido exige saber o que <strong>não fazer</strong> tanto quanto o que fazer. Qualquer criativo, copy ou conteúdo que se enquadre nos itens abaixo foge da Big Idea e dilui o posicionamento conquistado.
+  </div>
+
+  <div class="proibido-item">
+    <div class="pr-x">Nao</div>
+    <div class="pr-corpo">
+      <div class="pr-regra">Comunicação genérica de "transformação de vida" ou "seu sonho começa aqui"</div>
+      <div class="pr-porque">A Big Idea é específica: concurso policial baiano, prova com perfil definido, método calibrado. Linguagem motivacional genérica nivela o Gabaritando com qualquer cursinho do país e apaga o diferencial regional. O candidato não quer inspiração &mdash; quer aprovação.</div>
+    </div>
+  </div>
+
+  <div class="proibido-item">
+    <div class="pr-x">Nao</div>
+    <div class="pr-corpo">
+      <div class="pr-regra">Promessa de aprovação garantida sem condicional de esforço do aluno</div>
+      <div class="pr-porque">A marca é construída sobre autoridade técnica e método. Prometer resultado sem deixar claro que o aluno precisa estudar é desonesto com o posicionamento e cria expectativa que o produto não pode cumprir sozinho. A promessa do Gabaritando é direcionamento correto &mdash; não milagre.</div>
+    </div>
+  </div>
+
+  <div class="proibido-item">
+    <div class="pr-x">Nao</div>
+    <div class="pr-corpo">
+      <div class="pr-regra">Comparação direta atacando concorrentes pelo nome</div>
+      <div class="pr-porque">O argumento do Gabaritando é posicional, não ofensivo. A tese é "preparação específica supera genérica" &mdash; não "fulano é ruim". Citar concorrentes pelo nome abre flanco jurídico, rebaixa o tom da marca e desloca o foco da própria proposta de valor. O nome dos concorrentes nunca aparece na comunicação.</div>
+    </div>
+  </div>
+
+  <div class="proibido-item">
+    <div class="pr-x">Nao</div>
+    <div class="pr-corpo">
+      <div class="pr-regra">Tom de urgência artificial desconectado do calendário real de concursos</div>
+      <div class="pr-porque">A urgência da campanha é real: o concurso de Soldado PMBA está previsto para o 2.º semestre de 2026, o de Investigador PCBA para o 1.º semestre de 2026. Usar urgência falsa ("últimas vagas", "oferta expira hoje") quebra a confiança de um público acostumado a receber esse tipo de manipulação de cursinhos oportunistas.</div>
+    </div>
+  </div>
+
+  <div class="proibido-item">
+    <div class="pr-x">Nao</div>
+    <div class="pr-corpo">
+      <div class="pr-regra">Comunicação que romantiza a farda sem mostrar o caminho prático</div>
+      <div class="pr-porque">O desejo de vestir a farda é real e legítimo &mdash; mas a campanha não pode ficar apenas no plano emocional do sonho. O Gabaritando é um produto prático, com método, cronograma e treino. A emoção abre a porta; o método fecha a venda. Conteúdo puramente aspiracional sem ancorar no Sistema GABA perde conversão e credibilidade.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     10 — MAPA DE APLICAÇÃO
+══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-tag">10 &mdash; Aplicação</div>
+  <h2>Onde a Big Idea <em>aparece</em></h2>
+
+  <div class="mapa-grid">
+    <div class="mapa-card">
+      <div class="mc-tag">Landing Page</div>
+      <div class="mc-conteudo">A tese central abre o hero ("Não é falta de estudo, é estudo sem direção"). O manifesto aparece abaixo do dobra. Cada seção da página resolve uma objeção mapeada no briefing.</div>
+    </div>
+    <div class="mapa-card">
+      <div class="mc-tag">Tráfego Pago</div>
+      <div class="mc-conteudo">Headlines 01 a 05 para criativos estáticos. Ganchos A, B e C para Reels de tráfego. Testar headline 01 (curiosidade) e 02 (urgência) na primeira semana de campanha.</div>
+    </div>
+    <div class="mapa-card">
+      <div class="mc-tag">Conteúdo Orgânico</div>
+      <div class="mc-conteudo">Todo conteúdo parte do comparativo: o que o nacional ensina versus o que o concurso baiano cobra. Fundadores aparecem como prova viva da autoridade, usando os formatos narrativos mapeados no bloco 05.</div>
+    </div>
+    <div class="mapa-card">
+      <div class="mc-tag">WhatsApp e Email</div>
+      <div class="mc-conteudo">Tom mentor-parceiro. Manifesto da marca como mensagem de boas-vindas. Sequência de nutrição parte sempre da tese: "você já sabia que o problema não era você?"</div>
+    </div>
+    <div class="mapa-card">
+      <div class="mc-tag">Presencial em LEM</div>
+      <div class="mc-conteudo">O conceito "Treinado para a Bahia" é literal no presencial. Material, sala e professores reforçam que o aluno está sendo preparado para a prova que vai fazer, não para um concurso genérico.</div>
+    </div>
+    <div class="mapa-card">
+      <div class="mc-tag">Página de Produto</div>
+      <div class="mc-conteudo">Cada produto tem sua própria página com a Big Idea adaptada ao concurso específico (Soldado, Oficial, Investigador). A tese permanece; o concurso alvo muda.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════
+     RODAPÉ
+══════════════════════════════════════════ -->
+<div style="text-align:center; padding-top:20px; padding-bottom:40px; border-top:1px solid var(--borda);">
+  <div class="header-sup" style="margin-bottom:12px;">Projeto Gabaritando &mdash; Abril de 2026</div>
+  <div style="font-size:0.77rem; color:var(--cinza); font-weight:300; max-width:540px; margin:0 auto 24px; line-height:1.75;">
+    Este documento é o input estratégico para todos os agentes de execução. Nenhuma peca de copy, identidade visual ou plano de campanha deve ser criada sem consultar a Big Idea aqui definida.
+  </div>
+  <div class="btn-bar no-print">
+    <button class="btn btn-primary" onclick="window.print()">Exportar PDF</button>
+    <button class="btn btn-outline" onclick="window.close()">Fechar</button>
+  </div>
+</div>
+
+</body>
+</html>

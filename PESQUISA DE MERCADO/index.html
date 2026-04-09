@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesquisa de Mercado — Gabaritando</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --preto:    #080A10;
+      --navy:     #0D1117;
+      --ardosia:  #131A28;
+      --borda:    rgba(255,255,255,0.08);
+      --ouro:     #FFB800;
+      --ouro-dim: rgba(255,184,0,0.14);
+      --texto:    rgba(255,255,255,0.82);
+      --texto-dim: rgba(255,255,255,0.45);
+    }
+
+    html { font-size: 16px; }
+    body {
+      background: var(--preto);
+      color: var(--texto);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--ardosia);
+      border-bottom: 1px solid var(--ouro-dim);
+      padding: 80px 32px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--ouro);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      position: relative;
+    }
+    .hero h1 em { color: var(--ouro); font-style: italic; }
+    .hero-rule { width: 52px; height: 2px; background: var(--ouro); margin: 24px auto; }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.55);
+      position: relative;
+    }
+
+    /* GRID */
+    .grid-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 32px 96px;
+    }
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--ouro);
+      margin-bottom: 28px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--borda);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+
+    /* CARD */
+    .card {
+      background: var(--ardosia);
+      border: 1px solid var(--borda);
+      border-left: 3px solid var(--ouro-dim);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 28px 26px;
+      transition: border-left-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      border-left-color: var(--ouro);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    }
+    .card-tag {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,184,0,0.55);
+    }
+    .card-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .card-desc {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--texto-dim);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .card-cta {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ouro);
+      margin-top: 4px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ardosia);
+      border-top: 1px solid var(--ouro-dim);
+      text-align: center;
+      padding: 40px 32px;
+    }
+    footer p { font-size: 0.72rem; color: var(--texto-dim); letter-spacing: 0.06em; line-height: 1.8; }
+    footer strong { color: var(--ouro); }
+
+    @media (max-width: 640px) {
+      .grid-wrap { padding: 40px 20px 64px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div style="position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(8,10,16,0.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,184,0,0.1);padding:10px 28px;">
+  <a href="../index.html" style="font-family:'Inter',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">&#8592; &nbsp;Índice Geral</a>
+</div>
+<div style="height:38px"></div>
+
+<header class="hero">
+  <div class="hero-label">Gabaritando &mdash; Carreiras Policiais da Bahia</div>
+  <h1>Pesquisa de <em>Mercado</em></h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">Todos os documentos de inteligência competitiva &mdash; Abril 2026</p>
+</header>
+
+<div class="grid-wrap">
+
+  <!-- ANÁLISES DE CONCORRENTES -->
+  <div class="section-title">Análise de Concorrentes</div>
+  <div class="grid">
+
+    <a class="card" href="Analise-Concorrente-Site-Rumo.html">
+      <span class="card-tag">Análise de Concorrente</span>
+      <div class="card-title">Site RUMO Concursos</div>
+      <p class="card-desc">Análise completa da landing page do principal concorrente direto — headline, estrutura de vendas, prova social, preços e gaps exploráveis.</p>
+      <span class="card-cta">Abrir documento &rarr;</span>
+    </a>
+
+    <a class="card" href="Analise-Concorrentes-Instagram.html">
+      <span class="card-tag">Análise de Concorrentes</span>
+      <div class="card-title">Concorrentes no Instagram</div>
+      <p class="card-desc">Mapeamento dos perfis @manualdomike, RUMO e Profissão Policial — posicionamento, tom de voz, formatos de conteúdo e diferenciais declarados.</p>
+      <span class="card-cta">Abrir documento &rarr;</span>
+    </a>
+
+    <a class="card" href="Analise-LinkedIn-Blogs.html">
+      <span class="card-tag">Análise de Canais</span>
+      <div class="card-title">LinkedIn e Blogs do Nicho</div>
+      <p class="card-desc">Mapeamento dos blogs com maior tráfego no nicho policial e análise das oportunidades no LinkedIn para o GABARITANDO.</p>
+      <span class="card-cta">Abrir documento &rarr;</span>
+    </a>
+
+    <a class="card" href="Analise-YouTube-Mercado-Policial.html">
+      <span class="card-tag">Análise de Canal</span>
+      <div class="card-title">YouTube — Mercado Policial</div>
+      <p class="card-desc">Comportamento do candidato no YouTube, mapeamento de canais concorrentes, palavras-chave com maior volume e estratégia de SEO para o canal do GABARITANDO.</p>
+      <span class="card-cta">Abrir documento &rarr;</span>
+    </a>
+
+    <a class="card" href="Analise-Amazon-Livros-Concursos.html">
+      <span class="card-tag">Análise de Mercado</span>
+      <div class="card-title">Amazon — Livros e Materiais</div>
+      <p class="card-desc">O que os candidatos elogiam e criticam nos materiais de estudo para concursos policiais — dores reais extraídas de avaliações autênticas.</p>
+      <span class="card-cta">Abrir documento &rarr;</span>
+    </a>
+
+  </div>
+
+  <!-- VISÃO DE MERCADO -->
+  <div class="section-title">Inteligência de Mercado</div>
+  <div class="grid">
+
+    <a class="card" href="Visao-Geral-Mercado-Brasil-Bahia.html">
+      <span class="card-tag">Visão Geral</span>
+      <div class="card-title">Mercado Brasil e Bahia</div>
+      <p class="card-desc">R$ 5 bilhões em preparatórios, 80 mil inscritos na PMBA, concursos previstos para 2026 — o panorama completo do mercado onde o GABARITANDO opera.</p>
+      <span class="card-cta">Abrir documento &rarr;</span>
+    </a>
+
+    <a class="card" href="Tendencias-Internacionais.html">
+      <span class="card-tag">Tendências</span>
+      <div class="card-title">Tendências Internacionais</div>
+      <p class="card-desc">O que os preparatórios policiais dos EUA, Portugal e América Latina estão fazendo — e como o GABARITANDO pode implementar agora o que será padrão em 3 a 5 anos.</p>
+      <span class="card-cta">Abrir documento &rarr;</span>
+    </a>
+
+  </div>
+
+  <!-- PLANOS DE CONTEÚDO -->
+  <div class="section-title">Planos de Conteúdo</div>
+  <div class="grid">
+
+    <a class="card" href="Plano-30-Dias-Conteudo-Instagram.html">
+      <span class="card-tag">Plano de Ação — Instagram</span>
+      <div class="card-title">Plano 30 Dias — Instagram</div>
+      <p class="card-desc">30 conteúdos planejados dia a dia — Reels, Carrosséis e Posts estáticos com roteiros, ganchos, CTAs e insights da pesquisa de mercado aplicados a cada peça.</p>
+      <span class="card-cta">Abrir documento &rarr;</span>
+    </a>
+
+    <a class="card" href="Plano-30-Dias-Conteudo-YouTube.html">
+      <span class="card-tag">Plano de Ação — YouTube</span>
+      <div class="card-title">Plano 30 Dias — YouTube</div>
+      <p class="card-desc">Estratégia de lançamento do canal — títulos otimizados para SEO, roteiros, thumbnails, descrições e cronograma de publicação para os primeiros 30 dias.</p>
+      <span class="card-cta">Abrir documento &rarr;</span>
+    </a>
+
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>Gabaritando</strong> &mdash; Preparatório para Carreiras Policiais da Bahia</p>
+  <p>Pesquisa de Mercado &mdash; Abril 2026 &mdash; Documento de uso interno</p>
+</footer>
+
+</body>
+</html>
