@@ -4,12 +4,8 @@
 # Arquivos de origem Markdown
 *.md
 
-# Imagens de trabalho (não usadas no site)
-PLANOS DE FUNDO/
-Captura de Tela*.png
-Big-Idea-Campanha-Gabaritando.jpg
+# Imagens de referência/trabalho (não usadas no site)
+_REF/
 
 # Sistema macOS
 .DS_Store
-*.PNG
-*.png
