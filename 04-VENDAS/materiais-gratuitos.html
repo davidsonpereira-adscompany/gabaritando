@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materiais Gratuitos — Gabaritando</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --ouro:        #FFB800;
+  --ouro-escuro: #CC9400;
+  --preto:       #0E0E1A;
+  --preto-2:     #13131F;
+  --ardosia:     #1E1E2E;
+  --carvao:      #111111;
+  --creme:       #EDE8DF;
+  --branco:      #FFFFFF;
+  --borda:       rgba(255,255,255,0.07);
+  --borda-ouro:  rgba(255,184,0,0.22);
+  --font:        'Montserrat', sans-serif;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { overflow-x:hidden; scroll-behavior:smooth; }
+body {
+  background: var(--preto);
+  color: var(--branco);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  padding-top: 76px;
+}
+img { max-width:100%; height:auto; display:block; }
+a { text-decoration:none; color:inherit; }
+
+/* HEADER */
+.top-bar {
+  position:fixed; top:0; left:0; right:0; z-index:999;
+  background:rgba(14,14,26,0.94);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,184,0,0.1);
+  padding:0 40px;
+  height:76px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.top-bar-logo { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.top-bar-logo img { height:38px; width:auto; filter:brightness(0) invert(1); opacity:1; }
+.top-bar-right { display:flex; align-items:center; gap:14px; }
+.top-bar-cta {
+  background:var(--ouro); color:var(--carvao);
+  font-family:var(--font); font-size:0.76rem; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase;
+  padding:10px 24px; transition:opacity .2s;
+}
+.top-bar-cta:hover { opacity:0.85; }
+
+/* MAIN */
+.container { max-width:800px; margin:0 auto; padding:0 48px; }
+
+.hero-free {
+  text-align:center;
+  padding:80px 0 40px;
+}
+.hero-free-badge {
+  display:inline-block;
+  background:rgba(255,184,0,0.1);
+  border:1px solid rgba(255,184,0,0.25);
+  color:var(--ouro);
+  font-size:0.66rem; font-weight:700;
+  letter-spacing:0.2em; text-transform:uppercase;
+  padding:5px 18px;
+  margin-bottom:24px;
+}
+.hero-free h1 {
+  font-family:var(--font);
+  font-size:2.4rem; font-weight:900;
+  line-height:1.1;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+.hero-free h1 em { font-style:normal; color:var(--ouro); display:block; }
+.hero-free p {
+  font-size:1rem; font-weight:300;
+  color:rgba(255,255,255,0.6);
+  max-width:560px; margin:0 auto;
+  line-height:1.8;
+}
+.hero-free p strong { color:var(--ouro); font-weight:600; }
+
+.divider {
+  width:100%; height:1px;
+  background: linear-gradient(90deg, var(--ouro), rgba(255,184,0,0));
+  margin:0;
+}
+
+/* GRUPOS */
+.groups-section {
+  padding:60px 0 80px;
+}
+.groups-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:24px;
+  margin-top:40px;
+}
+.group-card {
+  border:1px solid var(--borda-ouro);
+  background:var(--preto-2);
+  padding:36px 28px;
+  text-align:center;
+  transition:border-color .3s, transform .3s;
+}
+.group-card:hover { border-color:var(--ouro); transform:translateY(-4px); }
+.group-tag {
+  font-size:0.62rem; font-weight:700;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--ouro); margin-bottom:14px;
+}
+.group-name {
+  font-size:1.1rem; font-weight:700;
+  line-height:1.3; margin-bottom:8px;
+}
+.group-desc {
+  font-size:0.84rem; font-weight:300;
+  color:rgba(255,255,255,0.5);
+  line-height:1.7; margin-bottom:24px;
+}
+.btn {
+  display:inline-block;
+  font-family:var(--font); font-size:0.78rem; font-weight:700;
+  letter-spacing:0.14em; text-transform:uppercase;
+  padding:14px 32px;
+  transition:all .25s;
+  cursor:pointer; border:none;
+  text-align:center;
+}
+.btn-gold { background:var(--ouro); color:var(--carvao); }
+.btn-gold:hover { background:#FFD060; }
+
+.back-link {
+  text-align:center;
+  margin-top:40px;
+}
+.back-link a {
+  font-size:0.78rem; font-weight:600;
+  color:var(--ouro); letter-spacing:0.08em;
+  text-transform:uppercase;
+  border-bottom:1px solid rgba(255,184,0,0.3);
+  padding-bottom:2px;
+  transition:border-color .2s;
+}
+.back-link a:hover { border-color:var(--ouro); }
+
+/* FOOTER */
+.footer {
+  border-top:1px solid var(--borda);
+  padding:32px 0;
+  text-align:center;
+}
+.footer-text {
+  font-size:0.64rem;
+  color:rgba(255,255,255,0.18);
+  letter-spacing:0.1em; text-transform:uppercase;
+}
+
+/* RESPONSIVO */
+@media (max-width:600px) {
+  .container { padding:0 18px; }
+  .top-bar { padding:0 16px; height:64px; }
+  .top-bar-logo img { height:28px; }
+  .top-bar-cta { font-size:0.66rem; padding:8px 14px; }
+  body { padding-top:64px; }
+  .hero-free { padding:48px 0 28px; }
+  .hero-free h1 { font-size:1.6rem; }
+  .hero-free p { font-size:0.9rem; }
+  .groups-grid { grid-template-columns:1fr; }
+  .group-card { padding:28px 20px; }
+  .btn { font-size:0.72rem; padding:13px 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="top-bar">
+  <div class="top-bar-logo">
+    <img src="../02-MARCA/logos/LOGOTIPO_-_GABARITANDO_-_PRETO_-_SEM_FUNDO.png" alt="Gabaritando">
+  </div>
+  <div class="top-bar-right">
+    <a href="pagina-de-vendas.html" class="top-bar-cta">Voltar ao início</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero-free">
+<div class="container">
+  <div class="hero-free-badge">Acesso gratuito</div>
+  <h1>
+    Comece a treinar<br><em>antes de investir.</em>
+  </h1>
+  <p>
+    O Gabaritando disponibiliza grupos exclusivos no WhatsApp com <strong>questões comentadas reais</strong> das bancas dos concursos policiais da Bahia. Sem custo, sem compromisso &mdash; apenas conteúdo que aproxima você da aprovação.
+  </p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GRUPOS -->
+<section class="groups-section">
+<div class="container">
+  <div style="text-align:center">
+    <p style="font-size:0.9rem;font-weight:300;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto;line-height:1.8">
+      Escolha o grupo do concurso para o qual você está se preparando e entre agora mesmo.
+    </p>
+  </div>
+
+  <div class="groups-grid">
+
+    <!-- CFO -->
+    <div class="group-card">
+      <div class="group-tag">Oficial &mdash; CFO</div>
+      <div class="group-name">Questões Comentadas CFO PMBA e BMBA 2026</div>
+      <p class="group-desc">
+        Questões comentadas pelos mentores do Gabaritando, com foco no perfil de cobrança do Curso de Formação de Oficiais da PMBA e do BMBA.
+      </p>
+      <a href="https://chat.whatsapp.com/EYENzZPjgr56yKMPYQmsof?mode=gi_t&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnaEQsiwu4S8s0Gr40HJ18gWXk2b_kUBYFvY8S7SD-TM1OTPKYCVh9-KlYD_c_aem_aTbRVwW27HU-L-dwmaxxFAOXCyRuxsDBD0UjNaJx1f8VSxXPAwYcG1WH_G9uRhHwbDYd7uA7h4QBHX2kK93zhrTp5ixvI5VfPlrTRQ" class="btn btn-gold" target="_blank" rel="noopener">Entrar no grupo CFO</a>
+    </div>
+
+    <!-- Soldado -->
+    <div class="group-card">
+      <div class="group-tag">Soldado</div>
+      <div class="group-name">Questões Comentadas Soldado PMBA e BMBA 2026</div>
+      <p class="group-desc">
+        Questões resolvidas e explicadas pelos mentores, direcionadas para a prova de Soldado da PMBA e do BMBA.
+      </p>
+      <a href="https://chat.whatsapp.com/IuUfNo2ow1H4M8aMu9wzfw?mode=gi_t&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn-bjrnGePJu8TeH6y_MWh_tpddvDbeQRYr4jxthSpdkTjs2RZgctqqpmzffk_aem_Fd68VDBasjy8JAUBw9XGRQ" class="btn btn-gold" target="_blank" rel="noopener">Entrar no grupo Soldado</a>
+    </div>
+
+  </div>
+
+  <div class="back-link">
+    <a href="pagina-de-vendas.html#hero-top">Voltar à página principal</a>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-text">Gabaritando &copy; 2026 &mdash; Todos os direitos reservados</div>
+  </div>
+</footer>
+
+</body>
+</html>

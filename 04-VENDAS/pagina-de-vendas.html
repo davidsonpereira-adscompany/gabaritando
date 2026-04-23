@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabaritando — Carreiras Policiais da Bahia</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════
+   TOKENS — Paleta Brandbook V2
+═══════════════════════════════════════════ */
+:root {
+  --ouro:        #FFB800;
+  --ouro-escuro: #CC9400;
+  --ouro-suave:  rgba(255,184,0,0.12);
+  --preto:       #0E0E1A;
+  --preto-2:     #13131F;
+  --ardosia:     #1E1E2E;
+  --carvao:      #111111;
+  --creme:       #EDE8DF;
+  --creme-2:     #F5F1EB;
+  --branco:      #FFFFFF;
+  --borda:       rgba(255,255,255,0.07);
+  --borda-ouro:  rgba(255,184,0,0.22);
+  --font:        'Montserrat', sans-serif;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { overflow-x:hidden; scroll-behavior:smooth; }
+body {
+  background: var(--preto);
+  color: var(--branco);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width:100%; height:auto; display:block; }
+a { text-decoration:none; color:inherit; }
+
+/* ═══════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════ */
+.container { max-width:1100px; margin:0 auto; padding:0 48px; }
+.section { padding:80px 0; }
+
+/* Backgrounds sutis com textura */
+.bg-preto   { background: var(--preto); }
+.bg-preto-2 { background: var(--preto-2); }
+.bg-ardosia { background: var(--ardosia); }
+.bg-creme   { background: var(--creme); color: var(--carvao); }
+
+.divider {
+  width:100%; height:1px;
+  background: linear-gradient(90deg, var(--ouro), rgba(255,184,0,0));
+}
+
+/* ═══════════════════════════════════════════
+   HEADER FIXO
+═══════════════════════════════════════════ */
+.top-bar {
+  position:fixed; top:0; left:0; right:0; z-index:999;
+  background:rgba(14,14,26,0.94);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,184,0,0.1);
+  padding:0 40px;
+  height:76px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.top-bar-logo { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.top-bar-logo img { height:38px; width:auto; filter:brightness(0) invert(1); opacity:1; }
+.top-bar-nav { display:flex; align-items:center; gap:28px; margin-left:40px; }
+.top-bar-nav a {
+  font-family:var(--font); font-size:0.78rem; font-weight:600;
+  letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--creme); transition:color .2s;
+}
+.top-bar-nav a:hover { color:var(--ouro); }
+.top-bar-right { display:flex; align-items:center; gap:14px; }
+.top-bar-cta {
+  background:var(--ouro); color:var(--carvao);
+  font-family:var(--font); font-size:0.76rem; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase;
+  padding:10px 24px; transition:opacity .2s;
+}
+.top-bar-cta:hover { opacity:0.85; }
+.top-bar-cta-outline {
+  background:transparent; color:var(--ouro);
+  border:1px solid var(--ouro);
+  font-family:var(--font); font-size:0.76rem; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase;
+  padding:9px 22px; transition:all .2s;
+}
+.top-bar-cta-outline:hover { background:rgba(255,184,0,0.08); }
+body { padding-top:76px; }
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero {
+  position:relative;
+  min-height:92vh;
+  display:flex; align-items:center;
+  overflow:hidden;
+  padding:80px 0 60px;
+}
+.hero-bg {
+  position:absolute; inset:0; z-index:0;
+}
+.hero-bg-photo {
+  position:absolute; inset:0;
+  background-size:cover; background-position:center center;
+  opacity:0;
+  animation:heroFade 12s ease-in-out infinite;
+}
+.hero-bg-photo:nth-child(1) { background-image:url('Gemini_Generated_Image_a1o7p4a1o7p4a1o7.png'); animation-delay:0s; }
+.hero-bg-photo:nth-child(2) { background-image:url('Gemini_Generated_Image_ya0d34ya0d34ya0d.png'); animation-delay:4s; }
+.hero-bg-photo:nth-child(3) { background-image:url('Gemini_Generated_Image_ymztjymztjymztjy.png'); animation-delay:8s; }
+
+@keyframes heroFade {
+  0%      { opacity:0; }
+  4%      { opacity:1; }
+  33.33%  { opacity:1; }
+  37.33%  { opacity:0; }
+  100%    { opacity:0; }
+}
+.hero-bg-overlay {
+  position:absolute; inset:0;
+  background: linear-gradient(
+    180deg,
+    rgba(14,14,26,0.88) 0%,
+    rgba(14,14,26,0.75) 40%,
+    rgba(14,14,26,0.92) 100%
+  );
+}
+.hero-bg-grid {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,184,0,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,184,0,0.02) 1px, transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+.hero-content {
+  position:relative; z-index:2;
+  max-width:680px;
+}
+.hero-badge {
+  display:inline-block;
+  background:rgba(255,184,0,0.1);
+  border:1px solid rgba(255,184,0,0.25);
+  color:var(--ouro);
+  font-size:0.68rem; font-weight:700;
+  letter-spacing:0.2em; text-transform:uppercase;
+  padding:6px 18px;
+  margin-bottom:28px;
+}
+.hero h1 {
+  font-family:var(--font);
+  font-size:3.2rem; font-weight:900;
+  line-height:1.08;
+  margin-bottom:12px;
+  text-transform:uppercase;
+  letter-spacing:-0.01em;
+}
+.hero h1 em {
+  font-style:normal;
+  color:var(--ouro);
+  display:block;
+}
+.hero-sub {
+  font-size:1.15rem; font-weight:300;
+  color:rgba(255,255,255,0.65);
+  line-height:1.7;
+  margin-bottom:36px;
+  max-width:540px;
+}
+.hero-sub strong { color:var(--ouro); font-weight:600; }
+.hero-cta-group { display:flex; gap:14px; flex-wrap:wrap; }
+
+/* Botoes */
+.btn {
+  display:inline-block;
+  font-family:var(--font); font-size:0.78rem; font-weight:700;
+  letter-spacing:0.14em; text-transform:uppercase;
+  padding:15px 36px;
+  transition:all .25s;
+  cursor:pointer; border:none;
+  text-align:center;
+}
+.btn-gold {
+  background:var(--ouro); color:var(--carvao);
+}
+.btn-gold:hover { background:#FFD060; }
+.btn-outline {
+  background:transparent; color:var(--ouro);
+  border:1px solid var(--ouro);
+}
+.btn-outline:hover { background:rgba(255,184,0,0.08); }
+
+/* Seta decorativa no hero */
+.hero-photo-side {
+  position:absolute; right:-20px; bottom:0; z-index:1;
+  width:420px; height:100%;
+  display:flex; align-items:flex-end; justify-content:flex-end;
+  pointer-events:none;
+}
+.hero-photo-side img {
+  height:85%; width:auto; object-fit:contain;
+  filter:drop-shadow(0 0 80px rgba(255,184,0,0.08));
+  opacity:0.15;
+}
+
+/* ═══════════════════════════════════════════
+   NUMEROS / PROVA SOCIAL RAPIDA
+═══════════════════════════════════════════ */
+.numbers-bar {
+  background:var(--ouro);
+  padding:0;
+}
+.numbers-grid {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  text-align:center;
+}
+.number-item {
+  padding:28px 16px;
+  border-right:1px solid rgba(0,0,0,0.08);
+}
+.number-item:last-child { border-right:none; }
+.number-big {
+  font-family:var(--font); font-size:2.2rem; font-weight:900;
+  color:var(--carvao); line-height:1;
+  margin-bottom:4px;
+}
+.number-label {
+  font-size:0.72rem; font-weight:500;
+  color:rgba(0,0,0,0.6); letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+
+/* ═══════════════════════════════════════════
+   SEÇOES GERAIS
+═══════════════════════════════════════════ */
+.section-label {
+  font-size:0.64rem; font-weight:700;
+  letter-spacing:0.4em; text-transform:uppercase;
+  color:var(--ouro); margin-bottom:14px;
+}
+.section-title {
+  font-family:var(--font); font-size:2.4rem;
+  font-weight:800; line-height:1.12;
+  margin-bottom:20px;
+}
+.section-title em { font-style:italic; color:var(--ouro); font-weight:800; }
+.section-intro {
+  font-size:0.95rem; font-weight:300;
+  color:rgba(255,255,255,0.55);
+  max-width:620px; line-height:1.8;
+  margin-bottom:48px;
+}
+.section-intro.dark { color:rgba(0,0,0,0.5); }
+
+/* ═══════════════════════════════════════════
+   CURSOS — Grid de produtos
+═══════════════════════════════════════════ */
+.courses-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+}
+.course-card {
+  border:1px solid var(--borda-ouro);
+  overflow:hidden;
+  background:var(--preto-2);
+  transition:border-color .3s;
+}
+.course-card:hover { border-color:var(--ouro); }
+.course-img {
+  height:200px;
+  background-size:cover; background-position:center;
+  position:relative;
+}
+.course-img::after {
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(14,14,26,0.9) 0%, transparent 60%);
+}
+.course-body {
+  padding:22px 20px;
+  position:relative;
+}
+.course-tag {
+  font-size:0.6rem; font-weight:700;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--ouro); margin-bottom:8px;
+}
+.course-name {
+  font-size:1.05rem; font-weight:700;
+  margin-bottom:6px; line-height:1.25;
+}
+.course-price {
+  font-size:0.82rem; font-weight:300;
+  color:rgba(255,255,255,0.5);
+}
+.course-price strong {
+  font-weight:700; color:var(--ouro); font-size:1.1rem;
+}
+
+/* ═══════════════════════════════════════════
+   BENEFÍCIOS
+═══════════════════════════════════════════ */
+.benefits-layout {
+  display:grid; grid-template-columns:1fr 1fr; gap:48px;
+  align-items:start;
+}
+.benefit-list { display:flex; flex-direction:column; gap:0; }
+.benefit-item {
+  display:flex; align-items:flex-start; gap:16px;
+  padding:20px 0;
+  border-bottom:1px solid var(--borda);
+}
+.benefit-item:last-child { border-bottom:none; }
+.benefit-num {
+  font-family:var(--font); font-size:1.6rem; font-weight:900;
+  color:rgba(255,184,0,0.2); flex-shrink:0;
+  line-height:1; min-width:36px;
+}
+.benefit-text h4 {
+  font-size:0.92rem; font-weight:700;
+  margin-bottom:4px; color:var(--branco);
+}
+.benefit-text p {
+  font-size:0.82rem; font-weight:300;
+  color:rgba(255,255,255,0.5); line-height:1.65;
+}
+.benefits-visual {
+  position:relative;
+  background:var(--ardosia);
+  border:1px solid var(--borda-ouro);
+  padding:32px;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  min-height:480px;
+}
+.benefits-visual img {
+  max-width:85%;
+  filter:drop-shadow(0 20px 60px rgba(255,184,0,0.08));
+}
+.benefits-visual-label {
+  margin-top:20px;
+  font-size:0.68rem; font-weight:600;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:rgba(255,184,0,0.5);
+}
+
+/* ═══════════════════════════════════════════
+   MENTORES
+═══════════════════════════════════════════ */
+.mentors-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:32px;
+}
+.mentor-card {
+  border:1px solid var(--borda-ouro);
+  overflow:hidden;
+  background:var(--preto-2);
+}
+.mentor-photo {
+  height:380px;
+  position:relative;
+  overflow:hidden;
+  display:flex; align-items:flex-end; justify-content:center;
+}
+.mentor-photo-bg {
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, var(--ardosia) 0%, var(--preto) 100%);
+}
+.mentor-photo img {
+  position:relative; z-index:1;
+  height:340px; width:auto; object-fit:contain;
+  filter:drop-shadow(0 10px 40px rgba(0,0,0,0.4));
+}
+.mentor-photo-gradient {
+  position:absolute; bottom:0; left:0; right:0; height:50%;
+  background:linear-gradient(to top, var(--preto-2), transparent);
+  z-index:2;
+}
+.mentor-body { padding:28px 24px; }
+.mentor-name {
+  font-size:1.2rem; font-weight:800;
+  color:var(--ouro); margin-bottom:6px;
+  text-transform:uppercase; letter-spacing:0.04em;
+}
+.mentor-role {
+  font-size:0.72rem; font-weight:600;
+  letter-spacing:0.12em; text-transform:uppercase;
+  color:rgba(255,255,255,0.35);
+  margin-bottom:16px;
+}
+.mentor-bio {
+  font-size:0.86rem; font-weight:300;
+  color:rgba(255,255,255,0.7);
+  line-height:1.8;
+}
+.mentor-bio strong { color:var(--ouro); font-weight:600; }
+
+/* ═══════════════════════════════════════════
+   DEPOIMENTOS
+═══════════════════════════════════════════ */
+.testimonials-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+}
+.testimonial-card {
+  border:1px solid var(--borda);
+  background:var(--ardosia);
+  padding:28px 24px;
+  position:relative;
+}
+.testimonial-card::before {
+  content:'\201C';
+  font-family:var(--font); font-size:3.5rem;
+  font-weight:900; color:rgba(255,184,0,0.1);
+  position:absolute; top:8px; left:16px; line-height:1;
+}
+.testimonial-text {
+  font-size:0.86rem; font-weight:300;
+  font-style:italic;
+  color:rgba(255,255,255,0.75);
+  line-height:1.7;
+  margin-bottom:16px;
+  position:relative; z-index:1;
+}
+.testimonial-author {
+  font-size:0.72rem; font-weight:700;
+  color:var(--ouro); letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+.testimonial-role {
+  font-size:0.66rem; font-weight:300;
+  color:rgba(255,255,255,0.35);
+  margin-top:2px;
+}
+
+/* ═══════════════════════════════════════════
+   BIG IDEA / TESE
+═══════════════════════════════════════════ */
+.thesis-box {
+  border:1px solid var(--ouro);
+  background:rgba(255,184,0,0.03);
+  padding:56px 48px;
+  text-align:center;
+  position:relative;
+}
+.thesis-box::before {
+  content:'TESE CENTRAL';
+  position:absolute; top:0; left:50%; transform:translate(-50%,-50%);
+  background:var(--ouro); color:var(--carvao);
+  font-size:0.6rem; font-weight:700;
+  letter-spacing:0.3em; text-transform:uppercase;
+  padding:5px 20px;
+}
+.thesis-text {
+  font-family:var(--font);
+  font-size:1.8rem; font-weight:400;
+  line-height:1.35;
+  color:rgba(255,255,255,0.9);
+}
+.thesis-text em {
+  font-style:italic; color:var(--ouro); font-weight:700;
+}
+
+/* ═══════════════════════════════════════════
+   OFERTA / PREÇOS
+═══════════════════════════════════════════ */
+.pricing-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+}
+.price-card {
+  border:1px solid var(--borda-ouro);
+  background:var(--preto-2);
+  padding:32px 24px;
+  text-align:center;
+  transition:border-color .3s, transform .3s;
+  position:relative;
+}
+.price-card:hover { border-color:var(--ouro); transform:translateY(-4px); }
+.price-card.featured {
+  border-color:var(--ouro);
+  background:rgba(255,184,0,0.04);
+}
+.price-card.featured::before {
+  content:'MAIS ESCOLHIDO';
+  position:absolute; top:0; left:50%; transform:translate(-50%,-50%);
+  background:var(--ouro); color:var(--carvao);
+  font-size:0.58rem; font-weight:700;
+  letter-spacing:0.2em; text-transform:uppercase;
+  padding:4px 16px; white-space:nowrap;
+}
+.price-tag {
+  font-size:0.62rem; font-weight:700;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--ouro); margin-bottom:20px;
+}
+.price-value {
+  font-family:var(--font); font-size:2.6rem; font-weight:900;
+  color:var(--branco); line-height:1; margin-bottom:4px;
+}
+.price-value sup { font-size:1rem; font-weight:700; vertical-align:top; margin-right:2px; }
+.price-installment {
+  font-size:0.78rem; font-weight:300;
+  color:rgba(255,255,255,0.4);
+  margin-bottom:24px;
+}
+.price-features { list-style:none; padding:0; text-align:left; margin-bottom:28px; }
+.price-features li {
+  padding:8px 0 8px 20px;
+  font-size:0.8rem; font-weight:300;
+  color:rgba(255,255,255,0.65);
+  border-bottom:1px solid var(--borda);
+  position:relative; line-height:1.5;
+}
+.price-features li:last-child { border-bottom:none; }
+.price-features li::before {
+  content:'\2713';
+  position:absolute; left:0; top:8px;
+  color:var(--ouro); font-weight:700; font-size:0.75rem;
+}
+
+/* ═══════════════════════════════════════════
+   GARANTIA
+═══════════════════════════════════════════ */
+.guarantee-box {
+  display:grid; grid-template-columns:auto 1fr; gap:40px;
+  align-items:center;
+  border:1px solid var(--borda-ouro);
+  background:rgba(255,184,0,0.02);
+  padding:48px 40px;
+}
+.guarantee-seal {
+  width:140px; height:140px;
+  border:3px solid var(--ouro);
+  border-radius:50%;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center;
+  flex-shrink:0;
+}
+.guarantee-days {
+  font-family:var(--font); font-size:2.8rem;
+  font-weight:900; color:var(--ouro); line-height:1;
+}
+.guarantee-days-label {
+  font-size:0.6rem; font-weight:700;
+  letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--ouro); margin-top:2px;
+}
+.guarantee-title {
+  font-size:1.3rem; font-weight:700;
+  margin-bottom:12px; line-height:1.3;
+}
+.guarantee-text {
+  font-size:0.88rem; font-weight:300;
+  color:rgba(255,255,255,0.6);
+  line-height:1.8;
+}
+.guarantee-text strong { color:var(--ouro); font-weight:600; }
+
+/* ═══════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════ */
+.faq-list { max-width:760px; margin:0 auto; }
+.faq-item {
+  border-bottom:1px solid var(--borda);
+  padding:22px 0;
+}
+.faq-q {
+  font-size:0.95rem; font-weight:600;
+  color:var(--branco); cursor:pointer;
+  display:flex; justify-content:space-between;
+  align-items:center; gap:16px;
+}
+.faq-q::after {
+  content:'+';
+  font-size:1.3rem; font-weight:300;
+  color:var(--ouro); flex-shrink:0;
+  transition:transform .3s;
+}
+.faq-q.open::after { content:'\2212'; }
+.faq-a {
+  max-height:0; overflow:hidden;
+  transition:max-height .4s ease, padding .3s;
+  padding-top:0;
+}
+.faq-a.open {
+  max-height:300px;
+  padding-top:14px;
+}
+.faq-a p {
+  font-size:0.84rem; font-weight:300;
+  color:rgba(255,255,255,0.55);
+  line-height:1.75;
+}
+
+/* ═══════════════════════════════════════════
+   CTA FINAL
+═══════════════════════════════════════════ */
+.final-cta {
+  text-align:center;
+  padding:80px 0;
+  position:relative;
+  overflow:hidden;
+}
+.final-cta-glow {
+  position:absolute; width:500px; height:500px;
+  background:radial-gradient(circle,rgba(255,184,0,0.06) 0%,transparent 70%);
+  top:50%; left:50%; transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.final-cta h2 {
+  font-size:2.4rem; font-weight:900;
+  text-transform:uppercase; line-height:1.1;
+  margin-bottom:12px;
+  position:relative;
+}
+.final-cta h2 em { font-style:normal; color:var(--ouro); }
+.final-cta p {
+  font-size:0.95rem; font-weight:300;
+  color:rgba(255,255,255,0.5);
+  margin-bottom:36px;
+  position:relative;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+.footer {
+  border-top:1px solid var(--borda);
+  padding:40px 0;
+}
+.footer-inner {
+  display:flex; align-items:center;
+  justify-content:space-between; flex-wrap:wrap; gap:20px;
+}
+.footer-brand { display:flex; align-items:center; gap:14px; }
+.footer-brand img { height:32px; width:auto; }
+.footer-brand-text {
+  font-size:0.72rem; font-weight:300;
+  color:rgba(255,255,255,0.3);
+  letter-spacing:0.06em;
+}
+.footer-legal {
+  font-size:0.64rem;
+  color:rgba(255,255,255,0.18);
+  letter-spacing:0.1em; text-transform:uppercase;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVO
+═══════════════════════════════════════════ */
+@media (max-width:900px) {
+  .container { padding:0 28px; }
+  .top-bar-nav { gap:16px; margin-left:20px; }
+  .top-bar-nav a { font-size:0.62rem; }
+  .hero h1 { font-size:2.4rem; }
+  .hero-photo-side { display:none; }
+  .numbers-grid { grid-template-columns:repeat(2,1fr); }
+  .courses-grid { grid-template-columns:1fr 1fr; }
+  .courses-grid a { text-decoration:none; }
+  .benefits-layout { grid-template-columns:1fr; }
+  .benefits-visual { min-height:300px; }
+  .mentors-grid { grid-template-columns:1fr; max-width:480px; margin:0 auto; }
+  .testimonials-grid { grid-template-columns:1fr 1fr; }
+  .pricing-grid { grid-template-columns:1fr; max-width:400px; margin:0 auto; }
+  .pricing-grid + div { grid-template-columns:1fr !important; max-width:400px; margin-left:auto; margin-right:auto; }
+  .guarantee-box { grid-template-columns:1fr; text-align:center; justify-items:center; }
+  .section-title { font-size:1.9rem; }
+  .thesis-text { font-size:1.4rem; }
+  .final-cta h2 { font-size:1.9rem; }
+}
+
+@media (max-width:600px) {
+  .container { padding:0 18px; }
+  .top-bar { padding:0 16px; height:64px; }
+  .top-bar-logo img { height:28px; }
+  .top-bar-nav { display:none; }
+  .top-bar-cta { font-size:0.66rem; padding:8px 14px; }
+  .top-bar-cta-outline { font-size:0.66rem; padding:7px 12px; }
+  body { padding-top:64px; }
+
+  .hero { min-height:auto; padding:48px 0 40px; }
+  .hero h1 { font-size:1.75rem; }
+  .hero-sub { font-size:0.95rem; }
+  .hero-badge { font-size:0.6rem; padding:5px 12px; margin-bottom:20px; }
+  .hero-cta-group { flex-direction:column; }
+  .hero-cta-group .btn { width:100%; text-align:center; }
+
+  .section { padding:56px 0; }
+  .section-label { font-size:0.58rem; letter-spacing:0.3em; }
+  .section-title { font-size:1.5rem; }
+  .section-intro { font-size:0.88rem; margin-bottom:32px; }
+
+  .numbers-grid { grid-template-columns:1fr 1fr; }
+  .number-big { font-size:1.6rem; }
+  .number-label { font-size:0.62rem; }
+  .number-item { padding:20px 12px; }
+
+  .courses-grid { grid-template-columns:1fr; }
+  .course-img { height:160px; }
+
+  .benefit-num { font-size:1.2rem; min-width:28px; }
+  .benefit-item { gap:12px; padding:16px 0; }
+
+  .mentor-photo { height:300px; }
+  .mentor-photo img { height:260px; }
+  .mentor-body { padding:22px 18px; }
+  .mentor-name { font-size:1.05rem; }
+
+  .testimonials-grid { grid-template-columns:1fr; }
+
+  .thesis-box { padding:40px 22px; }
+  .thesis-text { font-size:1.15rem; }
+
+  .pricing-grid { max-width:100%; }
+  .price-value { font-size:2.2rem; }
+
+  .guarantee-box { padding:32px 22px; gap:24px; }
+  .guarantee-seal { width:110px; height:110px; }
+  .guarantee-days { font-size:2.2rem; }
+  .guarantee-title { font-size:1.1rem; }
+  .guarantee-text { font-size:0.82rem; }
+
+  .faq-q { font-size:0.88rem; }
+
+  .final-cta h2 { font-size:1.5rem; }
+  .final-cta { padding:56px 0; }
+
+  .footer-inner { flex-direction:column; text-align:center; }
+
+  .btn { font-size:0.72rem; padding:14px 24px; }
+}
+
+@media (max-width:400px) {
+  .hero h1 { font-size:1.45rem; }
+  .section-title { font-size:1.3rem; }
+  .number-big { font-size:1.4rem; }
+  .container { padding:0 14px; }
+}
+
+</style>
+</head>
+<body>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     HEADER FIXO
+════════════════════════════════════════════════════════════ -->
+<div class="top-bar">
+  <div class="top-bar-logo">
+    <img src="../02-MARCA/logos/LOGOTIPO_-_GABARITANDO_-_PRETO_-_SEM_FUNDO.png" alt="Gabaritando">
+  </div>
+  <nav class="top-bar-nav">
+    <a href="#hero-top">Início</a>
+    <a href="#oferta">Cursos e Materiais</a>
+    <a href="materiais-gratuitos.html">Materiais Gratuitos</a>
+  </nav>
+  <div class="top-bar-right">
+    <a href="#oferta" class="top-bar-cta">Quero me preparar</a>
+    <a href="#" class="top-bar-cta-outline">Área do Aluno</a>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════════ -->
+<section class="hero" id="hero-top">
+  <div class="hero-bg">
+    <div class="hero-bg-photo"></div>
+    <div class="hero-bg-photo"></div>
+    <div class="hero-bg-photo"></div>
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-bg-grid"></div>
+  </div>
+
+  <div class="container" style="display:flex;align-items:center;gap:48px;position:relative;z-index:2">
+    <div class="hero-content">
+      <div class="hero-badge">Carreiras Policiais da Bahia</div>
+      <h1>
+        Treinado para<br>a Bahia.
+        <em>Aprovado de verdade.</em>
+      </h1>
+      <p class="hero-sub">
+        O preparatório criado por quem foi aprovado como <strong>Soldado e Oficial da PMBA</strong>.
+        Método desenvolvido para quem quer vestir a farda na Bahia &mdash; com aulas direcionadas, cronograma personalizado
+        e banco de questões alinhado ao perfil da banca.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#oferta" class="btn btn-gold">Quero garantir minha vaga</a>
+        <a href="#metodo" class="btn btn-outline">Conhecer o método</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     BARRA DE NUMEROS
+════════════════════════════════════════════════════════════ -->
+<div class="numbers-bar">
+  <div class="container" style="padding:0">
+    <div style="text-align:center;padding:18px 16px 0">
+      <p style="font-size:0.68rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--carvao);margin-bottom:2px">Concursos Policiais da Bahia &mdash; 2026</p>
+      <p style="font-size:0.88rem;font-weight:600;color:var(--carvao);line-height:1.5">O cenário que espera por você</p>
+    </div>
+    <div class="numbers-grid">
+      <div class="number-item">
+        <div class="number-big" data-count="5">0</div>
+        <div class="number-label">Concursos com edital previsto</div>
+      </div>
+      <div class="number-item">
+        <div class="number-big" data-count="3000" data-suffix="+">0</div>
+        <div class="number-label">Vagas previstas para 2026</div>
+      </div>
+      <div class="number-item">
+        <div class="number-big" data-count="12">0</div>
+        <div class="number-label">Meses de acesso ao preparatório</div>
+      </div>
+      <div class="number-item">
+        <div class="number-big" data-count="100" data-suffix="%">0</div>
+        <div class="number-label">Conteúdo exclusivo para a Bahia</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  function formatNum(n){ return n >= 1000 ? n.toLocaleString('pt-BR') : String(n); }
+
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-count'),10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1600;
+    var start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(eased * target);
+      el.textContent = formatNum(current) + suffix;
+      if(progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var counters = document.querySelectorAll('.number-big[data-count]');
+  var observed = false;
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting && !observed){
+          observed = true;
+          counters.forEach(animateCount);
+          obs.disconnect();
+        }
+      });
+    }, {threshold: 0.3});
+    counters.forEach(function(c){ obs.observe(c); });
+  } else {
+    counters.forEach(animateCount);
+  }
+})();
+</script>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     TESE CENTRAL
+════════════════════════════════════════════════════════════ -->
+<section class="section bg-preto-2">
+<div class="container">
+  <div style="border:2px solid var(--ouro);padding:48px 40px;max-width:780px;margin:0 auto 24px">
+    <p style="text-align:center;font-family:var(--font);font-size:1.8rem;font-weight:400;line-height:1.35;color:rgba(255,255,255,0.9)">
+      Não é a falta de estudo que reprova o candidato baiano.<br>
+      É estudar sem saber <em style="font-style:italic;color:var(--ouro);font-weight:700">o que a Bahia cobra.</em>
+    </p>
+  </div>
+  <p style="text-align:center;font-size:1.05rem;font-weight:400;color:var(--ouro);margin-top:20px;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.8">
+    Enquanto os grandes cursos nacionais ensinam para um concurso genérico, o candidato da PMBA, do BMBA e da PCBA enfrenta uma banca específica, com perfil próprio de cobrança. <strong style="font-weight:700;color:#FFFFFF">O Gabaritando existe para corrigir esse desvio.</strong>
+  </p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CURSOS
+════════════════════════════════════════════════════════════ -->
+<section class="section bg-preto" id="cursos">
+<div class="container">
+  <div class="section-label">Preparação completa</div>
+  <h2 class="section-title">Escolha o <em>seu concurso</em></h2>
+  <p class="section-intro">
+    Selecione a carreira policial que você quer seguir. Cada preparação foi construída sob medida para o perfil da banca e o conteúdo programático exigido no edital.
+  </p>
+
+  <div class="courses-grid">
+
+    <a href="#" class="course-card" style="display:block;color:inherit">
+      <div class="course-img" style="background-image:url('SDPMBA 2.webp')"></div>
+      <div class="course-body">
+        <div class="course-tag">PMBA &amp; BMBA</div>
+        <div class="course-name">Soldado PM e BM</div>
+        <div class="course-price">A partir de <strong>12x R$ 79,33</strong></div>
+      </div>
+    </a>
+
+    <a href="#" class="course-card" style="display:block;color:inherit">
+      <div class="course-img" style="background-image:url('OFICIAL PMBA.jpg')"></div>
+      <div class="course-body">
+        <div class="course-tag">PMBA &amp; BMBA</div>
+        <div class="course-name">Oficial PM e BM (CFO)</div>
+        <div class="course-price">A partir de <strong>12x R$ 100,01</strong></div>
+      </div>
+    </a>
+
+    <a href="#" class="course-card" style="display:block;color:inherit">
+      <div class="course-img" style="background-image:url('PCBA COE.jpg')"></div>
+      <div class="course-body">
+        <div class="course-tag">Polícia Civil</div>
+        <div class="course-name">Investigador PCBA</div>
+        <div class="course-price">A partir de <strong>12x R$ 79,33</strong></div>
+      </div>
+    </a>
+
+    <a href="#" class="course-card" style="display:block;color:inherit">
+      <div class="course-img" style="background-image:url('SGT PMBA.jpeg')"></div>
+      <div class="course-body">
+        <div class="course-tag">PMBA</div>
+        <div class="course-name">Sargento PMBA</div>
+        <div class="course-price">A partir de <strong>12x R$ 100,01</strong></div>
+      </div>
+    </a>
+
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     BENEFÍCIOS / MÉTODO
+════════════════════════════════════════════════════════════ -->
+<section class="section bg-preto-2" id="metodo">
+<div class="container">
+  <div class="section-label">Sistema GABA</div>
+  <h2 class="section-title">O que você <em>recebe</em></h2>
+  <p class="section-intro">Não são apenas videoaulas. É um sistema completo de preparação calibrado para a prova que você vai enfrentar.</p>
+
+  <div class="benefits-layout">
+
+    <div class="benefit-list">
+      <div class="benefit-item">
+        <div class="benefit-num">01</div>
+        <div class="benefit-text">
+          <h4>Curso 100% focado na sua prova</h4>
+          <p>Conteúdo alinhado ao edital e ao perfil da banca do seu concurso. Nada genérico, nada de fora da Bahia.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-num">02</div>
+        <div class="benefit-text">
+          <h4>Cronograma personalizado</h4>
+          <p>Gerador automático que adapta a trilha de estudos à sua rotina. Trabalha e estuda? O cronograma se ajusta.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-num">03</div>
+        <div class="benefit-text">
+          <h4>Método validado: Teoria + Questões + Revisão</h4>
+          <p>Cada módulo combina aula, treino por questões comentadas e revisão cíclica. Sem achismo.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-num">04</div>
+        <div class="benefit-text">
+          <h4>Banco de questões comentadas</h4>
+          <p>Questões organizadas por matéria, assunto e nível de dificuldade, alinhadas ao histórico de cobrança dos concursos baianos.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-num">05</div>
+        <div class="benefit-text">
+          <h4>Simulados exclusivos com correção</h4>
+          <p>Simulados no formato real da prova. Você treina nas mesmas condições do dia do concurso.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-num">06</div>
+        <div class="benefit-text">
+          <h4>Mentores que vestem a farda</h4>
+          <p>Aprenda com quem vive a rotina policial e foi aprovado nos mesmos concursos que você vai prestar.</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-num">07</div>
+        <div class="benefit-text">
+          <h4>Suporte direto com os mentores</h4>
+          <p>Grupo exclusivo de alunos com acesso aos fundadores. Suas dúvidas respondidas por quem já passou.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="benefits-visual" style="justify-content:center;padding:48px 36px;text-align:center">
+      <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--ouro);margin-bottom:20px">Projeto Gabaritando</div>
+      <div style="font-family:var(--font);font-size:1.6rem;font-weight:800;line-height:1.2;text-transform:uppercase;color:var(--branco);margin-bottom:16px">
+        Uma plataforma.<br>
+        <span style="color:var(--ouro)">Todas as fardas<br>da Bahia.</span>
+      </div>
+      <div style="width:48px;height:2px;background:var(--ouro);margin:0 auto 20px"></div>
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:center">
+        <span style="font-size:0.76rem;font-weight:500;color:rgba(255,255,255,0.7);letter-spacing:0.06em">Soldado PMBA e BMBA</span>
+        <span style="font-size:0.76rem;font-weight:500;color:rgba(255,255,255,0.7);letter-spacing:0.06em">Oficial PMBA e BMBA</span>
+        <span style="font-size:0.76rem;font-weight:500;color:rgba(255,255,255,0.7);letter-spacing:0.06em">Sargento PMBA</span>
+        <span style="font-size:0.76rem;font-weight:500;color:rgba(255,255,255,0.7);letter-spacing:0.06em">Investigador PCBA</span>
+      </div>
+      <div style="margin-top:28px;font-size:0.82rem;font-weight:500;color:var(--creme);line-height:1.7;max-width:280px;margin-left:auto;margin-right:auto">
+        Preparação construída por quem passou &mdash; <strong style="color:var(--ouro);font-weight:700">calibrada para a banca que você vai enfrentar.</strong>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     MENTORES
+════════════════════════════════════════════════════════════ -->
+<section class="section bg-preto" id="mentores">
+<div class="container">
+  <div class="section-label">Seus mentores</div>
+  <h2 class="section-title">Criado por quem <em>já passou</em></h2>
+  <p class="section-intro">O Gabaritando foi fundado por dois Tenentes da Polícia Militar da Bahia que percorreram o caminho completo: do concurso de Soldado ao Curso de Formação de Oficiais. Eles ensinam o que viveram &mdash; e é isso que faz a diferença.</p>
+
+  <div class="mentors-grid">
+
+    <!-- ALAN -->
+    <div class="mentor-card">
+      <div class="mentor-photo">
+        <div class="mentor-photo-bg"></div>
+        <img src="IMG_1237-removebg.png?v=2" alt="Alan Nascimento">
+        <div class="mentor-photo-gradient"></div>
+      </div>
+      <div class="mentor-body">
+        <div class="mentor-name">Alan Nascimento</div>
+        <div class="mentor-role">Fundador &amp; Mentor</div>
+        <p class="mentor-bio">
+          Alan entrou na Polícia Militar da Bahia como <strong>Soldado</strong>, foi aprovado no Curso de Formação de Oficiais e hoje atua como <strong>Tenente da PMBA</strong>. Bacharel em Direito pela UFBA, aprovado na OAB XXI e atualmente Mestrando em Segurança Pública, Justiça e Cidadania pela mesma universidade. Conhece cada etapa do processo porque viveu todas elas &mdash; da inscrição à farda. Quando Alan ensina o que a banca cobra, ele fala por experiência própria, não por suposição.
+        </p>
+      </div>
+    </div>
+
+    <!-- NILTON -->
+    <div class="mentor-card">
+      <div class="mentor-photo">
+        <div class="mentor-photo-bg"></div>
+        <img src="PHOTO-2026-04-13-16-25-08-removebg.png" alt="Nilton Junior">
+        <div class="mentor-photo-gradient"></div>
+      </div>
+      <div class="mentor-body">
+        <div class="mentor-name">Nilton Junior</div>
+        <div class="mentor-role">Fundador &amp; Mentor</div>
+        <p class="mentor-bio">
+          Nilton começou sua trajetória como <strong>Soldado da PMBA</strong>, conquistou o 2.&ordm; lugar na prova objetiva do CFO e hoje é <strong>Tenente da Polícia Militar da Bahia</strong>. Antes disso, já havia sido aprovado no concurso de Soldado da PMPE, na prova objetiva do Soldado da PMSE e no CFO da PMSE. Bacharel em Direito e Pós-Graduado em Direito Digital, Nilton coleciona aprovações porque domina o jogo das bancas. No Gabaritando, ele transforma essa experiência acumulada em estratégia direta para o seu concurso.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     DEPOIMENTOS
+════════════════════════════════════════════════════════════ -->
+<section class="section bg-preto-2">
+<div class="container">
+  <div class="section-label">Prova social</div>
+  <h2 class="section-title">Eles não são mais estudantes. <em>São aprovados.</em></h2>
+  <p class="section-intro">Resultados reais de quem seguiu o método Gabaritando e conquistou a farda.</p>
+
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">Estudei 2 anos sozinho, sem resultado. Quando entrei no Gabaritando, em 4 meses de preparação focada passei no concurso de Soldado. Faltava método, não esforço.</p>
+      <div class="testimonial-author">Aluno aprovado PMBA</div>
+      <div class="testimonial-role">Soldado &mdash; PMBA 2024</div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">O cronograma personalizado mudou tudo. Trabalho o dia inteiro e consegui encaixar os estudos sem abrir mão de nada. Passei no CFO sem precisar largar o emprego.</p>
+      <div class="testimonial-author">Aluno aprovado CFO</div>
+      <div class="testimonial-role">Oficial &mdash; CFO PMBA 2024</div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">O que mais me impressionou foi que os professores são policiais de verdade. Não é teoria solta. Eles sabem exatamente o que cai porque passaram pela mesma prova.</p>
+      <div class="testimonial-author">Aluno aprovado BMBA</div>
+      <div class="testimonial-role">Soldado &mdash; BMBA 2024</div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:40px">
+    <a href="#oferta" class="btn btn-outline">Quero ser o próximo aprovado</a>
+  </div>
+
+  <div style="text-align:center;margin-top:56px">
+    <div style="font-size:2.6rem;margin-bottom:14px">🥇</div>
+    <p style="font-size:1.4rem;font-weight:700;color:var(--branco);line-height:1.5;max-width:580px;margin:0 auto">
+      O único preparatório da Bahia criado por quem <span style="color:var(--ouro)">vestiu a farda</span> duas vezes.
+    </p>
+    <p style="font-size:0.86rem;font-weight:400;color:var(--creme);margin-top:10px;letter-spacing:0.04em;opacity:0.75">
+      Avaliação de quem viveu o processo e escolheu ensinar o caminho.
+    </p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     OFERTA / PREÇOS
+════════════════════════════════════════════════════════════ -->
+<section class="section bg-preto" id="oferta">
+<div class="container">
+  <div class="section-label">Investimento</div>
+  <h2 class="section-title">Escolha o material ideal <em>para o seu concurso</em></h2>
+  <p class="section-intro">Cada material inclui 12 meses de acesso completo à plataforma, cronograma personalizado, banco de questões, simulados e suporte direto com os mentores.</p>
+
+  <div class="pricing-grid">
+
+    <!-- Soldado -->
+    <div class="price-card">
+      <div class="price-tag">Preparação Total</div>
+      <div style="font-size:0.82rem;font-weight:600;color:var(--branco);margin-bottom:16px">Soldado PMBA e BMBA 2026</div>
+      <div class="price-value"><sup>R$</sup>767</div>
+      <div class="price-installment">ou 12x de R$ 79,33</div>
+      <ul class="price-features">
+        <li>Videoaulas completas</li>
+        <li>Cronograma personalizado</li>
+        <li>Banco de questões comentadas</li>
+        <li>Simulados no formato da prova</li>
+        <li>Grupo exclusivo de alunos</li>
+        <li>Suporte direto com mentores</li>
+        <li>12 meses de acesso</li>
+      </ul>
+      <a href="#" class="btn btn-gold" style="width:100%">Quero estudar para Soldado</a>
+    </div>
+
+    <!-- Oficial -->
+    <div class="price-card">
+      <div class="price-tag">Preparação Total</div>
+      <div style="font-size:0.82rem;font-weight:600;color:var(--branco);margin-bottom:16px">Oficial PMBA e BMBA 2026</div>
+      <div class="price-value"><sup>R$</sup>967</div>
+      <div class="price-installment">ou 12x de R$ 100,01</div>
+      <ul class="price-features">
+        <li>Tudo da preparação Soldado</li>
+        <li>Módulo exclusivo CFO</li>
+        <li>Preparação para prova discursiva</li>
+        <li>Conteúdo aprofundado de Direito</li>
+        <li>Mentoria estratégica para Oficiais</li>
+        <li>Suporte prioritário</li>
+        <li>12 meses de acesso</li>
+      </ul>
+      <a href="#" class="btn btn-gold" style="width:100%">Quero ser Oficial</a>
+    </div>
+
+    <!-- Investigador -->
+    <div class="price-card">
+      <div class="price-tag">Preparação Total</div>
+      <div style="font-size:0.82rem;font-weight:600;color:var(--branco);margin-bottom:16px">Investigador PCBA 2026</div>
+      <div class="price-value"><sup>R$</sup>767</div>
+      <div class="price-installment">ou 12x de R$ 79,33</div>
+      <ul class="price-features">
+        <li>Videoaulas completas</li>
+        <li>Cronograma personalizado</li>
+        <li>Banco de questões comentadas</li>
+        <li>Simulados no formato da prova</li>
+        <li>Grupo exclusivo de alunos</li>
+        <li>Suporte direto com mentores</li>
+        <li>12 meses de acesso</li>
+      </ul>
+      <a href="#" class="btn btn-gold" style="width:100%">Quero ser Investigador</a>
+    </div>
+
+  </div>
+
+  <!-- Linha 2: Sargento + Cadernos -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px">
+
+    <!-- Sargento -->
+    <div class="price-card">
+      <div class="price-tag">Preparação Total</div>
+      <div style="font-size:0.82rem;font-weight:600;color:var(--branco);margin-bottom:16px">Sargento PMBA 2026</div>
+      <div class="price-value"><sup>R$</sup>967</div>
+      <div class="price-installment">ou 12x de R$ 100,01</div>
+      <ul class="price-features">
+        <li>Videoaulas completas</li>
+        <li>Cronograma personalizado</li>
+        <li>Banco de questões comentadas</li>
+        <li>Simulados no formato da prova</li>
+        <li>Grupo exclusivo de alunos</li>
+        <li>Suporte direto com mentores</li>
+        <li>12 meses de acesso</li>
+      </ul>
+      <a href="#" class="btn btn-gold" style="width:100%">Quero ser Sargento</a>
+    </div>
+
+    <!-- Cadernos de Treino CFO -->
+    <div class="price-card">
+      <div class="price-tag">Cadernos de Treino</div>
+      <div style="font-size:0.82rem;font-weight:600;color:var(--branco);margin-bottom:16px">CFO PMBA e BMBA 2026</div>
+      <div class="price-value" style="font-size:1.8rem"><sup>R$</sup>&mdash;</div>
+      <div class="price-installment">Em breve</div>
+      <ul class="price-features">
+        <li>Questões comentadas por disciplina</li>
+        <li>Foco no perfil da banca CFO</li>
+        <li>Material complementar à preparação</li>
+      </ul>
+      <a href="#" class="btn btn-outline" style="width:100%">Disponível em breve</a>
+    </div>
+
+    <!-- Cadernos de Treino Soldado -->
+    <div class="price-card">
+      <div class="price-tag">Cadernos de Treino</div>
+      <div style="font-size:0.82rem;font-weight:600;color:var(--branco);margin-bottom:16px">Soldado PMBA e BMBA 2026</div>
+      <div class="price-value"><sup>R$</sup>147<span style="font-size:0.9rem;font-weight:400">,90</span></div>
+      <div class="price-installment">ou 12x de R$ 15,30</div>
+      <ul class="price-features">
+        <li>Questões comentadas por disciplina</li>
+        <li>Foco no perfil da banca Soldado</li>
+        <li>Material complementar à preparação</li>
+      </ul>
+      <a href="#" class="btn btn-gold" style="width:100%">Quero os Cadernos</a>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     GARANTIA
+════════════════════════════════════════════════════════════ -->
+<section class="section bg-preto-2">
+<div class="container">
+  <div class="guarantee-box">
+    <div class="guarantee-seal">
+      <div class="guarantee-days">7</div>
+      <div class="guarantee-days-label">dias</div>
+    </div>
+    <div>
+      <h3 class="guarantee-title">Teste por 7 dias. Se não for para você, devolvemos tudo.</h3>
+      <p class="guarantee-text">
+        Conforme o Código de Defesa do Consumidor, você tem <strong>7 dias completos</strong> para acessar a plataforma inteira, explorar o conteúdo e decidir com calma.
+        Se não ficar satisfeito &mdash;
+        basta enviar um e-mail e devolvemos <strong>100% do valor pago</strong>. Sem perguntas, sem burocracia.
+      </p>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     FAQ
+════════════════════════════════════════════════════════════ -->
+<section class="section bg-preto" id="faq">
+<div class="container">
+  <div class="section-label" style="text-align:center">Dúvidas frequentes</div>
+  <h2 class="section-title" style="text-align:center">Perguntas e <em>respostas</em></h2>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+        Quanto tempo dura o acesso ao curso?
+      </div>
+      <div class="faq-a">
+        <p>Todos os planos incluem 12 meses de acesso completo à plataforma. Você pode estudar no seu ritmo durante esse período inteiro.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+        O curso serve para quem nunca estudou para concurso?
+      </div>
+      <div class="faq-a">
+        <p>Sim. O método foi desenhado para levar o candidato do zero à aprovação. O cronograma personalizado se adapta ao seu nível e à sua rotina, seja você iniciante ou já tenha estudado antes.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+        Qual a diferença do Gabaritando para os cursos nacionais?
+      </div>
+      <div class="faq-a">
+        <p>Cursos nacionais ensinam para um concurso genérico. O Gabaritando é especializado nos concursos policiais da Bahia. Nosso conteúdo, questões e simulados são alinhados ao perfil da banca que você vai enfrentar. Além disso, nossos mentores são policiais aprovados nesses mesmos concursos.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+        Consigo estudar trabalhando em período integral?
+      </div>
+      <div class="faq-a">
+        <p>Sim. O gerador de cronograma personalizado leva em conta sua rotina de trabalho e cria um plano de estudos viável. Muitos dos nossos alunos aprovados estudaram conciliando emprego, família e preparação.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+        Posso parcelar o pagamento?
+      </div>
+      <div class="faq-a">
+        <p>Sim. Todos os planos podem ser parcelados em até 12 vezes no cartão de crédito. Também aceitamos pagamento à vista via PIX e boleto bancário.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+        O acesso é liberado na hora?
+      </div>
+      <div class="faq-a">
+        <p>Sim. Após a confirmação do pagamento, você recebe o acesso imediato à plataforma por e-mail. No caso de cartão de crédito e PIX, a liberação é instantânea.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+        O Gabaritando tem aulas presenciais?
+      </div>
+      <div class="faq-a">
+        <p>Sim. Além da plataforma digital, o Gabaritando conta com estrutura presencial em Luís Eduardo Magalhães &mdash; BA. O candidato da região pode combinar o acesso online com o acompanhamento presencial.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+        Como funciona a garantia?
+      </div>
+      <div class="faq-a">
+        <p>Você tem 7 dias após a compra para testar a plataforma com acesso total. Se por qualquer motivo decidir que não é para você, basta enviar um e-mail solicitando o reembolso e devolvemos 100% do valor pago. Sem perguntas.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     CTA FINAL
+════════════════════════════════════════════════════════════ -->
+<section class="final-cta bg-preto-2">
+<div class="container" style="position:relative">
+  <div class="final-cta-glow"></div>
+
+  <div style="margin-bottom:32px">
+    <img src="../02-MARCA/logos/02_AVATAR_1000X1000PX-removebg-preview.png"
+         alt="Gabaritando"
+         style="width:64px;height:64px;object-fit:contain;margin:0 auto">
+  </div>
+
+  <h2>
+    O edital não avisa.<br>
+    <em>Comece antes de todo mundo.</em>
+  </h2>
+  <p>
+    Mais de 3.000 vagas policiais previstas para a Bahia em 2026.<br>
+    Quem começa primeiro, chega primeiro.
+  </p>
+
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a href="#oferta" class="btn btn-gold">Quero garantir minha vaga</a>
+    <a href="https://wa.link/" class="btn btn-outline" target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </div>
+</div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════════ -->
+<footer class="footer bg-preto">
+<div class="container">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="../02-MARCA/logos/LOGOTIPO_-_GABARITANDO_-_PRETO_-_SEM_FUNDO.png"
+           alt="Gabaritando"
+           style="filter:brightness(0) invert(1);opacity:0.4;height:28px">
+      <div class="footer-brand-text">
+        Carreiras Policiais da Bahia
+      </div>
+    </div>
+    <div class="footer-legal">
+      Gabaritando &copy; 2026 &mdash; Todos os direitos reservados
+    </div>
+  </div>
+</div>
+</footer>
+
+
+</body>
+</html>
