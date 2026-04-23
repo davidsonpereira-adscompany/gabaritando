@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gabaritando — O preparatório exclusivo para carreiras policiais da Bahia. Criado por Tenentes da PMBA que foram aprovados como Soldado e Oficial.">
+<meta name="theme-color" content="#0E0E1A">
 <title>Gabaritando — Carreiras Policiais da Bahia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
 <style>
 
@@ -115,9 +119,9 @@ body { padding-top:76px; }
   opacity:0;
   animation:heroFade 12s ease-in-out infinite;
 }
-.hero-bg-photo:nth-child(1) { background-image:url('Gemini_Generated_Image_a1o7p4a1o7p4a1o7.png'); animation-delay:0s; }
-.hero-bg-photo:nth-child(2) { background-image:url('Gemini_Generated_Image_ya0d34ya0d34ya0d.png'); animation-delay:4s; }
-.hero-bg-photo:nth-child(3) { background-image:url('Gemini_Generated_Image_ymztjymztjymztjy.png'); animation-delay:8s; }
+.hero-bg-photo:nth-child(1) { background-image:url('Gemini_Generated_Image_a1o7p4a1o7p4a1o7.jpg'); animation-delay:0s; }
+.hero-bg-photo:nth-child(2) { background-image:url('Gemini_Generated_Image_ya0d34ya0d34ya0d.jpg'); animation-delay:4s; }
+.hero-bg-photo:nth-child(3) { background-image:url('Gemini_Generated_Image_ymztjymztjymztjy.jpg'); animation-delay:8s; }
 
 @keyframes heroFade {
   0%      { opacity:0; }
@@ -199,19 +203,6 @@ body { padding-top:76px; }
   border:1px solid var(--ouro);
 }
 .btn-outline:hover { background:rgba(255,184,0,0.08); }
-
-/* Seta decorativa no hero */
-.hero-photo-side {
-  position:absolute; right:-20px; bottom:0; z-index:1;
-  width:420px; height:100%;
-  display:flex; align-items:flex-end; justify-content:flex-end;
-  pointer-events:none;
-}
-.hero-photo-side img {
-  height:85%; width:auto; object-fit:contain;
-  filter:drop-shadow(0 0 80px rgba(255,184,0,0.08));
-  opacity:0.15;
-}
 
 /* ═══════════════════════════════════════════
    NUMEROS / PROVA SOCIAL RAPIDA
@@ -342,17 +333,6 @@ body { padding-top:76px; }
   align-items:center; justify-content:center;
   min-height:480px;
 }
-.benefits-visual img {
-  max-width:85%;
-  filter:drop-shadow(0 20px 60px rgba(255,184,0,0.08));
-}
-.benefits-visual-label {
-  margin-top:20px;
-  font-size:0.68rem; font-weight:600;
-  letter-spacing:0.2em; text-transform:uppercase;
-  color:rgba(255,184,0,0.5);
-}
-
 /* ═══════════════════════════════════════════
    MENTORES
 ═══════════════════════════════════════════ */
@@ -441,34 +421,6 @@ body { padding-top:76px; }
 }
 
 /* ═══════════════════════════════════════════
-   BIG IDEA / TESE
-═══════════════════════════════════════════ */
-.thesis-box {
-  border:1px solid var(--ouro);
-  background:rgba(255,184,0,0.03);
-  padding:56px 48px;
-  text-align:center;
-  position:relative;
-}
-.thesis-box::before {
-  content:'TESE CENTRAL';
-  position:absolute; top:0; left:50%; transform:translate(-50%,-50%);
-  background:var(--ouro); color:var(--carvao);
-  font-size:0.6rem; font-weight:700;
-  letter-spacing:0.3em; text-transform:uppercase;
-  padding:5px 20px;
-}
-.thesis-text {
-  font-family:var(--font);
-  font-size:1.8rem; font-weight:400;
-  line-height:1.35;
-  color:rgba(255,255,255,0.9);
-}
-.thesis-text em {
-  font-style:italic; color:var(--ouro); font-weight:700;
-}
-
-/* ═══════════════════════════════════════════
    OFERTA / PREÇOS
 ═══════════════════════════════════════════ */
 .pricing-grid {
@@ -483,18 +435,6 @@ body { padding-top:76px; }
   position:relative;
 }
 .price-card:hover { border-color:var(--ouro); transform:translateY(-4px); }
-.price-card.featured {
-  border-color:var(--ouro);
-  background:rgba(255,184,0,0.04);
-}
-.price-card.featured::before {
-  content:'MAIS ESCOLHIDO';
-  position:absolute; top:0; left:50%; transform:translate(-50%,-50%);
-  background:var(--ouro); color:var(--carvao);
-  font-size:0.58rem; font-weight:700;
-  letter-spacing:0.2em; text-transform:uppercase;
-  padding:4px 16px; white-space:nowrap;
-}
 .price-tag {
   font-size:0.62rem; font-weight:700;
   letter-spacing:0.2em; text-transform:uppercase;
@@ -661,7 +601,6 @@ body { padding-top:76px; }
   .top-bar-nav { gap:16px; margin-left:20px; }
   .top-bar-nav a { font-size:0.62rem; }
   .hero h1 { font-size:2.4rem; }
-  .hero-photo-side { display:none; }
   .numbers-grid { grid-template-columns:repeat(2,1fr); }
   .courses-grid { grid-template-columns:1fr 1fr; }
   .courses-grid a { text-decoration:none; }
@@ -673,7 +612,6 @@ body { padding-top:76px; }
   .pricing-grid + div { grid-template-columns:1fr !important; max-width:400px; margin-left:auto; margin-right:auto; }
   .guarantee-box { grid-template-columns:1fr; text-align:center; justify-items:center; }
   .section-title { font-size:1.9rem; }
-  .thesis-text { font-size:1.4rem; }
   .final-cta h2 { font-size:1.9rem; }
 }
 
@@ -716,8 +654,6 @@ body { padding-top:76px; }
 
   .testimonials-grid { grid-template-columns:1fr; }
 
-  .thesis-box { padding:40px 22px; }
-  .thesis-text { font-size:1.15rem; }
 
   .pricing-grid { max-width:100%; }
   .price-value { font-size:2.2rem; }
@@ -1052,7 +988,7 @@ body { padding-top:76px; }
     <div class="mentor-card">
       <div class="mentor-photo">
         <div class="mentor-photo-bg"></div>
-        <img src="IMG_1237-removebg.png?v=2" alt="Alan Nascimento">
+        <img src="IMG_1237-removebg.png" alt="Alan Nascimento" loading="lazy" width="800" height="1200">
         <div class="mentor-photo-gradient"></div>
       </div>
       <div class="mentor-body">
@@ -1068,7 +1004,7 @@ body { padding-top:76px; }
     <div class="mentor-card">
       <div class="mentor-photo">
         <div class="mentor-photo-bg"></div>
-        <img src="PHOTO-2026-04-13-16-25-08-removebg.png" alt="Nilton Junior">
+        <img src="PHOTO-2026-04-13-16-25-08-removebg.png" alt="Nilton Junior" loading="lazy" width="400" height="642">
         <div class="mentor-photo-gradient"></div>
       </div>
       <div class="mentor-body">
@@ -1383,7 +1319,7 @@ body { padding-top:76px; }
 
   <div style="margin-bottom:32px">
     <img src="../02-MARCA/logos/02_AVATAR_1000X1000PX-removebg-preview.png"
-         alt="Gabaritando"
+         alt="Gabaritando" loading="lazy"
          style="width:64px;height:64px;object-fit:contain;margin:0 auto">
   </div>
 
