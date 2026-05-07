@@ -407,36 +407,19 @@ body { padding-top:76px; }
 ═══════════════════════════════════════════ */
 .testimonials-grid {
   display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+  align-items:start;
 }
 .testimonial-card {
   border:1px solid var(--borda);
   background:var(--ardosia);
-  padding:28px 24px;
+  border-radius:8px;
+  overflow:hidden;
   position:relative;
 }
-.testimonial-card::before {
-  content:'\201C';
-  font-family:var(--font); font-size:3.5rem;
-  font-weight:900; color:rgba(255,184,0,0.1);
-  position:absolute; top:8px; left:16px; line-height:1;
-}
-.testimonial-text {
-  font-size:0.86rem; font-weight:300;
-  font-style:italic;
-  color:rgba(255,255,255,0.75);
-  line-height:1.7;
-  margin-bottom:16px;
-  position:relative; z-index:1;
-}
-.testimonial-author {
-  font-size:0.72rem; font-weight:700;
-  color:var(--ouro); letter-spacing:0.08em;
-  text-transform:uppercase;
-}
-.testimonial-role {
-  font-size:0.66rem; font-weight:300;
-  color:rgba(255,255,255,0.35);
-  margin-top:2px;
+.testimonial-card img {
+  width:100%;
+  height:auto;
+  display:block;
 }
 
 /* ═══════════════════════════════════════════
@@ -1222,21 +1205,15 @@ body { padding-top:76px; }
   <div class="testimonials-grid">
 
     <div class="testimonial-card">
-      <p class="testimonial-text">Estudei 2 anos sozinho, sem resultado. Quando entrei no Gabaritando, em 4 meses de preparação focada passei no concurso de Soldado. Faltava método, não esforço.</p>
-      <div class="testimonial-author">Aluno aprovado PMBA</div>
-      <div class="testimonial-role">Soldado &mdash; PMBA 2024</div>
+      <img src="feedback-1.jpg" alt="Feedback de aluno — material show de bola" loading="lazy" width="500" height="1005">
     </div>
 
     <div class="testimonial-card">
-      <p class="testimonial-text">O cronograma personalizado mudou tudo. Trabalho o dia inteiro e consegui encaixar os estudos sem abrir mão de nada. Passei no CFO sem precisar largar o emprego.</p>
-      <div class="testimonial-author">Aluno aprovado CFO</div>
-      <div class="testimonial-role">Oficial &mdash; CFO PMBA 2024</div>
+      <img src="feedback-2.jpg" alt="Feedback de Narciso — evolução em matemática, 18 de 20 questões" loading="lazy" width="500" height="999">
     </div>
 
     <div class="testimonial-card">
-      <p class="testimonial-text">O que mais me impressionou foi que os professores são policiais de verdade. Não é teoria solta. Eles sabem exatamente o que cai porque passaram pela mesma prova.</p>
-      <div class="testimonial-author">Aluno aprovado BMBA</div>
-      <div class="testimonial-role">Soldado &mdash; BMBA 2024</div>
+      <img src="feedback-3.jpg" alt="Feedback de aluno — preparação para SGT PMBA" loading="lazy" width="500" height="499">
     </div>
 
   </div>
