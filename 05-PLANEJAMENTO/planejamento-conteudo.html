@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0E0E1A">
+<title>Planejamento de Conteudo — Gabaritando</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --ouro:       #FFB800;
+  --ouro-esc:   #CC9400;
+  --preto:      #0E0E1A;
+  --preto-2:    #13131F;
+  --ardosia:    #1E1E2E;
+  --carvao:     #111111;
+  --creme:      #EDE8DF;
+  --branco:     #FFFFFF;
+  --borda:      rgba(255,255,255,0.07);
+  --borda-ouro: rgba(255,184,0,0.22);
+  --font:       'Montserrat', sans-serif;
+
+  --cor-live:    #FFB800;
+  --cor-reels:   #FF6B35;
+  --cor-feed:    #9B5DE5;
+  --cor-stories: #00C9A7;
+  --cor-yt:      #E53935;
+  --cor-evento:  #FF4081;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { overflow-x:hidden; scroll-behavior:smooth; }
+body {
+  background:var(--preto); color:var(--branco);
+  font-family:var(--font); font-size:15px; line-height:1.7;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img { max-width:100%; height:auto; display:block; }
+a { text-decoration:none; color:inherit; }
+
+/* CONTAINER */
+.container { max-width:1100px; margin:0 auto; padding:0 32px; }
+
+/* HERO */
+.hero {
+  text-align:center; padding:80px 0 48px;
+  border-bottom:1px solid var(--borda-ouro);
+}
+.hero-badge {
+  display:inline-block;
+  background:rgba(255,184,0,0.1); border:1px solid rgba(255,184,0,0.25);
+  color:var(--ouro); font-size:0.62rem; font-weight:700;
+  letter-spacing:0.2em; text-transform:uppercase;
+  padding:5px 18px; margin-bottom:20px;
+}
+.hero h1 {
+  font-size:2.2rem; font-weight:900; line-height:1.15;
+  text-transform:uppercase; margin-bottom:14px;
+}
+.hero h1 em { font-style:normal; color:var(--ouro); display:block; }
+.hero p {
+  font-size:0.95rem; font-weight:300; color:rgba(255,255,255,0.55);
+  max-width:640px; margin:0 auto; line-height:1.8;
+}
+.hero p strong { color:var(--ouro); font-weight:600; }
+.hero-meta {
+  display:flex; justify-content:center; gap:32px; margin-top:28px; flex-wrap:wrap;
+}
+.hero-meta span {
+  font-size:0.72rem; font-weight:600; letter-spacing:0.1em;
+  text-transform:uppercase; color:rgba(255,255,255,0.4);
+}
+.hero-meta span strong { color:var(--ouro); }
+
+/* SECTION */
+.section { padding:56px 0; }
+.section-label {
+  font-size:0.62rem; font-weight:700; letter-spacing:0.25em;
+  text-transform:uppercase; color:var(--ouro); margin-bottom:10px;
+  text-align:center;
+}
+.section-title {
+  font-size:1.5rem; font-weight:800; text-align:center;
+  text-transform:uppercase; margin-bottom:12px;
+}
+.section-title em { font-style:normal; color:var(--ouro); }
+.section-intro {
+  text-align:center; font-size:0.88rem; font-weight:300;
+  color:rgba(255,255,255,0.5); max-width:620px; margin:0 auto 32px;
+  line-height:1.8;
+}
+
+/* GUIA — PILARES */
+.pilares-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+  margin-bottom:40px;
+}
+.pilar-card {
+  background:var(--ardosia); border:1px solid var(--borda);
+  padding:28px 22px; cursor:pointer; transition:border-color .3s, transform .2s;
+  position:relative;
+}
+.pilar-card:hover { border-color:var(--ouro); transform:translateY(-2px); }
+.pilar-card.active { border-color:var(--ouro); }
+.pilar-icon {
+  width:36px; height:36px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.8rem; font-weight:800; color:var(--carvao);
+  margin-bottom:14px;
+}
+.pilar-card h3 {
+  font-size:0.88rem; font-weight:700; margin-bottom:4px;
+  text-transform:uppercase; letter-spacing:0.06em;
+}
+.pilar-freq {
+  font-size:0.72rem; font-weight:600; color:var(--ouro);
+  letter-spacing:0.06em; margin-bottom:10px;
+}
+.pilar-desc {
+  font-size:0.78rem; font-weight:300; color:rgba(255,255,255,0.45);
+  line-height:1.7;
+}
+.pilar-detail {
+  display:none; margin-top:16px; padding-top:16px;
+  border-top:1px solid var(--borda);
+}
+.pilar-card.active .pilar-detail { display:block; }
+.pilar-detail table {
+  width:100%; border-collapse:collapse;
+  font-size:0.74rem;
+}
+.pilar-detail th {
+  text-align:left; color:var(--ouro); font-weight:700;
+  padding:6px 8px; border-bottom:1px solid var(--borda);
+  font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase;
+}
+.pilar-detail td {
+  padding:6px 8px; color:rgba(255,255,255,0.6);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  font-weight:400; font-size:0.74rem;
+}
+.pilar-detail td strong { color:var(--branco); font-weight:600; }
+.pilar-detail ul {
+  list-style:none; margin:0; padding:0;
+}
+.pilar-detail li {
+  font-size:0.76rem; color:rgba(255,255,255,0.55);
+  padding:4px 0; padding-left:14px; position:relative;
+}
+.pilar-detail li::before {
+  content:''; position:absolute; left:0; top:11px;
+  width:5px; height:5px; border-radius:50%;
+  background:var(--ouro);
+}
+.pilar-toggle {
+  font-size:0.64rem; font-weight:600; color:var(--ouro);
+  letter-spacing:0.08em; text-transform:uppercase;
+  margin-top:12px; display:inline-block;
+}
+
+/* TABS SEMANAS */
+.weeks-nav {
+  display:flex; justify-content:center; gap:8px;
+  margin-bottom:36px; flex-wrap:wrap;
+  position:sticky; top:0; z-index:90;
+  background:var(--preto); padding:16px 0 12px;
+  border-bottom:1px solid var(--borda);
+}
+.week-tab {
+  font-family:var(--font); font-size:0.68rem; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase;
+  padding:10px 20px; border:1px solid var(--borda);
+  background:transparent; color:rgba(255,255,255,0.4);
+  cursor:pointer; transition:all .25s;
+}
+.week-tab:hover { border-color:rgba(255,184,0,0.4); color:var(--branco); }
+.week-tab.active {
+  background:var(--ouro); color:var(--carvao); border-color:var(--ouro);
+}
+.week-tab .tab-dates {
+  display:block; font-size:0.56rem; font-weight:400;
+  letter-spacing:0.04em; margin-top:2px; opacity:0.7;
+}
+
+.week-panel { display:none; }
+.week-panel.active { display:block; }
+
+/* DAY CARD */
+.day-card {
+  background:var(--preto-2); border:1px solid var(--borda);
+  margin-bottom:20px; overflow:hidden;
+}
+.day-header {
+  display:flex; align-items:center; gap:14px;
+  padding:18px 24px;
+  border-bottom:1px solid var(--borda);
+  flex-wrap:wrap;
+}
+.day-date {
+  font-size:1.1rem; font-weight:800; color:var(--ouro);
+  min-width:52px;
+}
+.day-name {
+  font-size:0.78rem; font-weight:600; color:var(--branco);
+  text-transform:uppercase; letter-spacing:0.06em;
+}
+.day-editoria {
+  font-size:0.64rem; font-weight:600; color:rgba(255,255,255,0.35);
+  letter-spacing:0.08em; text-transform:uppercase;
+  margin-left:auto;
+}
+.day-evento {
+  display:inline-block; background:var(--cor-evento);
+  color:#fff; font-size:0.58rem; font-weight:700;
+  letter-spacing:0.12em; text-transform:uppercase;
+  padding:3px 10px; margin-left:8px;
+}
+
+.day-body { padding:20px 24px; }
+
+/* CONTENT BLOCKS */
+.cb {
+  margin-bottom:18px; padding:16px 18px;
+  border-left:3px solid; background:rgba(255,255,255,0.015);
+}
+.cb:last-child { margin-bottom:0; }
+.cb-live    { border-color:var(--cor-live); }
+.cb-reels   { border-color:var(--cor-reels); }
+.cb-feed    { border-color:var(--cor-feed); }
+.cb-stories { border-color:var(--cor-stories); }
+.cb-yt      { border-color:var(--cor-yt); }
+
+.cb-tag {
+  display:inline-block; font-size:0.58rem; font-weight:700;
+  letter-spacing:0.14em; text-transform:uppercase;
+  padding:2px 8px; margin-bottom:8px; color:#fff;
+}
+.cb-live .cb-tag    { background:var(--cor-live); color:var(--carvao); }
+.cb-reels .cb-tag   { background:var(--cor-reels); }
+.cb-feed .cb-tag    { background:var(--cor-feed); }
+.cb-stories .cb-tag { background:var(--cor-stories); color:var(--carvao); }
+.cb-yt .cb-tag      { background:var(--cor-yt); }
+
+.cb-cat {
+  display:inline-block; font-size:0.58rem; font-weight:600;
+  letter-spacing:0.08em; text-transform:uppercase;
+  color:rgba(255,255,255,0.35); margin-left:6px;
+}
+.cb h4 {
+  font-size:0.88rem; font-weight:700; margin-bottom:6px;
+  line-height:1.4;
+}
+.cb .hook {
+  font-size:0.78rem; font-style:italic; color:rgba(255,255,255,0.5);
+  margin-bottom:8px; line-height:1.6;
+  padding-left:12px; border-left:2px solid rgba(255,255,255,0.1);
+}
+.cb p {
+  font-size:0.78rem; font-weight:300; color:rgba(255,255,255,0.5);
+  line-height:1.7;
+}
+.cb ul {
+  list-style:none; margin:6px 0 0; padding:0;
+}
+.cb li {
+  font-size:0.76rem; color:rgba(255,255,255,0.5);
+  padding:3px 0 3px 14px; position:relative;
+}
+.cb li::before {
+  content:''; position:absolute; left:0; top:10px;
+  width:4px; height:4px; border-radius:50%;
+}
+.cb-live li::before    { background:var(--cor-live); }
+.cb-reels li::before   { background:var(--cor-reels); }
+.cb-feed li::before    { background:var(--cor-feed); }
+.cb-stories li::before { background:var(--cor-stories); }
+.cb-yt li::before      { background:var(--cor-yt); }
+
+.cb .format-badge {
+  display:inline-block; font-size:0.56rem; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase;
+  padding:2px 7px; border:1px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.4); margin-left:6px;
+}
+.stories-flow {
+  display:flex; gap:8px; flex-wrap:wrap; margin-top:4px;
+}
+.story-block {
+  font-size:0.68rem; font-weight:500; color:rgba(255,255,255,0.45);
+  background:rgba(0,201,167,0.08); border:1px solid rgba(0,201,167,0.15);
+  padding:4px 10px;
+}
+.story-block strong {
+  color:var(--cor-stories); font-weight:700; font-size:0.62rem;
+  text-transform:uppercase; letter-spacing:0.06em;
+}
+
+/* EVENTOS */
+.eventos-grid {
+  display:grid; grid-template-columns:repeat(2,1fr); gap:16px;
+}
+.evento-card {
+  background:var(--ardosia); border:1px solid var(--borda);
+  padding:24px 20px;
+}
+.evento-card h4 {
+  font-size:0.9rem; font-weight:700; margin-bottom:6px;
+}
+.evento-formato {
+  font-size:0.62rem; font-weight:700; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--ouro); margin-bottom:8px;
+}
+.evento-card p {
+  font-size:0.78rem; font-weight:300; color:rgba(255,255,255,0.45);
+  line-height:1.7;
+}
+
+/* FOOTER */
+.footer {
+  border-top:1px solid var(--borda); padding:28px 0; text-align:center;
+  margin-top:40px;
+}
+.footer-text {
+  font-size:0.6rem; color:rgba(255,255,255,0.15);
+  letter-spacing:0.1em; text-transform:uppercase;
+}
+
+/* DIVIDER */
+.divider {
+  width:100%; height:1px;
+  background:linear-gradient(90deg, var(--ouro), rgba(255,184,0,0));
+}
+
+/* RESPONSIVE */
+@media (max-width:900px) {
+  .pilares-grid { grid-template-columns:repeat(2,1fr); }
+  .eventos-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:600px) {
+  .container { padding:0 16px; }
+  .hero { padding:48px 0 32px; }
+  .hero h1 { font-size:1.5rem; }
+  .hero-meta { gap:16px; }
+  .pilares-grid { grid-template-columns:1fr; }
+  .day-header { padding:14px 16px; }
+  .day-body { padding:16px; }
+  .cb { padding:12px 14px; }
+  .week-tab { padding:8px 12px; font-size:0.6rem; }
+  .eventos-grid { grid-template-columns:1fr; }
+  .day-editoria { margin-left:0; width:100%; margin-top:4px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero">
+<div class="container">
+  <div class="hero-badge">Planejamento Estrategico</div>
+  <h1>Planejamento de Conteudo<em>Maio &mdash; Junho 2026</em></h1>
+  <p>
+    30 dias de execucao para transformar a presenca digital do Gabaritando.
+    Lives diarias, Reels, feed, Stories e YouTube &mdash; tudo planejado dia a dia
+    para <strong>Alan</strong> e <strong>Nilton</strong> executarem com naturalidade.
+  </p>
+  <div class="hero-meta">
+    <span><strong>08/05</strong> a <strong>08/06</strong></span>
+    <span><strong>32</strong> dias</span>
+    <span><strong>5</strong> semanas</span>
+    <span><strong>30+</strong> lives</span>
+    <span><strong>10</strong> videos YT</span>
+  </div>
+</div>
+</section>
+
+
+<!-- ══════════════════ GUIA DE EXECUCAO ══════════════════ -->
+<section class="section" style="border-bottom:1px solid var(--borda)">
+<div class="container">
+  <div class="section-label">Guia de Execucao</div>
+  <h2 class="section-title">Como funciona <em>cada pilar</em></h2>
+  <p class="section-intro">Clique em cada bloco para ver os detalhes. Esse guia serve como referencia rapida para quem for executar o planejamento.</p>
+
+  <div class="pilares-grid">
+
+    <!-- LIVES -->
+    <div class="pilar-card" onclick="togglePilar(this)">
+      <div class="pilar-icon" style="background:var(--cor-live)">L</div>
+      <h3>Lives</h3>
+      <div class="pilar-freq">Todos os dias &middot; 20h</div>
+      <div class="pilar-desc">Editorias fixas por dia da semana. Duracao livre (10&ndash;30 min).</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+        <table>
+          <tr><th>Dia</th><th>Editoria</th></tr>
+          <tr><td><strong>Segunda</strong></td><td>Direito Penal na Pratica</td></tr>
+          <tr><td><strong>Terca</strong></td><td>Portugues Descomplicado</td></tr>
+          <tr><td><strong>Quarta</strong></td><td>Legislacao da Bahia</td></tr>
+          <tr><td><strong>Quinta</strong></td><td>Raciocinio Logico / Matematica</td></tr>
+          <tr><td><strong>Sexta</strong></td><td>Bate-papo com o Aprovado</td></tr>
+          <tr><td><strong>Sabado</strong></td><td>Simulado Relampago</td></tr>
+          <tr><td><strong>Domingo</strong></td><td>Planejamento da Semana</td></tr>
+        </table>
+        <ul style="margin-top:12px">
+          <li>Horario fixo sugerido: <strong style="color:var(--ouro)">20h</strong> &mdash; pico de audiencia para concurseiros</li>
+          <li>Cada live inclui: tema, introducao (hook de 30s) e 3&ndash;5 topicos</li>
+          <li>Duracao livre &mdash; 10 a 30 minutos, de acordo com o expert</li>
+          <li>Alan e Nilton alternam conforme disponibilidade</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- REELS -->
+    <div class="pilar-card" onclick="togglePilar(this)">
+      <div class="pilar-icon" style="background:var(--cor-reels)">R</div>
+      <h3>Reels</h3>
+      <div class="pilar-freq">1&ndash;2 por dia &middot; Foco principal</div>
+      <div class="pilar-desc">7 categorias rotativas. Professor grava de forma natural e humanizada.</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+        <table>
+          <tr><th>#</th><th>Categoria</th><th>Formato</th></tr>
+          <tr><td>1</td><td><strong>Questao do Dia</strong></td><td>Questao na tela + professor resolve (30&ndash;60s)</td></tr>
+          <tr><td>2</td><td><strong>React</strong></td><td>Reage a noticia, edital ou resultado</td></tr>
+          <tr><td>3</td><td><strong>Mito ou Verdade</strong></td><td>Pergunta polemica + resposta rapida</td></tr>
+          <tr><td>4</td><td><strong>Bastidores</strong></td><td>Rotina de estudo, dia a dia dos mentores</td></tr>
+          <tr><td>5</td><td><strong>Caixinha de Perguntas</strong></td><td>Responde duvidas reais dos seguidores</td></tr>
+          <tr><td>6</td><td><strong>Motivacional / Depoimento</strong></td><td>Historias de aprovacao, frases de impacto</td></tr>
+          <tr><td>7</td><td><strong>Dica Rapida</strong></td><td>Tecnica de estudo, macete, gestao de tempo</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- FEED -->
+    <div class="pilar-card" onclick="togglePilar(this)">
+      <div class="pilar-icon" style="background:var(--cor-feed)">F</div>
+      <h3>Feed</h3>
+      <div class="pilar-freq">1 post por dia &middot; Formato misto</div>
+      <div class="pilar-desc">Reels, carrosseis e cards alternados. Presenca constante no perfil.</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+        <ul>
+          <li><strong>Reels</strong> &mdash; auto-post no feed (ja conta como publicacao do dia)</li>
+          <li><strong>Carrosseis</strong> &mdash; 2&ndash;3 por semana, com conteudo educativo</li>
+          <li><strong>Cards</strong> &mdash; informativos, frases, dados, checklists</li>
+          <li>Para carrosseis e cards: tema, textos prontos e orientacao visual para o designer</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- STORIES -->
+    <div class="pilar-card" onclick="togglePilar(this)">
+      <div class="pilar-icon" style="background:var(--cor-stories)">S</div>
+      <h3>Stories</h3>
+      <div class="pilar-freq">5&ndash;8 blocos por dia</div>
+      <div class="pilar-desc">Presenca constante ao longo do dia. Enquetes, bastidores, chamadas para live.</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+        <table>
+          <tr><th>Bloco</th><th>Horario</th><th>Conteudo</th></tr>
+          <tr><td><strong>Manha</strong></td><td>7h&ndash;8h</td><td>Bom dia + enquete ou caixinha de perguntas</td></tr>
+          <tr><td><strong>Meio-dia</strong></td><td>12h&ndash;13h</td><td>Dica rapida ou compartilhar Reels do dia</td></tr>
+          <tr><td><strong>Tarde</strong></td><td>15h&ndash;16h</td><td>Bastidores, rotina, contagem regressiva para live</td></tr>
+          <tr><td><strong>Pre-live</strong></td><td>19h&ndash;19h30</td><td>Chamada para live + link</td></tr>
+          <tr><td><strong>Pos-live</strong></td><td>Apos a live</td><td>Recap + pergunta de engajamento</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- YOUTUBE -->
+    <div class="pilar-card" onclick="togglePilar(this)">
+      <div class="pilar-icon" style="background:var(--cor-yt)">Y</div>
+      <h3>YouTube</h3>
+      <div class="pilar-freq">2 videos por semana &middot; Canal novo</div>
+      <div class="pilar-desc">Conteudo perene encontrado por busca. Aulas e orientacoes estrategicas.</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+        <table>
+          <tr><th>Video</th><th>Tipo</th><th>Duracao</th></tr>
+          <tr><td><strong>Video 1</strong></td><td>Aula de conteudo denso</td><td>10&ndash;15 min</td></tr>
+          <tr><td><strong>Video 2</strong></td><td>Estrategico / Orientacao</td><td>8&ndash;12 min</td></tr>
+        </table>
+        <ul style="margin-top:12px">
+          <li>Titulos com palavras-chave fortes (SEO): &ldquo;Concurso PMBA 2026&rdquo;, &ldquo;Soldado PMBA&rdquo;, &ldquo;CFO Bahia&rdquo;</li>
+          <li>Miniaturas com rosto do professor + texto grande + contraste</li>
+          <li>Descricao otimizada com links para Instagram e pagina de vendas</li>
+          <li>Dias flexiveis conforme disponibilidade dos experts para gravacao</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EVENTOS -->
+    <div class="pilar-card" onclick="togglePilar(this)">
+      <div class="pilar-icon" style="background:var(--cor-evento)">E</div>
+      <h3>Eventos</h3>
+      <div class="pilar-freq">1 por mes &middot; Presencial ou online</div>
+      <div class="pilar-desc">Auloes, simulados, corridoes e encontros para fortalecer a comunidade.</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+        <ul>
+          <li><strong>23/05</strong> &mdash; Aulao Beneficente (CETEP Barreiras) &mdash; confirmado</li>
+          <li>Simulado ao Vivo &mdash; simular o dia da prova com tempo cronometrado</li>
+          <li>Corridao Gabaritando &mdash; treino coletivo de corrida 12 min (TAF)</li>
+          <li>Workshop TAF &mdash; barra fixa, flexao, corrida com instrutor</li>
+          <li>Simulado de TAF &mdash; provas fisicas nas mesmas condicoes do concurso</li>
+          <li>Aulao Tematico &mdash; 1 materia especifica (ex: Portugues para PMBA)</li>
+          <li>Encontro da Comunidade &mdash; bate-papo com mentores, networking</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════ CALENDARIO ══════════════════ -->
+<section class="section">
+<div class="container">
+  <div class="section-label">Calendario</div>
+  <h2 class="section-title">Planejamento <em>dia a dia</em></h2>
+  <p class="section-intro">Clique na semana para ver o conteudo de cada dia. Tudo pronto para executar.</p>
+
+  <!-- TABS -->
+  <div class="weeks-nav">
+    <button class="week-tab active" onclick="showWeek(1,this)">Semana 1<span class="tab-dates">08&ndash;11 Mai</span></button>
+    <button class="week-tab" onclick="showWeek(2,this)">Semana 2<span class="tab-dates">12&ndash;18 Mai</span></button>
+    <button class="week-tab" onclick="showWeek(3,this)">Semana 3<span class="tab-dates">19&ndash;25 Mai</span></button>
+    <button class="week-tab" onclick="showWeek(4,this)">Semana 4<span class="tab-dates">26 Mai&ndash;01 Jun</span></button>
+    <button class="week-tab" onclick="showWeek(5,this)">Semana 5<span class="tab-dates">02&ndash;08 Jun</span></button>
+  </div>
+
+
+  <!-- ════════ SEMANA 1 ════════ -->
+  <div class="week-panel active" id="week-1">
+
+    <!-- 08/05 QUI -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">08/05</span>
+        <span class="day-name">Quinta-feira</span>
+        <span class="day-editoria">Raciocinio Logico / Matematica</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Regra de Tres: o atalho que economiza 2 minutos por questao</h4>
+          <p class="hook">&ldquo;Se voce demora mais de 1 minuto para resolver regra de tres, esta perdendo tempo precioso na prova. Vou te mostrar um atalho.&rdquo;</p>
+          <ul>
+            <li>Regra de tres simples &mdash; o metodo da seta</li>
+            <li>Regra de tres composta &mdash; quando usar</li>
+            <li>Questao PMBA resolvida ao vivo</li>
+            <li>Armadilha classica das bancas</li>
+            <li>Exercicio relampago com a audiencia</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Questao do Dia</span>
+          <h4>Regra de tres: voce resolve em 30 segundos?</h4>
+          <p>Questao aparece na tela com timer de 30s. Apos o tempo, professor resolve passo a passo. CTA: &ldquo;Acertou? Comenta aqui!&rdquo;</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Card</span>
+          <h4>5 temas de Raciocinio Logico que mais caem na PMBA</h4>
+          <p>Card visual com lista dos 5 temas + percentual de incidencia. Design limpo, marca Gabaritando.</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Raciocinio Logico: ama ou odeia?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Dica de formula rapida</span>
+            <span class="story-block"><strong>15h</strong> Bastidores preparando a live</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + enquete &ldquo;Entendeu?&rdquo;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 09/05 SEX -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">09/05</span>
+        <span class="day-name">Sexta-feira</span>
+        <span class="day-editoria">Bate-papo com o Aprovado</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Minha rotina de estudos antes da aprovacao &mdash; sem filtro</h4>
+          <p class="hook">&ldquo;Muita gente me pergunta como era minha rotina antes de passar. Hoje vou abrir o jogo, sem filtro nenhum.&rdquo;</p>
+          <ul>
+            <li>Como era a rotina real de estudos</li>
+            <li>Quantas horas estudava por dia</li>
+            <li>Materias que mais deram trabalho</li>
+            <li>O que faria diferente hoje</li>
+            <li>Perguntas livres da audiencia</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Motivacional</span>
+          <h4>O dia que quase desisti do concurso</h4>
+          <p>Professor conta um momento dificil da preparacao. Tom pessoal, musica emocional de fundo. CTA: &ldquo;Voce ja pensou em desistir? Comenta.&rdquo;</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Reels</span>
+          <h4>Reels auto-post no feed</h4>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Caixinha: &ldquo;Manda sua duvida sobre rotina de estudos&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Compartilhar Reels do dia</span>
+            <span class="story-block"><strong>15h</strong> Bastidores + responder caixinhas</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + &ldquo;O que voce achou?&rdquo;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10/05 SAB -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">10/05</span>
+        <span class="day-name">Sabado</span>
+        <span class="day-editoria">Simulado Relampago</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Simulado Relampago: 5 questoes de Direito Penal em 15 minutos</h4>
+          <p class="hook">&ldquo;Pega papel e caneta. Vou soltar 5 questoes na tela e voce tem 2 minutos por questao. Bora ver quem acerta todas?&rdquo;</p>
+          <ul>
+            <li>Questao 1 &mdash; Crimes contra a pessoa</li>
+            <li>Questao 2 &mdash; Crimes contra o patrimonio</li>
+            <li>Questao 3 &mdash; Excludentes de ilicitude</li>
+            <li>Questao 4 &mdash; Tentativa e consumacao</li>
+            <li>Questao 5 &mdash; Penas</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Dica Rapida</span>
+          <h4>Como estudar Direito Penal sem decorar: metodo do caso concreto</h4>
+          <p>Professor explica a tecnica de associar cada artigo a um caso real. 45 segundos, direto ao ponto.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Carrossel</span>
+          <h4>Simulado Relampago: 5 questoes de Direito Penal</h4>
+          <p>5 slides com questoes + slide final com gabarito comentado. CTA: &ldquo;Salva pra revisar depois.&rdquo;</p>
+        </div>
+        <div class="cb cb-yt">
+          <span class="cb-tag">YouTube</span><span class="format-badge">10&ndash;12 min</span>
+          <h4>Como resolver questoes de Direito Penal para PMBA &mdash; metodo passo a passo</h4>
+          <p>Aula estrategica mostrando como abordar questoes de Direito Penal nas provas da Bahia. Usar questoes reais de provas anteriores.</p>
+          <ul>
+            <li><strong>Como gravar:</strong> Professor enquadrado com quadro ou slide ao fundo. Questoes reais na tela.</li>
+            <li><strong>Edicao:</strong> Cortes secos, texto na tela com artigos citados, transicoes limpas</li>
+            <li><strong>Miniatura:</strong> Rosto do professor + texto &ldquo;DIREITO PENAL PMBA&rdquo; em destaque</li>
+            <li><strong>Titulo SEO:</strong> &ldquo;Direito Penal para PMBA 2026 &mdash; Como Resolver Questoes (Metodo Passo a Passo)&rdquo;</li>
+          </ul>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Pronto pro simulado de hoje?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Compartilhar resultado do simulado</span>
+            <span class="story-block"><strong>15h</strong> Chamada para video no YouTube</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Enquete: &ldquo;Quantas voce acertou?&rdquo;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11/05 DOM -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">11/05</span>
+        <span class="day-name">Domingo</span>
+        <span class="day-editoria">Planejamento da Semana</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Planejamento da Semana: o que estudar de 12 a 18 de maio</h4>
+          <p class="hook">&ldquo;Segunda-feira comeca e voce nao sabe por onde comecar? Vou montar o plano da semana contigo agora.&rdquo;</p>
+          <ul>
+            <li>Revisao rapida da semana que passou</li>
+            <li>Metas de estudo para 12&ndash;18 de maio</li>
+            <li>Como distribuir as materias na semana</li>
+            <li>Dica de produtividade da semana</li>
+            <li>Perguntas da audiencia</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Mito ou Verdade</span>
+          <h4>Estudar 8 horas por dia garante aprovacao?</h4>
+          <p>&ldquo;MITO&rdquo; aparece na tela. Professor explica que qualidade importa mais que quantidade. 30 segundos.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Card</span>
+          <h4>Checklist da semana: 12 a 18 de maio</h4>
+          <p>Card visual com as materias e metas da semana. Formato checklist para o aluno salvar e acompanhar.</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Qual materia voce mais precisa revisar?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Compartilhar checklist da semana</span>
+            <span class="story-block"><strong>15h</strong> Bastidores do planejamento</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + &ldquo;Bora pra semana!&rdquo;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /week-1 -->
+
+
+  <!-- ════════ SEMANA 2 ════════ -->
+  <div class="week-panel" id="week-2">
+
+    <!-- 12/05 SEG -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">12/05</span>
+        <span class="day-name">Segunda-feira</span>
+        <span class="day-editoria">Direito Penal na Pratica</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Crimes contra a pessoa: o que a banca da Bahia mais cobra</h4>
+          <p class="hook">&ldquo;Homicidio, lesao corporal, ameaca. Voce sabe a diferenca entre eles na prova? A banca adora misturar.&rdquo;</p>
+          <ul>
+            <li>Homicidio simples vs qualificado</li>
+            <li>Lesao corporal e suas gradacoes</li>
+            <li>Ameaca vs constrangimento ilegal</li>
+            <li>Questao resolvida da banca</li>
+            <li>Pegadinha classica que elimina candidato</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">React</span>
+          <h4>Edital PMBA 2026: o que mudou em Direito Penal</h4>
+          <p>Professor com o edital na tela, comentando as principais mudancas e o que o candidato precisa focar.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Reels</span>
+          <h4>Reels auto-post no feed</h4>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Direito Penal: facil ou dificil pra voce?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Dica: artigo mais cobrado do CP</span>
+            <span class="story-block"><strong>15h</strong> Bastidores preparando live</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + pergunta de engajamento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13/05 TER -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">13/05</span>
+        <span class="day-name">Terca-feira</span>
+        <span class="day-editoria">Portugues Descomplicado</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Concordancia verbal: as 5 regras que resolvem 80% das questoes</h4>
+          <p class="hook">&ldquo;Concordancia verbal parece um bicho de sete cabecas, mas com 5 regras voce resolve a maioria das questoes. Vou provar.&rdquo;</p>
+          <ul>
+            <li>Sujeito composto &mdash; regra geral e excecoes</li>
+            <li>Particula SE &mdash; quando o verbo concorda e quando nao</li>
+            <li>Verbo haver e existir &mdash; a diferenca que a banca cobra</li>
+            <li>Sujeito oracional &mdash; verbo sempre no singular</li>
+            <li>Exercicios ao vivo com a audiencia</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Questao do Dia</span>
+          <h4>Qual a concordancia correta? A ou B?</h4>
+          <p>Duas frases na tela, publico escolhe nos comentarios. Professor revela a resposta e explica a regra.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Carrossel</span>
+          <h4>5 regras de concordancia verbal que mais caem em concursos</h4>
+          <p>5 slides, uma regra por slide com exemplo pratico. Slide final: &ldquo;Salva e compartilha com quem precisa.&rdquo;</p>
+        </div>
+        <div class="cb cb-yt">
+          <span class="cb-tag">YouTube</span><span class="format-badge">12&ndash;15 min</span>
+          <h4>Concordancia Verbal para Concursos da Bahia &mdash; Aula Completa</h4>
+          <p>Aula aprofundada com todas as regras + questoes resolvidas de provas anteriores da Bahia.</p>
+          <ul>
+            <li><strong>Como gravar:</strong> Professor com slide ou quadro. Exemplos de provas anteriores.</li>
+            <li><strong>Edicao:</strong> Destaque de regras na tela, cortes dinamicos entre explicacao e exercicios</li>
+            <li><strong>Miniatura:</strong> &ldquo;CONCORDANCIA VERBAL &mdash; PMBA 2026&rdquo; + rosto do professor</li>
+            <li><strong>Titulo SEO:</strong> &ldquo;Concordancia Verbal para PMBA 2026 &mdash; Aula Completa com Questoes&rdquo;</li>
+          </ul>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Caixinha: &ldquo;Manda sua duvida de Portugues&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Compartilhar carrossel do dia</span>
+            <span class="story-block"><strong>15h</strong> Chamada para video no YouTube</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + enquete de engajamento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14/05 QUA -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">14/05</span>
+        <span class="day-name">Quarta-feira</span>
+        <span class="day-editoria">Legislacao da Bahia</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Estatuto da PMBA: os artigos que mais caem na prova de Soldado</h4>
+          <p class="hook">&ldquo;O Estatuto da PMBA tem mais de 100 artigos, mas a banca cobra sempre os mesmos. Vou te mostrar quais sao.&rdquo;</p>
+          <ul>
+            <li>Hierarquia e disciplina militar</li>
+            <li>Direitos e deveres do militar estadual</li>
+            <li>Transgressoes disciplinares</li>
+            <li>Questoes resolvidas da banca</li>
+            <li>Artigos que repetem em todas as provas</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Mito ou Verdade</span>
+          <h4>Precisa decorar todo o Estatuto da PMBA?</h4>
+          <p>&ldquo;MITO&rdquo; &mdash; professor explica que 20% dos artigos representam 80% das questoes. Foco no que importa.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Card</span>
+          <h4>Top 5 artigos do Estatuto da PMBA que mais caem</h4>
+          <p>Card visual com os 5 artigos mais cobrados. Design limpo com numero do artigo + resumo.</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Ja leu o Estatuto da PMBA?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Dica de memorizacao de artigos</span>
+            <span class="story-block"><strong>15h</strong> Bastidores + responder enquete</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + quiz rapido</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15/05 QUI -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">15/05</span>
+        <span class="day-name">Quinta-feira</span>
+        <span class="day-editoria">Raciocinio Logico / Matematica</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Porcentagem na pratica: questoes que a banca adora repetir</h4>
+          <p class="hook">&ldquo;Porcentagem cai em toda prova. Toda. Nos proximos minutos, vou te mostrar os 3 tipos de questao que mais aparecem.&rdquo;</p>
+          <ul>
+            <li>Porcentagem de porcentagem</li>
+            <li>Aumento e desconto sucessivos</li>
+            <li>Questao PMBA resolvida ao vivo</li>
+            <li>Atalho da multiplicacao cruzada</li>
+            <li>Exercicio relampago com a audiencia</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Dica Rapida</span>
+          <h4>Atalho de porcentagem: 15% de 200 em 3 segundos</h4>
+          <p>Professor mostra o metodo mental rapido no quadro. 30 segundos, direto ao ponto.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Reels</span>
+          <h4>Reels auto-post no feed</h4>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Porcentagem: facil ou dificil?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Timer desafio: resolva em 30s</span>
+            <span class="story-block"><strong>15h</strong> Bastidores + dica extra</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + resultado do desafio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16/05 SEX -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">16/05</span>
+        <span class="day-name">Sexta-feira</span>
+        <span class="day-editoria">Bate-papo com o Aprovado</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Como conciliar trabalho e estudos para concurso</h4>
+          <p class="hook">&ldquo;Eu trabalhava 8 horas por dia e estudava a noite. Se eu consegui, voce tambem consegue. Mas tem uma tecnica.&rdquo;</p>
+          <ul>
+            <li>Rotina real de quem trabalha e estuda</li>
+            <li>Tecnica Pomodoro adaptada para concurseiros</li>
+            <li>Como aproveitar intervalos e deslocamento</li>
+            <li>Priorizacao de materias com pouco tempo</li>
+            <li>Perguntas livres da audiencia</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Bastidores</span>
+          <h4>Minha mesa de estudos: o que eu uso no dia a dia</h4>
+          <p>Professor mostra seu espaco de estudo e material que utiliza. Tom natural, sem producao pesada.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Carrossel</span>
+          <h4>5 dicas para quem trabalha e estuda para concurso</h4>
+          <p>5 slides com dicas praticas + slide final com CTA para seguir o perfil.</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Caixinha: &ldquo;Como voce concilia trabalho e estudo?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Compartilhar carrossel</span>
+            <span class="story-block"><strong>15h</strong> Responder caixinhas + bastidores</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + mensagem motivacional</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17/05 SAB -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">17/05</span>
+        <span class="day-name">Sabado</span>
+        <span class="day-editoria">Simulado Relampago</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Simulado Relampago: 5 questoes de Portugues em 15 minutos</h4>
+          <p class="hook">&ldquo;Chegou a hora de testar seu Portugues. 5 questoes, 2 minutos cada. Bora ver quem gabarita?&rdquo;</p>
+          <ul>
+            <li>Questao 1 &mdash; Concordancia verbal</li>
+            <li>Questao 2 &mdash; Regencia</li>
+            <li>Questao 3 &mdash; Crase</li>
+            <li>Questao 4 &mdash; Interpretacao de texto</li>
+            <li>Questao 5 &mdash; Pontuacao</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Caixinha de Perguntas</span>
+          <h4>Respondendo as maiores duvidas sobre o concurso PMBA</h4>
+          <p>Respostas rapidas a 3&ndash;4 perguntas reais dos seguidores. Formato dinamico e direto.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Carrossel</span>
+          <h4>Simulado: 5 questoes de Portugues</h4>
+          <p>5 slides com as questoes + slide de gabarito comentado.</p>
+        </div>
+        <div class="cb cb-yt">
+          <span class="cb-tag">YouTube</span><span class="format-badge">10&ndash;12 min</span>
+          <h4>Portugues para PMBA 2026: o que mais cai e como estudar</h4>
+          <p>Panorama das materias de Portugues cobradas + estrategia de estudo eficiente.</p>
+          <ul>
+            <li><strong>Como gravar:</strong> Professor com exemplos de questoes na tela ou quadro branco</li>
+            <li><strong>Edicao:</strong> Cortes, destaques de regras, legendas nos trechos-chave</li>
+            <li><strong>Miniatura:</strong> &ldquo;PORTUGUES PMBA 2026 &mdash; O que mais cai?&rdquo; + rosto</li>
+            <li><strong>Titulo SEO:</strong> &ldquo;Portugues para Concurso PMBA 2026 &mdash; Materias que Mais Caem&rdquo;</li>
+          </ul>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Portugues: qual tema voce mais erra?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Resultado do simulado</span>
+            <span class="story-block"><strong>15h</strong> Chamada YouTube + bastidores</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Enquete: &ldquo;Quantas acertou?&rdquo;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 18/05 DOM -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">18/05</span>
+        <span class="day-name">Domingo</span>
+        <span class="day-editoria">Planejamento da Semana</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Planejamento da Semana: 19 a 25 de maio + Aulao Barreiras</h4>
+          <p class="hook">&ldquo;Semana especial! Alem do plano de estudos, temos o Aulao Beneficente em Barreiras na sexta. Bora organizar tudo.&rdquo;</p>
+          <ul>
+            <li>Revisao da semana que passou</li>
+            <li>Metas de 19 a 25 de maio</li>
+            <li>Preparacao para o Aulao de Barreiras</li>
+            <li>Como aproveitar ao maximo o evento</li>
+            <li>Perguntas da audiencia</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Motivacional</span>
+          <h4>1 ano atras eu estava no seu lugar. Hoje visto a farda.</h4>
+          <p>Professor em frente ao espelho ou foto antiga vs atual. Narracao emotiva sobre a jornada de aprovacao.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Card</span>
+          <h4>Checklist da semana: 19 a 25 de maio</h4>
+          <p>Card com metas da semana + destaque para o Aulao Beneficente de Barreiras (23/05).</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Vai no Aulao de Barreiras?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Compartilhar checklist da semana</span>
+            <span class="story-block"><strong>15h</strong> Contagem regressiva para o evento</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + &ldquo;Bora pra semana!&rdquo;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /week-2 -->
+
+
+  <!-- ════════ SEMANA 3 ════════ -->
+  <div class="week-panel" id="week-3">
+
+    <!-- 19/05 SEG -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">19/05</span>
+        <span class="day-name">Segunda-feira</span>
+        <span class="day-editoria">Direito Penal na Pratica</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Crimes contra o patrimonio: furto, roubo e a diferenca que reprova</h4>
+          <p class="hook">&ldquo;Furto e roubo parecem a mesma coisa, mas na prova, confundir os dois e questao perdida. Vou te explicar de vez.&rdquo;</p>
+          <ul>
+            <li>Furto simples e qualificado</li>
+            <li>Roubo vs extorsao</li>
+            <li>Apropriacao indebita vs estelionato</li>
+            <li>Questao da banca resolvida</li>
+            <li>Dica para nao confundir nunca mais</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">React</span>
+          <h4>Caso real de crime contra o patrimonio: como a banca cobraria?</h4>
+          <p>Professor reage a noticia real e explica como o caso viraria questao de prova.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Reels</span>
+          <h4>Reels auto-post no feed</h4>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Furto ou roubo: qual a diferenca?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Dica rapida sobre o tema</span>
+            <span class="story-block"><strong>15h</strong> Contagem regressiva Aulao Barreiras</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + quiz</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 20/05 TER -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">20/05</span>
+        <span class="day-name">Terca-feira</span>
+        <span class="day-editoria">Portugues Descomplicado</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Crase de uma vez por todas: quando usar e quando nao usar</h4>
+          <p class="hook">&ldquo;Crase e o assunto que mais gera duvida em Portugues. Mas com 3 testes simples voce nunca mais erra.&rdquo;</p>
+          <ul>
+            <li>Teste da substituicao (troca por &ldquo;ao&rdquo;)</li>
+            <li>Antes de masculino &mdash; quando nao usar</li>
+            <li>Crase facultativa &mdash; quando e liberada</li>
+            <li>Casos proibidos (antes de verbo, pronome, etc.)</li>
+            <li>Exercicios ao vivo</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Questao do Dia</span>
+          <h4>Crase: com ou sem acento? Vote!</h4>
+          <p>Frase na tela, publico vota nos comentarios. Professor revela e explica a regra.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Carrossel</span>
+          <h4>Crase: 4 testes para nunca mais errar</h4>
+          <p>4 slides com um teste por slide + exemplos praticos.</p>
+        </div>
+        <div class="cb cb-yt">
+          <span class="cb-tag">YouTube</span><span class="format-badge">12&ndash;15 min</span>
+          <h4>Crase para Concursos &mdash; Aula Completa com Questoes da Bahia</h4>
+          <p>Aula definitiva sobre crase com questoes reais de provas baianas.</p>
+          <ul>
+            <li><strong>Como gravar:</strong> Professor com quadro, escrevendo os exemplos</li>
+            <li><strong>Edicao:</strong> Destaque dos testes na tela, cortes dinamicos, legendas</li>
+            <li><strong>Miniatura:</strong> &ldquo;CRASE &mdash; NUNCA MAIS ERRE&rdquo; + rosto do professor</li>
+            <li><strong>Titulo SEO:</strong> &ldquo;Crase para Concursos 2026 &mdash; Aula Completa (PMBA, PCBA)&rdquo;</li>
+          </ul>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Caixinha: &ldquo;Manda uma frase e eu digo se tem crase&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Compartilhar carrossel</span>
+            <span class="story-block"><strong>15h</strong> Chamada YouTube + contagem regressiva Aulao</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 21/05 QUA -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">21/05</span>
+        <span class="day-name">Quarta-feira</span>
+        <span class="day-editoria">Legislacao da Bahia</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Constituicao da Bahia: seguranca publica e organizacao da PMBA</h4>
+          <p class="hook">&ldquo;A Constituicao do Estado da Bahia tem um capitulo inteiro sobre seguranca publica. A banca ama esse capitulo.&rdquo;</p>
+          <ul>
+            <li>Art. 147 a 153 &mdash; seguranca publica</li>
+            <li>Competencias da Policia Militar</li>
+            <li>Organizacao da seguranca publica baiana</li>
+            <li>Questoes recorrentes da banca</li>
+            <li>Comparacao com a CF/88</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Mito ou Verdade</span>
+          <h4>So cai Constituicao Federal na prova de Soldado?</h4>
+          <p>&ldquo;MITO&rdquo; &mdash; a Constituicao da Bahia tambem e cobrada e muitos candidatos ignoram.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Card</span>
+          <h4>Constituicao da Bahia: artigos essenciais para PMBA</h4>
+          <p>Card com os artigos mais cobrados + numero e resumo de cada um.</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Ja estudou a Constituicao da Bahia?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Dica de leitura dirigida</span>
+            <span class="story-block"><strong>15h</strong> Contagem regressiva: Aulao em 2 dias!</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + quiz</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 22/05 QUI -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">22/05</span>
+        <span class="day-name">Quinta-feira</span>
+        <span class="day-editoria">Raciocinio Logico / Matematica</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Razao e proporcao: questoes que parecem dificeis mas sao simples</h4>
+          <p class="hook">&ldquo;Razao e proporcao assusta muita gente, mas e uma das materias mais previsiveis da prova. Vou provar.&rdquo;</p>
+          <ul>
+            <li>Razao entre grandezas &mdash; conceito basico</li>
+            <li>Proporcao direta e inversa</li>
+            <li>Divisao proporcional</li>
+            <li>Questao PMBA resolvida ao vivo</li>
+            <li>Exercicio relampago</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Dica Rapida</span>
+          <h4>Divisao proporcional em 45 segundos</h4>
+          <p>Professor resolve questao no quadro em tempo recorde. CTA: &ldquo;Consegue fazer mais rapido?&rdquo;</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Reels</span>
+          <h4>Reels auto-post no feed</h4>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Razao e proporcao: domina ou nao?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Timer desafio de matematica</span>
+            <span class="story-block"><strong>15h</strong> Contagem regressiva: Aulao AMANHA!</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + lembrete do Aulao</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 23/05 SEX — AULAO -->
+    <div class="day-card" style="border-color:var(--cor-evento)">
+      <div class="day-header" style="background:rgba(255,64,129,0.06)">
+        <span class="day-date">23/05</span>
+        <span class="day-name">Sexta-feira</span>
+        <span class="day-evento">Aulao Beneficente Barreiras</span>
+        <span class="day-editoria">Bate-papo com o Aprovado</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Direto de Barreiras: bastidores do Aulao Beneficente</h4>
+          <p class="hook">&ldquo;Estamos ao vivo direto do CETEP em Barreiras! O aulao esta incrivel e eu quero mostrar pra voces.&rdquo;</p>
+          <ul>
+            <li>Mostrar o ambiente e a energia do evento</li>
+            <li>Apresentar os participantes</li>
+            <li>Resumo do que foi ensinado no aulao</li>
+            <li>Mensagem motivacional para quem esta em casa</li>
+            <li>Chamada para proximos eventos</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Bastidores</span>
+          <h4>Chegamos em Barreiras! Aulao Beneficente Gabaritando</h4>
+          <p>Vlog rapido: chegada, montagem do espaco, primeiros alunos. Tom de empolgacao.</p>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels 2</span><span class="cb-cat">React</span>
+          <h4>A energia desse aulao esta absurda!</h4>
+          <p>Cortes do evento, reacoes dos alunos, momentos marcantes. Gravar durante ou logo apos o evento.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Carrossel</span>
+          <h4>Aulao Beneficente Barreiras: os melhores momentos</h4>
+          <p>Fotos do evento &mdash; publico, mentores, momentos marcantes. Postar no mesmo dia ou no dia seguinte.</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>Manha</strong> Preparacao, viagem, chegada ao CETEP</span>
+            <span class="story-block"><strong>Durante</strong> Stories ao vivo do aulao (multiplos)</span>
+            <span class="story-block"><strong>Intervalo</strong> Depoimentos rapidos de participantes</span>
+            <span class="story-block"><strong>Apos</strong> Agradecimento + fotos + bastidores</span>
+            <span class="story-block"><strong>Noite</strong> Recap emocional do dia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 24/05 SAB -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">24/05</span>
+        <span class="day-name">Sabado</span>
+        <span class="day-editoria">Simulado Relampago</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Simulado Relampago: 5 questoes de Legislacao da Bahia</h4>
+          <p class="hook">&ldquo;Dia de testar sua Legislacao! 5 questoes sobre Estatuto da PMBA e Constituicao da Bahia.&rdquo;</p>
+          <ul>
+            <li>Questao 1 &mdash; Estatuto da PMBA</li>
+            <li>Questao 2 &mdash; Constituicao da Bahia</li>
+            <li>Questao 3 &mdash; Hierarquia militar</li>
+            <li>Questao 4 &mdash; Direitos do militar estadual</li>
+            <li>Questao 5 &mdash; Seguranca publica</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Motivacional</span>
+          <h4>Ontem foi dia de Aulao. Hoje e dia de continuar estudando.</h4>
+          <p>Recap emocional do aulao de Barreiras + motivacao para nao parar.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Card</span>
+          <h4>Resultado do Aulao Barreiras: participantes e alimentos arrecadados</h4>
+          <p>Card com os numeros do evento: quantidade de participantes, kg de alimentos, impacto social.</p>
+        </div>
+        <div class="cb cb-yt">
+          <span class="cb-tag">YouTube</span><span class="format-badge">8&ndash;10 min</span>
+          <h4>Resumo do Aulao Beneficente Gabaritando em Barreiras</h4>
+          <p>Vlog/documentario curto do evento com depoimentos de alunos e melhores momentos.</p>
+          <ul>
+            <li><strong>Como gravar:</strong> Material captado no evento + narracao em estudio</li>
+            <li><strong>Edicao:</strong> Estilo vlog, musica de fundo, depoimentos intercalados</li>
+            <li><strong>Miniatura:</strong> Foto do evento com texto &ldquo;AULAO BARREIRAS&rdquo;</li>
+            <li><strong>Titulo SEO:</strong> &ldquo;Aulao Beneficente Gabaritando em Barreiras &mdash; Concurso PMBA 2026&rdquo;</li>
+          </ul>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Fotos do aulao + agradecimento</span>
+            <span class="story-block"><strong>12h</strong> Enquete: &ldquo;Quer mais eventos assim?&rdquo;</span>
+            <span class="story-block"><strong>15h</strong> Chamada YouTube</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Enquete: &ldquo;Quantas acertou?&rdquo;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 25/05 DOM -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">25/05</span>
+        <span class="day-name">Domingo</span>
+        <span class="day-editoria">Planejamento da Semana</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Planejamento da Semana: 26 de maio a 1 de junho</h4>
+          <p class="hook">&ldquo;Semana nova, foco renovado. O aulao passou e agora e hora de voltar pro ritmo de estudos.&rdquo;</p>
+          <ul>
+            <li>Revisao da semana (destaque do Aulao)</li>
+            <li>Metas de 26/05 a 01/06</li>
+            <li>Ajuste de cronograma pos-evento</li>
+            <li>Materias prioritarias da semana</li>
+            <li>Perguntas da audiencia</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Caixinha de Perguntas</span>
+          <h4>Respondendo duvidas sobre CFO PMBA e BMBA</h4>
+          <p>3&ndash;4 respostas rapidas sobre o processo de Oficial: requisitos, provas, remuneracao.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Card</span>
+          <h4>Checklist da semana: 26/05 a 01/06</h4>
+          <p>Card com materias e metas da semana. Formato checklist para salvar.</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Como foi sua semana de estudos?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Compartilhar checklist</span>
+            <span class="story-block"><strong>15h</strong> Bastidores do planejamento</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + &ldquo;Bora pra semana!&rdquo;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /week-3 -->
+
+
+  <!-- ════════ SEMANA 4 ════════ -->
+  <div class="week-panel" id="week-4">
+
+    <!-- 26/05 SEG -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">26/05</span>
+        <span class="day-name">Segunda-feira</span>
+        <span class="day-editoria">Direito Penal na Pratica</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Excludentes de ilicitude: legitima defesa, estado de necessidade e mais</h4>
+          <p class="hook">&ldquo;Se um policial age em legitima defesa, ele comete crime? A resposta nao e tao simples quanto parece.&rdquo;</p>
+          <ul>
+            <li>Art. 23 do Codigo Penal</li>
+            <li>Legitima defesa &mdash; requisitos obrigatorios</li>
+            <li>Estado de necessidade</li>
+            <li>Estrito cumprimento do dever legal</li>
+            <li>Questao resolvida da banca</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">React</span>
+          <h4>Caso policial: legitima defesa ou excesso?</h4>
+          <p>Professor analisa caso da midia sob otica juridica. Tom informativo e didatico.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Reels</span>
+          <h4>Reels auto-post no feed</h4>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Legitima defesa: voce sabe os requisitos?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Dica sobre excludentes</span>
+            <span class="story-block"><strong>15h</strong> Bastidores preparando live</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + quiz</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 27/05 TER -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">27/05</span>
+        <span class="day-name">Terca-feira</span>
+        <span class="day-editoria">Portugues Descomplicado</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Interpretacao de texto: como a banca engana o candidato</h4>
+          <p class="hook">&ldquo;A maioria perde ponto em interpretacao nao por falta de leitura, mas por cair nas armadilhas da banca.&rdquo;</p>
+          <ul>
+            <li>Diferenca entre texto e inferencia</li>
+            <li>Palavras-chave que mudam o sentido</li>
+            <li>Alternativas com pegadinha</li>
+            <li>Tecnica de eliminacao</li>
+            <li>Exercicio ao vivo</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Questao do Dia</span>
+          <h4>Interpretacao de texto: a resposta certa NAO e a mais bonita</h4>
+          <p>Questao na tela, 2 alternativas parecem certas. Professor explica a diferenca sutil.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Carrossel</span>
+          <h4>4 armadilhas de interpretacao que a banca usa</h4>
+          <p>4 slides com uma armadilha por slide + como identificar cada uma.</p>
+        </div>
+        <div class="cb cb-yt">
+          <span class="cb-tag">YouTube</span><span class="format-badge">12&ndash;15 min</span>
+          <h4>Interpretacao de Texto para Concursos &mdash; Tecnica dos 3 Passos</h4>
+          <p>Metodo pratico para acertar questoes de interpretacao: ler, grifar, eliminar.</p>
+          <ul>
+            <li><strong>Como gravar:</strong> Professor com texto na tela, resolvendo passo a passo</li>
+            <li><strong>Edicao:</strong> Destaques no texto, setas indicativas, cortes entre explicacao e pratica</li>
+            <li><strong>Miniatura:</strong> &ldquo;INTERPRETACAO &mdash; 3 PASSOS&rdquo; + rosto do professor</li>
+            <li><strong>Titulo SEO:</strong> &ldquo;Interpretacao de Texto para Concursos &mdash; Tecnica dos 3 Passos (PMBA 2026)&rdquo;</li>
+          </ul>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Caixinha: &ldquo;Manda um trecho e eu interpreto&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Compartilhar carrossel</span>
+            <span class="story-block"><strong>15h</strong> Chamada YouTube</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 28/05 QUA -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">28/05</span>
+        <span class="day-name">Quarta-feira</span>
+        <span class="day-editoria">Legislacao da Bahia</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Lei Organica da PMBA: estrutura e organizacao que cai na prova</h4>
+          <p class="hook">&ldquo;A Lei Organica define como a PMBA funciona. Se voce quer vestir a farda, precisa conhecer essa lei.&rdquo;</p>
+          <ul>
+            <li>Estrutura organizacional da PMBA</li>
+            <li>Quadros da Policia Militar</li>
+            <li>Deveres dos militares estaduais</li>
+            <li>Regime disciplinar</li>
+            <li>Questoes recorrentes</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Mito ou Verdade</span>
+          <h4>Soldado pode ser preso por transgressao disciplinar?</h4>
+          <p>Professor explica a diferenca entre prisao penal e sancao administrativa militar.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Card</span>
+          <h4>Lei Organica da PMBA: resumo visual</h4>
+          <p>Card com estrutura organizacional simplificada e os pontos-chave para a prova.</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Ja leu a Lei Organica da PMBA?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Dica de estudo dirigido</span>
+            <span class="story-block"><strong>15h</strong> Bastidores</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + quiz</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 29/05 QUI -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">29/05</span>
+        <span class="day-name">Quinta-feira</span>
+        <span class="day-editoria">Raciocinio Logico / Matematica</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Logica proposicional: conectivos e tabela verdade sem complicacao</h4>
+          <p class="hook">&ldquo;Tabela verdade parece coisa de outro mundo? Em 15 minutos vou descomplicar isso pra voce.&rdquo;</p>
+          <ul>
+            <li>Proposicoes simples e compostas</li>
+            <li>Conectivos: E, OU, SE-ENTAO, SE-E-SOMENTE-SE</li>
+            <li>Tabela verdade na pratica</li>
+            <li>Negacao de proposicoes &mdash; regra MAN-TEM NE-GA</li>
+            <li>Questao resolvida</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Dica Rapida</span>
+          <h4>Negacao do SE-ENTAO: a regra que mais cai</h4>
+          <p>Professor explica MAN-TEM a primeira e NE-GA a segunda em 30 segundos no quadro.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Reels</span>
+          <h4>Reels auto-post no feed</h4>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Logica proposicional: entende ou nao?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Desafio rapido de logica</span>
+            <span class="story-block"><strong>15h</strong> Bastidores + dica extra</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 30/05 SEX -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">30/05</span>
+        <span class="day-name">Sexta-feira</span>
+        <span class="day-editoria">Bate-papo com o Aprovado</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>TAF: como me preparei para a prova fisica do concurso</h4>
+          <p class="hook">&ldquo;A prova fisica elimina mais do que a teorica em muitos concursos. Vou contar como me preparei.&rdquo;</p>
+          <ul>
+            <li>Rotina de treino antes do TAF</li>
+            <li>Barra fixa &mdash; dicas praticas para evoluir</li>
+            <li>Corrida de 12 minutos &mdash; como melhorar o tempo</li>
+            <li>Flexao de braco &mdash; tecnica correta</li>
+            <li>Erros que eliminam candidatos</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Motivacional</span>
+          <h4>O TAF nao e impossivel. E treinavel.</h4>
+          <p>Professor mostrando treino ou falando sobre superacao na parte fisica. Tom motivacional.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Carrossel</span>
+          <h4>TAF PMBA 2026: o que e cobrado e como treinar</h4>
+          <p>Slides com cada prova fisica, indices minimos e dicas de treino.</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Caixinha: &ldquo;Sua maior duvida sobre TAF&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Compartilhar carrossel</span>
+            <span class="story-block"><strong>15h</strong> Responder caixinhas + bastidores</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + mensagem motivacional</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 31/05 SAB -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">31/05</span>
+        <span class="day-name">Sabado</span>
+        <span class="day-editoria">Simulado Relampago</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Simulado Relampago: 5 questoes de Raciocinio Logico</h4>
+          <p class="hook">&ldquo;Hora de testar seu raciocinio! 5 questoes, cronometro ligado. Quem gabarita?&rdquo;</p>
+          <ul>
+            <li>Questao 1 &mdash; Proporcao</li>
+            <li>Questao 2 &mdash; Porcentagem</li>
+            <li>Questao 3 &mdash; Logica proposicional</li>
+            <li>Questao 4 &mdash; Sequencia numerica</li>
+            <li>Questao 5 &mdash; Probabilidade</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Caixinha de Perguntas</span>
+          <h4>Respondendo duvidas sobre Investigador PCBA</h4>
+          <p>Perguntas sobre banca AOCP, conteudo programatico e diferencas para a PMBA.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Carrossel</span>
+          <h4>Simulado: 5 questoes de Raciocinio Logico</h4>
+          <p>5 slides com questoes + slide de gabarito comentado.</p>
+        </div>
+        <div class="cb cb-yt">
+          <span class="cb-tag">YouTube</span><span class="format-badge">10&ndash;12 min</span>
+          <h4>TAF para Concursos Policiais da Bahia &mdash; Guia Completo</h4>
+          <p>O que e cobrado no TAF de cada concurso (PMBA, BMBA, PCBA) e como treinar.</p>
+          <ul>
+            <li><strong>Como gravar:</strong> Misto de estudio (explicando) + externo (demonstrando exercicios)</li>
+            <li><strong>Edicao:</strong> Cortes entre estudio e pratica, tabelas com indices na tela</li>
+            <li><strong>Miniatura:</strong> &ldquo;TAF PMBA 2026 &mdash; GUIA COMPLETO&rdquo; + foto de acao</li>
+            <li><strong>Titulo SEO:</strong> &ldquo;TAF Concurso PMBA 2026 &mdash; Guia Completo de Preparacao Fisica&rdquo;</li>
+          </ul>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Ja comecou a treinar pro TAF?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Resultado do simulado</span>
+            <span class="story-block"><strong>15h</strong> Chamada YouTube</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Enquete: &ldquo;Quantas acertou?&rdquo;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 01/06 DOM -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">01/06</span>
+        <span class="day-name">Domingo</span>
+        <span class="day-editoria">Planejamento da Semana</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Planejamento da Semana: 2 a 8 de junho &mdash; ultima semana do ciclo</h4>
+          <p class="hook">&ldquo;Ultima semana do nosso primeiro ciclo de 30 dias. Bora fechar com tudo?&rdquo;</p>
+          <ul>
+            <li>Revisao do mes de maio</li>
+            <li>O que funcionou melhor ate agora</li>
+            <li>Ajustes para a semana final</li>
+            <li>Metas de encerramento do ciclo</li>
+            <li>Perguntas da audiencia</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Mito ou Verdade</span>
+          <h4>Precisa de curso superior para ser Soldado PMBA?</h4>
+          <p>&ldquo;MITO&rdquo; &mdash; Professor explica os requisitos reais para o cargo de Soldado.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Card</span>
+          <h4>Checklist da semana: 02 a 08/06 &mdash; reta final do ciclo</h4>
+          <p>Card com materias e metas da ultima semana. Destaque: encerramento do ciclo de 30 dias.</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Nota de 0 a 10 pro seu mes de estudos&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Compartilhar checklist</span>
+            <span class="story-block"><strong>15h</strong> Bastidores do planejamento</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + &ldquo;Ultima semana!&rdquo;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /week-4 -->
+
+
+  <!-- ════════ SEMANA 5 ════════ -->
+  <div class="week-panel" id="week-5">
+
+    <!-- 02/06 SEG -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">02/06</span>
+        <span class="day-name">Segunda-feira</span>
+        <span class="day-editoria">Direito Penal na Pratica</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Crimes contra a administracao publica: corrupcao, peculato e prevaricacao</h4>
+          <p class="hook">&ldquo;Se voce vai ser servidor publico, precisa conhecer os crimes que servidores podem cometer. A banca adora esse tema.&rdquo;</p>
+          <ul>
+            <li>Peculato e suas formas</li>
+            <li>Corrupcao passiva vs ativa</li>
+            <li>Prevaricacao &mdash; o que configura</li>
+            <li>Concussao vs extorsao</li>
+            <li>Questao da banca resolvida</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">React</span>
+          <h4>Noticia de corrupcao: como isso vira questao de prova</h4>
+          <p>Professor analisa manchete real sob otica penal. Tom informativo.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Reels</span>
+          <h4>Reels auto-post no feed</h4>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Crimes contra a administracao: ja estudou?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Dica sobre peculato</span>
+            <span class="story-block"><strong>15h</strong> Bastidores</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + quiz</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03/06 TER -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">03/06</span>
+        <span class="day-name">Terca-feira</span>
+        <span class="day-editoria">Portugues Descomplicado</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Regencia verbal: 10 verbos que a banca mais cobra</h4>
+          <p class="hook">&ldquo;Assistir o jogo ou assistir ao jogo? Se voce tem duvida, essa live e obrigatoria.&rdquo;</p>
+          <ul>
+            <li>Assistir, Visar, Obedecer</li>
+            <li>Preferir, Informar, Chegar</li>
+            <li>Ir, Aspirar, Implicar, Namorar</li>
+            <li>Macetes para memorizar cada um</li>
+            <li>Exercicios ao vivo</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Questao do Dia</span>
+          <h4>Regencia: qual frase esta correta?</h4>
+          <p>Duas frases na tela, publico escolhe. Professor revela e explica a regra.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Carrossel</span>
+          <h4>10 verbos com regencia que mais caem em concursos</h4>
+          <p>Slides com verbo + regencia correta + frase de exemplo.</p>
+        </div>
+        <div class="cb cb-yt">
+          <span class="cb-tag">YouTube</span><span class="format-badge">12&ndash;15 min</span>
+          <h4>Regencia Verbal e Nominal &mdash; Aula Completa para PMBA 2026</h4>
+          <p>Todos os verbos e nomes que caem, com macetes para memorizar.</p>
+          <ul>
+            <li><strong>Como gravar:</strong> Professor com lista na tela ou quadro branco</li>
+            <li><strong>Edicao:</strong> Lista de verbos aparecendo na tela, cortes dinamicos</li>
+            <li><strong>Miniatura:</strong> &ldquo;REGENCIA &mdash; PMBA 2026&rdquo; + rosto do professor</li>
+            <li><strong>Titulo SEO:</strong> &ldquo;Regencia Verbal para Concurso PMBA 2026 &mdash; Aula Completa&rdquo;</li>
+          </ul>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Caixinha: &ldquo;Manda um verbo e eu digo a regencia&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Compartilhar carrossel</span>
+            <span class="story-block"><strong>15h</strong> Chamada YouTube</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04/06 QUA -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">04/06</span>
+        <span class="day-name">Quarta-feira</span>
+        <span class="day-editoria">Legislacao da Bahia</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>PCBA: legislacao especifica para Investigador &mdash; banca AOCP</h4>
+          <p class="hook">&ldquo;Para quem vai prestar Investigador da Policia Civil, a legislacao e diferente. Vou mapear o que a AOCP cobra.&rdquo;</p>
+          <ul>
+            <li>Lei Organica da Policia Civil da Bahia</li>
+            <li>Atribuicoes do Investigador</li>
+            <li>Perfil da banca AOCP &mdash; como ela cobra</li>
+            <li>O que esperar do edital</li>
+            <li>Questoes comentadas</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Mito ou Verdade</span>
+          <h4>Investigador PCBA ganha menos que Soldado PMBA?</h4>
+          <p>Professor compara remuneracoes e perspectivas de carreira de forma direta.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Card</span>
+          <h4>Investigador PCBA 2026: o que voce precisa saber</h4>
+          <p>Card com requisitos, salario, banca e principais materias do concurso.</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Vai prestar Investigador PCBA?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Dica de estudo para banca AOCP</span>
+            <span class="story-block"><strong>15h</strong> Bastidores</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap + quiz</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05/06 QUI -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">05/06</span>
+        <span class="day-name">Quinta-feira</span>
+        <span class="day-editoria">Raciocinio Logico / Matematica</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Probabilidade e analise combinatoria: o basico que resolve a prova</h4>
+          <p class="hook">&ldquo;Probabilidade parece impossivel, mas na prova de Soldado e Oficial, as questoes sao mais simples do que voce imagina.&rdquo;</p>
+          <ul>
+            <li>Principio fundamental da contagem</li>
+            <li>Arranjo e combinacao &mdash; quando usar cada um</li>
+            <li>Probabilidade simples (favoraveis / possiveis)</li>
+            <li>Probabilidade condicional &mdash; o basico</li>
+            <li>Questao resolvida</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Dica Rapida</span>
+          <h4>Probabilidade: a formula que resolve 70% das questoes</h4>
+          <p>P = favoraveis / possiveis. Professor mostra com exemplo pratico em 30 segundos.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Reels</span>
+          <h4>Reels auto-post no feed</h4>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Probabilidade: medo ou tranquilo?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Desafio de probabilidade</span>
+            <span class="story-block"><strong>15h</strong> Bastidores</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Recap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06/06 SEX -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">06/06</span>
+        <span class="day-name">Sexta-feira</span>
+        <span class="day-editoria">Bate-papo com o Aprovado</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Saude mental no concurso: como nao surtar durante a preparacao</h4>
+          <p class="hook">&ldquo;Ninguem fala sobre isso, mas a saude mental e a primeira coisa que sofre durante a preparacao. Hoje vamos conversar.&rdquo;</p>
+          <ul>
+            <li>Sinais de esgotamento mental</li>
+            <li>Quando e hora de pausar os estudos</li>
+            <li>Tecnicas de controle da ansiedade</li>
+            <li>Como lidar com pressao familiar</li>
+            <li>Mensagem final de acolhimento</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Motivacional</span>
+          <h4>Cada dia de estudo e um passo mais perto da farda</h4>
+          <p>Montagem inspiracional: fotos e videos de alunos estudando, aprovacao, posse. Musica emocional.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Carrossel</span>
+          <h4>Saude mental no concurso: 5 sinais de que voce precisa pausar</h4>
+          <p>5 slides com sinais de alerta + slide final com dica de recuperacao.</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Caixinha: &ldquo;Como voce esta se sentindo na preparacao?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Compartilhar carrossel</span>
+            <span class="story-block"><strong>15h</strong> Responder caixinhas + acolhimento</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Mensagem de apoio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07/06 SAB -->
+    <div class="day-card">
+      <div class="day-header">
+        <span class="day-date">07/06</span>
+        <span class="day-name">Sabado</span>
+        <span class="day-editoria">Simulado Relampago</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Simuladao Final: 10 questoes mistas &mdash; todas as materias</h4>
+          <p class="hook">&ldquo;Ultima semana do ciclo merece um simuladao especial. 10 questoes de todas as materias. Quem gabarita?&rdquo;</p>
+          <ul>
+            <li>2 questoes de Direito Penal</li>
+            <li>2 questoes de Portugues</li>
+            <li>2 questoes de Legislacao da Bahia</li>
+            <li>2 questoes de Raciocinio Logico</li>
+            <li>2 questoes de Direito Constitucional / Atualidades</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Caixinha de Perguntas</span>
+          <h4>Ultimas duvidas do ciclo de 30 dias</h4>
+          <p>Respostas a perguntas variadas dos seguidores sobre concursos, estudos e carreira policial.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Carrossel</span>
+          <h4>Simuladao Final: 10 questoes mistas</h4>
+          <p>10 slides com questoes de todas as materias + gabarito comentado. O grande teste do ciclo.</p>
+        </div>
+        <div class="cb cb-yt">
+          <span class="cb-tag">YouTube</span><span class="format-badge">12&ndash;15 min</span>
+          <h4>1 Mes de Preparacao para PMBA: o que aprendemos &mdash; Resumo Completo</h4>
+          <p>Retrospectiva do ciclo de 30 dias. Principais licoes, melhores momentos, evolucao da comunidade.</p>
+          <ul>
+            <li><strong>Como gravar:</strong> Estudio, tom de conversa. Intercalar com trechos das lives anteriores.</li>
+            <li><strong>Edicao:</strong> Compilacao com melhores momentos, dados na tela, musica de fundo</li>
+            <li><strong>Miniatura:</strong> &ldquo;30 DIAS &mdash; RESUMO PMBA&rdquo; + fotos do mes</li>
+            <li><strong>Titulo SEO:</strong> &ldquo;30 Dias de Preparacao para PMBA 2026 &mdash; Tudo que Voce Precisa Saber&rdquo;</li>
+          </ul>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;Pronto pro simuladao final?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Simuladao nos stories (1 questao por story)</span>
+            <span class="story-block"><strong>15h</strong> Chamada YouTube + resultado</span>
+            <span class="story-block"><strong>19h30</strong> Chamada live 20h</span>
+            <span class="story-block"><strong>Pos-live</strong> Enquete: &ldquo;Quantas acertou no simuladao?&rdquo;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 08/06 DOM -->
+    <div class="day-card" style="border-color:var(--ouro)">
+      <div class="day-header" style="background:rgba(255,184,0,0.06)">
+        <span class="day-date">08/06</span>
+        <span class="day-name">Domingo</span>
+        <span class="day-evento" style="background:var(--ouro);color:var(--carvao)">Encerramento do Ciclo</span>
+        <span class="day-editoria">Planejamento da Semana</span>
+      </div>
+      <div class="day-body">
+        <div class="cb cb-live">
+          <span class="cb-tag">Live 20h</span>
+          <h4>Encerramento do ciclo: balanco de 30 dias e o que vem a seguir</h4>
+          <p class="hook">&ldquo;30 dias, 30 lives, centenas de questoes. Hoje e dia de olhar pra tras e planejar o proximo passo.&rdquo;</p>
+          <ul>
+            <li>Balanco do mes &mdash; numeros, engajamento, evolucao</li>
+            <li>Depoimentos de quem acompanhou o ciclo</li>
+            <li>O que funcionou melhor</li>
+            <li>Previa do proximo ciclo de conteudo</li>
+            <li>Agradecimento a comunidade</li>
+          </ul>
+        </div>
+        <div class="cb cb-reels">
+          <span class="cb-tag">Reels</span><span class="cb-cat">Motivacional</span>
+          <h4>30 dias de Gabaritando. Isso e so o comeco.</h4>
+          <p>Compilacao dos melhores momentos do mes: lives, aulao, interacoes, bastidores. Musica inspiracional.</p>
+        </div>
+        <div class="cb cb-feed">
+          <span class="cb-tag">Feed</span><span class="format-badge">Card</span>
+          <h4>30 dias de conteudo. Obrigado, comunidade Gabaritando.</h4>
+          <p>Card de agradecimento com numeros do ciclo: lives, Reels, questoes resolvidas, seguidores.</p>
+        </div>
+        <div class="cb cb-stories">
+          <span class="cb-tag">Stories</span>
+          <div class="stories-flow">
+            <span class="story-block"><strong>7h</strong> Enquete: &ldquo;O que voce quer ver no proximo ciclo?&rdquo;</span>
+            <span class="story-block"><strong>12h</strong> Destaque das melhores lives do mes</span>
+            <span class="story-block"><strong>15h</strong> Compartilhar card de agradecimento</span>
+            <span class="story-block"><strong>19h30</strong> Chamada para a ultima live do ciclo</span>
+            <span class="story-block"><strong>Pos-live</strong> Mensagem de encerramento + previa do proximo ciclo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /week-5 -->
+
+</div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════ IDEIAS DE EVENTOS ══════════════════ -->
+<section class="section">
+<div class="container">
+  <div class="section-label">Proximos Passos</div>
+  <h2 class="section-title">Ideias de <em>eventos futuros</em></h2>
+  <p class="section-intro">Sugestoes de eventos presenciais e online para manter a comunidade ativa e gerar conteudo organico ao longo dos proximos meses.</p>
+
+  <div class="eventos-grid">
+    <div class="evento-card">
+      <div class="evento-formato">Online ou presencial</div>
+      <h4>Simulado ao Vivo</h4>
+      <p>Simular o dia da prova com tempo cronometrado, prova completa e gabarito ao vivo. Pode ser transmitido pelo YouTube e Instagram simultaneamente.</p>
+    </div>
+    <div class="evento-card">
+      <div class="evento-formato">Presencial</div>
+      <h4>Corridao Gabaritando</h4>
+      <p>Treino coletivo de corrida de 12 minutos com orientacao para o TAF. Local aberto, participacao gratuita, gera muito conteudo organico.</p>
+    </div>
+    <div class="evento-card">
+      <div class="evento-formato">Presencial</div>
+      <h4>Workshop TAF</h4>
+      <p>Dia inteiro focado em barra fixa, flexao e corrida com instrutor de educacao fisica. Formato pratico com avaliacao individual.</p>
+    </div>
+    <div class="evento-card">
+      <div class="evento-formato">Presencial</div>
+      <h4>Simulado de TAF</h4>
+      <p>Simular as provas fisicas nas mesmas condicoes do concurso real. Cronometragem, avaliadores e feedback individual.</p>
+    </div>
+    <div class="evento-card">
+      <div class="evento-formato">Online ou presencial</div>
+      <h4>Aulao Tematico</h4>
+      <p>Aulao focado em 1 materia especifica. Exemplo: &ldquo;Aulao de Portugues para PMBA&rdquo; ou &ldquo;Legislacao da Bahia em 3 horas&rdquo;.</p>
+    </div>
+    <div class="evento-card">
+      <div class="evento-formato">Presencial</div>
+      <h4>Encontro da Comunidade</h4>
+      <p>Bate-papo informal com os mentores, networking entre concurseiros, troca de experiencias e motivacao coletiva.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-text">Gabaritando &mdash; Planejamento de Conteudo &middot; Maio&ndash;Junho 2026</div>
+  </div>
+</footer>
+
+
+<script>
+function showWeek(n, btn) {
+  document.querySelectorAll('.week-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.week-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('week-' + n).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: document.querySelector('.weeks-nav').offsetTop - 10, behavior: 'smooth' });
+}
+
+function togglePilar(card) {
+  card.classList.toggle('active');
+  var toggle = card.querySelector('.pilar-toggle');
+  if (card.classList.contains('active')) {
+    toggle.textContent = 'Ocultar detalhes';
+  } else {
+    toggle.textContent = 'Ver detalhes';
+  }
+}
+</script>
+
+</body>
+</html>
