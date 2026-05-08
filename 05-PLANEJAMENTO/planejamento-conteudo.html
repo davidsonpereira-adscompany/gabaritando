@@ -334,23 +334,83 @@ a { text-decoration:none; color:inherit; }
   background:linear-gradient(90deg, var(--ouro), rgba(255,184,0,0));
 }
 
+/* MENU DE MESES */
+.months-nav {
+  display:flex; justify-content:center; gap:10px;
+  padding:20px 0 0; flex-wrap:wrap;
+}
+.month-btn {
+  font-family:var(--font); font-size:0.7rem; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase;
+  padding:10px 22px; border:1px solid var(--borda-ouro);
+  background:transparent; color:var(--ouro);
+  cursor:pointer; transition:all .25s;
+}
+.month-btn:hover { background:rgba(255,184,0,0.08); }
+.month-btn.active {
+  background:var(--ouro); color:var(--carvao); border-color:var(--ouro);
+}
+.month-content { display:none; }
+.month-content.active { display:block; }
+
 /* RESPONSIVE */
 @media (max-width:900px) {
   .pilares-grid { grid-template-columns:repeat(2,1fr); }
   .eventos-grid { grid-template-columns:repeat(2,1fr); }
 }
 @media (max-width:600px) {
-  .container { padding:0 16px; }
-  .hero { padding:48px 0 32px; }
-  .hero h1 { font-size:1.5rem; }
-  .hero-meta { gap:16px; }
-  .pilares-grid { grid-template-columns:1fr; }
-  .day-header { padding:14px 16px; }
-  .day-body { padding:16px; }
-  .cb { padding:12px 14px; }
-  .week-tab { padding:8px 12px; font-size:0.6rem; }
-  .eventos-grid { grid-template-columns:1fr; }
-  .day-editoria { margin-left:0; width:100%; margin-top:4px; }
+  .container { padding:0 12px; }
+  .hero { padding:40px 0 28px; }
+  .hero h1 { font-size:1.3rem; }
+  .hero p { font-size:0.84rem; }
+  .hero-meta { gap:10px; }
+  .hero-meta span { font-size:0.62rem; }
+  .hero-badge { font-size:0.56rem; padding:4px 14px; margin-bottom:14px; }
+  .pilares-grid { grid-template-columns:1fr; gap:10px; }
+  .pilar-card { padding:20px 16px; }
+  .pilar-icon { width:30px; height:30px; font-size:0.7rem; margin-bottom:10px; }
+  .pilar-card h3 { font-size:0.8rem; }
+  .pilar-detail table { font-size:0.66rem; }
+  .pilar-detail td, .pilar-detail th { padding:5px 4px; }
+  .section { padding:40px 0; }
+  .section-title { font-size:1.2rem; }
+  .section-intro { font-size:0.8rem; margin-bottom:24px; }
+  .section-label { font-size:0.56rem; }
+  .weeks-nav { gap:4px; padding:12px 0 10px; }
+  .week-tab { padding:8px 10px; font-size:0.56rem; }
+  .week-tab .tab-dates { font-size:0.5rem; }
+  .day-card { margin-bottom:14px; }
+  .day-header { padding:12px 14px; gap:8px; }
+  .day-date { font-size:0.95rem; min-width:44px; }
+  .day-name { font-size:0.7rem; }
+  .day-editoria { font-size:0.56rem; margin-left:0; width:100%; margin-top:4px; }
+  .day-evento { font-size:0.52rem; padding:2px 8px; }
+  .day-body { padding:12px 14px; }
+  .cb { padding:10px 12px; margin-bottom:12px; }
+  .cb-tag { font-size:0.52rem; padding:2px 6px; }
+  .cb-cat { font-size:0.52rem; }
+  .cb h4 { font-size:0.8rem; }
+  .cb .hook { font-size:0.72rem; padding-left:10px; }
+  .cb p { font-size:0.72rem; }
+  .cb li { font-size:0.7rem; padding:2px 0 2px 12px; }
+  .cb li::before { top:9px; width:3px; height:3px; }
+  .cb .format-badge { font-size:0.5rem; }
+  .stories-flow { gap:6px; }
+  .story-block { font-size:0.62rem; padding:4px 8px; }
+  .story-block strong { font-size:0.56rem; }
+  .eventos-grid { grid-template-columns:1fr; gap:10px; }
+  .evento-card { padding:18px 16px; }
+  .evento-card h4 { font-size:0.82rem; }
+  .month-btn { font-size:0.6rem; padding:8px 16px; }
+}
+@media (max-width:380px) {
+  .container { padding:0 10px; }
+  .hero h1 { font-size:1.15rem; }
+  .week-tab { padding:6px 8px; font-size:0.52rem; }
+  .day-header { padding:10px 12px; }
+  .day-body { padding:10px 12px; }
+  .cb { padding:8px 10px; }
+  .cb h4 { font-size:0.74rem; }
 }
 
 </style>
@@ -361,22 +421,35 @@ a { text-decoration:none; color:inherit; }
 <section class="hero">
 <div class="container">
   <div class="hero-badge">Planejamento Estrategico</div>
-  <h1>Planejamento de Conteudo<em>Maio &mdash; Junho 2026</em></h1>
+  <h1>Planejamento de Conteudo<em>Gabaritando 2026</em></h1>
   <p>
-    30 dias de execucao para transformar a presenca digital do Gabaritando.
-    Lives diarias, Reels, feed, Stories e YouTube &mdash; tudo planejado dia a dia
+    Presenca digital planejada mes a mes.
+    Lives diarias, Reels, feed, Stories e YouTube &mdash; tudo organizado dia a dia
     para <strong>Alan</strong> e <strong>Nilton</strong> executarem com naturalidade.
   </p>
-  <div class="hero-meta">
-    <span><strong>08/05</strong> a <strong>08/06</strong></span>
-    <span><strong>32</strong> dias</span>
-    <span><strong>5</strong> semanas</span>
-    <span><strong>30+</strong> lives</span>
-    <span><strong>10</strong> videos YT</span>
+  <div class="months-nav">
+    <button class="month-btn active" onclick="showMonth('mai-jun-2026',this)">Mai&ndash;Jun 2026</button>
+    <!-- Proximos meses serao adicionados aqui -->
+    <!-- <button class="month-btn" onclick="showMonth('jun-jul-2026',this)">Jun&ndash;Jul 2026</button> -->
   </div>
 </div>
 </section>
 
+
+<!-- ══════════════════ MES: MAI-JUN 2026 ══════════════════ -->
+<div class="month-content active" id="month-mai-jun-2026">
+
+<div style="text-align:center;padding:24px 0 0">
+  <div class="container">
+    <div class="hero-meta">
+      <span><strong>08/05</strong> a <strong>08/06</strong></span>
+      <span><strong>32</strong> dias</span>
+      <span><strong>5</strong> semanas</span>
+      <span><strong>30+</strong> lives</span>
+      <span><strong>10</strong> videos YT</span>
+    </div>
+  </div>
+</div>
 
 <!-- ══════════════════ GUIA DE EXECUCAO ══════════════════ -->
 <section class="section" style="border-bottom:1px solid var(--borda)">
@@ -2087,32 +2160,42 @@ a { text-decoration:none; color:inherit; }
 </div>
 </section>
 
+</div><!-- /month-mai-jun-2026 -->
+
+<!-- Proximos meses serao adicionados aqui como novos <div class="month-content" id="month-xxx"> -->
+
 
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-text">Gabaritando &mdash; Planejamento de Conteudo &middot; Maio&ndash;Junho 2026</div>
+    <div class="footer-text">Gabaritando &mdash; Planejamento de Conteudo 2026</div>
   </div>
 </footer>
 
 
 <script>
-function showWeek(n, btn) {
-  document.querySelectorAll('.week-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.week-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('week-' + n).classList.add('active');
+function showMonth(id, btn) {
+  document.querySelectorAll('.month-content').forEach(function(m) { m.classList.remove('active'); });
+  document.querySelectorAll('.month-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('month-' + id).classList.add('active');
   btn.classList.add('active');
-  window.scrollTo({ top: document.querySelector('.weeks-nav').offsetTop - 10, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showWeek(n, btn) {
+  var panel = btn.closest('.month-content');
+  panel.querySelectorAll('.week-panel').forEach(function(p) { p.classList.remove('active'); });
+  panel.querySelectorAll('.week-tab').forEach(function(t) { t.classList.remove('active'); });
+  panel.querySelector('#week-' + n).classList.add('active');
+  btn.classList.add('active');
+  var nav = panel.querySelector('.weeks-nav');
+  window.scrollTo({ top: nav.offsetTop - 10, behavior: 'smooth' });
 }
 
 function togglePilar(card) {
   card.classList.toggle('active');
   var toggle = card.querySelector('.pilar-toggle');
-  if (card.classList.contains('active')) {
-    toggle.textContent = 'Ocultar detalhes';
-  } else {
-    toggle.textContent = 'Ver detalhes';
-  }
+  toggle.textContent = card.classList.contains('active') ? 'Ocultar detalhes' : 'Ver detalhes';
 }
 </script>
 
