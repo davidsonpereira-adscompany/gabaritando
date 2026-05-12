@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plano Estratégico de Vendas — Gabaritando</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --ouro:        #FFB800;
+  --ouro-escuro: #CC9400;
+  --preto:       #0E0E1A;
+  --preto-2:     #13131F;
+  --ardosia:     #1E1E2E;
+  --carvao:      #111111;
+  --creme:       #EDE8DF;
+  --branco:      #FFFFFF;
+  --borda:       rgba(255,255,255,0.07);
+  --borda-ouro:  rgba(255,184,0,0.22);
+  --verde:       #22C55E;
+  --azul:        #3B82F6;
+  --laranja:     #F97316;
+  --vermelho:    #EF4444;
+  --font:        'Montserrat', sans-serif;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { overflow-x:hidden; scroll-behavior:smooth; }
+body {
+  background: var(--preto);
+  color: var(--branco);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { text-decoration:none; color:inherit; }
+
+/* HEADER */
+.top-bar {
+  position:fixed; top:0; left:0; right:0; z-index:999;
+  background:rgba(14,14,26,0.96);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,184,0,0.12);
+  padding:0 40px; height:64px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.top-bar-title {
+  font-size:0.72rem; font-weight:700;
+  letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--ouro);
+}
+.top-bar-meta {
+  font-size:0.64rem; font-weight:500;
+  color:rgba(255,255,255,0.4);
+  letter-spacing:0.08em;
+}
+
+/* LAYOUT */
+.container { max-width:960px; margin:0 auto; padding:0 40px; }
+.section { padding:64px 0; }
+.divider { width:100%; height:1px; background:linear-gradient(90deg, var(--ouro), rgba(255,184,0,0)); }
+
+/* HERO */
+.hero {
+  padding:120px 0 64px;
+  text-align:center;
+}
+.hero-badge {
+  display:inline-block;
+  background:rgba(255,184,0,0.08);
+  border:1px solid rgba(255,184,0,0.2);
+  color:var(--ouro);
+  font-size:0.6rem; font-weight:700;
+  letter-spacing:0.22em; text-transform:uppercase;
+  padding:6px 20px; margin-bottom:28px;
+}
+.hero h1 {
+  font-size:2.6rem; font-weight:900;
+  line-height:1.1; text-transform:uppercase;
+  margin-bottom:18px;
+}
+.hero h1 em { font-style:normal; color:var(--ouro); }
+.hero p {
+  font-size:1rem; font-weight:300;
+  color:rgba(255,255,255,0.55);
+  max-width:600px; margin:0 auto;
+  line-height:1.8;
+}
+.hero p strong { color:var(--ouro); font-weight:600; }
+
+/* SECTION TITLES */
+.sec-num {
+  font-size:0.58rem; font-weight:700;
+  letter-spacing:0.25em; text-transform:uppercase;
+  color:var(--ouro); margin-bottom:8px;
+}
+.sec-title {
+  font-size:1.6rem; font-weight:800;
+  text-transform:uppercase;
+  line-height:1.2; margin-bottom:12px;
+}
+.sec-sub {
+  font-size:0.88rem; font-weight:300;
+  color:rgba(255,255,255,0.5);
+  line-height:1.7; max-width:680px;
+}
+
+/* METAS CARDS */
+.metas-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+  margin-top:40px;
+}
+.meta-card {
+  border:1px solid var(--borda);
+  background:var(--preto-2);
+  padding:32px 24px;
+  position:relative;
+  transition:border-color .3s, transform .3s;
+}
+.meta-card:hover { transform:translateY(-3px); }
+.meta-card.minima { border-color:rgba(255,255,255,0.12); }
+.meta-card.bronze { border-color:rgba(205,127,50,0.4); }
+.meta-card.ouro { border-color:var(--borda-ouro); }
+.meta-card.ouro::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+  background:var(--ouro);
+}
+.meta-card.bronze::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+  background:#CD7F32;
+}
+.meta-label {
+  font-size:0.58rem; font-weight:700;
+  letter-spacing:0.22em; text-transform:uppercase;
+  margin-bottom:12px;
+}
+.meta-card.minima .meta-label { color:rgba(255,255,255,0.5); }
+.meta-card.bronze .meta-label { color:#CD7F32; }
+.meta-card.ouro .meta-label { color:var(--ouro); }
+.meta-valor {
+  font-size:2rem; font-weight:900;
+  line-height:1; margin-bottom:6px;
+}
+.meta-card.ouro .meta-valor { color:var(--ouro); }
+.meta-desc {
+  font-size:0.76rem; font-weight:400;
+  color:rgba(255,255,255,0.4);
+  margin-bottom:20px;
+}
+.meta-detail {
+  font-size:0.74rem; font-weight:400;
+  color:rgba(255,255,255,0.55);
+  line-height:1.8;
+}
+.meta-detail strong { color:var(--branco); font-weight:600; }
+
+/* TABLES */
+.tbl-wrap {
+  overflow-x:auto;
+  margin-top:28px;
+  border:1px solid var(--borda);
+}
+table {
+  width:100%; border-collapse:collapse;
+  font-size:0.78rem;
+}
+thead th {
+  background:var(--ardosia);
+  font-weight:700; font-size:0.64rem;
+  letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--ouro);
+  padding:14px 16px;
+  text-align:left;
+  border-bottom:1px solid var(--borda-ouro);
+}
+tbody td {
+  padding:12px 16px;
+  border-bottom:1px solid var(--borda);
+  color:rgba(255,255,255,0.75);
+  vertical-align:top;
+}
+tbody tr:hover { background:rgba(255,184,0,0.03); }
+.td-right { text-align:right; }
+.td-center { text-align:center; }
+.td-bold { font-weight:700; color:var(--branco); }
+.td-ouro { color:var(--ouro); font-weight:700; }
+.td-verde { color:var(--verde); font-weight:600; }
+.td-total {
+  background:rgba(255,184,0,0.06);
+  font-weight:700;
+  color:var(--ouro);
+}
+
+/* INFO BLOCKS */
+.info-block {
+  background:var(--preto-2);
+  border:1px solid var(--borda);
+  border-left:3px solid var(--ouro);
+  padding:24px 28px;
+  margin-top:28px;
+}
+.info-block h4 {
+  font-size:0.78rem; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--ouro); margin-bottom:10px;
+}
+.info-block p, .info-block li {
+  font-size:0.82rem; font-weight:400;
+  color:rgba(255,255,255,0.6);
+  line-height:1.8;
+}
+.info-block ul { list-style:none; padding:0; }
+.info-block li::before {
+  content:'\25B8'; color:var(--ouro);
+  margin-right:8px; font-size:0.7rem;
+}
+.info-block li { margin-bottom:4px; }
+.info-block strong { color:var(--branco); font-weight:600; }
+
+/* FUNIL VISUAL */
+.funil {
+  margin-top:40px;
+  display:flex; flex-direction:column; align-items:center; gap:0;
+}
+.funil-step {
+  text-align:center;
+  padding:20px 0;
+  position:relative;
+}
+.funil-step::after {
+  content:'';
+  display:block;
+  width:2px; height:24px;
+  background:rgba(255,184,0,0.25);
+  margin:16px auto 0;
+}
+.funil-step:last-child::after { display:none; }
+.funil-bar {
+  display:inline-block;
+  padding:14px 32px;
+  font-size:0.76rem; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase;
+  border:1px solid var(--borda-ouro);
+  position:relative;
+}
+.funil-step:nth-child(1) .funil-bar { min-width:520px; background:rgba(255,184,0,0.06); }
+.funil-step:nth-child(2) .funil-bar { min-width:420px; background:rgba(255,184,0,0.08); }
+.funil-step:nth-child(3) .funil-bar { min-width:320px; background:rgba(255,184,0,0.12); color:var(--ouro); }
+.funil-meta {
+  font-size:0.68rem; font-weight:400;
+  color:rgba(255,255,255,0.4);
+  margin-top:6px;
+}
+.funil-conv {
+  position:absolute;
+  right:-90px; top:50%;
+  transform:translateY(-50%);
+  font-size:0.62rem; font-weight:700;
+  color:var(--verde);
+  letter-spacing:0.08em;
+  white-space:nowrap;
+}
+
+/* CHANNEL CARDS */
+.channels {
+  display:grid; grid-template-columns:1fr 1fr; gap:20px;
+  margin-top:32px;
+}
+.channel-card {
+  border:1px solid var(--borda);
+  background:var(--preto-2);
+  padding:28px 24px;
+}
+.channel-card.full { grid-column:1/-1; }
+.ch-icon {
+  font-size:0.58rem; font-weight:700;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--ouro); margin-bottom:10px;
+}
+.ch-title {
+  font-size:1rem; font-weight:700;
+  margin-bottom:6px;
+}
+.ch-desc {
+  font-size:0.8rem; font-weight:300;
+  color:rgba(255,255,255,0.5);
+  line-height:1.7; margin-bottom:16px;
+}
+.ch-metric {
+  display:flex; justify-content:space-between;
+  padding:8px 0;
+  border-bottom:1px solid var(--borda);
+  font-size:0.74rem;
+}
+.ch-metric:last-child { border-bottom:none; }
+.ch-metric-label { color:rgba(255,255,255,0.5); font-weight:400; }
+.ch-metric-value { color:var(--branco); font-weight:600; }
+
+/* TIMELINE */
+.timeline { margin-top:32px; }
+.tl-phase {
+  border-left:2px solid var(--borda-ouro);
+  padding:0 0 32px 28px;
+  position:relative;
+}
+.tl-phase:last-child { padding-bottom:0; }
+.tl-phase::before {
+  content:'';
+  position:absolute; left:-6px; top:2px;
+  width:10px; height:10px;
+  background:var(--ouro);
+  border-radius:50%;
+}
+.tl-period {
+  font-size:0.6rem; font-weight:700;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--ouro); margin-bottom:6px;
+}
+.tl-title {
+  font-size:1rem; font-weight:700;
+  margin-bottom:6px;
+}
+.tl-desc {
+  font-size:0.8rem; font-weight:300;
+  color:rgba(255,255,255,0.5);
+  line-height:1.7;
+}
+.tl-actions {
+  list-style:none; padding:0; margin-top:10px;
+}
+.tl-actions li {
+  font-size:0.78rem; font-weight:400;
+  color:rgba(255,255,255,0.6);
+  line-height:1.8;
+  padding-left:16px;
+  position:relative;
+}
+.tl-actions li::before {
+  content:'\2713'; color:var(--ouro);
+  position:absolute; left:0; font-size:0.7rem;
+}
+
+/* KPI GRID */
+.kpi-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+  margin-top:32px;
+}
+.kpi-box {
+  border:1px solid var(--borda);
+  background:var(--preto-2);
+  padding:20px 16px;
+  text-align:center;
+}
+.kpi-num {
+  font-size:1.6rem; font-weight:900;
+  color:var(--ouro); margin-bottom:4px;
+}
+.kpi-label {
+  font-size:0.62rem; font-weight:600;
+  letter-spacing:0.12em; text-transform:uppercase;
+  color:rgba(255,255,255,0.4);
+}
+
+/* FOOTER */
+.footer {
+  border-top:1px solid var(--borda);
+  padding:28px 0;
+  text-align:center;
+}
+.footer-text {
+  font-size:0.6rem;
+  color:rgba(255,255,255,0.15);
+  letter-spacing:0.1em; text-transform:uppercase;
+}
+
+/* RESPONSIVE */
+@media (max-width:768px) {
+  .container { padding:0 20px; }
+  .top-bar { padding:0 16px; }
+  .hero { padding:90px 0 48px; }
+  .hero h1 { font-size:1.8rem; }
+  .sec-title { font-size:1.3rem; }
+  .metas-grid { grid-template-columns:1fr; }
+  .channels { grid-template-columns:1fr; }
+  .kpi-grid { grid-template-columns:1fr 1fr; }
+  .funil-step:nth-child(1) .funil-bar,
+  .funil-step:nth-child(2) .funil-bar,
+  .funil-step:nth-child(3) .funil-bar { min-width:auto; width:100%; }
+  .funil-conv { display:none; }
+  table { font-size:0.72rem; }
+  thead th, tbody td { padding:10px 10px; }
+}
+
+@media (max-width:480px) {
+  .hero h1 { font-size:1.5rem; }
+  .meta-valor { font-size:1.5rem; }
+  .kpi-grid { grid-template-columns:1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="top-bar">
+  <span class="top-bar-title">Plano Estratégico de Vendas</span>
+  <span class="top-bar-meta">Gabaritando &mdash; Maio 2026</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+  <div class="hero-badge">Documento interno</div>
+  <h1>Plano de Vendas<br><em>Metas e Estratégia</em></h1>
+  <p>
+    Planejamento completo para atingir as metas mensais do Gabaritando.
+    Três cenários de faturamento, funis detalhados, métricas por canal
+    e calendário de execução <strong>mês a mês</strong>.
+  </p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 1 — CENÁRIO ATUAL
+═══════════════════════════════════════════ -->
+<section class="section" id="cenario">
+<div class="container">
+  <div class="sec-num">01</div>
+  <div class="sec-title">Cenário Atual</div>
+  <div class="sec-sub">Onde o Gabaritando está hoje — base para projetar o crescimento.</div>
+
+  <div class="kpi-grid" style="margin-top:36px">
+    <div class="kpi-box">
+      <div class="kpi-num">&lt;20</div>
+      <div class="kpi-label">Vendas/mês atuais</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-num">R$1.500</div>
+      <div class="kpi-label">Teto de ads/mês</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-num">6</div>
+      <div class="kpi-label">Produtos ativos</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-num">3</div>
+      <div class="kpi-label">Canais de venda</div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h4>Diagnóstico</h4>
+    <ul>
+      <li><strong>Faturamento atual estimado:</strong> abaixo de R$15.000/mês (menos de 20 vendas)</li>
+      <li><strong>Canais ativos:</strong> Meta Ads (resultado abaixo do esperado), Instagram orgânico, WhatsApp</li>
+      <li><strong>Maior ativo:</strong> Grupos de WhatsApp com leads quentes + autoridade dos sócios (aprovados nos concursos)</li>
+      <li><strong>Gargalo principal:</strong> volume de leads insuficiente e funil sem automação</li>
+      <li><strong>Oportunidade imediata:</strong> cadernos como porta de entrada de baixo atrito, com upsell para preparações</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 2 — METAS MONETÁRIAS
+═══════════════════════════════════════════ -->
+<section class="section" id="metas">
+<div class="container">
+  <div class="sec-num">02</div>
+  <div class="sec-title">Metas Monetárias Mensais</div>
+  <div class="sec-sub">Três patamares de faturamento. A meta mínima sustenta a operação; a Ouro financia escala agressiva.</div>
+
+  <div class="metas-grid">
+
+    <!-- MÍNIMA -->
+    <div class="meta-card minima">
+      <div class="meta-label">Meta Mínima</div>
+      <div class="meta-valor">R$53.690</div>
+      <div class="meta-desc">Sustentação &mdash; cobre custos e gera lucro operacional</div>
+      <div class="meta-detail">
+        Equivalente a <strong>70 vendas</strong> de Preparação Soldado.
+        Na prática, o mix de produtos distribui o esforço entre preparações e cadernos.
+      </div>
+    </div>
+
+    <!-- BRONZE -->
+    <div class="meta-card bronze">
+      <div class="meta-label">Meta Bronze</div>
+      <div class="meta-valor">R$67.690</div>
+      <div class="meta-desc">Crescimento &mdash; reinvestimento em tráfego e equipe</div>
+      <div class="meta-detail">
+        <strong>+26%</strong> sobre a mínima. Exige aumento de volume nos cadernos e entrada dos produtos CFO e SGT no mix.
+      </div>
+    </div>
+
+    <!-- OURO -->
+    <div class="meta-card ouro">
+      <div class="meta-label">Meta Ouro</div>
+      <div class="meta-valor">R$90.000</div>
+      <div class="meta-desc">Escala &mdash; operação autossuficiente, equipe ampliada</div>
+      <div class="meta-detail">
+        <strong>+68%</strong> sobre a mínima. Requer todos os canais operando em alta performance e diversificação completa do catálogo.
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 3 — MIX DE PRODUTOS POR META
+═══════════════════════════════════════════ -->
+<section class="section" id="mix">
+<div class="container">
+  <div class="sec-num">03</div>
+  <div class="sec-title">Mix de Produtos por Cenário</div>
+  <div class="sec-sub">Distribuição de vendas por produto para atingir cada meta. Quantidades realistas baseadas na demanda e no estágio atual.</div>
+
+  <!-- TABELA MÍNIMA -->
+  <div style="margin-top:36px">
+    <div class="sec-num" style="font-size:0.54rem;color:rgba(255,255,255,0.4)">Meta Mínima &mdash; R$53.690</div>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th class="td-right">Preço</th>
+          <th class="td-center">Vendas</th>
+          <th class="td-right">Receita</th>
+          <th class="td-center">% do total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-bold">Preparação Soldado PMBA</td>
+          <td class="td-right">R$767</td>
+          <td class="td-center">45</td>
+          <td class="td-right td-bold">R$34.515</td>
+          <td class="td-center">64%</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Preparação CFO PMBA</td>
+          <td class="td-right">R$967</td>
+          <td class="td-center">8</td>
+          <td class="td-right td-bold">R$7.736</td>
+          <td class="td-center">14%</td>
+        </tr>
+        <tr>
+          <td>Preparação SGT PMBA</td>
+          <td class="td-right">R$967</td>
+          <td class="td-center">2</td>
+          <td class="td-right">R$1.934</td>
+          <td class="td-center">4%</td>
+        </tr>
+        <tr>
+          <td>Preparação Investigador PCBA</td>
+          <td class="td-right">R$767</td>
+          <td class="td-center">2</td>
+          <td class="td-right">R$1.534</td>
+          <td class="td-center">3%</td>
+        </tr>
+        <tr>
+          <td>Caderno de Treino Soldado</td>
+          <td class="td-right">R$147</td>
+          <td class="td-center">30</td>
+          <td class="td-right">R$4.410</td>
+          <td class="td-center">8%</td>
+        </tr>
+        <tr>
+          <td>Caderno de Treino CFO</td>
+          <td class="td-right">R$197</td>
+          <td class="td-center">18</td>
+          <td class="td-right">R$3.546</td>
+          <td class="td-center">7%</td>
+        </tr>
+        <tr class="td-total">
+          <td><strong>Total</strong></td>
+          <td></td>
+          <td class="td-center"><strong>105</strong></td>
+          <td class="td-right"><strong>R$53.675</strong></td>
+          <td class="td-center"><strong>100%</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TABELA BRONZE -->
+  <div style="margin-top:40px">
+    <div class="sec-num" style="font-size:0.54rem;color:#CD7F32">Meta Bronze &mdash; R$67.690</div>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th class="td-right">Preço</th>
+          <th class="td-center">Vendas</th>
+          <th class="td-right">Receita</th>
+          <th class="td-center">% do total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-bold">Preparação Soldado PMBA</td>
+          <td class="td-right">R$767</td>
+          <td class="td-center">52</td>
+          <td class="td-right td-bold">R$39.884</td>
+          <td class="td-center">59%</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Preparação CFO PMBA</td>
+          <td class="td-right">R$967</td>
+          <td class="td-center">12</td>
+          <td class="td-right td-bold">R$11.604</td>
+          <td class="td-center">17%</td>
+        </tr>
+        <tr>
+          <td>Preparação SGT PMBA</td>
+          <td class="td-right">R$967</td>
+          <td class="td-center">4</td>
+          <td class="td-right">R$3.868</td>
+          <td class="td-center">6%</td>
+        </tr>
+        <tr>
+          <td>Preparação Investigador PCBA</td>
+          <td class="td-right">R$767</td>
+          <td class="td-center">3</td>
+          <td class="td-right">R$2.301</td>
+          <td class="td-center">3%</td>
+        </tr>
+        <tr>
+          <td>Caderno de Treino Soldado</td>
+          <td class="td-right">R$147</td>
+          <td class="td-center">35</td>
+          <td class="td-right">R$5.145</td>
+          <td class="td-center">8%</td>
+        </tr>
+        <tr>
+          <td>Caderno de Treino CFO</td>
+          <td class="td-right">R$197</td>
+          <td class="td-center">25</td>
+          <td class="td-right">R$4.925</td>
+          <td class="td-center">7%</td>
+        </tr>
+        <tr class="td-total">
+          <td><strong>Total</strong></td>
+          <td></td>
+          <td class="td-center"><strong>131</strong></td>
+          <td class="td-right"><strong>R$67.727</strong></td>
+          <td class="td-center"><strong>100%</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TABELA OURO -->
+  <div style="margin-top:40px">
+    <div class="sec-num" style="font-size:0.54rem;color:var(--ouro)">Meta Ouro &mdash; R$90.000</div>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th class="td-right">Preço</th>
+          <th class="td-center">Vendas</th>
+          <th class="td-right">Receita</th>
+          <th class="td-center">% do total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-bold">Preparação Soldado PMBA</td>
+          <td class="td-right">R$767</td>
+          <td class="td-center">65</td>
+          <td class="td-right td-bold">R$49.855</td>
+          <td class="td-center">55%</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Preparação CFO PMBA</td>
+          <td class="td-right">R$967</td>
+          <td class="td-center">18</td>
+          <td class="td-right td-bold">R$17.406</td>
+          <td class="td-center">19%</td>
+        </tr>
+        <tr>
+          <td>Preparação SGT PMBA</td>
+          <td class="td-right">R$967</td>
+          <td class="td-center">6</td>
+          <td class="td-right">R$5.802</td>
+          <td class="td-center">7%</td>
+        </tr>
+        <tr>
+          <td>Preparação Investigador PCBA</td>
+          <td class="td-right">R$767</td>
+          <td class="td-center">5</td>
+          <td class="td-right">R$3.835</td>
+          <td class="td-center">4%</td>
+        </tr>
+        <tr>
+          <td>Caderno de Treino Soldado</td>
+          <td class="td-right">R$147</td>
+          <td class="td-center">45</td>
+          <td class="td-right">R$6.615</td>
+          <td class="td-center">7%</td>
+        </tr>
+        <tr>
+          <td>Caderno de Treino CFO</td>
+          <td class="td-right">R$197</td>
+          <td class="td-center">35</td>
+          <td class="td-right">R$6.895</td>
+          <td class="td-center">8%</td>
+        </tr>
+        <tr class="td-total">
+          <td><strong>Total</strong></td>
+          <td></td>
+          <td class="td-center"><strong>174</strong></td>
+          <td class="td-right"><strong>R$90.408</strong></td>
+          <td class="td-center"><strong>100%</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-block" style="margin-top:32px">
+    <h4>Leitura dos cenários</h4>
+    <ul>
+      <li><strong>Soldado é o carro-chefe</strong> em todos os cenários (55-64% da receita). A demanda por esse concurso é a maior na Bahia.</li>
+      <li><strong>Cadernos são porta de entrada</strong> &mdash; geram receita complementar e alimentam o funil para as preparações. Cada comprador de caderno é um lead quente para upsell.</li>
+      <li><strong>Da mínima para a Ouro</strong>, o salto é de 105 para 174 vendas (+66%). Isso exige aumento real de volume de leads em todos os canais.</li>
+      <li><strong>Ticket médio:</strong> R$511 (mínima) &rarr; R$517 (bronze) &rarr; R$520 (ouro). O ticket sobe levemente porque a participação de CFO e SGT cresce.</li>
+      <li><strong>Parcelamento em 12x</strong> no cartão reduz a barreira de entrada. Preparação Soldado sai por R$79,33/mês &mdash; menos que um cursinho presencial.</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 4 — FUNIL DE VENDAS
+═══════════════════════════════════════════ -->
+<section class="section" id="funil">
+<div class="container">
+  <div class="sec-num">04</div>
+  <div class="sec-title">Funil de Vendas &mdash; Três Camadas</div>
+  <div class="sec-sub">O funil opera em três níveis: captura gratuita, venda de entrada e venda principal. Cada camada alimenta a seguinte.</div>
+
+  <div class="funil">
+    <div class="funil-step">
+      <div class="funil-bar">
+        Topo &mdash; Captura (Grupos WhatsApp gratuitos)
+        <span class="funil-conv">100% dos leads</span>
+      </div>
+      <div class="funil-meta">Meta Ads + Instagram + Indicações &rarr; entrada nos grupos</div>
+    </div>
+    <div class="funil-step">
+      <div class="funil-bar">
+        Meio &mdash; Cadernos de Treino (R$147 &ndash; R$197)
+        <span class="funil-conv">8-12% convertem</span>
+      </div>
+      <div class="funil-meta">Primeira compra, baixo risco &rarr; comprova qualidade</div>
+    </div>
+    <div class="funil-step">
+      <div class="funil-bar">
+        Fundo &mdash; Preparações Completas (R$767 &ndash; R$967)
+        <span class="funil-conv">18-25% fazem upgrade</span>
+      </div>
+      <div class="funil-meta">Upsell para quem já comprou caderno + vendas diretas de tráfego quente</div>
+    </div>
+  </div>
+
+  <!-- DETALHAMENTO DO FUNIL -->
+  <div style="margin-top:48px">
+    <div class="sec-num" style="font-size:0.54rem">Detalhamento por camada</div>
+  </div>
+
+  <!-- CAMADA 1 -->
+  <div class="info-block" style="margin-top:20px;border-left-color:var(--azul)">
+    <h4 style="color:var(--azul)">Camada 1 &mdash; Captura</h4>
+    <p style="margin-bottom:12px">
+      <strong>Objetivo:</strong> trazer o maior volume possível de interessados em concursos policiais da Bahia para os grupos de WhatsApp gratuitos.
+    </p>
+    <ul>
+      <li><strong>Entrada:</strong> link direto para grupo de WhatsApp (CFO ou Soldado)</li>
+      <li><strong>Fontes de tráfego:</strong> Meta Ads (campanhas de cadastro), Instagram orgânico (bio + Stories + Reels), indicações de membros atuais</li>
+      <li><strong>Conteúdo nos grupos:</strong> questões comentadas diárias, dicas de estudo, notícias dos concursos</li>
+      <li><strong>Frequência:</strong> mínimo 1 mensagem de valor por dia em cada grupo</li>
+      <li><strong>Meta mensal de novos leads:</strong> 800 a 1.200 pessoas entrando nos grupos</li>
+      <li><strong>Custo por lead via ads:</strong> R$1,50 a R$3,00 (nicho educacional regional, Bahia)</li>
+    </ul>
+  </div>
+
+  <!-- CAMADA 2 -->
+  <div class="info-block" style="margin-top:16px;border-left-color:var(--laranja)">
+    <h4 style="color:var(--laranja)">Camada 2 &mdash; Cadernos de Treino (entrada)</h4>
+    <p style="margin-bottom:12px">
+      <strong>Objetivo:</strong> converter membros dos grupos em compradores com produto de baixo risco. A primeira compra quebra a barreira psicológica e valida a qualidade.
+    </p>
+    <ul>
+      <li><strong>Produtos:</strong> Caderno Soldado (R$147) e Caderno CFO (R$197)</li>
+      <li><strong>Taxa de conversão esperada:</strong> 8% a 12% dos membros do grupo</li>
+      <li><strong>Gatilhos de venda:</strong> escassez real (vagas limitadas por turma), autoridade (material feito por aprovados), prova social (depoimentos)</li>
+      <li><strong>Canal de fechamento:</strong> WhatsApp (atendimento 1-a-1) + link direto no grupo</li>
+      <li><strong>Ciclo:</strong> a cada 2 semanas, um pitch estruturado no grupo com 3-5 dias de aquecimento prévio</li>
+      <li><strong>Meta mensal:</strong> 48 a 80 vendas de cadernos (conforme cenário)</li>
+    </ul>
+  </div>
+
+  <!-- CAMADA 3 -->
+  <div class="info-block" style="margin-top:16px;border-left-color:var(--ouro)">
+    <h4>Camada 3 &mdash; Preparações Completas (produto principal)</h4>
+    <p style="margin-bottom:12px">
+      <strong>Objetivo:</strong> vender as preparações completas, que representam 80-85% do faturamento. Duas vias de entrada: upsell de quem já comprou caderno e venda direta para leads quentes.
+    </p>
+    <ul>
+      <li><strong>Produtos:</strong> Prep. Soldado (R$767), Prep. CFO (R$967), Prep. SGT (R$967), Prep. Investigador (R$767)</li>
+      <li><strong>Via 1 &mdash; Upsell:</strong> 18% a 25% dos compradores de caderno fazem upgrade. Abordagem via WhatsApp, 7-14 dias após a compra do caderno.</li>
+      <li><strong>Via 2 &mdash; Venda direta:</strong> leads quentes de ads (remarketing), seguidores engajados do Instagram, indicações diretas</li>
+      <li><strong>Argumento central:</strong> parcelamento em 12x (R$79,33/mês no Soldado) &mdash; menos que um cursinho presencial</li>
+      <li><strong>Gatilhos:</strong> garantia de 7 dias, aprovados como professores, acesso por 1 ano completo</li>
+      <li><strong>Meta mensal:</strong> 57 a 94 vendas de preparações (conforme cenário)</li>
+    </ul>
+  </div>
+
+  <!-- MÉTRICAS DO FUNIL -->
+  <div style="margin-top:40px">
+    <div class="sec-num" style="font-size:0.54rem">Métricas do funil &mdash; Meta Mínima</div>
+  </div>
+  <div class="tbl-wrap" style="margin-top:12px">
+    <table>
+      <thead>
+        <tr>
+          <th>Etapa</th>
+          <th class="td-center">Volume mensal</th>
+          <th class="td-center">Taxa de conversão</th>
+          <th class="td-center">Saída</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-bold">Visitantes (site + redes)</td>
+          <td class="td-center">8.000 a 12.000</td>
+          <td class="td-center">&mdash;</td>
+          <td class="td-center">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Leads nos grupos WhatsApp</td>
+          <td class="td-center">800 a 1.200</td>
+          <td class="td-center">10% dos visitantes</td>
+          <td class="td-center">1.000 leads</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Compradores de Cadernos</td>
+          <td class="td-center">48</td>
+          <td class="td-center">~5% dos leads</td>
+          <td class="td-center">48 vendas</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Compradores de Preparações (upsell)</td>
+          <td class="td-center">10 a 12</td>
+          <td class="td-center">~22% dos cadernos</td>
+          <td class="td-center">11 vendas</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Compradores de Preparações (direto)</td>
+          <td class="td-center">46</td>
+          <td class="td-center">~5% dos leads quentes</td>
+          <td class="td-center">46 vendas</td>
+        </tr>
+        <tr class="td-total">
+          <td><strong>Total de vendas</strong></td>
+          <td class="td-center"><strong>105</strong></td>
+          <td></td>
+          <td class="td-center"><strong>R$53.675</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 5 — ESTRATÉGIA POR CANAL
+═══════════════════════════════════════════ -->
+<section class="section" id="canais">
+<div class="container">
+  <div class="sec-num">05</div>
+  <div class="sec-title">Estratégia por Canal</div>
+  <div class="sec-sub">Cada canal tem papel específico no funil. Meta Ads traz volume, Instagram constrói autoridade, WhatsApp fecha vendas.</div>
+
+  <div class="channels">
+
+    <!-- META ADS -->
+    <div class="channel-card">
+      <div class="ch-icon">Canal 01</div>
+      <div class="ch-title">Meta Ads (Facebook + Instagram)</div>
+      <div class="ch-desc">
+        Principal motor de aquisição de leads frios. Três camadas de campanha operando simultaneamente.
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Investimento mensal</span>
+        <span class="ch-metric-value">R$1.000 a R$1.500</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">CPL estimado (lead para grupo)</span>
+        <span class="ch-metric-value">R$1,50 a R$3,00</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Leads estimados via ads</span>
+        <span class="ch-metric-value">330 a 1.000/mês</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">ROAS alvo (cenário mínimo)</span>
+        <span class="ch-metric-value">5x a 8x</span>
+      </div>
+    </div>
+
+    <!-- INSTAGRAM -->
+    <div class="channel-card">
+      <div class="ch-icon">Canal 02</div>
+      <div class="ch-title">Instagram Orgânico</div>
+      <div class="ch-desc">
+        Constrói autoridade, gera confiança e alimenta o funil com leads qualificados sem custo de mídia.
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Frequência de Reels</span>
+        <span class="ch-metric-value">1 por dia (7/semana)</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Stories</span>
+        <span class="ch-metric-value">3 a 5 por dia</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Posts de feed</span>
+        <span class="ch-metric-value">3 a 4 por semana</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Meta de leads orgânicos</span>
+        <span class="ch-metric-value">300 a 500/mês</span>
+      </div>
+    </div>
+
+    <!-- WHATSAPP -->
+    <div class="channel-card full">
+      <div class="ch-icon">Canal 03</div>
+      <div class="ch-title">WhatsApp (Grupos + Atendimento 1-a-1)</div>
+      <div class="ch-desc">
+        Canal de maior conversão. Os grupos aquecem, o atendimento individual fecha. Todo lead quente passa pelo WhatsApp antes de comprar.
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div>
+          <div class="ch-metric">
+            <span class="ch-metric-label">Grupos ativos</span>
+            <span class="ch-metric-value">2 (CFO + Soldado)</span>
+          </div>
+          <div class="ch-metric">
+            <span class="ch-metric-label">Mensagens de valor/dia</span>
+            <span class="ch-metric-value">1 a 2 por grupo</span>
+          </div>
+          <div class="ch-metric">
+            <span class="ch-metric-label">Pitch estruturado</span>
+            <span class="ch-metric-value">A cada 2 semanas</span>
+          </div>
+        </div>
+        <div>
+          <div class="ch-metric">
+            <span class="ch-metric-label">Atendimentos 1-a-1/dia</span>
+            <span class="ch-metric-value">10 a 20 conversas</span>
+          </div>
+          <div class="ch-metric">
+            <span class="ch-metric-label">Taxa de fechamento (1-a-1)</span>
+            <span class="ch-metric-value">15% a 25%</span>
+          </div>
+          <div class="ch-metric">
+            <span class="ch-metric-label">% das vendas totais via WhatsApp</span>
+            <span class="ch-metric-value">60% a 70%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ESTRUTURA DAS CAMPANHAS META ADS -->
+  <div style="margin-top:48px">
+    <div class="sec-num" style="font-size:0.54rem">Estrutura das campanhas Meta Ads</div>
+  </div>
+  <div class="tbl-wrap" style="margin-top:12px">
+    <table>
+      <thead>
+        <tr>
+          <th>Campanha</th>
+          <th>Objetivo</th>
+          <th>Público</th>
+          <th class="td-right">Verba mensal</th>
+          <th>Destino</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-bold">01 &mdash; Captura</td>
+          <td>Geração de leads</td>
+          <td>Frio &mdash; 18-29 anos, Bahia, interesse em PMBA/concursos/segurança pública</td>
+          <td class="td-right">40% da verba</td>
+          <td>Link para grupo WhatsApp</td>
+        </tr>
+        <tr>
+          <td class="td-bold">02 &mdash; Remarketing Cadernos</td>
+          <td>Conversão (venda)</td>
+          <td>Quente &mdash; visitou página de vendas, entrou no grupo, engajou com perfil</td>
+          <td class="td-right">30% da verba</td>
+          <td>Checkout Caderno (Eduzz)</td>
+        </tr>
+        <tr>
+          <td class="td-bold">03 &mdash; Remarketing Preparações</td>
+          <td>Conversão (venda)</td>
+          <td>Muito quente &mdash; comprou caderno, visitou página de preparação, interagiu com conteúdo de oferta</td>
+          <td class="td-right">30% da verba</td>
+          <td>Checkout Preparação (Eduzz)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-block" style="margin-top:24px">
+    <h4>Distribuição de verba por cenário</h4>
+    <ul>
+      <li><strong>Meta Mínima:</strong> R$1.000/mês &rarr; Captura R$400 | Rmkt Cadernos R$300 | Rmkt Preparações R$300</li>
+      <li><strong>Meta Bronze:</strong> R$1.250/mês &rarr; Captura R$500 | Rmkt Cadernos R$375 | Rmkt Preparações R$375</li>
+      <li><strong>Meta Ouro:</strong> R$1.500/mês &rarr; Captura R$600 | Rmkt Cadernos R$450 | Rmkt Preparações R$450</li>
+      <li><strong>Regra:</strong> se o ROAS da campanha 03 (Preparações) ultrapassar 10x, migrar verba da campanha 01 para a 03 proporcionalmente</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 6 — CONTRIBUIÇÃO POR CANAL
+═══════════════════════════════════════════ -->
+<section class="section" id="contribuicao">
+<div class="container">
+  <div class="sec-num">06</div>
+  <div class="sec-title">Contribuição de Cada Canal por Meta</div>
+  <div class="sec-sub">Projeção de quantas vendas cada canal gera em cada cenário.</div>
+
+  <div class="tbl-wrap" style="margin-top:28px">
+    <table>
+      <thead>
+        <tr>
+          <th>Canal</th>
+          <th class="td-center">Meta Mínima<br><small style="font-weight:400;letter-spacing:0">R$53.690</small></th>
+          <th class="td-center">Meta Bronze<br><small style="font-weight:400;letter-spacing:0">R$67.690</small></th>
+          <th class="td-center">Meta Ouro<br><small style="font-weight:400;letter-spacing:0">R$90.000</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-bold">Meta Ads (direto)</td>
+          <td class="td-center">25 vendas (24%)</td>
+          <td class="td-center">35 vendas (27%)</td>
+          <td class="td-center">50 vendas (29%)</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Instagram orgânico</td>
+          <td class="td-center">20 vendas (19%)</td>
+          <td class="td-center">28 vendas (21%)</td>
+          <td class="td-center">38 vendas (22%)</td>
+        </tr>
+        <tr>
+          <td class="td-bold">WhatsApp (grupos + 1-a-1)</td>
+          <td class="td-center">50 vendas (48%)</td>
+          <td class="td-center">55 vendas (42%)</td>
+          <td class="td-center">68 vendas (39%)</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Eventos gratuitos (online + presencial)</td>
+          <td class="td-center">22 vendas (17%)</td>
+          <td class="td-center">35 vendas (22%)</td>
+          <td class="td-center">50 vendas (24%)</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Indicações e boca a boca</td>
+          <td class="td-center">10 vendas (8%)</td>
+          <td class="td-center">13 vendas (8%)</td>
+          <td class="td-center">18 vendas (9%)</td>
+        </tr>
+        <tr class="td-total">
+          <td><strong>Total</strong></td>
+          <td class="td-center"><strong>127</strong></td>
+          <td class="td-center"><strong>166</strong></td>
+          <td class="td-center"><strong>224</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-block" style="margin-top:24px">
+    <h4>Observação importante</h4>
+    <p>
+      O WhatsApp aparece como canal dominante porque ele é o <strong>canal de fechamento</strong>, não necessariamente a origem do lead. Os <strong>eventos gratuitos</strong> aparecem como segundo maior contribuinte em volume &mdash; são o acelerador mais poderoso do funil, especialmente os presenciais (taxa de conversão de 15-35%). Com eventos rodando mensalmente, o total de vendas supera as metas originais, criando margem de segurança. Nem todo mês terá performance máxima &mdash; a margem extra absorve oscilações.
+    </p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 7 — ORÇAMENTO E ROI
+═══════════════════════════════════════════ -->
+<section class="section" id="orcamento">
+<div class="container">
+  <div class="sec-num">07</div>
+  <div class="sec-title">Orçamento e Retorno sobre Investimento</div>
+  <div class="sec-sub">Projeção financeira para cada cenário, considerando custos operacionais e de mídia.</div>
+
+  <div class="tbl-wrap" style="margin-top:28px">
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th class="td-right">Mínima</th>
+          <th class="td-right">Bronze</th>
+          <th class="td-right">Ouro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-bold">Faturamento bruto</td>
+          <td class="td-right td-ouro">R$53.675</td>
+          <td class="td-right td-ouro">R$67.727</td>
+          <td class="td-right td-ouro">R$90.408</td>
+        </tr>
+        <tr>
+          <td>Taxa Eduzz (~8,9%)</td>
+          <td class="td-right">-R$4.777</td>
+          <td class="td-right">-R$6.028</td>
+          <td class="td-right">-R$8.046</td>
+        </tr>
+        <tr>
+          <td>Investimento em Meta Ads</td>
+          <td class="td-right">-R$1.000</td>
+          <td class="td-right">-R$1.250</td>
+          <td class="td-right">-R$1.500</td>
+        </tr>
+        <tr>
+          <td>Ferramentas (hospedagem, e-mail, etc.)</td>
+          <td class="td-right">-R$200</td>
+          <td class="td-right">-R$200</td>
+          <td class="td-right">-R$300</td>
+        </tr>
+        <tr class="td-total">
+          <td><strong>Receita líquida estimada</strong></td>
+          <td class="td-right"><strong>R$47.698</strong></td>
+          <td class="td-right"><strong>R$60.249</strong></td>
+          <td class="td-right"><strong>R$80.562</strong></td>
+        </tr>
+        <tr>
+          <td class="td-bold">ROAS geral (faturamento / ads)</td>
+          <td class="td-right td-verde">53,7x</td>
+          <td class="td-right td-verde">54,2x</td>
+          <td class="td-right td-verde">60,3x</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Margem líquida</td>
+          <td class="td-right td-verde">88,9%</td>
+          <td class="td-right td-verde">89,0%</td>
+          <td class="td-right td-verde">89,1%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-block" style="margin-top:24px">
+    <h4>Nota sobre o ROAS</h4>
+    <p>
+      O ROAS aparece alto porque a maior parte das vendas vem de canais orgânicos (WhatsApp + Instagram), não apenas de ads. O ROAS <strong>isolado</strong> de Meta Ads tende a ficar entre 5x e 12x, o que já é excelente para o nicho. O número geral (53x+) reflete que o orgânico carrega grande parte do peso &mdash; por isso, manter a consistência de conteúdo é tão crítico quanto investir em anúncios.
+    </p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 8 — CALENDÁRIO DE EXECUÇÃO
+═══════════════════════════════════════════ -->
+<section class="section" id="calendario">
+<div class="container">
+  <div class="sec-num">08</div>
+  <div class="sec-title">Calendário de Execução &mdash; 90 Dias</div>
+  <div class="sec-sub">Plano em três fases: fundação, aceleração e escala. Cada fase tem entregas e metas claras.</div>
+
+  <div class="timeline">
+
+    <!-- FASE 1 -->
+    <div class="tl-phase">
+      <div class="tl-period">Fase 1 &mdash; Semanas 1 a 4 (Maio/Junho 2026)</div>
+      <div class="tl-title">Fundação &mdash; Infraestrutura e Primeiras Vendas</div>
+      <div class="tl-desc">Montar toda a base operacional: pixel, campanhas, rotina de conteúdo e processos de atendimento.</div>
+      <ul class="tl-actions">
+        <li>Instalar Meta Pixel no site projetogabaritando.com e configurar eventos (PageView, Lead, Purchase)</li>
+        <li>Criar públicos personalizados: visitantes do site (30/60/90 dias), engajamento Instagram (90 dias), lista de compradores</li>
+        <li>Subir campanha 01 (Captura) com 3 criativos em teste A/B</li>
+        <li>Iniciar rotina diária de conteúdo: 1 Reels + 3-5 Stories + mensagem nos grupos</li>
+        <li>Implementar script de atendimento WhatsApp (já criado) com toda a equipe</li>
+        <li>Realizar 2 pitches de cadernos nos grupos (semanas 2 e 4)</li>
+        <li>Abrir campanha 02 (Remarketing Cadernos) na semana 3</li>
+        <li>Realizar primeiro aulão online gratuito no YouTube (semana 2) para testar formato e gerar leads</li>
+        <li>Iniciar corridão/treino TAF quinzenal aos sábados (semana 1 e 3)</li>
+        <li>Primeira maratona de questões no grupo de WhatsApp (semana 1)</li>
+        <li>Meta do mês: 30 a 50 vendas totais (fase de ramp-up, eventos começando)</li>
+      </ul>
+    </div>
+
+    <!-- FASE 2 -->
+    <div class="tl-phase">
+      <div class="tl-period">Fase 2 &mdash; Semanas 5 a 8 (Junho/Julho 2026)</div>
+      <div class="tl-title">Aceleração &mdash; Volume e Otimização</div>
+      <div class="tl-desc">Com a base rodando, aumentar volume de leads, otimizar campanhas e ativar o upsell de preparações.</div>
+      <ul class="tl-actions">
+        <li>Analisar dados das 4 primeiras semanas: CPL, taxa de conversão, criativos vencedores</li>
+        <li>Pausar criativos com CPA acima da média e escalar os vencedores</li>
+        <li>Ativar campanha 03 (Remarketing Preparações) com base de compradores de cadernos</li>
+        <li>Implementar sequência de upsell no WhatsApp: 7 dias após compra do caderno, oferecer preparação</li>
+        <li>Lançar programa de indicação: quem indicar e converter ganha benefício</li>
+        <li>Aumentar frequência de Reels para 1-2/dia se possível</li>
+        <li>Realizar 2 aulões online (YouTube + Instagram) com oferta de 48h após cada um</li>
+        <li>Realizar primeiro simulado online gratuito (semana 3) &mdash; inscrição via WhatsApp</li>
+        <li>Realizar primeiro aulão ou simulado presencial do mês</li>
+        <li>Manter corridão quinzenal + maratona de questões semanal</li>
+        <li>Meta do mês: atingir meta mínima (R$53.690 / 105+ vendas)</li>
+      </ul>
+    </div>
+
+    <!-- FASE 3 -->
+    <div class="tl-phase">
+      <div class="tl-period">Fase 3 &mdash; Semanas 9 a 12 (Julho/Agosto 2026)</div>
+      <div class="tl-title">Escala &mdash; Rumo à Meta Ouro</div>
+      <div class="tl-desc">Escalar o que funciona, diversificar produtos e preparar a operação para sustentar R$90.000/mês.</div>
+      <ul class="tl-actions">
+        <li>Escalar verba de ads para o teto (R$1.500) se ROAS estiver acima de 5x</li>
+        <li>Lançar criativos específicos para SGT PMBA e Investigador PCBA (ampliar catálogo ativo)</li>
+        <li>Criar grupo de WhatsApp adicional para Investigador PCBA (se houver demanda)</li>
+        <li>Automatizar sequência de e-mail pós-compra do caderno com oferta de preparação</li>
+        <li>Calendário completo de eventos rodando: 2 aulões online + 1 simulado online + 1 presencial + 2 corridões + maratonas semanais</li>
+        <li>Realizar aulão de revisão pré-prova (se houver concurso próximo) &mdash; maior conversão do trimestre</li>
+        <li>Analisar jornada completa do comprador: tempo entre lead e primeira compra, tempo entre caderno e preparação</li>
+        <li>Definir se é viável contratar atendente dedicado para WhatsApp</li>
+        <li>Meta do mês: atingir meta Bronze (R$67.690) ou Ouro (R$90.000)</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 9 — ROTINA SEMANAL
+═══════════════════════════════════════════ -->
+<section class="section" id="rotina">
+<div class="container">
+  <div class="sec-num">09</div>
+  <div class="sec-title">Rotina Semanal de Execução</div>
+  <div class="sec-sub">Checklist operacional &mdash; o que precisa acontecer toda semana para manter o funil ativo.</div>
+
+  <div class="tbl-wrap" style="margin-top:28px">
+    <table>
+      <thead>
+        <tr>
+          <th>Dia</th>
+          <th>Instagram</th>
+          <th>WhatsApp</th>
+          <th>Ads / Operacional</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-bold">Segunda</td>
+          <td>Reels de identificação + 3 Stories</td>
+          <td>Mensagem de valor (dica de estudo)</td>
+          <td>Revisar métricas do fim de semana</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Terça</td>
+          <td>Reels técnico (conteúdo de concurso) + 4 Stories</td>
+          <td>Engajamento (enquete, pergunta)</td>
+          <td>Testar novos criativos se necessário</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Quarta</td>
+          <td>Reels de dor + 3 Stories</td>
+          <td>Prova social (resultado/depoimento)</td>
+          <td>Verificar CPL e CPA das campanhas</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Quinta</td>
+          <td>Reels de prova social + 4 Stories</td>
+          <td>Mensagem de valor (notícia do concurso)</td>
+          <td>Follow-up de leads abertos no WhatsApp</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Sexta</td>
+          <td>Reels de oferta com CTA + 5 Stories</td>
+          <td>Engajamento + CTA leve para caderno</td>
+          <td>Pausar criativos com CPA alto</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Sábado</td>
+          <td>Reels motivacional + 3 Stories</td>
+          <td>Pitch estruturado (semanas alternadas)</td>
+          <td>Resumo semanal de vendas e leads</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Domingo</td>
+          <td>Reels leve (carreira policial) + 3 Stories</td>
+          <td>Follow-up leve dos que não compraram</td>
+          <td>Descanso / planejamento da próxima semana</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 10 — KPIs E ACOMPANHAMENTO
+═══════════════════════════════════════════ -->
+<section class="section" id="kpis">
+<div class="container">
+  <div class="sec-num">10</div>
+  <div class="sec-title">KPIs e Acompanhamento</div>
+  <div class="sec-sub">Indicadores que precisam ser monitorados semanalmente para garantir que o plano está no caminho certo.</div>
+
+  <div class="kpi-grid" style="margin-top:36px">
+    <div class="kpi-box">
+      <div class="kpi-num">CPL</div>
+      <div class="kpi-label">Custo por Lead</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-num">CPA</div>
+      <div class="kpi-label">Custo por Aquisição</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-num">ROAS</div>
+      <div class="kpi-label">Retorno sobre Ads</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-num">LTV</div>
+      <div class="kpi-label">Valor do Cliente</div>
+    </div>
+  </div>
+
+  <div class="tbl-wrap" style="margin-top:28px">
+    <table>
+      <thead>
+        <tr>
+          <th>KPI</th>
+          <th>O que mede</th>
+          <th class="td-center">Meta saudável</th>
+          <th class="td-center">Sinal de alerta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-bold">CPL (Custo por Lead)</td>
+          <td>Quanto custa trazer 1 lead para o grupo</td>
+          <td class="td-center td-verde">Abaixo de R$3,00</td>
+          <td class="td-center" style="color:var(--vermelho)">Acima de R$5,00</td>
+        </tr>
+        <tr>
+          <td class="td-bold">CPA Caderno</td>
+          <td>Quanto custa gerar 1 venda de caderno via ads</td>
+          <td class="td-center td-verde">Abaixo de R$25</td>
+          <td class="td-center" style="color:var(--vermelho)">Acima de R$40</td>
+        </tr>
+        <tr>
+          <td class="td-bold">CPA Preparação</td>
+          <td>Quanto custa gerar 1 venda de preparação via ads</td>
+          <td class="td-center td-verde">Abaixo de R$120</td>
+          <td class="td-center" style="color:var(--vermelho)">Acima de R$200</td>
+        </tr>
+        <tr>
+          <td class="td-bold">ROAS Meta Ads</td>
+          <td>Retorno sobre cada real investido em ads</td>
+          <td class="td-center td-verde">Acima de 5x</td>
+          <td class="td-center" style="color:var(--vermelho)">Abaixo de 3x</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Taxa de conversão grupo &rarr; caderno</td>
+          <td>% dos membros do grupo que compram caderno</td>
+          <td class="td-center td-verde">Acima de 5%</td>
+          <td class="td-center" style="color:var(--vermelho)">Abaixo de 3%</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Taxa de upsell caderno &rarr; preparação</td>
+          <td>% dos compradores de caderno que fazem upgrade</td>
+          <td class="td-center td-verde">Acima de 18%</td>
+          <td class="td-center" style="color:var(--vermelho)">Abaixo de 10%</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Taxa de fechamento WhatsApp 1-a-1</td>
+          <td>% das conversas individuais que geram venda</td>
+          <td class="td-center td-verde">Acima de 15%</td>
+          <td class="td-center" style="color:var(--vermelho)">Abaixo de 8%</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Ticket médio</td>
+          <td>Valor médio por venda (todos os produtos)</td>
+          <td class="td-center td-verde">Acima de R$500</td>
+          <td class="td-center" style="color:var(--vermelho)">Abaixo de R$350</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-block" style="margin-top:24px">
+    <h4>Frequência de revisão</h4>
+    <ul>
+      <li><strong>Diário:</strong> verificar leads novos nos grupos, conversas abertas no WhatsApp, vendas do dia na Eduzz</li>
+      <li><strong>Semanal (sábado):</strong> CPL, CPA, vendas por canal, resumo financeiro, comparar com meta do mês</li>
+      <li><strong>Mensal (último dia útil):</strong> fechamento completo — faturamento vs. meta, ROAS consolidado, taxa de upsell, projeção do próximo mês</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 11 — ESTRATÉGIA DE EVENTOS GRATUITOS
+═══════════════════════════════════════════ -->
+<section class="section" id="eventos">
+<div class="container">
+  <div class="sec-num">11</div>
+  <div class="sec-title">Estratégia de Eventos Gratuitos</div>
+  <div class="sec-sub">Eventos gratuitos são o maior acelerador de vendas do Gabaritando. Entregam valor real, comprovam a qualidade dos mentores e criam o momento emocional ideal para a decisão de compra. Cada evento é uma oportunidade de gerar leads, aquecer a base e converter em massa.</div>
+
+  <!-- POR QUE EVENTOS -->
+  <div class="info-block" style="margin-top:32px">
+    <h4>Por que eventos funcionam no nicho de concursos</h4>
+    <ul>
+      <li><strong>Prova de autoridade ao vivo:</strong> o candidato vê os mentores (aprovados no concurso) explicando, resolvendo questões e tirando dúvidas em tempo real. Nenhum anúncio gera essa confiança.</li>
+      <li><strong>Reduz o ciclo de decisão:</strong> um lead que demoraria 2-3 semanas para comprar pode fechar no mesmo dia do evento, movido pela experiência e pela oferta exclusiva.</li>
+      <li><strong>Gera conteúdo derivado:</strong> cada evento vira 5-10 cortes para Reels, Stories e anúncios nas semanas seguintes.</li>
+      <li><strong>Custo baixo ou zero:</strong> eventos online custam apenas o tempo dos mentores. Presenciais exigem local, mas geram taxa de conversão muito superior.</li>
+      <li><strong>Efeito de comunidade:</strong> quem participa de um evento se sente parte do projeto, não apenas um potencial comprador.</li>
+    </ul>
+  </div>
+
+  <!-- CATÁLOGO DE EVENTOS -->
+  <div style="margin-top:48px">
+    <div class="sec-num" style="font-size:0.54rem">Catálogo de eventos</div>
+  </div>
+
+  <div class="channels" style="margin-top:16px">
+
+    <!-- AULÃO ONLINE -->
+    <div class="channel-card">
+      <div class="ch-icon">Evento 01</div>
+      <div class="ch-title">Aulão Gratuito Online (YouTube/Instagram)</div>
+      <div class="ch-desc">
+        Live aberta com resolução de questões comentadas ao vivo, análise de banca e dicas estratégicas de estudo. Duração: 1h30 a 2h. No encerramento, oferta exclusiva com prazo limitado (24-48h).
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Frequência</span>
+        <span class="ch-metric-value">2x por mês</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Audiência esperada</span>
+        <span class="ch-metric-value">80 a 300 pessoas ao vivo</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Taxa de conversão</span>
+        <span class="ch-metric-value">5% a 12% dos presentes</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Vendas estimadas por evento</span>
+        <span class="ch-metric-value">4 a 20 vendas</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Custo</span>
+        <span class="ch-metric-value">Zero (apenas tempo dos mentores)</span>
+      </div>
+    </div>
+
+    <!-- AULÃO PRESENCIAL -->
+    <div class="channel-card">
+      <div class="ch-icon">Evento 02</div>
+      <div class="ch-title">Aulão Presencial</div>
+      <div class="ch-desc">
+        Aula gratuita em espaço cedido (faculdade, coworking, igreja, quadra comunitária). Formato: 2h de conteúdo intensivo + 30 min de oferta. O contato pessoal gera confiança que nenhum canal digital reproduz. Coleta WhatsApp de todos os presentes na entrada.
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Frequência</span>
+        <span class="ch-metric-value">1x por mês (quando viável)</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Audiência esperada</span>
+        <span class="ch-metric-value">30 a 100 pessoas</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Taxa de conversão</span>
+        <span class="ch-metric-value">15% a 30% dos presentes</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Vendas estimadas por evento</span>
+        <span class="ch-metric-value">5 a 25 vendas</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Custo</span>
+        <span class="ch-metric-value">R$0 a R$300 (local + material impresso)</span>
+      </div>
+    </div>
+
+    <!-- SIMULADO ONLINE -->
+    <div class="channel-card">
+      <div class="ch-icon">Evento 03</div>
+      <div class="ch-title">Simulado Online Gratuito</div>
+      <div class="ch-desc">
+        Prova simulada com questões no estilo da banca, cronômetro e correção ao vivo. O candidato testa seu nível real e percebe onde precisa melhorar &mdash; abrindo espaço para a oferta da preparação como solução. Inscrição via WhatsApp (gera lead automaticamente).
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Frequência</span>
+        <span class="ch-metric-value">1x por mês</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Inscritos esperados</span>
+        <span class="ch-metric-value">100 a 400 pessoas</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Taxa de conversão</span>
+        <span class="ch-metric-value">3% a 8% dos participantes</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Vendas estimadas por evento</span>
+        <span class="ch-metric-value">3 a 20 vendas</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Custo</span>
+        <span class="ch-metric-value">Zero</span>
+      </div>
+    </div>
+
+    <!-- SIMULADO PRESENCIAL -->
+    <div class="channel-card">
+      <div class="ch-icon">Evento 04</div>
+      <div class="ch-title">Simulado Presencial</div>
+      <div class="ch-desc">
+        Mesma lógica do simulado online, mas em ambiente controlado (sala de aula, auditório). Reproduz a experiência real de prova &mdash; silêncio, tempo cronometrado, folha de respostas. O candidato sente a pressão e valoriza ainda mais a preparação estruturada.
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Frequência</span>
+        <span class="ch-metric-value">1x a cada 2 meses</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Participantes esperados</span>
+        <span class="ch-metric-value">20 a 60 pessoas</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Taxa de conversão</span>
+        <span class="ch-metric-value">18% a 35% dos participantes</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Vendas estimadas por evento</span>
+        <span class="ch-metric-value">4 a 18 vendas</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Custo</span>
+        <span class="ch-metric-value">R$100 a R$400 (local + impressão de provas)</span>
+      </div>
+    </div>
+
+    <!-- AULÃO DE REVISÃO -->
+    <div class="channel-card">
+      <div class="ch-icon">Evento 05</div>
+      <div class="ch-title">Aulão de Revisão (Pré-Prova)</div>
+      <div class="ch-desc">
+        Revisão intensiva nos 15-30 dias antes do concurso. Foco nos temas mais cobrados pela banca. Altíssima urgência &mdash; o candidato sabe que a prova está chegando e precisa de ajuda agora. Pode ser online ou presencial. Funciona como trampolim para a venda da preparação completa ou do caderno de treino.
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Frequência</span>
+        <span class="ch-metric-value">Sob demanda (quando há concurso próximo)</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Audiência esperada</span>
+        <span class="ch-metric-value">100 a 500+ (online) / 30 a 80 (presencial)</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Taxa de conversão</span>
+        <span class="ch-metric-value">8% a 20% (urgência eleva conversão)</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Vendas estimadas por evento</span>
+        <span class="ch-metric-value">8 a 40 vendas</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Custo</span>
+        <span class="ch-metric-value">Zero (online) / R$200 a R$500 (presencial)</span>
+      </div>
+    </div>
+
+    <!-- CORRIDÃO -->
+    <div class="channel-card">
+      <div class="ch-icon">Evento 06</div>
+      <div class="ch-title">Corridão / Treino Físico Coletivo</div>
+      <div class="ch-desc">
+        Treino de corrida ou circuito funcional aberto ao público, simulando o TAF (Teste de Aptidão Física) do concurso. Cria vínculo forte &mdash; o candidato associa o Gabaritando à preparação completa (não só teórica). Ideal para parques, pistas de atletismo ou quadras. Os mentores treinam junto.
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Frequência</span>
+        <span class="ch-metric-value">1x a cada 2 semanas (sábado de manhã)</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Participantes esperados</span>
+        <span class="ch-metric-value">15 a 50 pessoas</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Taxa de conversão</span>
+        <span class="ch-metric-value">10% a 20% dos participantes</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Vendas estimadas por evento</span>
+        <span class="ch-metric-value">2 a 8 vendas</span>
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Custo</span>
+        <span class="ch-metric-value">Zero (espaço público)</span>
+      </div>
+    </div>
+
+    <!-- MARATONA DE QUESTÕES -->
+    <div class="channel-card full">
+      <div class="ch-icon">Evento 07</div>
+      <div class="ch-title">Maratona de Questões (Online &mdash; Semanal)</div>
+      <div class="ch-desc">
+        Sessão de 1h nos grupos de WhatsApp ou em live curta. Os mentores postam questões e resolvem em tempo real, com explicação detalhada. Formato leve, recorrente e que mantém a base engajada entre os eventos maiores. Funciona como aquecimento permanente.
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div>
+          <div class="ch-metric">
+            <span class="ch-metric-label">Frequência</span>
+            <span class="ch-metric-value">1x por semana</span>
+          </div>
+          <div class="ch-metric">
+            <span class="ch-metric-label">Participantes</span>
+            <span class="ch-metric-value">30 a 100 (no grupo)</span>
+          </div>
+        </div>
+        <div>
+          <div class="ch-metric">
+            <span class="ch-metric-label">Conversão direta</span>
+            <span class="ch-metric-value">Baixa (1-3%) &mdash; aquecimento</span>
+          </div>
+          <div class="ch-metric">
+            <span class="ch-metric-label">Custo</span>
+            <span class="ch-metric-value">Zero</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CALENDÁRIO MENSAL DE EVENTOS -->
+  <div style="margin-top:48px">
+    <div class="sec-num" style="font-size:0.54rem">Calendário mensal de eventos &mdash; modelo padrão</div>
+  </div>
+  <div class="tbl-wrap" style="margin-top:12px">
+    <table>
+      <thead>
+        <tr>
+          <th>Semana</th>
+          <th>Evento</th>
+          <th>Formato</th>
+          <th>Objetivo principal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-bold">Semana 1</td>
+          <td>Maratona de Questões</td>
+          <td>Online (grupo WhatsApp)</td>
+          <td>Engajar base, manter grupo ativo</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Semana 1</td>
+          <td>Corridão / Treino TAF</td>
+          <td>Presencial (sábado de manhã)</td>
+          <td>Gerar leads presenciais, vínculo</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Semana 2</td>
+          <td>Aulão Online (YouTube)</td>
+          <td>Live (1h30-2h)</td>
+          <td>Conversão em massa + leads novos</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Semana 2</td>
+          <td>Maratona de Questões</td>
+          <td>Online (grupo WhatsApp)</td>
+          <td>Engajar base</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Semana 3</td>
+          <td>Simulado Online Gratuito</td>
+          <td>Online (inscrição via WhatsApp)</td>
+          <td>Gerar leads + mostrar nível real</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Semana 3</td>
+          <td>Corridão / Treino TAF</td>
+          <td>Presencial (sábado de manhã)</td>
+          <td>Manter presença, gerar conteúdo</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Semana 4</td>
+          <td>Aulão Online (Instagram)</td>
+          <td>Live (1h30-2h)</td>
+          <td>Conversão + remarketing da base</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Semana 4</td>
+          <td>Maratona de Questões</td>
+          <td>Online (grupo WhatsApp)</td>
+          <td>Engajar base + CTA final do mês</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Mensal (1x)</td>
+          <td>Aulão Presencial ou Simulado Presencial</td>
+          <td>Presencial (quando viável)</td>
+          <td>Maior taxa de conversão do mês</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- IMPACTO NAS METAS -->
+  <div style="margin-top:40px">
+    <div class="sec-num" style="font-size:0.54rem">Impacto dos eventos nas metas</div>
+  </div>
+  <div class="tbl-wrap" style="margin-top:12px">
+    <table>
+      <thead>
+        <tr>
+          <th>Evento (mensal)</th>
+          <th class="td-center">Vendas estimadas</th>
+          <th class="td-center">Receita estimada</th>
+          <th class="td-center">Leads gerados</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-bold">2x Aulão Online</td>
+          <td class="td-center">8 a 30 vendas</td>
+          <td class="td-center">R$4.000 a R$18.000</td>
+          <td class="td-center">100 a 400</td>
+        </tr>
+        <tr>
+          <td class="td-bold">1x Aulão/Simulado Presencial</td>
+          <td class="td-center">5 a 25 vendas</td>
+          <td class="td-center">R$2.500 a R$15.000</td>
+          <td class="td-center">30 a 100</td>
+        </tr>
+        <tr>
+          <td class="td-bold">1x Simulado Online</td>
+          <td class="td-center">3 a 20 vendas</td>
+          <td class="td-center">R$1.500 a R$12.000</td>
+          <td class="td-center">100 a 400</td>
+        </tr>
+        <tr>
+          <td class="td-bold">2x Corridão / Treino TAF</td>
+          <td class="td-center">4 a 12 vendas</td>
+          <td class="td-center">R$2.000 a R$7.000</td>
+          <td class="td-center">30 a 100</td>
+        </tr>
+        <tr>
+          <td class="td-bold">4x Maratona de Questões</td>
+          <td class="td-center">2 a 6 vendas (indireto)</td>
+          <td class="td-center">R$1.000 a R$3.600</td>
+          <td class="td-center">Aquecimento da base</td>
+        </tr>
+        <tr class="td-total">
+          <td><strong>Total mensal estimado (eventos)</strong></td>
+          <td class="td-center"><strong>22 a 93 vendas</strong></td>
+          <td class="td-center"><strong>R$11.000 a R$55.600</strong></td>
+          <td class="td-center"><strong>260 a 1.000 leads</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-block" style="margin-top:24px">
+    <h4>Impacto real nos cenários de meta</h4>
+    <ul>
+      <li><strong>Meta Mínima (R$53.690):</strong> com eventos gerando 22-30 vendas/mês, o restante do funil (ads + orgânico + WhatsApp) precisa gerar apenas 75-83 vendas. Os eventos reduzem a pressão sobre o tráfego pago significativamente.</li>
+      <li><strong>Meta Bronze (R$67.690):</strong> eventos cobrindo 30-40 vendas deixam o gap em ~90 vendas para os outros canais. Viável com a base de leads crescendo mês a mês.</li>
+      <li><strong>Meta Ouro (R$90.000):</strong> eventos operando em plena capacidade (50-70 vendas) combinados com ads e orgânico tornam o R$90k alcançável. O aulão presencial mensal é o diferencial para chegar nesse patamar.</li>
+    </ul>
+  </div>
+
+  <!-- COMO CADA EVENTO ALIMENTA O FUNIL -->
+  <div style="margin-top:40px">
+    <div class="sec-num" style="font-size:0.54rem">Como cada evento alimenta o funil</div>
+  </div>
+  <div class="info-block" style="margin-top:12px;border-left-color:var(--azul)">
+    <h4 style="color:var(--azul)">Antes do evento &mdash; Captura</h4>
+    <ul>
+      <li>Anunciar o evento 7-10 dias antes em todos os canais (Instagram, WhatsApp, ads)</li>
+      <li>Inscrição obrigatória via WhatsApp &mdash; todo inscrito vira lead no grupo</li>
+      <li>Sequência de aquecimento: 3-5 mensagens/Stories nos dias anteriores construindo expectativa</li>
+      <li>Ads de divulgação do evento (usar 10-15% da verba mensal para impulsionar)</li>
+    </ul>
+  </div>
+  <div class="info-block" style="margin-top:12px;border-left-color:var(--laranja)">
+    <h4 style="color:var(--laranja)">Durante o evento &mdash; Autoridade e Aquecimento</h4>
+    <ul>
+      <li>Entregar conteúdo de verdade &mdash; não pode ser um pitch disfarçado de aula</li>
+      <li>80% do tempo é conteúdo puro (questões, dicas, revisão, treino)</li>
+      <li>20% final é a oferta, com transição natural: "agora que vocês viram o nível do que a gente entrega de graça, imaginem o que tem dentro da preparação completa"</li>
+      <li>Coletar perguntas e interações &mdash; quem pergunta é lead quente</li>
+    </ul>
+  </div>
+  <div class="info-block" style="margin-top:12px;border-left-color:var(--ouro)">
+    <h4>Depois do evento &mdash; Conversão</h4>
+    <ul>
+      <li>Oferta exclusiva com prazo de 24-48h (quem assistiu ao vivo ganha condição especial)</li>
+      <li>Follow-up individual no WhatsApp para quem interagiu, perguntou ou demonstrou interesse</li>
+      <li>Gravar o evento e gerar 5-10 cortes para Reels e Stories na semana seguinte</li>
+      <li>Subir gravação completa no YouTube (gera leads orgânicos de longo prazo)</li>
+      <li>Quem não comprou entra na sequência normal do funil (remarketing + caderno + upsell)</li>
+    </ul>
+  </div>
+
+  <!-- DICAS PRÁTICAS -->
+  <div class="info-block" style="margin-top:28px">
+    <h4>Dicas práticas para eventos presenciais</h4>
+    <ul>
+      <li><strong>Local:</strong> buscar parcerias com faculdades, centros comunitários, igrejas ou espaços de coworking. Muitos cedem de graça em troca de divulgação.</li>
+      <li><strong>Registro:</strong> fotografar e filmar tudo. Conteúdo de evento presencial converte muito bem como prova social nas redes.</li>
+      <li><strong>Camiseta do Gabaritando:</strong> toda a equipe usando camiseta padronizada. Reforça profissionalismo e marca.</li>
+      <li><strong>Material impresso:</strong> folheto simples com QR code para a página de vendas e WhatsApp. Quem sai do evento leva o link na mão.</li>
+      <li><strong>Corridão:</strong> escolher parque ou pista de atletismo acessível. Divulgar no Instagram com localização e horário fixo. Criar identidade visual do treino ("Corridão Gabaritando &mdash; todo sábado 7h").</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 12 — AÇÕES COMPLEMENTARES DE ACELERAÇÃO
+═══════════════════════════════════════════ -->
+<section class="section" id="aceleracao">
+<div class="container">
+  <div class="sec-num">12</div>
+  <div class="sec-title">Ações Complementares de Aceleração</div>
+  <div class="sec-sub">Táticas adicionais que potencializam os eventos e os canais permanentes.</div>
+
+  <div class="channels" style="margin-top:32px">
+
+    <div class="channel-card">
+      <div class="ch-icon">Tática 01</div>
+      <div class="ch-title">Semana de Ofertas Especiais</div>
+      <div class="ch-desc">
+        Uma semana por mês com condição especial (bônus exclusivo, acesso antecipado a módulo, kit de simulados extra). Não dar desconto no preço &mdash; agregar valor.
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Impacto estimado</span>
+        <span class="ch-metric-value">+15% nas vendas da semana</span>
+      </div>
+    </div>
+
+    <div class="channel-card">
+      <div class="ch-icon">Tática 02</div>
+      <div class="ch-title">Programa de Indicação</div>
+      <div class="ch-desc">
+        Quem é aluno indica um amigo. Se o amigo comprar, o aluno recebe um bônus (módulo extra, simulado, mentoria). Custo zero &mdash; só ativa quando gera venda.
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Meta</span>
+        <span class="ch-metric-value">10 a 18 vendas/mês por indicação</span>
+      </div>
+    </div>
+
+    <div class="channel-card">
+      <div class="ch-icon">Tática 03</div>
+      <div class="ch-title">Conteúdo de Autoridade no YouTube</div>
+      <div class="ch-desc">
+        Vídeos semanais (5-10 min) com questões resolvidas, análise de bancas e dicas de estudo. O YouTube indexa no Google e traz leads orgânicos de longo prazo. As gravações dos aulões online alimentam esse canal automaticamente.
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Retorno</span>
+        <span class="ch-metric-value">Médio prazo (30-90 dias)</span>
+      </div>
+    </div>
+
+    <div class="channel-card">
+      <div class="ch-icon">Tática 04</div>
+      <div class="ch-title">Desafio 7 Dias no WhatsApp</div>
+      <div class="ch-desc">
+        Desafio gratuito de 7 dias com uma questão por dia no grupo. Quem acertar todas ganha brinde digital (resumo, mapa mental). Gera engajamento massivo e aquece para oferta no dia 8.
+      </div>
+      <div class="ch-metric">
+        <span class="ch-metric-label">Impacto estimado</span>
+        <span class="ch-metric-value">+20% de engajamento no grupo</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 13 — RISCOS E CONTINGÊNCIAS
+═══════════════════════════════════════════ -->
+<section class="section" id="riscos">
+<div class="container">
+  <div class="sec-num">13</div>
+  <div class="sec-title">Riscos e Contingências</div>
+  <div class="sec-sub">O que pode dar errado e como reagir.</div>
+
+  <div class="tbl-wrap" style="margin-top:28px">
+    <table>
+      <thead>
+        <tr>
+          <th>Risco</th>
+          <th>Probabilidade</th>
+          <th>Impacto</th>
+          <th>Contingência</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-bold">CPL acima de R$5</td>
+          <td class="td-center">Média</td>
+          <td class="td-center">Alto</td>
+          <td>Testar novos criativos (vídeo vs. estático), ajustar segmentação, testar público Lookalike de compradores</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Baixa conversão no WhatsApp</td>
+          <td class="td-center">Média</td>
+          <td class="td-center">Alto</td>
+          <td>Revisar script de atendimento, reduzir tempo de resposta, adicionar prova social nas mensagens</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Grupos de WhatsApp silenciosos</td>
+          <td class="td-center">Alta</td>
+          <td class="td-center">Médio</td>
+          <td>Aumentar frequência de conteúdo, criar enquetes diárias, gravar áudios curtos dos mentores</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Taxa de upsell abaixo de 10%</td>
+          <td class="td-center">Média</td>
+          <td class="td-center">Médio</td>
+          <td>Melhorar experiência do caderno para gerar desejo pela preparação, criar sequência de e-mails pós-compra</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Concorrente baixar preço agressivamente</td>
+          <td class="td-center">Baixa</td>
+          <td class="td-center">Médio</td>
+          <td>Não competir por preço &mdash; reforçar diferencial (aprovados como professores, especialização em Bahia)</td>
+        </tr>
+        <tr>
+          <td class="td-bold">Conta de anúncios bloqueada</td>
+          <td class="td-center">Baixa</td>
+          <td class="td-center">Alto</td>
+          <td>Manter Business Manager verificada, ter conta reserva configurada, respeitar políticas de anúncio</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SEÇÃO 14 — RESUMO EXECUTIVO
+═══════════════════════════════════════════ -->
+<section class="section" id="resumo">
+<div class="container">
+  <div class="sec-num">14</div>
+  <div class="sec-title">Resumo Executivo</div>
+  <div class="sec-sub">Visão consolidada do plano em números.</div>
+
+  <div class="metas-grid" style="margin-top:36px">
+
+    <div class="meta-card minima">
+      <div class="meta-label">Meta Mínima</div>
+      <div class="meta-valor">R$53.690</div>
+      <div class="meta-detail" style="margin-top:16px">
+        <strong>105 vendas/mês</strong><br>
+        Ads: R$1.000<br>
+        Líquido: R$47.698<br>
+        Margem: 88,9%<br><br>
+        <strong>Atingir em:</strong> 60 dias
+      </div>
+    </div>
+
+    <div class="meta-card bronze">
+      <div class="meta-label">Meta Bronze</div>
+      <div class="meta-valor">R$67.690</div>
+      <div class="meta-detail" style="margin-top:16px">
+        <strong>131 vendas/mês</strong><br>
+        Ads: R$1.250<br>
+        Líquido: R$60.249<br>
+        Margem: 89,0%<br><br>
+        <strong>Atingir em:</strong> 75 dias
+      </div>
+    </div>
+
+    <div class="meta-card ouro">
+      <div class="meta-label">Meta Ouro</div>
+      <div class="meta-valor">R$90.000</div>
+      <div class="meta-detail" style="margin-top:16px">
+        <strong>174 vendas/mês</strong><br>
+        Ads: R$1.500<br>
+        Líquido: R$80.562<br>
+        Margem: 89,1%<br><br>
+        <strong>Atingir em:</strong> 90 dias
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-block" style="margin-top:32px">
+    <h4>Próximos passos imediatos</h4>
+    <ul>
+      <li><strong>Semana 1:</strong> Instalar Meta Pixel no site, configurar eventos de conversão, criar públicos no Gerenciador de Anúncios</li>
+      <li><strong>Semana 1:</strong> Iniciar rotina diária de conteúdo (Reels + Stories + mensagens nos grupos)</li>
+      <li><strong>Semana 1:</strong> Primeiro corridão/treino TAF no sábado + primeira maratona de questões no grupo</li>
+      <li><strong>Semana 2:</strong> Subir primeira campanha de captura (3 criativos em teste A/B)</li>
+      <li><strong>Semana 2:</strong> Primeiro aulão online gratuito no YouTube + pitch de cadernos nos grupos</li>
+      <li><strong>Semana 3:</strong> Ativar campanha de remarketing para cadernos + segundo corridão</li>
+      <li><strong>Semana 4:</strong> Segundo aulão online (Instagram) + avaliar resultados e ajustar</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" style="margin-top:40px">
+  <div class="container">
+    <div class="footer-text">Gabaritando &mdash; Plano Estratégico de Vendas &mdash; Maio 2026 &mdash; Documento interno</div>
+  </div>
+</footer>
+
+</body>
+</html>

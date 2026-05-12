@@ -29,6 +29,7 @@
   --cor-stories: #00C9A7;
   --cor-yt:      #E53935;
   --cor-evento:  #FF4081;
+  --cor-wpp:     #25D366;
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -243,6 +244,48 @@ a { text-decoration:none; color:inherit; }
 .cb-feed .cb-tag    { background:var(--cor-feed); }
 .cb-stories .cb-tag { background:var(--cor-stories); color:var(--carvao); }
 .cb-yt .cb-tag      { background:var(--cor-yt); }
+.cb-wpp    { border-color:var(--cor-wpp); }
+.cb-wpp .cb-tag     { background:var(--cor-wpp); color:var(--carvao); }
+
+/* CICLO VISUAL (WhatsApp pillar) */
+.ciclo-bar {
+  display:flex; gap:0; margin:16px 0 12px; border-radius:4px; overflow:hidden;
+}
+.ciclo-seg {
+  padding:8px 0; text-align:center;
+  font-size:0.56rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--carvao);
+}
+.ciclo-seg.valor     { background:var(--cor-wpp); flex:7; }
+.ciclo-seg.aquec     { background:var(--ouro); flex:4; }
+.ciclo-seg.pitch     { background:var(--cor-reels); flex:2; color:#fff; }
+.ciclo-seg.reset     { background:rgba(255,255,255,0.1); flex:1; color:rgba(255,255,255,0.4); }
+
+.ciclo-legenda {
+  display:flex; gap:16px; flex-wrap:wrap; margin-bottom:16px;
+}
+.ciclo-legenda span {
+  font-size:0.62rem; font-weight:500; color:rgba(255,255,255,0.5);
+  display:flex; align-items:center; gap:5px;
+}
+.ciclo-legenda span::before {
+  content:''; display:inline-block; width:10px; height:10px; border-radius:2px;
+}
+.ciclo-legenda .leg-valor::before  { background:var(--cor-wpp); }
+.ciclo-legenda .leg-aquec::before  { background:var(--ouro); }
+.ciclo-legenda .leg-pitch::before  { background:var(--cor-reels); }
+.ciclo-legenda .leg-reset::before  { background:rgba(255,255,255,0.15); }
+
+.grupo-badge {
+  display:inline-block;
+  font-size:0.56rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+  padding:3px 10px; margin-right:6px; margin-bottom:4px;
+  border:1px solid;
+}
+.grupo-badge.cfo   { color:#3B82F6; border-color:rgba(59,130,246,0.3); background:rgba(59,130,246,0.08); }
+.grupo-badge.sd    { color:var(--cor-wpp); border-color:rgba(37,211,102,0.3); background:rgba(37,211,102,0.08); }
+.grupo-badge.pcba  { color:var(--cor-reels); border-color:rgba(255,107,53,0.3); background:rgba(255,107,53,0.08); }
+.grupo-badge.red   { color:var(--cor-feed); border-color:rgba(155,93,229,0.3); background:rgba(155,93,229,0.08); }
 
 .cb-cat {
   display:inline-block; font-size:0.58rem; font-weight:600;
@@ -628,6 +671,152 @@ a { text-decoration:none; color:inherit; }
       </div>
     </div>
 
+    <!-- GRUPOS WHATSAPP -->
+    <div class="pilar-card" onclick="togglePilar(this)" style="grid-column:1/-1">
+      <div class="pilar-icon" style="background:var(--cor-wpp)">W</div>
+      <h3>Grupos de WhatsApp</h3>
+      <div class="pilar-freq">4 grupos &middot; Questão diária + ciclo de vendas a cada 14 dias</div>
+      <div class="pilar-desc">Grupos gratuitos de questões comentadas que alimentam o funil de vendas. Cada grupo segue um ciclo de 14 dias: valor puro, aquecimento e pitch.</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+
+        <!-- GRUPOS ATIVOS -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em">Grupos ativos</p>
+        <div style="margin-bottom:16px">
+          <span class="grupo-badge cfo">CFO &mdash; PMBA e CBMBA</span>
+          <span class="grupo-badge sd">Soldado &mdash; PM BA</span>
+          <span class="grupo-badge pcba">PCBA &mdash; Investigador</span>
+          <span class="grupo-badge red">Redação</span>
+        </div>
+
+        <!-- REGRA DO GRUPO -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Regras de funcionamento</p>
+        <ul>
+          <li><strong>Grupo sempre fechado</strong> &mdash; apenas admins enviam mensagens no dia a dia</li>
+          <li><strong>Janela aberta 1x por semana</strong> (quarta ou sexta, conforme disponibilidade dos mentores) &mdash; grupo abre por 1 a 2 horas para os membros tirarem dúvidas ao vivo. Depois, fecha novamente.</li>
+          <li><strong>Questão comentada todos os dias</strong> (segunda a sábado) &mdash; é o produto principal do grupo e o motivo pelo qual as pessoas permanecem</li>
+          <li><strong>Formato da questão:</strong> 2 mensagens em sequência &mdash; primeira com o enunciado completo e alternativas, segunda com o gabarito e a correção detalhada (por que a certa está certa e por que cada errada está errada)</li>
+          <li><strong>Enquete do WhatsApp:</strong> usar apenas para perguntas de opinião/engajamento e para a enquete de aquecimento pré-pitch. Nunca para questões de concurso.</li>
+        </ul>
+
+        <!-- CICLO VISUAL -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:20px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Ciclo de 14 dias &mdash; Grupos de Questões (CFO, Soldado, PCBA)</p>
+
+        <div class="ciclo-bar">
+          <div class="ciclo-seg valor">Dias 1&ndash;7 &middot; Valor</div>
+          <div class="ciclo-seg aquec">Dias 8&ndash;11 &middot; Aquecimento</div>
+          <div class="ciclo-seg pitch">12&ndash;13</div>
+          <div class="ciclo-seg reset">14</div>
+        </div>
+        <div class="ciclo-legenda">
+          <span class="leg-valor">Valor puro (zero venda)</span>
+          <span class="leg-aquec">Aquecimento (prepara terreno)</span>
+          <span class="leg-pitch">Pitch (oferta + link)</span>
+          <span class="leg-reset">Reset (domingo)</span>
+        </div>
+
+        <!-- FASE 1 -->
+        <p style="font-size:0.7rem;font-weight:700;color:var(--cor-wpp);margin-top:16px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.1em">Fase 1 &mdash; Valor puro (Dias 1 a 7)</p>
+        <table>
+          <tr><th>Dia</th><th>Manhã</th><th>Tarde</th></tr>
+          <tr><td><strong>Dia 1 (Seg)</strong></td><td>Questão + Gabarito</td><td>&mdash;</td></tr>
+          <tr><td><strong>Dia 2 (Ter)</strong></td><td>Questão + Gabarito</td><td>Dica de estudo</td></tr>
+          <tr><td><strong>Dia 3 (Qua)</strong></td><td>Questão + Gabarito</td><td>Enquete de engajamento ou janela aberta para dúvidas (1&ndash;2h)</td></tr>
+          <tr><td><strong>Dia 4 (Qui)</strong></td><td>Questão + Gabarito</td><td>&mdash;</td></tr>
+          <tr><td><strong>Dia 5 (Sex)</strong></td><td>Questão + Gabarito</td><td>Notícia ou atualização do concurso</td></tr>
+          <tr><td><strong>Dia 6 (Sáb)</strong></td><td>Questão + Gabarito</td><td>Conteúdo leve (carreira, motivação)</td></tr>
+          <tr><td><strong>Dia 7 (Dom)</strong></td><td colspan="2" style="color:rgba(255,255,255,0.3)">Sem mensagem &mdash; descanso</td></tr>
+        </table>
+
+        <!-- FASE 2 -->
+        <p style="font-size:0.7rem;font-weight:700;color:var(--ouro);margin-top:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.1em">Fase 2 &mdash; Aquecimento (Dias 8 a 11)</p>
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-bottom:8px">O conteúdo continua sendo valor, mas o ângulo muda. Cada mensagem aponta para a dor que o produto resolve, sem mencionar o produto ainda.</p>
+        <table>
+          <tr><th>Dia</th><th>Manhã</th><th>Tarde (aquecimento)</th></tr>
+          <tr><td><strong>Dia 8 (Seg)</strong></td><td>Questão + Gabarito (nível difícil)</td><td>Reflexão: &ldquo;Essa reprova muita gente. A diferença é ter método.&rdquo;</td></tr>
+          <tr><td><strong>Dia 9 (Ter)</strong></td><td>Questão + Gabarito</td><td>Prova social: depoimento de aluno aprovado</td></tr>
+          <tr><td><strong>Dia 10 (Qua)</strong></td><td>Questão + Gabarito</td><td>Conteúdo de dor: &ldquo;3 motivos por que a maioria não passa&rdquo; + janela aberta para dúvidas (1&ndash;2h)</td></tr>
+          <tr><td><strong>Dia 11 (Qui)</strong></td><td>Questão + Gabarito</td><td>Enquete de aquecimento: &ldquo;Se o edital saísse amanhã, você estaria pronto?&rdquo; (opções: Sim / Mais ou menos / Não estou pronto / Nem comecei)</td></tr>
+        </table>
+
+        <!-- FASE 3 -->
+        <p style="font-size:0.7rem;font-weight:700;color:var(--cor-reels);margin-top:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.1em">Fase 3 &mdash; Pitch + Reset (Dias 12 a 14)</p>
+        <table>
+          <tr><th>Dia</th><th>Manhã</th><th>Tarde</th></tr>
+          <tr><td><strong>Dia 12 (Sex)</strong></td><td>Questão + Gabarito</td><td>Pitch principal (ver estrutura abaixo)</td></tr>
+          <tr><td><strong>Dia 13 (Sáb)</strong></td><td>Questão + Gabarito</td><td>Follow-up: ângulo diferente do pitch, última chance, dúvidas no privado</td></tr>
+          <tr><td><strong>Dia 14 (Dom)</strong></td><td colspan="2" style="color:rgba(255,255,255,0.3)">Sem mensagem &mdash; reset. O ciclo recomeça na segunda.</td></tr>
+        </table>
+
+        <!-- ESTRUTURA DO PITCH -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:24px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Estrutura do pitch (Dia 12)</p>
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-bottom:10px">O pitch sempre tem dois produtos na mesma mensagem. A Preparação completa é o destaque principal (80% da mensagem). O Caderno entra no final como segunda opção para quem ainda não quer o curso completo.</p>
+        <table>
+          <tr><th>Bloco</th><th>Conteúdo</th></tr>
+          <tr><td><strong>1. Abertura</strong></td><td>Referencia a enquete do dia anterior: &ldquo;Ontem a maioria respondeu que não se sente pronto. E tá tudo bem &mdash; desde que você faça algo a respeito agora.&rdquo;</td></tr>
+          <tr><td><strong>2. Produto principal<br><span style="color:var(--ouro);font-size:0.62rem">PREPARAÇÃO</span></strong></td><td>Apresentação completa: o que tem dentro (aulas, questões, simulados, cronograma, redação, suporte), acesso por 1 ano, quem são os mentores (aprovados no concurso). Preço + parcelamento 12x + garantia de 7 dias + link de checkout.</td></tr>
+          <tr><td><strong>3. Segunda opção<br><span style="color:var(--cor-wpp);font-size:0.62rem">CADERNO</span></strong></td><td>Transição: &ldquo;E se você ainda não quer o curso completo, a gente tem uma opção pra você começar agora sem compromisso.&rdquo; Apresentação do Caderno de Treino + preço + parcelamento + link de checkout.</td></tr>
+        </table>
+
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:16px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Como fica em cada grupo</p>
+        <table>
+          <tr><th>Grupo</th><th>Produto principal (destaque)</th><th>Segunda opção</th></tr>
+          <tr><td><span class="grupo-badge sd" style="margin:0">Soldado</span></td><td>Preparação Soldado &mdash; R$767 / 12x R$79,33</td><td>Caderno Soldado &mdash; R$147 / 12x R$15,30</td></tr>
+          <tr><td><span class="grupo-badge cfo" style="margin:0">CFO</span></td><td>Preparação CFO &mdash; R$967 / 12x R$100,01</td><td>Caderno CFO &mdash; R$197 / 12x R$20,37</td></tr>
+          <tr><td><span class="grupo-badge pcba" style="margin:0">PCBA</span></td><td>Preparação Investigador &mdash; R$767 / 12x R$79,33</td><td style="color:rgba(255,255,255,0.3)">Sem caderno &mdash; reforçar parcelamento e garantia</td></tr>
+        </table>
+
+        <!-- FORMATO DA QUESTÃO -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:24px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Formato da questão comentada</p>
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-bottom:8px">Duas mensagens enviadas em sequência, uma atrás da outra. A pessoa abre o grupo e tem questão + gabarito completo para estudar.</p>
+        <table>
+          <tr><th>Mensagem</th><th>Conteúdo</th></tr>
+          <tr><td><strong>Mensagem 1</strong></td><td><strong>QUESTÃO DO DIA &mdash; [Matéria]</strong><br>(Banca &mdash; Concurso Ano) Enunciado completo + alternativas A, B, C, D</td></tr>
+          <tr><td><strong>Mensagem 2</strong></td><td><strong>GABARITO &mdash; Alternativa [X]</strong><br>Fundamentação legal + explicação de por que cada alternativa errada está errada. Encerra com: &ldquo;Amanhã tem mais uma!&rdquo;</td></tr>
+        </table>
+
+        <!-- DIFERENÇA ENTRE GRUPOS DE QUESTÕES -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:24px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">O que muda entre os grupos de questões</p>
+        <table>
+          <tr><th>Grupo</th><th>Nível das questões</th><th>Matérias-foco</th><th>Produto ofertado no pitch</th></tr>
+          <tr><td><span class="grupo-badge cfo" style="margin:0">CFO</span></td><td>Mais difícil</td><td>Dir. Administrativo, Dir. Penal, Liderança</td><td>Preparação CFO (R$967 / 12x R$100,01)</td></tr>
+          <tr><td><span class="grupo-badge sd" style="margin:0">Soldado</span></td><td>Intermediário</td><td>Dir. Penal, Constitucional, Português, RLM</td><td>Preparação Soldado (R$767 / 12x R$79,33)</td></tr>
+          <tr><td><span class="grupo-badge pcba" style="margin:0">PCBA</span></td><td>Intermediário a mais difícil</td><td>Dir. Penal e Processual Penal, Criminologia</td><td>Preparação Investigador (R$767 / 12x R$79,33)</td></tr>
+        </table>
+        <ul style="margin-top:10px">
+          <li><strong>Reaproveitamento:</strong> questões de matérias comuns (Dir. Penal, Português) podem ir para 2 ou 3 grupos com introdução adaptada</li>
+        </ul>
+
+        <!-- GRUPO DE REDAÇÃO -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:24px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Grupo de Redação &mdash; estrutura própria</p>
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-bottom:8px">O grupo de Redação é transversal &mdash; atende candidatos de todos os concursos. Redação é conteúdo mais denso, então a frequência é menor (3&ndash;4 mensagens por semana). O ciclo de pitch é mais espaçado: 1 pitch leve a cada 3 semanas.</p>
+        <table>
+          <tr><th>Dia</th><th>Conteúdo</th></tr>
+          <tr><td><strong>Segunda</strong></td><td>Tema de redação da semana + estrutura de abordagem (introdução, desenvolvimento, conclusão)</td></tr>
+          <tr><td><strong>Quarta</strong></td><td>Dica de escrita: coesão, coerência, argumentação, erros gramaticais comuns, conectivos</td></tr>
+          <tr><td><strong>Sexta (semana de valor)</strong></td><td>Modelo de parágrafo bem construído ou correção pública de redação (com autorização do autor)</td></tr>
+          <tr><td><strong>Sexta (semana de pitch)</strong></td><td>Pitch leve: &ldquo;Dentro da Preparação completa tem módulo de redação com correções individualizadas. Quem quer evoluir na escrita, esse é o caminho.&rdquo; + link</td></tr>
+        </table>
+        <ul style="margin-top:10px">
+          <li>Sem questão diária neste grupo &mdash; o foco é produção textual</li>
+          <li>Janela aberta para dúvidas: 1x por semana (quarta), mesmo horário dos outros grupos</li>
+          <li>Pitch a cada 3 semanas (não a cada 2 como nos grupos de questões)</li>
+        </ul>
+
+        <!-- CALENDÁRIO MENSAL -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:24px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Visão do mês &mdash; quando cai cada fase</p>
+        <table>
+          <tr><th>Semana</th><th>CFO / Soldado / PCBA</th><th>Redação</th></tr>
+          <tr><td><strong>Semana 1</strong></td><td style="color:var(--cor-wpp)">Valor puro</td><td>Valor</td></tr>
+          <tr><td><strong>Semana 2</strong></td><td style="color:var(--cor-reels)">Aquecimento + Pitch</td><td>Valor</td></tr>
+          <tr><td><strong>Semana 3</strong></td><td style="color:var(--cor-wpp)">Valor puro</td><td style="color:var(--cor-reels)">Pitch leve (sexta)</td></tr>
+          <tr><td><strong>Semana 4</strong></td><td style="color:var(--cor-reels)">Aquecimento + Pitch</td><td>Valor</td></tr>
+        </table>
+
+
+      </div>
+    </div>
+
   </div>
 </div>
 </section>
@@ -964,6 +1153,81 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 1, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como montar um cronograma semanal que funciona de verdade
+
+1. Pegue o edital do concurso e liste todas as matérias que caem na prova.
+2. Separe as matérias por peso: as que têm mais questões na prova ficam com mais dias na semana. Exemplo: se Direito Penal tem 15 questões e Informática tem 5, Penal merece 3 dias e Informática apenas 1.
+3. Distribua as matérias de segunda a sábado. Exemplo prático:
+&bull; Segunda: Português
+&bull; Terça: Direito Penal
+&bull; Quarta: Constitucional
+&bull; Quinta: Direito Penal (2.ª sessão)
+&bull; Sexta: Raciocínio Lógico
+&bull; Sábado: Revisão + simulado
+4. Em cada sessão de estudo, divida assim: 40 minutos lendo/assistindo aula + 20 minutos resolvendo questões do assunto. Repita esse bloco 2 a 3 vezes.
+5. Use um timer no celular para respeitar os blocos. Quando o tempo acabar, pare &mdash; mesmo que não tenha terminado. Isso treina foco e disciplina.
+6. No sábado, faça uma revisão rápida das anotações da semana e resolva um minissimulado de 20 questões misturadas.
+
+O segredo não é estudar muitas horas. É estudar com regularidade, todos os dias, no mesmo horário. Constância vence intensidade.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 1, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como montar um cronograma semanal que funciona de verdade
+
+1. Pegue o edital do concurso e liste todas as matérias que caem na prova.
+2. Separe as matérias por peso: as que têm mais questões na prova ficam com mais dias na semana. Exemplo: se Direito Penal tem 15 questões e Informática tem 5, Penal merece 3 dias e Informática apenas 1.
+3. Distribua as matérias de segunda a sábado. Exemplo prático:
+&bull; Segunda: Português
+&bull; Terça: Direito Penal
+&bull; Quarta: Constitucional
+&bull; Quinta: Direito Penal (2.ª sessão)
+&bull; Sexta: Raciocínio Lógico
+&bull; Sábado: Revisão + simulado
+4. Em cada sessão de estudo, divida assim: 40 minutos lendo/assistindo aula + 20 minutos resolvendo questões do assunto. Repita esse bloco 2 a 3 vezes.
+5. Use um timer no celular para respeitar os blocos. Quando o tempo acabar, pare &mdash; mesmo que não tenha terminado. Isso treina foco e disciplina.
+6. No sábado, faça uma revisão rápida das anotações da semana e resolva um minissimulado de 20 questões misturadas.
+
+O segredo não é estudar muitas horas. É estudar com regularidade, todos os dias, no mesmo horário. Constância vence intensidade.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 1, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como montar um cronograma semanal que funciona de verdade
+
+1. Pegue o edital do concurso e liste todas as matérias que caem na prova.
+2. Separe as matérias por peso: as que têm mais questões na prova ficam com mais dias na semana. Exemplo: se Direito Penal tem 15 questões e Informática tem 5, Penal merece 3 dias e Informática apenas 1.
+3. Distribua as matérias de segunda a sábado. Exemplo prático:
+&bull; Segunda: Português
+&bull; Terça: Direito Penal
+&bull; Quarta: Constitucional
+&bull; Quinta: Direito Penal (2.ª sessão)
+&bull; Sexta: Raciocínio Lógico
+&bull; Sábado: Revisão + simulado
+4. Em cada sessão de estudo, divida assim: 40 minutos lendo/assistindo aula + 20 minutos resolvendo questões do assunto. Repita esse bloco 2 a 3 vezes.
+5. Use um timer no celular para respeitar os blocos. Quando o tempo acabar, pare &mdash; mesmo que não tenha terminado. Isso treina foco e disciplina.
+6. No sábado, faça uma revisão rápida das anotações da semana e resolva um minissimulado de 20 questões misturadas.
+
+O segredo não é estudar muitas horas. É estudar com regularidade, todos os dias, no mesmo horário. Constância vence intensidade.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag" style="background:var(--cor-feed)">Grupo Redação</span>
+          <h4>Redação &mdash; Tema da Semana</h4>
+          <p><strong>Tema para treinar</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(155,93,229,0.06);border-left:3px solid rgba(155,93,229,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Tema para treinar esta semana: <strong>&ldquo;A importância da segurança pública na garantia dos direitos fundamentais&rdquo;</strong>. Escreva entre 20 e 30 linhas. Estruture em introdução, dois parágrafos de desenvolvimento e conclusão com proposta de intervenção.</p>
+        </div>
       </div>
     </div>
 
@@ -1041,6 +1305,51 @@ a { text-decoration:none; color:inherit; }
               <p class="sd-como"><strong>O que fazer:</strong> Grave um Story pós-live resumindo o tema. Use <strong>Caixinha de Perguntas</strong> ou <strong>Enquete</strong> para continuar a conversa. Exemplo: &ldquo;O que acharam da live? Manda aqui!&rdquo; <strong>Por que fazer:</strong> Manter a conversa viva após a live aumenta o engajamento do perfil.</p>
             </div>
           </div>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 2, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Enquete de Engajamento</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Qual matéria você tem mais dificuldade?
+
+A) Português
+B) Direito Penal
+C) Raciocínio Lógico
+D) Direito Constitucional
+
+Responde aí! Vamos focar nas matérias que vocês mais precisam.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 2, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Enquete de Engajamento</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Qual matéria você tem mais dificuldade?
+
+A) Português
+B) Direito Penal
+C) Raciocínio Lógico
+D) Direito Constitucional
+
+Responde aí! Vamos focar nas matérias que vocês mais precisam.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 2, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Enquete de Engajamento</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Qual matéria você tem mais dificuldade?
+
+A) Português
+B) Direito Penal
+C) Raciocínio Lógico
+D) Direito Constitucional
+
+Responde aí! Vamos focar nas matérias que vocês mais precisam.</p>
         </div>
       </div>
     </div>
@@ -1135,6 +1444,69 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 3, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Revisão espaçada &mdash; o método que faz você nunca mais esquecer o que estudou
+
+O cérebro esquece rápido. Em 24 horas, você já perdeu mais da metade do que estudou. A revisão espaçada resolve isso. Funciona assim:
+
+1. Estudou um assunto hoje? Anote os pontos principais em um caderno ou aplicativo (máximo 5 tópicos por matéria).
+2. Amanhã (1 dia depois): releia suas anotações em 5 minutos. Só reler, sem estudar de novo.
+3. Daqui a 3 dias: releia novamente. Desta vez, tente lembrar antes de olhar. Se lembrou, ótimo. Se não, releia com atenção.
+4. Daqui a 7 dias: faça 5 questões sobre o assunto. Se acertar 4 ou mais, o conteúdo está fixado. Se errar, volte às anotações.
+
+Na prática, funciona assim: se você estudou Direito Penal na segunda, faz a 1.ª revisão na terça (5 min), a 2.ª na quinta (5 min) e a 3.ª na segunda seguinte (10 min com questões).
+
+Use o calendário do celular para marcar os dias de revisão. Em 3 semanas usando esse método, você vai perceber que lembra muito mais do que antes.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 3, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Revisão espaçada &mdash; o método que faz você nunca mais esquecer o que estudou
+
+O cérebro esquece rápido. Em 24 horas, você já perdeu mais da metade do que estudou. A revisão espaçada resolve isso. Funciona assim:
+
+1. Estudou um assunto hoje? Anote os pontos principais em um caderno ou aplicativo (máximo 5 tópicos por matéria).
+2. Amanhã (1 dia depois): releia suas anotações em 5 minutos. Só reler, sem estudar de novo.
+3. Daqui a 3 dias: releia novamente. Desta vez, tente lembrar antes de olhar. Se lembrou, ótimo. Se não, releia com atenção.
+4. Daqui a 7 dias: faça 5 questões sobre o assunto. Se acertar 4 ou mais, o conteúdo está fixado. Se errar, volte às anotações.
+
+Na prática, funciona assim: se você estudou Direito Penal na segunda, faz a 1.ª revisão na terça (5 min), a 2.ª na quinta (5 min) e a 3.ª na segunda seguinte (10 min com questões).
+
+Use o calendário do celular para marcar os dias de revisão. Em 3 semanas usando esse método, você vai perceber que lembra muito mais do que antes.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 3, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Revisão espaçada &mdash; o método que faz você nunca mais esquecer o que estudou
+
+O cérebro esquece rápido. Em 24 horas, você já perdeu mais da metade do que estudou. A revisão espaçada resolve isso. Funciona assim:
+
+1. Estudou um assunto hoje? Anote os pontos principais em um caderno ou aplicativo (máximo 5 tópicos por matéria).
+2. Amanhã (1 dia depois): releia suas anotações em 5 minutos. Só reler, sem estudar de novo.
+3. Daqui a 3 dias: releia novamente. Desta vez, tente lembrar antes de olhar. Se lembrou, ótimo. Se não, releia com atenção.
+4. Daqui a 7 dias: faça 5 questões sobre o assunto. Se acertar 4 ou mais, o conteúdo está fixado. Se errar, volte às anotações.
+
+Na prática, funciona assim: se você estudou Direito Penal na segunda, faz a 1.ª revisão na terça (5 min), a 2.ª na quinta (5 min) e a 3.ª na segunda seguinte (10 min com questões).
+
+Use o calendário do celular para marcar os dias de revisão. Em 3 semanas usando esse método, você vai perceber que lembra muito mais do que antes.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag" style="background:var(--cor-feed)">Grupo Redação</span>
+          <h4>Redação &mdash; Dica de Escrita</h4>
+          <p><strong>Dica de Redação</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(155,93,229,0.06);border-left:3px solid rgba(155,93,229,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Dica de redação: <strong>a introdução precisa apresentar o tema e a tese.</strong> Muitos candidatos começam vagos demais. Seja direto: na primeira frase, cite o tema. Na segunda, apresente sua posição. Exemplo: &ldquo;A segurança pública no Brasil enfrenta desafios estruturais. Nesse contexto, é fundamental que...&rdquo;</p>
+        </div>
       </div>
     </div>
 
@@ -1216,6 +1588,30 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 4, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Notícia / Atualização do Concurso</strong> <em>(mentor busca)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Buscar notícia recente sobre o concurso (edital, data de prova, mudança de banca, decisão judicial) e compartilhar no grupo com um breve comentário. Se não houver notícia nova, compartilhar curiosidade sobre o cargo ou a carreira policial.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 4, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Notícia / Atualização do Concurso</strong> <em>(mentor busca)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Buscar notícia recente sobre o concurso (edital, data de prova, mudança de banca, decisão judicial) e compartilhar no grupo com um breve comentário. Se não houver notícia nova, compartilhar curiosidade sobre o cargo ou a carreira policial.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 4, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Notícia / Atualização do Concurso</strong> <em>(mentor busca)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Buscar notícia recente sobre o concurso (edital, data de prova, mudança de banca, decisão judicial) e compartilhar no grupo com um breve comentário. Se não houver notícia nova, compartilhar curiosidade sobre o cargo ou a carreira policial.</p>
+        </div>
       </div>
     </div>
 
@@ -1287,6 +1683,69 @@ a { text-decoration:none; color:inherit; }
               <p class="sd-como"><strong>O que fazer:</strong> Faça o recap da live e revele o resultado do desafio do meio-dia. Mostre a resposta correta e comente. <strong>Por que fazer:</strong> Fechar o ciclo do desafio mostra comprometimento com o conteúdo.</p>
             </div>
           </div>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 5, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como resolver questões de prova mais rápido (sem perder acertos)
+
+Na prova, você tem em média 3 minutos por questão. Parece bastante, mas com nervosismo e questões longas, o tempo voa. Para chegar preparado:
+
+1. Comece resolvendo questões SEM cronômetro. Leia com calma, entenda o enunciado, elimine as alternativas erradas e marque a resposta. Anote quanto tempo levou.
+2. Depois de 1 semana, coloque um limite de 4 minutos por questão. Use o cronômetro do celular. Se passar de 4 minutos, marque a alternativa que parecer mais certa e pule.
+3. Na semana seguinte, reduza para 3 minutos.
+4. Na hora de resolver, use essa ordem: (a) leia a última linha da questão primeiro &mdash; ali está o que a banca quer saber; (b) agora leia o enunciado completo já sabendo o que procurar; (c) elimine as alternativas absurdas; (d) entre as que sobraram, escolha a mais completa.
+
+Dica extra: quando errar, não passe para a próxima. Leia o gabarito comentado, entenda POR QUE errou e anote a regra que não sabia. Esse momento de correção é onde acontece o aprendizado real.
+
+Treine 10 questões por dia no mínimo. Em 30 dias são 300 questões. Em 60 dias, 600. Esse volume faz diferença brutal na prova.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 5, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como resolver questões de prova mais rápido (sem perder acertos)
+
+Na prova, você tem em média 3 minutos por questão. Parece bastante, mas com nervosismo e questões longas, o tempo voa. Para chegar preparado:
+
+1. Comece resolvendo questões SEM cronômetro. Leia com calma, entenda o enunciado, elimine as alternativas erradas e marque a resposta. Anote quanto tempo levou.
+2. Depois de 1 semana, coloque um limite de 4 minutos por questão. Use o cronômetro do celular. Se passar de 4 minutos, marque a alternativa que parecer mais certa e pule.
+3. Na semana seguinte, reduza para 3 minutos.
+4. Na hora de resolver, use essa ordem: (a) leia a última linha da questão primeiro &mdash; ali está o que a banca quer saber; (b) agora leia o enunciado completo já sabendo o que procurar; (c) elimine as alternativas absurdas; (d) entre as que sobraram, escolha a mais completa.
+
+Dica extra: quando errar, não passe para a próxima. Leia o gabarito comentado, entenda POR QUE errou e anote a regra que não sabia. Esse momento de correção é onde acontece o aprendizado real.
+
+Treine 10 questões por dia no mínimo. Em 30 dias são 300 questões. Em 60 dias, 600. Esse volume faz diferença brutal na prova.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 5, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como resolver questões de prova mais rápido (sem perder acertos)
+
+Na prova, você tem em média 3 minutos por questão. Parece bastante, mas com nervosismo e questões longas, o tempo voa. Para chegar preparado:
+
+1. Comece resolvendo questões SEM cronômetro. Leia com calma, entenda o enunciado, elimine as alternativas erradas e marque a resposta. Anote quanto tempo levou.
+2. Depois de 1 semana, coloque um limite de 4 minutos por questão. Use o cronômetro do celular. Se passar de 4 minutos, marque a alternativa que parecer mais certa e pule.
+3. Na semana seguinte, reduza para 3 minutos.
+4. Na hora de resolver, use essa ordem: (a) leia a última linha da questão primeiro &mdash; ali está o que a banca quer saber; (b) agora leia o enunciado completo já sabendo o que procurar; (c) elimine as alternativas absurdas; (d) entre as que sobraram, escolha a mais completa.
+
+Dica extra: quando errar, não passe para a próxima. Leia o gabarito comentado, entenda POR QUE errou e anote a regra que não sabia. Esse momento de correção é onde acontece o aprendizado real.
+
+Treine 10 questões por dia no mínimo. Em 30 dias são 300 questões. Em 60 dias, 600. Esse volume faz diferença brutal na prova.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag" style="background:var(--cor-feed)">Grupo Redação</span>
+          <h4>Redação &mdash; Modelo / Correção</h4>
+          <p><strong>Modelo ou Correção</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(155,93,229,0.06);border-left:3px solid rgba(155,93,229,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Modelo de parágrafo de desenvolvimento (exemplo para o tema da semana):<br><br><em>&ldquo;A segurança pública, conforme prevista no artigo 144 da Constituição Federal, é dever do Estado e direito de todos. No entanto, a realidade brasileira demonstra uma lacuna entre o texto constitucional e a prática. Dados do Anuário Brasileiro de Segurança Pública revelam que o país registra mais de 40 mil homicídios por ano, evidenciando a necessidade de políticas públicas mais eficazes e de profissionais capacitados nas forças de segurança.&rdquo;</em><br><br>Observe: dado concreto + referência legal + conexão com o tema. Isso é o que a banca quer ver.</p>
         </div>
       </div>
     </div>
@@ -1370,6 +1829,30 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 6, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Mensagem de Motivação</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">A aprovação é construída um dia de cada vez. Cada questão que você resolve, cada resumo que faz, cada hora que dedica &mdash; tudo isso acumula. Não compare seu ritmo com o dos outros. Compare com onde você estava há 30 dias. Se está melhor, está no caminho certo. Continue.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 6, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Mensagem de Motivação</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">A aprovação é construída um dia de cada vez. Cada questão que você resolve, cada resumo que faz, cada hora que dedica &mdash; tudo isso acumula. Não compare seu ritmo com o dos outros. Compare com onde você estava há 30 dias. Se está melhor, está no caminho certo. Continue.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 6, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Mensagem de Motivação</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">A aprovação é construída um dia de cada vez. Cada questão que você resolve, cada resumo que faz, cada hora que dedica &mdash; tudo isso acumula. Não compare seu ritmo com o dos outros. Compare com onde você estava há 30 dias. Se está melhor, está no caminho certo. Continue.</p>
+        </div>
       </div>
     </div>
 
@@ -1450,6 +1933,21 @@ a { text-decoration:none; color:inherit; }
               <p class="sd-como"><strong>O que fazer:</strong> Poste um Story leve para fechar o domingo. Pode ser uma frase motivacional sobre fundo escuro, ou um vídeo curto dizendo: &ldquo;Descansa hoje que amanhã a gente volta com tudo!&rdquo; <strong>Por que fazer:</strong> Mesmo sem live, manter um Story à noite garante presença constante e prepara a audiência para o conteúdo de segunda.</p>
             </div>
           </div>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 7, Valor Puro</h4>
+          <p style="color:rgba(255,255,255,0.45);font-style:italic">Sem postagens hoje. Domingo é dia de descanso.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 7, Valor Puro</h4>
+          <p style="color:rgba(255,255,255,0.45);font-style:italic">Sem postagens hoje. Domingo é dia de descanso.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 7, Valor Puro</h4>
+          <p style="color:rgba(255,255,255,0.45);font-style:italic">Sem postagens hoje. Domingo é dia de descanso.</p>
         </div>
       </div>
     </div>
@@ -1534,6 +2032,36 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 8, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Reflexão Estratégica</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Você sabia que a maioria dos aprovados em concurso policial não era a pessoa mais inteligente da turma? Eram as que tinham método e consistência. O talento abre portas, mas é a preparação que atravessa. A pergunta não é se você consegue &mdash; é se você está disposto a se preparar como os aprovados se prepararam.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 8, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Reflexão Estratégica</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Você sabia que a maioria dos aprovados em concurso policial não era a pessoa mais inteligente da turma? Eram as que tinham método e consistência. O talento abre portas, mas é a preparação que atravessa. A pergunta não é se você consegue &mdash; é se você está disposto a se preparar como os aprovados se prepararam.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 8, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Reflexão Estratégica</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Você sabia que a maioria dos aprovados em concurso policial não era a pessoa mais inteligente da turma? Eram as que tinham método e consistência. O talento abre portas, mas é a preparação que atravessa. A pergunta não é se você consegue &mdash; é se você está disposto a se preparar como os aprovados se prepararam.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag" style="background:var(--cor-feed)">Grupo Redação</span>
+          <h4>Redação &mdash; Tema da Semana</h4>
+          <p><strong>Tema para treinar</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(155,93,229,0.06);border-left:3px solid rgba(155,93,229,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Tema para treinar esta semana: <strong>&ldquo;Os desafios do policiamento comunitário nas grandes cidades brasileiras&rdquo;</strong>. Escreva entre 20 e 30 linhas. Lembre-se de usar dados ou exemplos concretos no desenvolvimento.</p>
+        </div>
       </div>
     </div>
 
@@ -1611,6 +2139,30 @@ a { text-decoration:none; color:inherit; }
               <p class="sd-como"><strong>O que fazer:</strong> Resuma o ponto principal da live em um Story. No seguinte, use o adesivo de <strong>Quiz</strong> com uma pergunta sobre o tema. <strong>Por que fazer:</strong> O quiz testá se a audiência absorveu o conteúdo e gera mais uma rodada de interação.</p>
             </div>
           </div>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 9, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Prova Social</strong> <em>(mentor busca e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Encontrar um depoimento, print de resultado ou relato de aluno aprovado. Postar com legenda curta: &ldquo;Esse aqui seguiu o método e passou. A próxima vaga pode ser sua.&rdquo;</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 9, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Prova Social</strong> <em>(mentor busca e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Encontrar um depoimento, print de resultado ou relato de aluno aprovado. Postar com legenda curta: &ldquo;Esse aqui seguiu o método e passou. A próxima vaga pode ser sua.&rdquo;</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 9, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Prova Social</strong> <em>(mentor busca e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Encontrar um depoimento, print de resultado ou relato de aluno aprovado. Postar com legenda curta: &ldquo;Esse aqui seguiu o método e passou. A próxima vaga pode ser sua.&rdquo;</p>
         </div>
       </div>
     </div>
@@ -1704,6 +2256,36 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 10, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Conteúdo de Consciência</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line"><strong>3 motivos por que a maioria não passa no concurso:</strong><br><br>1. <strong>Estudam sem direção.</strong> Pegam qualquer material e saem lendo tudo. Não sabem o que a banca cobra, não priorizam o que tem mais peso, e perdem semanas em assuntos que nem caem na prova.<br><br>2. <strong>Não treinam com questões.</strong> Ler teoria é diferente de resolver questão. Na prova, você precisa de velocidade e precisão. Isso só se constrói com treino. Quem só lê e não resolve, trava na hora H.<br><br>3. <strong>Desistem cedo demais.</strong> Começam motivados, mas após 2 semanas sem ver resultado, abandonam. Aprovação em concurso policial é maratona, não corrida de 100 metros. Quem desiste no meio, perde a vaga para quem aguentou.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 10, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Conteúdo de Consciência</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line"><strong>3 motivos por que a maioria não passa no concurso:</strong><br><br>1. <strong>Estudam sem direção.</strong> Pegam qualquer material e saem lendo tudo. Não sabem o que a banca cobra, não priorizam o que tem mais peso, e perdem semanas em assuntos que nem caem na prova.<br><br>2. <strong>Não treinam com questões.</strong> Ler teoria é diferente de resolver questão. Na prova, você precisa de velocidade e precisão. Isso só se constrói com treino. Quem só lê e não resolve, trava na hora H.<br><br>3. <strong>Desistem cedo demais.</strong> Começam motivados, mas após 2 semanas sem ver resultado, abandonam. Aprovação em concurso policial é maratona, não corrida de 100 metros. Quem desiste no meio, perde a vaga para quem aguentou.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 10, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Conteúdo de Consciência</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line"><strong>3 motivos por que a maioria não passa no concurso:</strong><br><br>1. <strong>Estudam sem direção.</strong> Pegam qualquer material e saem lendo tudo. Não sabem o que a banca cobra, não priorizam o que tem mais peso, e perdem semanas em assuntos que nem caem na prova.<br><br>2. <strong>Não treinam com questões.</strong> Ler teoria é diferente de resolver questão. Na prova, você precisa de velocidade e precisão. Isso só se constrói com treino. Quem só lê e não resolve, trava na hora H.<br><br>3. <strong>Desistem cedo demais.</strong> Começam motivados, mas após 2 semanas sem ver resultado, abandonam. Aprovação em concurso policial é maratona, não corrida de 100 metros. Quem desiste no meio, perde a vaga para quem aguentou.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag" style="background:var(--cor-feed)">Grupo Redação</span>
+          <h4>Redação &mdash; Dica de Escrita</h4>
+          <p><strong>Dica de Redação</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(155,93,229,0.06);border-left:3px solid rgba(155,93,229,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Dica de redação: <strong>use conectivos para dar fluidez ao texto.</strong> Exemplos: &ldquo;Além disso&rdquo;, &ldquo;Por outro lado&rdquo;, &ldquo;Dessa forma&rdquo;, &ldquo;Nesse sentido&rdquo;. Eles conectam as ideias e mostram à banca que você sabe organizar o raciocínio.</p>
+        </div>
       </div>
     </div>
 
@@ -1785,6 +2367,48 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 11, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Enquete de Aquecimento</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Se existisse uma preparação completa que cobrisse todas as matérias do edital, com questões comentadas, simulados e direcionamento estratégico por menos de R$3 por dia, você investiria na sua aprovação?
+
+A) Com certeza, já deveria ter começado
+B) Depende do conteúdo
+C) Prefiro estudar sozinho
+
+(Amanhã a gente conversa mais sobre isso.)</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 11, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Enquete de Aquecimento</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Se existisse uma preparação completa que cobrisse todas as matérias do edital, com questões comentadas, simulados e direcionamento estratégico por menos de R$3 por dia, você investiria na sua aprovação?
+
+A) Com certeza, já deveria ter começado
+B) Depende do conteúdo
+C) Prefiro estudar sozinho
+
+(Amanhã a gente conversa mais sobre isso.)</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 11, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Enquete de Aquecimento</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Se existisse uma preparação completa que cobrisse todas as matérias do edital, com questões comentadas, simulados e direcionamento estratégico por menos de R$3 por dia, você investiria na sua aprovação?
+
+A) Com certeza, já deveria ter começado
+B) Depende do conteúdo
+C) Prefiro estudar sozinho
+
+(Amanhã a gente conversa mais sobre isso.)</p>
+        </div>
       </div>
     </div>
 
@@ -1856,6 +2480,90 @@ a { text-decoration:none; color:inherit; }
               <p class="sd-como"><strong>O que fazer:</strong> Resuma a live e finalize lembrando do evento que se aproxima. &ldquo;E não esquece: amanhã tem o Aulão! Não perde!&rdquo; <strong>Por que fazer:</strong> Reforça o lembrete do evento no momento de maior atenção (pós-live).</p>
             </div>
           </div>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 12, Pitch</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px;font-size:0.72rem;font-weight:700;color:var(--cor-reels);letter-spacing:0.1em;text-transform:uppercase">Pitch &mdash; copiar e enviar</p>
+          <p style="background:rgba(255,107,53,0.06);border-left:3px solid rgba(255,107,53,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Ontem a gente perguntou se vocês investiriam na preparação certa por menos de R$3 por dia. A maioria respondeu que sim.
+
+Então vou ser direto: existe uma preparação feita especificamente para quem vai prestar CFO PMBA e BMBA 2026. Chama <strong>Preparação Total Oficial PMBA e BMBA 2026</strong>.
+
+&bull; Todas as matérias do edital cobertas
+&bull; Questões comentadas da banca
+&bull; Simulados no padrão da prova
+&bull; Direcionamento estratégico para CFO
+
+<strong>Valor: R$967 &mdash; ou 12x de R$100,01</strong>
+Menos de R$4 por dia de preparação.
+
+<a href="https://chk.eduzz.com/G96REZZEW1" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Quero garantir minha vaga &rarr;</a>
+
+&mdash;
+
+E se você ainda não pode investir no curso completo, tem uma segunda opção: o <strong>Caderno de Treino CFO PMBA e BMBA 2026</strong> &mdash; centenas de questões comentadas e organizadas por matéria para você treinar todos os dias.
+
+<strong>Valor: R$147 &mdash; ou 12x de R$20,37</strong>
+
+<a href="https://chk.eduzz.com/VWGNP6QR07" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Quero o Caderno de Treino &rarr;</a></p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 12, Pitch</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px;font-size:0.72rem;font-weight:700;color:var(--cor-reels);letter-spacing:0.1em;text-transform:uppercase">Pitch &mdash; copiar e enviar</p>
+          <p style="background:rgba(255,107,53,0.06);border-left:3px solid rgba(255,107,53,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Ontem a gente perguntou se vocês investiriam na preparação certa por menos de R$3 por dia. A maioria respondeu que sim.
+
+Então vou ser direto: existe uma preparação feita especificamente para quem vai prestar Soldado PMBA e BMBA 2026. Chama <strong>Preparação Total Soldado PMBA e BMBA 2026</strong>.
+
+&bull; Todas as matérias do edital cobertas
+&bull; Questões comentadas da banca
+&bull; Simulados no padrão da prova
+&bull; Direcionamento estratégico para Soldado
+
+<strong>Valor: R$767 &mdash; ou 12x de R$79,33</strong>
+Menos de R$3 por dia de preparação.
+
+<a href="https://chk.eduzz.com/89AX3KK50D" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Quero garantir minha vaga &rarr;</a>
+
+&mdash;
+
+E se você ainda não pode investir no curso completo, tem uma segunda opção: o <strong>Caderno de Treino Soldado PMBA e BMBA 2026</strong> &mdash; centenas de questões comentadas e organizadas por matéria para você treinar todos os dias.
+
+<strong>Valor: R$147 &mdash; ou 12x de R$15,30</strong>
+
+<a href="https://chk.eduzz.com/G96RE2KYW1" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Quero o Caderno de Treino &rarr;</a></p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 12, Pitch</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px;font-size:0.72rem;font-weight:700;color:var(--cor-reels);letter-spacing:0.1em;text-transform:uppercase">Pitch &mdash; copiar e enviar</p>
+          <p style="background:rgba(255,107,53,0.06);border-left:3px solid rgba(255,107,53,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Ontem a gente perguntou se vocês investiriam na preparação certa por menos de R$3 por dia. A maioria respondeu que sim.
+
+Então vou ser direto: existe uma preparação feita especificamente para quem vai prestar Investigador PCBA 2026. Chama <strong>Preparação Total Investigador PCBA 2026</strong>.
+
+&bull; Todas as matérias do edital cobertas
+&bull; Questões comentadas da banca
+&bull; Simulados no padrão da prova
+&bull; Direcionamento estratégico para Investigador
+
+<strong>Valor: R$767 &mdash; ou 12x de R$79,33</strong>
+Menos de R$3 por dia de preparação.
+
+<a href="https://chk.eduzz.com/69K153ZEWO" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Quero garantir minha vaga &rarr;</a>
+
+E o melhor: se em 7 dias você sentir que não é para você, devolvemos 100% do valor. Sem burocracia.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag" style="background:var(--cor-feed)">Grupo Redação</span>
+          <h4>Redação &mdash; Modelo / Correção</h4>
+          <p><strong>Modelo ou Correção</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(155,93,229,0.06);border-left:3px solid rgba(155,93,229,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Correção de erro comum:<br><br><strong>Errado:</strong> &ldquo;A violência é um problema que afeta a todo mundo e precisa ser resolvido.&rdquo;<br><strong>Correto:</strong> &ldquo;A violência é um fenômeno multifatorial que compromete a qualidade de vida da população e demanda ações integradas entre poder público e sociedade civil.&rdquo;<br><br>A segunda versão é mais precisa, formal e demonstra domínio do tema. Evite generalizações vagas.</p>
         </div>
       </div>
     </div>
@@ -1946,6 +2654,50 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 13, Pitch</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Follow-up do Pitch</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,107,53,0.06);border-left:3px solid rgba(255,107,53,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Ontem abrimos as vagas para a Preparação Total e o Caderno de Treino. Se você viu a mensagem e ficou em dúvida, fique à vontade para perguntar aqui. Sem pressão.
+
+Só um lembrete: a prova não espera. Cada dia de preparação conta. Se você já decidiu que vai prestar esse concurso, a hora de começar é agora.
+
+Os links continuam abertos:
+
+<a href="https://chk.eduzz.com/G96REZZEW1" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Preparação Total Oficial PMBA e BMBA 2026 &mdash; R$967</a>
+<a href="https://chk.eduzz.com/VWGNP6QR07" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Caderno de Treino CFO PMBA e BMBA 2026 &mdash; R$147</a></p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 13, Pitch</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Follow-up do Pitch</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,107,53,0.06);border-left:3px solid rgba(255,107,53,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Ontem abrimos as vagas para a Preparação Total e o Caderno de Treino. Se você viu a mensagem e ficou em dúvida, fique à vontade para perguntar aqui. Sem pressão.
+
+Só um lembrete: a prova não espera. Cada dia de preparação conta. Se você já decidiu que vai prestar esse concurso, a hora de começar é agora.
+
+Os links continuam abertos:
+
+<a href="https://chk.eduzz.com/89AX3KK50D" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Preparação Total Soldado PMBA e BMBA 2026 &mdash; R$767</a>
+<a href="https://chk.eduzz.com/G96RE2KYW1" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Caderno de Treino Soldado PMBA e BMBA 2026 &mdash; R$147</a></p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 13, Pitch</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Follow-up do Pitch</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,107,53,0.06);border-left:3px solid rgba(255,107,53,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Ontem abrimos as vagas para a Preparação Total. Se você viu a mensagem e ficou em dúvida, fique à vontade para perguntar aqui. Sem pressão.
+
+Só um lembrete: a prova não espera. Cada dia de preparação conta. Se você já decidiu que vai prestar esse concurso, a hora de começar é agora.
+
+Os links continuam abertos:
+
+<a href="https://chk.eduzz.com/69K153ZEWO" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Preparação Total Investigador PCBA 2026 &mdash; R$767</a></p>
+        </div>
       </div>
     </div>
 
@@ -2024,6 +2776,21 @@ a { text-decoration:none; color:inherit; }
               <p class="sd-como"><strong>O que fazer:</strong> Poste um Story leve para fechar o domingo. Pode ser uma frase motivacional sobre fundo escuro, ou um vídeo curto dizendo: &ldquo;Descansa hoje que amanhã a gente volta com tudo!&rdquo; <strong>Por que fazer:</strong> Mesmo sem live, manter um Story à noite garante presença constante e prepara a audiência para o conteúdo de segunda.</p>
             </div>
           </div>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 14, Reset</h4>
+          <p style="color:rgba(255,255,255,0.45);font-style:italic">Sem postagens hoje. Domingo é dia de descanso.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 14, Reset</h4>
+          <p style="color:rgba(255,255,255,0.45);font-style:italic">Sem postagens hoje. Domingo é dia de descanso.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 14, Reset</h4>
+          <p style="color:rgba(255,255,255,0.45);font-style:italic">Sem postagens hoje. Domingo é dia de descanso.</p>
         </div>
       </div>
     </div>
@@ -2108,6 +2875,72 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 1, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como estudar pela banca (e parar de perder tempo com o que não cai)
+
+A banca que elabora a prova tem um padrão. Ela repete temas, repete estilos de pergunta e repete pegadinhas. Quem descobre o padrão, estuda menos e acerta mais.
+
+Como fazer na prática:
+1. Descubra qual banca vai aplicar a prova (está no edital). Exemplo: IBFC, Vunesp, Cebraspe, FGV.
+2. Procure provas anteriores aplicadas pela MESMA banca para cargos parecidos (policial, agente, soldado). Pode achar de graça em sites como QConcursos ou PCI Concursos.
+3. Resolva 30 questões da mesma matéria, todas da mesma banca. Enquanto resolve, anote: (a) quais temas se repetem mais; (b) como a banca pergunta &mdash; ela cobra letra da lei ou interpretação? (c) quais pegadinhas aparecem &mdash; troca de palavras, exceções, &ldquo;exceto&rdquo;.
+4. Depois de 30 questões, você já sabe: quais 3 ou 4 assuntos a banca mais gosta e como ela costuma cobrar. Foque seus estudos nesses assuntos.
+
+Exemplo real: se a banca cobra &ldquo;princípios da administração pública&rdquo; em 7 de cada 10 provas, dedique o dobro do tempo a esse tema. Se ela nunca cobrou &ldquo;bens públicos&rdquo;, estude por último (ou pule).
+
+Estudar pela banca é estudar de forma inteligente. Não é atalho &mdash; é estratégia.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 1, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como estudar pela banca (e parar de perder tempo com o que não cai)
+
+A banca que elabora a prova tem um padrão. Ela repete temas, repete estilos de pergunta e repete pegadinhas. Quem descobre o padrão, estuda menos e acerta mais.
+
+Como fazer na prática:
+1. Descubra qual banca vai aplicar a prova (está no edital). Exemplo: IBFC, Vunesp, Cebraspe, FGV.
+2. Procure provas anteriores aplicadas pela MESMA banca para cargos parecidos (policial, agente, soldado). Pode achar de graça em sites como QConcursos ou PCI Concursos.
+3. Resolva 30 questões da mesma matéria, todas da mesma banca. Enquanto resolve, anote: (a) quais temas se repetem mais; (b) como a banca pergunta &mdash; ela cobra letra da lei ou interpretação? (c) quais pegadinhas aparecem &mdash; troca de palavras, exceções, &ldquo;exceto&rdquo;.
+4. Depois de 30 questões, você já sabe: quais 3 ou 4 assuntos a banca mais gosta e como ela costuma cobrar. Foque seus estudos nesses assuntos.
+
+Exemplo real: se a banca cobra &ldquo;princípios da administração pública&rdquo; em 7 de cada 10 provas, dedique o dobro do tempo a esse tema. Se ela nunca cobrou &ldquo;bens públicos&rdquo;, estude por último (ou pule).
+
+Estudar pela banca é estudar de forma inteligente. Não é atalho &mdash; é estratégia.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 1, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como estudar pela banca (e parar de perder tempo com o que não cai)
+
+A banca que elabora a prova tem um padrão. Ela repete temas, repete estilos de pergunta e repete pegadinhas. Quem descobre o padrão, estuda menos e acerta mais.
+
+Como fazer na prática:
+1. Descubra qual banca vai aplicar a prova (está no edital). Exemplo: IBFC, Vunesp, Cebraspe, FGV.
+2. Procure provas anteriores aplicadas pela MESMA banca para cargos parecidos (policial, agente, soldado). Pode achar de graça em sites como QConcursos ou PCI Concursos.
+3. Resolva 30 questões da mesma matéria, todas da mesma banca. Enquanto resolve, anote: (a) quais temas se repetem mais; (b) como a banca pergunta &mdash; ela cobra letra da lei ou interpretação? (c) quais pegadinhas aparecem &mdash; troca de palavras, exceções, &ldquo;exceto&rdquo;.
+4. Depois de 30 questões, você já sabe: quais 3 ou 4 assuntos a banca mais gosta e como ela costuma cobrar. Foque seus estudos nesses assuntos.
+
+Exemplo real: se a banca cobra &ldquo;princípios da administração pública&rdquo; em 7 de cada 10 provas, dedique o dobro do tempo a esse tema. Se ela nunca cobrou &ldquo;bens públicos&rdquo;, estude por último (ou pule).
+
+Estudar pela banca é estudar de forma inteligente. Não é atalho &mdash; é estratégia.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag" style="background:var(--cor-feed)">Grupo Redação</span>
+          <h4>Redação &mdash; Tema da Semana</h4>
+          <p><strong>Tema para treinar</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(155,93,229,0.06);border-left:3px solid rgba(155,93,229,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Tema para treinar esta semana: <strong>&ldquo;Violência urbana e o papel das forças de segurança na prevenção&rdquo;</strong>. Escreva entre 20 e 30 linhas. Conecte o tema à realidade da Bahia se possível.</p>
+        </div>
       </div>
     </div>
 
@@ -2185,6 +3018,51 @@ a { text-decoration:none; color:inherit; }
               <p class="sd-como"><strong>O que fazer:</strong> Resuma o ponto principal da live em um Story. No seguinte, use o adesivo de <strong>Quiz</strong> com uma pergunta sobre o tema. <strong>Por que fazer:</strong> O quiz testá se a audiência absorveu o conteúdo e gera mais uma rodada de interação.</p>
             </div>
           </div>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 2, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Enquete de Engajamento</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Quantas horas por dia você consegue estudar?
+
+A) Menos de 2 horas
+B) 2 a 4 horas
+C) 4 a 6 horas
+D) Mais de 6 horas
+
+Não existe resposta certa &mdash; o que importa é a qualidade do estudo.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 2, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Enquete de Engajamento</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Quantas horas por dia você consegue estudar?
+
+A) Menos de 2 horas
+B) 2 a 4 horas
+C) 4 a 6 horas
+D) Mais de 6 horas
+
+Não existe resposta certa &mdash; o que importa é a qualidade do estudo.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 2, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Enquete de Engajamento</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Quantas horas por dia você consegue estudar?
+
+A) Menos de 2 horas
+B) 2 a 4 horas
+C) 4 a 6 horas
+D) Mais de 6 horas
+
+Não existe resposta certa &mdash; o que importa é a qualidade do estudo.</p>
         </div>
       </div>
     </div>
@@ -2278,6 +3156,75 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 3, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Resumo ativo &mdash; como fazer anotações que realmente ajudam na prova
+
+A maioria dos concurseiros copia trechos do livro no caderno e acha que está resumindo. Não está. Copiar é passivo &mdash; o cérebro não processa a informação. O resumo ativo funciona diferente:
+
+Como fazer na prática:
+1. Estude o assunto normalmente (leia ou assista à aula).
+2. Feche o material. Pegue uma folha em branco e um cronômetro de 10 minutos.
+3. Escreva TUDO o que lembrar sobre o assunto, com suas próprias palavras. Não consulte nada. Se não lembrar de algo, deixe um espaço em branco.
+4. Depois dos 10 minutos, abra o material e preencha os espaços que ficaram vazios &mdash; agora com atenção redobrada, porque você sabe exatamente o que não sabia.
+5. O resultado é um resumo curto (1 página no máximo) que contém só o que importa, escrito do seu jeito.
+
+Dica extra: use a técnica do &ldquo;explica para a parede&rdquo;. Finge que está ensinando o assunto para alguém. Fala em voz alta, sem ler. Os pontos onde você travar são exatamente os que precisa reforçar.
+
+Um resumo ativo de 1 página vale mais que 10 páginas copiadas do livro. E na véspera da prova, você revisa tudo em minutos.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 3, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Resumo ativo &mdash; como fazer anotações que realmente ajudam na prova
+
+A maioria dos concurseiros copia trechos do livro no caderno e acha que está resumindo. Não está. Copiar é passivo &mdash; o cérebro não processa a informação. O resumo ativo funciona diferente:
+
+Como fazer na prática:
+1. Estude o assunto normalmente (leia ou assista à aula).
+2. Feche o material. Pegue uma folha em branco e um cronômetro de 10 minutos.
+3. Escreva TUDO o que lembrar sobre o assunto, com suas próprias palavras. Não consulte nada. Se não lembrar de algo, deixe um espaço em branco.
+4. Depois dos 10 minutos, abra o material e preencha os espaços que ficaram vazios &mdash; agora com atenção redobrada, porque você sabe exatamente o que não sabia.
+5. O resultado é um resumo curto (1 página no máximo) que contém só o que importa, escrito do seu jeito.
+
+Dica extra: use a técnica do &ldquo;explica para a parede&rdquo;. Finge que está ensinando o assunto para alguém. Fala em voz alta, sem ler. Os pontos onde você travar são exatamente os que precisa reforçar.
+
+Um resumo ativo de 1 página vale mais que 10 páginas copiadas do livro. E na véspera da prova, você revisa tudo em minutos.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 3, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Resumo ativo &mdash; como fazer anotações que realmente ajudam na prova
+
+A maioria dos concurseiros copia trechos do livro no caderno e acha que está resumindo. Não está. Copiar é passivo &mdash; o cérebro não processa a informação. O resumo ativo funciona diferente:
+
+Como fazer na prática:
+1. Estude o assunto normalmente (leia ou assista à aula).
+2. Feche o material. Pegue uma folha em branco e um cronômetro de 10 minutos.
+3. Escreva TUDO o que lembrar sobre o assunto, com suas próprias palavras. Não consulte nada. Se não lembrar de algo, deixe um espaço em branco.
+4. Depois dos 10 minutos, abra o material e preencha os espaços que ficaram vazios &mdash; agora com atenção redobrada, porque você sabe exatamente o que não sabia.
+5. O resultado é um resumo curto (1 página no máximo) que contém só o que importa, escrito do seu jeito.
+
+Dica extra: use a técnica do &ldquo;explica para a parede&rdquo;. Finge que está ensinando o assunto para alguém. Fala em voz alta, sem ler. Os pontos onde você travar são exatamente os que precisa reforçar.
+
+Um resumo ativo de 1 página vale mais que 10 páginas copiadas do livro. E na véspera da prova, você revisa tudo em minutos.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag" style="background:var(--cor-feed)">Grupo Redação</span>
+          <h4>Redação &mdash; Dica de Escrita</h4>
+          <p><strong>Dica de Redação</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(155,93,229,0.06);border-left:3px solid rgba(155,93,229,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Dica de redação: <strong>evite linguagem coloquial e gírias.</strong> Mesmo que o tema peça opinião, mantenha a formalidade. Troque &ldquo;a gente&rdquo; por &ldquo;nós&rdquo;, &ldquo;tipo&rdquo; por &ldquo;como&rdquo;, &ldquo;daí&rdquo; por &ldquo;então&rdquo;. A banca desconta pontos por inadequação linguística.</p>
+        </div>
       </div>
     </div>
 
@@ -2359,6 +3306,30 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 4, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Notícia / Atualização do Concurso</strong> <em>(mentor busca)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Buscar notícia recente sobre o concurso (edital, data de prova, mudança de banca, decisão judicial) e compartilhar no grupo com um breve comentário. Se não houver notícia nova, compartilhar curiosidade sobre o cargo ou a carreira policial.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 4, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Notícia / Atualização do Concurso</strong> <em>(mentor busca)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Buscar notícia recente sobre o concurso (edital, data de prova, mudança de banca, decisão judicial) e compartilhar no grupo com um breve comentário. Se não houver notícia nova, compartilhar curiosidade sobre o cargo ou a carreira policial.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 4, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Notícia / Atualização do Concurso</strong> <em>(mentor busca)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Buscar notícia recente sobre o concurso (edital, data de prova, mudança de banca, decisão judicial) e compartilhar no grupo com um breve comentário. Se não houver notícia nova, compartilhar curiosidade sobre o cargo ou a carreira policial.</p>
+        </div>
       </div>
     </div>
 
@@ -2430,6 +3401,96 @@ a { text-decoration:none; color:inherit; }
               <p class="sd-como"><strong>O que fazer:</strong> Após a live, grave um Story resumindo o tema principal: &ldquo;Hoje falamos sobre [tema]. Se você perdeu, o principal foi [ponto-chave].&rdquo; <strong>Por que fazer:</strong> Quem não assistiu ganha um resumo e pode decidir ver a gravação depois.</p>
             </div>
           </div>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 5, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como fazer simulados que realmente preparam para o dia da prova
+
+Simulado não é só &ldquo;resolver questões&rdquo;. É treinar o corpo e a mente para a pressão do dia real. Se você só estuda teoria e nunca simula, vai travar na prova. Veja como fazer certo:
+
+Passo a passo:
+1. Escolha um dia fixo da semana para o simulado (sábado ou domingo funcionam bem).
+2. Monte ou baixe uma prova com o mesmo número de questões e matérias do edital. Se a prova real tem 60 questões em 4 horas, seu simulado também deve ter.
+3. Simule as condições reais:
+&bull; Sente em uma mesa, não na cama.
+&bull; Desligue o celular (modo avião).
+&bull; Use o cronômetro. Quando acabar o tempo, pare &mdash; mesmo que faltem questões.
+&bull; Não consulte nenhum material.
+4. Ao terminar, corrija TUDO. Para cada questão errada, anote: (a) qual matéria; (b) por que errou (não sabia, leu errado, caiu na pegadinha).
+5. Na semana seguinte, estude com prioridade os temas que mais errou no simulado.
+
+O que observar ao longo do tempo:
+&bull; Semana 1: talvez acerte 40%. Normal.
+&bull; Semana 4: se subiu para 55-60%, está no caminho certo.
+&bull; Semana 8: acima de 70%, você já está competitivo.
+
+O simulado mostra a verdade que a teoria esconde. Quem faz simulado toda semana chega na prova sem surpresa.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 5, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como fazer simulados que realmente preparam para o dia da prova
+
+Simulado não é só &ldquo;resolver questões&rdquo;. É treinar o corpo e a mente para a pressão do dia real. Se você só estuda teoria e nunca simula, vai travar na prova. Veja como fazer certo:
+
+Passo a passo:
+1. Escolha um dia fixo da semana para o simulado (sábado ou domingo funcionam bem).
+2. Monte ou baixe uma prova com o mesmo número de questões e matérias do edital. Se a prova real tem 60 questões em 4 horas, seu simulado também deve ter.
+3. Simule as condições reais:
+&bull; Sente em uma mesa, não na cama.
+&bull; Desligue o celular (modo avião).
+&bull; Use o cronômetro. Quando acabar o tempo, pare &mdash; mesmo que faltem questões.
+&bull; Não consulte nenhum material.
+4. Ao terminar, corrija TUDO. Para cada questão errada, anote: (a) qual matéria; (b) por que errou (não sabia, leu errado, caiu na pegadinha).
+5. Na semana seguinte, estude com prioridade os temas que mais errou no simulado.
+
+O que observar ao longo do tempo:
+&bull; Semana 1: talvez acerte 40%. Normal.
+&bull; Semana 4: se subiu para 55-60%, está no caminho certo.
+&bull; Semana 8: acima de 70%, você já está competitivo.
+
+O simulado mostra a verdade que a teoria esconde. Quem faz simulado toda semana chega na prova sem surpresa.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 5, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como fazer simulados que realmente preparam para o dia da prova
+
+Simulado não é só &ldquo;resolver questões&rdquo;. É treinar o corpo e a mente para a pressão do dia real. Se você só estuda teoria e nunca simula, vai travar na prova. Veja como fazer certo:
+
+Passo a passo:
+1. Escolha um dia fixo da semana para o simulado (sábado ou domingo funcionam bem).
+2. Monte ou baixe uma prova com o mesmo número de questões e matérias do edital. Se a prova real tem 60 questões em 4 horas, seu simulado também deve ter.
+3. Simule as condições reais:
+&bull; Sente em uma mesa, não na cama.
+&bull; Desligue o celular (modo avião).
+&bull; Use o cronômetro. Quando acabar o tempo, pare &mdash; mesmo que faltem questões.
+&bull; Não consulte nenhum material.
+4. Ao terminar, corrija TUDO. Para cada questão errada, anote: (a) qual matéria; (b) por que errou (não sabia, leu errado, caiu na pegadinha).
+5. Na semana seguinte, estude com prioridade os temas que mais errou no simulado.
+
+O que observar ao longo do tempo:
+&bull; Semana 1: talvez acerte 40%. Normal.
+&bull; Semana 4: se subiu para 55-60%, está no caminho certo.
+&bull; Semana 8: acima de 70%, você já está competitivo.
+
+O simulado mostra a verdade que a teoria esconde. Quem faz simulado toda semana chega na prova sem surpresa.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag" style="background:var(--cor-feed)">Grupo Redação</span>
+          <h4>Redação &mdash; Modelo / Correção</h4>
+          <p><strong>Modelo ou Correção</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(155,93,229,0.06);border-left:3px solid rgba(155,93,229,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Modelo de introdução para o tema da semana:<br><br><em>&ldquo;A violência urbana no Brasil constitui um dos maiores desafios contemporâneos para a gestão pública. Nesse cenário, as forças de segurança desempenham papel central na prevenção e no combate à criminalidade, especialmente em estados com índices elevados de violência, como a Bahia. Assim, faz-se necessário discutir o papel preventivo da atuação policial e seus impactos na proteção da população.&rdquo;</em><br><br>Essa introdução apresenta o tema, contextualiza e anuncia a tese.</p>
         </div>
       </div>
     </div>
@@ -2513,6 +3574,30 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 6, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Mensagem de Motivação</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">A maioria dos candidatos desiste antes da prova. Não por falta de capacidade, mas por falta de persistência. Você que está aqui, estudando, resolvendo questões, investindo seu tempo &mdash; já está à frente de milhares. Não subestime o poder de quem não desiste.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 6, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Mensagem de Motivação</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">A maioria dos candidatos desiste antes da prova. Não por falta de capacidade, mas por falta de persistência. Você que está aqui, estudando, resolvendo questões, investindo seu tempo &mdash; já está à frente de milhares. Não subestime o poder de quem não desiste.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 6, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Mensagem de Motivação</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">A maioria dos candidatos desiste antes da prova. Não por falta de capacidade, mas por falta de persistência. Você que está aqui, estudando, resolvendo questões, investindo seu tempo &mdash; já está à frente de milhares. Não subestime o poder de quem não desiste.</p>
+        </div>
       </div>
     </div>
 
@@ -2593,6 +3678,21 @@ a { text-decoration:none; color:inherit; }
               <p class="sd-como"><strong>O que fazer:</strong> Poste um Story leve para fechar o domingo. Pode ser uma frase motivacional sobre fundo escuro, ou um vídeo curto dizendo: &ldquo;Descansa hoje que amanhã a gente volta com tudo!&rdquo; <strong>Por que fazer:</strong> Mesmo sem live, manter um Story à noite garante presença constante e prepara a audiência para o conteúdo de segunda.</p>
             </div>
           </div>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 7, Valor Puro</h4>
+          <p style="color:rgba(255,255,255,0.45);font-style:italic">Sem postagens hoje. Domingo é dia de descanso.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 7, Valor Puro</h4>
+          <p style="color:rgba(255,255,255,0.45);font-style:italic">Sem postagens hoje. Domingo é dia de descanso.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 7, Valor Puro</h4>
+          <p style="color:rgba(255,255,255,0.45);font-style:italic">Sem postagens hoje. Domingo é dia de descanso.</p>
         </div>
       </div>
     </div>
@@ -2677,6 +3777,36 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 8, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Reflexão Estratégica</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Pensa comigo: daqui a 6 meses, a prova já terá acontecido. Você vai estar entre os que se prepararam de verdade ou entre os que &lsquo;iam começar semana que vem&rsquo;? O tempo passa do mesmo jeito para todo mundo. A diferença está no que você faz com ele agora.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 8, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Reflexão Estratégica</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Pensa comigo: daqui a 6 meses, a prova já terá acontecido. Você vai estar entre os que se prepararam de verdade ou entre os que &lsquo;iam começar semana que vem&rsquo;? O tempo passa do mesmo jeito para todo mundo. A diferença está no que você faz com ele agora.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 8, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Reflexão Estratégica</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Pensa comigo: daqui a 6 meses, a prova já terá acontecido. Você vai estar entre os que se prepararam de verdade ou entre os que &lsquo;iam começar semana que vem&rsquo;? O tempo passa do mesmo jeito para todo mundo. A diferença está no que você faz com ele agora.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag" style="background:var(--cor-feed)">Grupo Redação</span>
+          <h4>Redação &mdash; Tema da Semana</h4>
+          <p><strong>Tema para treinar</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(155,93,229,0.06);border-left:3px solid rgba(155,93,229,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Tema para treinar esta semana: <strong>&ldquo;O impacto da tecnologia no combate à criminalidade&rdquo;</strong>. Escreva entre 20 e 30 linhas. Estruture com introdução, dois argumentos no desenvolvimento e conclusão propositiva.</p>
+        </div>
       </div>
     </div>
 
@@ -2754,6 +3884,30 @@ a { text-decoration:none; color:inherit; }
               <p class="sd-como"><strong>O que fazer:</strong> Resuma o ponto principal da live em um Story. No seguinte, use o adesivo de <strong>Quiz</strong> com uma pergunta sobre o tema. <strong>Por que fazer:</strong> O quiz testá se a audiência absorveu o conteúdo e gera mais uma rodada de interação.</p>
             </div>
           </div>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 9, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Prova Social</strong> <em>(mentor busca e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Encontrar um depoimento, print de resultado ou relato de aluno aprovado. Postar com legenda curta: &ldquo;Esse aqui seguiu o método e passou. A próxima vaga pode ser sua.&rdquo;</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 9, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Prova Social</strong> <em>(mentor busca e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Encontrar um depoimento, print de resultado ou relato de aluno aprovado. Postar com legenda curta: &ldquo;Esse aqui seguiu o método e passou. A próxima vaga pode ser sua.&rdquo;</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 9, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Prova Social</strong> <em>(mentor busca e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Encontrar um depoimento, print de resultado ou relato de aluno aprovado. Postar com legenda curta: &ldquo;Esse aqui seguiu o método e passou. A próxima vaga pode ser sua.&rdquo;</p>
         </div>
       </div>
     </div>
@@ -2849,6 +4003,37 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 10, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Conteúdo de Consciência</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line"><strong>3 erros que fazem candidatos bons serem reprovados:</strong><br><br>1. <strong>Não respeitam o edital.</strong> Estudam matérias que gostam, não as que caem. O edital é o mapa da prova &mdash; quem ignora, se perde.<br><br>2. <strong>Estudam sozinhos sem orientação.</strong> Perdem tempo tentando descobrir o que estudar, como estudar, quais questões resolver. Um direcionamento correto economiza meses de preparação.<br><br>3. <strong>Subestimam o TAF.</strong> Passam na prova escrita e são eliminados no teste físico. O TAF começa a ser treinado agora, não na semana anterior.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 10, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Conteúdo de Consciência</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line"><strong>3 erros que fazem candidatos bons serem reprovados:</strong><br><br>1. <strong>Não respeitam o edital.</strong> Estudam matérias que gostam, não as que caem. O edital é o mapa da prova &mdash; quem ignora, se perde.<br><br>2. <strong>Estudam sozinhos sem orientação.</strong> Perdem tempo tentando descobrir o que estudar, como estudar, quais questões resolver. Um direcionamento correto economiza meses de preparação.<br><br>3. <strong>Subestimam o TAF.</strong> Passam na prova escrita e são eliminados no teste físico. O TAF começa a ser treinado agora, não na semana anterior.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 10, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Conteúdo de Consciência</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line"><strong>3 erros que fazem candidatos bons serem reprovados:</strong><br><br>1. <strong>Não respeitam o edital.</strong> Estudam matérias que gostam, não as que caem. O edital é o mapa da prova &mdash; quem ignora, se perde.<br><br>2. <strong>Estudam sozinhos sem orientação.</strong> Perdem tempo tentando descobrir o que estudar, como estudar, quais questões resolver. Um direcionamento correto economiza meses de preparação.<br><br>3. <strong>Subestimam o TAF.</strong> Passam na prova escrita e são eliminados no teste físico. O TAF começa a ser treinado agora, não na semana anterior.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag" style="background:var(--cor-feed)">Grupo Redação</span>
+          <h4>Redação &mdash; Dica de Escrita</h4>
+          <p><strong>Dica de Redação</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(155,93,229,0.06);border-left:3px solid rgba(155,93,229,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Dica de redação: <strong>a conclusão não é resumo &mdash; é proposta.</strong> Muitos candidatos apenas repetem o que já disseram. A conclusão deve apresentar uma solução concreta: quem deve agir, como e qual o resultado esperado.</p>
+          <p style="margin-top:8px;font-size:0.8rem;color:rgba(255,255,255,0.5);font-style:italic">A propósito: se você quer melhorar sua redação com direcionamento completo, correções e material focado no padrão das bancas da Bahia, dá uma olhada na nossa Preparação Total. Tem módulo específico de redação com temas comentados e modelos corrigidos.</p>
+        </div>
       </div>
     </div>
 
@@ -2931,6 +4116,51 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 11, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Enquete de Aquecimento</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">O que mais pesa na sua decisão de investir num curso preparatório?
+
+A) Preço acessível
+B) Conteúdo direcionado para a banca
+C) Questões comentadas
+D) Simulados e acompanhamento
+
+Sua resposta ajuda a gente a entregar exatamente o que você precisa.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 11, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Enquete de Aquecimento</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">O que mais pesa na sua decisão de investir num curso preparatório?
+
+A) Preço acessível
+B) Conteúdo direcionado para a banca
+C) Questões comentadas
+D) Simulados e acompanhamento
+
+Sua resposta ajuda a gente a entregar exatamente o que você precisa.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 11, Aquecimento</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Enquete de Aquecimento</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,184,0,0.06);border-left:3px solid rgba(255,184,0,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">O que mais pesa na sua decisão de investir num curso preparatório?
+
+A) Preço acessível
+B) Conteúdo direcionado para a banca
+C) Questões comentadas
+D) Simulados e acompanhamento
+
+Sua resposta ajuda a gente a entregar exatamente o que você precisa.</p>
+        </div>
       </div>
     </div>
 
@@ -3002,6 +4232,90 @@ a { text-decoration:none; color:inherit; }
               <p class="sd-como"><strong>O que fazer:</strong> Após a live, grave um Story resumindo o tema principal: &ldquo;Hoje falamos sobre [tema]. Se você perdeu, o principal foi [ponto-chave].&rdquo; <strong>Por que fazer:</strong> Quem não assistiu ganha um resumo e pode decidir ver a gravação depois.</p>
             </div>
           </div>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 12, Pitch</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px;font-size:0.72rem;font-weight:700;color:var(--cor-reels);letter-spacing:0.1em;text-transform:uppercase">Pitch &mdash; copiar e enviar</p>
+          <p style="background:rgba(255,107,53,0.06);border-left:3px solid rgba(255,107,53,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Nas últimas semanas, vocês resolveram dezenas de questões aqui no grupo. Já perceberam que a preparação faz diferença. Agora imagina ter isso de forma completa e estruturada.
+
+Então vou ser direto: existe uma preparação feita especificamente para quem vai prestar CFO PMBA e BMBA 2026. Chama <strong>Preparação Total Oficial PMBA e BMBA 2026</strong>.
+
+&bull; Todas as matérias do edital cobertas
+&bull; Questões comentadas da banca
+&bull; Simulados no padrão da prova
+&bull; Direcionamento estratégico para CFO
+
+<strong>Valor: R$967 &mdash; ou 12x de R$100,01</strong>
+Menos de R$4 por dia de preparação.
+
+<a href="https://chk.eduzz.com/G96REZZEW1" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Quero garantir minha vaga &rarr;</a>
+
+&mdash;
+
+E se você ainda não pode investir no curso completo, tem uma segunda opção: o <strong>Caderno de Treino CFO PMBA e BMBA 2026</strong> &mdash; centenas de questões comentadas e organizadas por matéria para você treinar todos os dias.
+
+<strong>Valor: R$147 &mdash; ou 12x de R$20,37</strong>
+
+<a href="https://chk.eduzz.com/VWGNP6QR07" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Quero o Caderno de Treino &rarr;</a></p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 12, Pitch</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px;font-size:0.72rem;font-weight:700;color:var(--cor-reels);letter-spacing:0.1em;text-transform:uppercase">Pitch &mdash; copiar e enviar</p>
+          <p style="background:rgba(255,107,53,0.06);border-left:3px solid rgba(255,107,53,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Nas últimas semanas, vocês resolveram dezenas de questões aqui no grupo. Já perceberam que a preparação faz diferença. Agora imagina ter isso de forma completa e estruturada.
+
+Então vou ser direto: existe uma preparação feita especificamente para quem vai prestar Soldado PMBA e BMBA 2026. Chama <strong>Preparação Total Soldado PMBA e BMBA 2026</strong>.
+
+&bull; Todas as matérias do edital cobertas
+&bull; Questões comentadas da banca
+&bull; Simulados no padrão da prova
+&bull; Direcionamento estratégico para Soldado
+
+<strong>Valor: R$767 &mdash; ou 12x de R$79,33</strong>
+Menos de R$3 por dia de preparação.
+
+<a href="https://chk.eduzz.com/89AX3KK50D" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Quero garantir minha vaga &rarr;</a>
+
+&mdash;
+
+E se você ainda não pode investir no curso completo, tem uma segunda opção: o <strong>Caderno de Treino Soldado PMBA e BMBA 2026</strong> &mdash; centenas de questões comentadas e organizadas por matéria para você treinar todos os dias.
+
+<strong>Valor: R$147 &mdash; ou 12x de R$15,30</strong>
+
+<a href="https://chk.eduzz.com/G96RE2KYW1" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Quero o Caderno de Treino &rarr;</a></p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 12, Pitch</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px;font-size:0.72rem;font-weight:700;color:var(--cor-reels);letter-spacing:0.1em;text-transform:uppercase">Pitch &mdash; copiar e enviar</p>
+          <p style="background:rgba(255,107,53,0.06);border-left:3px solid rgba(255,107,53,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Nas últimas semanas, vocês resolveram dezenas de questões aqui no grupo. Já perceberam que a preparação faz diferença. Agora imagina ter isso de forma completa e estruturada.
+
+Então vou ser direto: existe uma preparação feita especificamente para quem vai prestar Investigador PCBA 2026. Chama <strong>Preparação Total Investigador PCBA 2026</strong>.
+
+&bull; Todas as matérias do edital cobertas
+&bull; Questões comentadas da banca
+&bull; Simulados no padrão da prova
+&bull; Direcionamento estratégico para Investigador
+
+<strong>Valor: R$767 &mdash; ou 12x de R$79,33</strong>
+Menos de R$3 por dia de preparação.
+
+<a href="https://chk.eduzz.com/69K153ZEWO" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Quero garantir minha vaga &rarr;</a>
+
+E o melhor: se em 7 dias você sentir que não é para você, devolvemos 100% do valor. Sem burocracia.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag" style="background:var(--cor-feed)">Grupo Redação</span>
+          <h4>Redação &mdash; Modelo / Correção</h4>
+          <p><strong>Modelo ou Correção</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(155,93,229,0.06);border-left:3px solid rgba(155,93,229,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Correção de erro comum:<br><br><strong>Errado:</strong> &ldquo;A tecnologia ajuda a combater o crime.&rdquo;<br><strong>Correto:</strong> &ldquo;O avanço tecnológico tem se consolidado como instrumento estratégico no enfrentamento da criminalidade, viabilizando desde o monitoramento urbano por câmeras inteligentes até a análise preditiva de dados criminais.&rdquo;<br><br>A banca valoriza precisão e profundidade. Cada frase deve agregar informação nova.</p>
         </div>
       </div>
     </div>
@@ -3086,6 +4400,56 @@ a { text-decoration:none; color:inherit; }
             </div>
           </div>
         </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 13, Pitch</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Follow-up do Pitch</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,107,53,0.06);border-left:3px solid rgba(255,107,53,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Última chamada para quem quer garantir a preparação. Os links ainda estão abertos, mas a gente não sabe até quando.
+
+Se a sua dúvida é financeira: lembra que dá para parcelar em 12x no cartão &mdash; cabe no orçamento de qualquer pessoa comprometida com a aprovação.
+
+Se a sua dúvida é se funciona: olha as questões que a gente postou aqui no grupo nas últimas 2 semanas. Isso é só uma amostra do que tem dentro da preparação completa.
+
+Links:
+
+<a href="https://chk.eduzz.com/G96REZZEW1" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Preparação Total Oficial PMBA e BMBA 2026 &mdash; R$967</a>
+<a href="https://chk.eduzz.com/VWGNP6QR07" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Caderno de Treino CFO PMBA e BMBA 2026 &mdash; R$147</a></p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 13, Pitch</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Follow-up do Pitch</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,107,53,0.06);border-left:3px solid rgba(255,107,53,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Última chamada para quem quer garantir a preparação. Os links ainda estão abertos, mas a gente não sabe até quando.
+
+Se a sua dúvida é financeira: lembra que dá para parcelar em 12x no cartão &mdash; cabe no orçamento de qualquer pessoa comprometida com a aprovação.
+
+Se a sua dúvida é se funciona: olha as questões que a gente postou aqui no grupo nas últimas 2 semanas. Isso é só uma amostra do que tem dentro da preparação completa.
+
+Links:
+
+<a href="https://chk.eduzz.com/89AX3KK50D" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Preparação Total Soldado PMBA e BMBA 2026 &mdash; R$767</a>
+<a href="https://chk.eduzz.com/G96RE2KYW1" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Caderno de Treino Soldado PMBA e BMBA 2026 &mdash; R$147</a></p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 13, Pitch</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Follow-up do Pitch</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(255,107,53,0.06);border-left:3px solid rgba(255,107,53,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Última chamada para quem quer garantir a preparação. Os links ainda estão abertos, mas a gente não sabe até quando.
+
+Se a sua dúvida é financeira: lembra que dá para parcelar em 12x no cartão &mdash; cabe no orçamento de qualquer pessoa comprometida com a aprovação.
+
+Se a sua dúvida é se funciona: olha as questões que a gente postou aqui no grupo nas últimas 2 semanas. Isso é só uma amostra do que tem dentro da preparação completa.
+
+Links:
+
+<a href="https://chk.eduzz.com/69K153ZEWO" target="_blank" rel="noopener" style="color:var(--cor-wpp);font-weight:700">Preparação Total Investigador PCBA 2026 &mdash; R$767</a></p>
+        </div>
       </div>
     </div>
 
@@ -3166,6 +4530,21 @@ a { text-decoration:none; color:inherit; }
               <p class="sd-como"><strong>O que fazer:</strong> Poste um Story leve para fechar o domingo. Pode ser uma frase motivacional sobre fundo escuro, ou um vídeo curto dizendo: &ldquo;Descansa hoje que amanhã a gente volta com tudo!&rdquo; <strong>Por que fazer:</strong> Mesmo sem live, manter um Story à noite garante presença constante e prepara a audiência para o conteúdo de segunda.</p>
             </div>
           </div>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 14, Reset</h4>
+          <p style="color:rgba(255,255,255,0.45);font-style:italic">Sem postagens hoje. Domingo é dia de descanso.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 14, Reset</h4>
+          <p style="color:rgba(255,255,255,0.45);font-style:italic">Sem postagens hoje. Domingo é dia de descanso.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 14, Reset</h4>
+          <p style="color:rgba(255,255,255,0.45);font-style:italic">Sem postagens hoje. Domingo é dia de descanso.</p>
         </div>
       </div>
     </div>
@@ -3249,6 +4628,72 @@ a { text-decoration:none; color:inherit; }
               <p class="sd-como"><strong>O que fazer:</strong> Grave um Story especial agradecendo a todos. Fale sobre o próximo ciclo para manter a expectativa: &ldquo;Fechamos com chave de ouro. No próximo mês, vem novidade. Fiquem ligados!&rdquo; <strong>Por que fazer:</strong> Encerrar com gratidão e antecipação mantém a audiência para o próximo ciclo.</p>
             </div>
           </div>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões CFO</span>
+          <h4>Questões CFO &mdash; Dia 1, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Administrativo, Direito Penal ou Liderança</strong>, nível mais difícil (padrão CFO). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como estudar pela banca (e parar de perder tempo com o que não cai)
+
+A banca que elabora a prova tem um padrão. Ela repete temas, repete estilos de pergunta e repete pegadinhas. Quem descobre o padrão, estuda menos e acerta mais.
+
+Como fazer na prática:
+1. Descubra qual banca vai aplicar a prova (está no edital). Exemplo: IBFC, Vunesp, Cebraspe, FGV.
+2. Procure provas anteriores aplicadas pela MESMA banca para cargos parecidos (policial, agente, soldado). Pode achar de graça em sites como QConcursos ou PCI Concursos.
+3. Resolva 30 questões da mesma matéria, todas da mesma banca. Enquanto resolve, anote: (a) quais temas se repetem mais; (b) como a banca pergunta &mdash; ela cobra letra da lei ou interpretação? (c) quais pegadinhas aparecem &mdash; troca de palavras, exceções, &ldquo;exceto&rdquo;.
+4. Depois de 30 questões, você já sabe: quais 3 ou 4 assuntos a banca mais gosta e como ela costuma cobrar. Foque seus estudos nesses assuntos.
+
+Exemplo real: se a banca cobra &ldquo;princípios da administração pública&rdquo; em 7 de cada 10 provas, dedique o dobro do tempo a esse tema. Se ela nunca cobrou &ldquo;bens públicos&rdquo;, estude por último (ou pule).
+
+Estudar pela banca é estudar de forma inteligente. Não é atalho &mdash; é estratégia.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões Soldado</span>
+          <h4>Questões Soldado &mdash; Dia 1, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Constitucional, Português ou Raciocínio Lógico</strong>, nível intermediário (padrão Soldado). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como estudar pela banca (e parar de perder tempo com o que não cai)
+
+A banca que elabora a prova tem um padrão. Ela repete temas, repete estilos de pergunta e repete pegadinhas. Quem descobre o padrão, estuda menos e acerta mais.
+
+Como fazer na prática:
+1. Descubra qual banca vai aplicar a prova (está no edital). Exemplo: IBFC, Vunesp, Cebraspe, FGV.
+2. Procure provas anteriores aplicadas pela MESMA banca para cargos parecidos (policial, agente, soldado). Pode achar de graça em sites como QConcursos ou PCI Concursos.
+3. Resolva 30 questões da mesma matéria, todas da mesma banca. Enquanto resolve, anote: (a) quais temas se repetem mais; (b) como a banca pergunta &mdash; ela cobra letra da lei ou interpretação? (c) quais pegadinhas aparecem &mdash; troca de palavras, exceções, &ldquo;exceto&rdquo;.
+4. Depois de 30 questões, você já sabe: quais 3 ou 4 assuntos a banca mais gosta e como ela costuma cobrar. Foque seus estudos nesses assuntos.
+
+Exemplo real: se a banca cobra &ldquo;princípios da administração pública&rdquo; em 7 de cada 10 provas, dedique o dobro do tempo a esse tema. Se ela nunca cobrou &ldquo;bens públicos&rdquo;, estude por último (ou pule).
+
+Estudar pela banca é estudar de forma inteligente. Não é atalho &mdash; é estratégia.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag">Grupo Questões PCBA</span>
+          <h4>Questões PCBA &mdash; Dia 1, Valor Puro</h4>
+          <p><strong>Questão + Gabarito</strong> <em>(mentor cria e posta)</em></p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.5)">Postar questão comentada de <strong>Direito Penal, Processual Penal ou Criminologia</strong>, nível intermediário a mais difícil (padrão Investigador). Formato: 1.ª mensagem = enunciado com alternativas &rarr; 2.ª mensagem = gabarito comentado com explicação.</p>
+          <p style="margin-top:10px"><strong>Dica de Estudo</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">DICA DE ESTUDO: Como estudar pela banca (e parar de perder tempo com o que não cai)
+
+A banca que elabora a prova tem um padrão. Ela repete temas, repete estilos de pergunta e repete pegadinhas. Quem descobre o padrão, estuda menos e acerta mais.
+
+Como fazer na prática:
+1. Descubra qual banca vai aplicar a prova (está no edital). Exemplo: IBFC, Vunesp, Cebraspe, FGV.
+2. Procure provas anteriores aplicadas pela MESMA banca para cargos parecidos (policial, agente, soldado). Pode achar de graça em sites como QConcursos ou PCI Concursos.
+3. Resolva 30 questões da mesma matéria, todas da mesma banca. Enquanto resolve, anote: (a) quais temas se repetem mais; (b) como a banca pergunta &mdash; ela cobra letra da lei ou interpretação? (c) quais pegadinhas aparecem &mdash; troca de palavras, exceções, &ldquo;exceto&rdquo;.
+4. Depois de 30 questões, você já sabe: quais 3 ou 4 assuntos a banca mais gosta e como ela costuma cobrar. Foque seus estudos nesses assuntos.
+
+Exemplo real: se a banca cobra &ldquo;princípios da administração pública&rdquo; em 7 de cada 10 provas, dedique o dobro do tempo a esse tema. Se ela nunca cobrou &ldquo;bens públicos&rdquo;, estude por último (ou pule).
+
+Estudar pela banca é estudar de forma inteligente. Não é atalho &mdash; é estratégia.</p>
+        </div>
+        <div class="cb cb-wpp">
+          <span class="cb-tag" style="background:var(--cor-feed)">Grupo Redação</span>
+          <h4>Redação &mdash; Tema da Semana</h4>
+          <p><strong>Tema para treinar</strong> <em>(copiar e enviar)</em></p>
+          <p style="background:rgba(155,93,229,0.06);border-left:3px solid rgba(155,93,229,0.7);padding:12px 14px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.75;white-space:pre-line">Tema para treinar esta semana: <strong>&ldquo;O impacto da tecnologia no combate à criminalidade&rdquo;</strong>. Escreva entre 20 e 30 linhas. Estruture com introdução, dois argumentos no desenvolvimento e conclusão propositiva.</p>
         </div>
       </div>
     </div>
