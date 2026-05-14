@@ -9,12 +9,12 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --preto:      #0F2318;
-      --ardosia:    #1B3A2D;
-      --borda:      rgba(45,106,79,0.25);
-      --ouro:       #D4A84B;
-      --ouro-escuro: #B8893A;
-      --ouro-dim:   rgba(212,168,75,0.13);
+      --preto:      #0E0E1A;
+      --ardosia:    #1E1E2E;
+      --borda:      rgba(255,255,255,0.07);
+      --ouro:       #FFB800;
+      --ouro-escuro: #CC9400;
+      --ouro-dim:   rgba(255,184,0,0.13);
       --texto:      rgba(255,255,255,0.82);
       --texto-dim:  rgba(255,255,255,0.42);
     }
@@ -41,7 +41,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(212,168,75,0.07) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,184,0,0.08) 0%, transparent 60%);
       pointer-events: none;
     }
     .hero-label {
@@ -114,7 +114,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 0% 0%, rgba(212,168,75,0.04) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 0% 0%, rgba(255,184,0,0.04) 0%, transparent 60%);
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.3s;
@@ -132,7 +132,7 @@
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(212,168,75,0.55);
+      color: rgba(255,184,0,0.55);
     }
     .card-title {
       font-family: 'Montserrat', sans-serif;
@@ -171,10 +171,10 @@
       gap: 32px;
       padding: 28px 32px;
     }
-    .card.destaque::before { background: radial-gradient(ellipse at 0% 50%, rgba(212,168,75,0.04) 0%, transparent 60%); }
+    .card.destaque::before { background: radial-gradient(ellipse at 0% 50%, rgba(255,184,0,0.04) 0%, transparent 60%); }
     .card.destaque:hover { border-left-color: var(--ouro); }
     .card.destaque .card-cta { color: var(--ouro); }
-    .card.destaque .card-tag { color: rgba(212,168,75,0.55); }
+    .card.destaque .card-tag { color: rgba(255,184,0,0.55); }
     .card.destaque .destaque-text { flex: 1; display: flex; flex-direction: column; gap: 10px; }
     .card.destaque .destaque-meta {
       display: flex;
@@ -195,7 +195,7 @@
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(212,168,75,0.5);
+      color: rgba(255,184,0,0.5);
     }
 
     /* FOOTER */
@@ -233,7 +233,7 @@
   <div class="hero-label">Gabaritando &mdash; Carreiras Policiais da Bahia</div>
   <h1>Central de <em>Documentos</em></h1>
   <div class="hero-rule"></div>
-  <p class="hero-sub">Todos os materiais estratégicos do projeto &mdash; Abril 2026</p>
+  <p class="hero-sub">Todos os materiais estratégicos do projeto &mdash; Maio 2026</p>
 </header>
 
 <div class="grid-wrap">
@@ -263,9 +263,16 @@
   <div class="grid">
 
     <a class="card" href="02-MARCA/brandbook/Brandbook-Gabaritando.html">
-      <div class="card-tag">Identidade Visual</div>
-      <div class="card-title">Brandbook</div>
-      <p class="card-desc">Manual completo de identidade — paleta de cores, tipografia, tom de voz, aplicações e diretrizes visuais da marca Gabaritando.</p>
+      <div class="card-tag">Identidade Visual · V1</div>
+      <div class="card-title">Brandbook — Versão Original</div>
+      <p class="card-desc">Primeira versão do manual de identidade — paleta verde-escuro e dourado, tipografia, tom de voz, aplicações e diretrizes visuais.</p>
+      <div class="card-cta">Abrir documento <span>&#8594;</span></div>
+    </a>
+
+    <a class="card" href="02-MARCA/brandbook/Brandbook-Gabaritando V2.html">
+      <div class="card-tag">Identidade Visual · V2</div>
+      <div class="card-title">Brandbook — Versão Atualizada</div>
+      <p class="card-desc">Versão atualizada do manual de identidade — nova paleta com ouro #FFB800 e preto #0E0E1A, diretrizes visuais revisadas e aplicações atualizadas.</p>
       <div class="card-cta">Abrir documento <span>&#8594;</span></div>
     </a>
 
@@ -290,11 +297,37 @@
 
   </div>
 
+  <!-- CONCURSOS -->
+  <div class="section-label">Concursos e Preparação</div>
+  <div class="grid">
+
+    <a class="card" href="01-ESTRATEGIA/pesquisa/Mapeamento-Materias-Bancas.html">
+      <div class="card-tag">Pesquisa</div>
+      <div class="card-title">Mapeamento de Matérias e Bancas</div>
+      <p class="card-desc">Análise completa dos últimos 5 concursos da PMBA, PCBA e CBMBA — matérias mais cobradas, histórico de bancas e perfil detalhado da AOCP (PCBA 2026).</p>
+      <div class="card-cta">Abrir documento <span>&#8594;</span></div>
+    </a>
+
+  </div>
+
+  <!-- PLANEJAMENTO -->
+  <div class="section-label">Planejamento e Operação</div>
+  <div class="grid">
+
+    <a class="card" href="05-PLANEJAMENTO/planejamento-conteudo.html">
+      <div class="card-tag">Conteúdo</div>
+      <div class="card-title">Planejamento de Conteúdo</div>
+      <p class="card-desc">Calendário completo de conteúdo — lives, reels, stories, feed, YouTube e grupos de WhatsApp com ciclo de 14 dias e questões comentadas diárias.</p>
+      <div class="card-cta">Abrir documento <span>&#8594;</span></div>
+    </a>
+
+  </div>
+
 </div>
 
 <footer>
   <p><strong>Gabaritando</strong> &mdash; Preparatório para Carreiras Policiais da Bahia</p>
-  <p>Documentos estratégicos &mdash; Abril 2026 &mdash; Uso interno</p>
+  <p>Documentos estratégicos &mdash; Maio 2026 &mdash; Uso interno</p>
 </footer>
 
 </body>

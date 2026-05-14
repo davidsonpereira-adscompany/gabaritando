@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0E0E1A">
+<title>Mapeamento de Matérias e Bancas — Gabaritando</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ouro:#FFB800; --ouro-esc:#CC9400; --preto:#0E0E1A; --preto-2:#13131F;
+  --ardosia:#1E1E2E; --carvao:#111111; --creme:#EDE8DF; --branco:#FFFFFF;
+  --borda:rgba(255,255,255,0.07); --borda-ouro:rgba(255,184,0,0.22);
+  --font:'Montserrat',sans-serif;
+  --cor-pmba:#3B8BFF; --cor-pcba:#FF6B35; --cor-cbmba:#00C9A7; --cor-aocp:#9B5DE5;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{overflow-x:hidden;scroll-behavior:smooth;}
+body{background:var(--preto);color:var(--branco);font-family:var(--font);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+.container{max-width:1100px;margin:0 auto;padding:0 32px;}
+
+/* HERO */
+.hero{text-align:center;padding:80px 0 48px;border-bottom:1px solid var(--borda-ouro);}
+.hero-badge{display:inline-block;background:rgba(255,184,0,0.1);border:1px solid rgba(255,184,0,0.25);color:var(--ouro);font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:5px 18px;margin-bottom:20px;}
+.hero h1{font-size:2.2rem;font-weight:900;line-height:1.15;text-transform:uppercase;margin-bottom:14px;}
+.hero h1 em{font-style:normal;color:var(--ouro);display:block;}
+.hero p{font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.55);max-width:640px;margin:0 auto;line-height:1.8;}
+.hero p strong{color:var(--ouro);font-weight:600;}
+.hero-meta{display:flex;justify-content:center;gap:32px;margin-top:28px;flex-wrap:wrap;}
+.hero-meta span{font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.hero-meta span strong{color:var(--ouro);}
+
+/* NAVEGAÇÃO */
+.nav-bar{position:sticky;top:0;z-index:100;background:rgba(14,14,26,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--borda-ouro);padding:14px 0;}
+.nav-inner{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;}
+.nav-inner::-webkit-scrollbar{height:3px;}
+.nav-inner::-webkit-scrollbar-thumb{background:var(--ouro);border-radius:4px;}
+.nav-btn{flex-shrink:0;font-family:var(--font);font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:8px 18px;border:1px solid var(--borda);background:transparent;color:rgba(255,255,255,0.5);cursor:pointer;transition:all .25s;}
+.nav-btn:hover,.nav-btn.active{border-color:var(--ouro);color:var(--ouro);background:rgba(255,184,0,0.06);}
+
+/* SECTIONS */
+.section{padding:56px 0;border-bottom:1px solid var(--borda);}
+.section:last-of-type{border-bottom:none;}
+.section-title{font-size:1.4rem;font-weight:800;text-transform:uppercase;margin-bottom:8px;}
+.section-sub{font-size:0.85rem;font-weight:300;color:rgba(255,255,255,0.5);margin-bottom:36px;line-height:1.7;}
+
+/* TAGS */
+.tag{display:inline-block;font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:4px 12px;margin-bottom:16px;}
+.tag-pmba{background:rgba(59,139,255,0.12);color:var(--cor-pmba);border:1px solid rgba(59,139,255,0.25);}
+.tag-pcba{background:rgba(255,107,53,0.12);color:var(--cor-pcba);border:1px solid rgba(255,107,53,0.25);}
+.tag-cbmba{background:rgba(0,201,167,0.12);color:var(--cor-cbmba);border:1px solid rgba(0,201,167,0.25);}
+.tag-aocp{background:rgba(155,93,229,0.12);color:var(--cor-aocp);border:1px solid rgba(155,93,229,0.25);}
+.tag-geral{background:rgba(255,184,0,0.1);color:var(--ouro);border:1px solid rgba(255,184,0,0.25);}
+
+/* TABELAS */
+.tbl-wrap{overflow-x:auto;margin-bottom:32px;}
+table{width:100%;border-collapse:collapse;font-size:0.82rem;}
+th{background:var(--ardosia);color:var(--ouro);font-weight:700;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;text-align:left;padding:12px 16px;border-bottom:2px solid var(--borda-ouro);}
+td{padding:10px 16px;border-bottom:1px solid var(--borda);color:rgba(255,255,255,0.75);font-weight:400;}
+tr:hover td{background:rgba(255,184,0,0.03);}
+.peso-alto{color:#4ADE80;font-weight:700;}
+.peso-medio{color:var(--ouro);font-weight:600;}
+.peso-baixo{color:rgba(255,255,255,0.4);font-weight:400;}
+
+/* CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:32px;}
+.card{background:var(--preto-2);border:1px solid var(--borda);padding:28px 24px;transition:border-color .3s;}
+.card:hover{border-color:var(--ouro);}
+.card h4{font-size:0.92rem;font-weight:700;margin-bottom:10px;}
+.card ul{list-style:none;padding:0;}
+.card ul li{font-size:0.82rem;color:rgba(255,255,255,0.65);padding:4px 0;padding-left:16px;position:relative;line-height:1.6;}
+.card ul li::before{content:'';position:absolute;left:0;top:12px;width:6px;height:6px;background:var(--ouro);border-radius:50%;}
+
+/* COLLAPSIBLE */
+.cb{margin-bottom:12px;border:1px solid var(--borda);background:var(--preto-2);}
+.cb h4{font-size:0.82rem;font-weight:700;padding:14px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:color .2s;}
+.cb h4:hover{color:var(--ouro);}
+.cb h4::after{content:'+';font-size:1rem;font-weight:300;color:var(--ouro);transition:transform .2s;}
+.cb.open h4::after{content:'\2212';}
+.cb-body{display:none;padding:0 20px 20px;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.8;}
+.cb.open .cb-body{display:block;}
+
+/* COMPARAÇÃO VISUAL */
+.compare-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px;}
+.compare-col{background:var(--preto-2);border:1px solid var(--borda);padding:20px 16px;text-align:center;}
+.compare-col h5{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--borda);}
+.compare-col .val{font-size:0.78rem;color:rgba(255,255,255,0.6);margin-bottom:6px;line-height:1.5;}
+.compare-col .val strong{color:var(--branco);font-weight:600;}
+
+/* HIGHLIGHT BOX */
+.highlight{background:rgba(255,184,0,0.06);border-left:3px solid var(--ouro);padding:20px 24px;margin:24px 0;font-size:0.85rem;color:rgba(255,255,255,0.75);line-height:1.8;}
+.highlight strong{color:var(--ouro);}
+
+/* ALERT */
+.alert{background:rgba(155,93,229,0.08);border:1px solid rgba(155,93,229,0.25);padding:20px 24px;margin:24px 0;font-size:0.85rem;color:rgba(255,255,255,0.75);line-height:1.8;}
+.alert strong{color:var(--cor-aocp);}
+
+/* RANKING BAR */
+.rank-item{display:flex;align-items:center;gap:16px;margin-bottom:10px;}
+.rank-pos{flex-shrink:0;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:800;color:var(--carvao);background:var(--ouro);border-radius:50%;}
+.rank-label{flex:1;font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.8);}
+.rank-bar-wrap{flex:0 0 200px;height:8px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;}
+.rank-bar{height:100%;border-radius:4px;transition:width .6s ease;}
+.rank-pct{flex-shrink:0;font-size:0.72rem;font-weight:700;color:var(--ouro);width:48px;text-align:right;}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--borda);padding:32px 0;text-align:center;}
+.footer-text{font-size:0.62rem;color:rgba(255,255,255,0.18);letter-spacing:0.1em;text-transform:uppercase;}
+
+@media(max-width:768px){
+  .container{padding:0 16px;}
+  .hero{padding:48px 0 32px;}
+  .hero h1{font-size:1.5rem;}
+  .section{padding:36px 0;}
+  .card-grid{grid-template-columns:1fr;}
+  .compare-grid{grid-template-columns:1fr 1fr;}
+  .rank-bar-wrap{flex:0 0 100px;}
+  table{font-size:0.74rem;}
+  th,td{padding:8px 10px;}
+}
+@media(max-width:480px){
+  .compare-grid{grid-template-columns:1fr;}
+  .rank-bar-wrap{flex:0 0 80px;}
+}
+</style>
+</head>
+<body>
+
+<div style="position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(14,14,26,0.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,184,0,0.1);padding:10px 28px;">
+  <a href="../../index.html" style="font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">&#8592; &nbsp;Índice Geral</a>
+</div>
+<div style="height:38px"></div>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section class="hero">
+<div class="container">
+  <div class="hero-badge">Pesquisa estratégica</div>
+  <h1>Mapeamento de matérias<br><em>e bancas organizadoras</em></h1>
+  <p>
+    Análise completa dos <strong>últimos 5 concursos</strong> da PMBA, PCBA e CBMBA — matérias mais cobradas, tópicos prioritários, histórico de bancas e perfil detalhado da <strong>AOCP</strong> (banca confirmada para a PCBA 2026).
+  </p>
+  <div class="hero-meta">
+    <span>Concursos: <strong>PMBA · PCBA · CBMBA</strong></span>
+    <span>Atualizado: <strong>Maio 2026</strong></span>
+    <span>Uso interno: <strong>Equipe de Mentores</strong></span>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ NAV -->
+<nav class="nav-bar">
+<div class="container">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="scrollTo_('#sec-resumo')">Resumo</button>
+    <button class="nav-btn" onclick="scrollTo_('#sec-pmba')">PMBA</button>
+    <button class="nav-btn" onclick="scrollTo_('#sec-pcba')">PCBA</button>
+    <button class="nav-btn" onclick="scrollTo_('#sec-cbmba')">CBMBA</button>
+    <button class="nav-btn" onclick="scrollTo_('#sec-bancas')">Bancas</button>
+    <button class="nav-btn" onclick="scrollTo_('#sec-aocp')">Perfil AOCP</button>
+    <button class="nav-btn" onclick="scrollTo_('#sec-topicos')">Tópicos por Matéria</button>
+    <button class="nav-btn" onclick="scrollTo_('#sec-estrategia')">Estratégia</button>
+  </div>
+</div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ RESUMO EXECUTIVO -->
+<section class="section" id="sec-resumo">
+<div class="container">
+  <span class="tag tag-geral">Visão geral</span>
+  <h2 class="section-title">Resumo Executivo</h2>
+  <p class="section-sub">Panorama consolidado dos três concursos — o que a equipe de mentores precisa saber antes de tudo.</p>
+
+  <div class="highlight">
+    <strong>Cenário 2026:</strong> PMBA com 2.000 vagas (Soldado) aprovadas, banca a definir. PCBA com 750 vagas e banca AOCP confirmada (edital previsto para maio/2026, provas em setembro/2026). CBMBA com 600 vagas (Soldado) aprovadas pelo COP, banca a definir.
+  </div>
+
+  <div class="card-grid">
+    <div class="card" style="border-color:rgba(59,139,255,0.3);">
+      <span class="tag tag-pmba">PMBA</span>
+      <h4>Polícia Militar da Bahia</h4>
+      <ul>
+        <li>Soldado: 50–80 questões (variou entre IBFC e FCC)</li>
+        <li>CFO: 80 questões (UNEB 2024)</li>
+        <li>Matérias-chave: Dir. Constitucional, Dir. Penal, Português</li>
+        <li>Bancas recentes: IBFC (2017, 2019), FCC (2022), UNEB (2024 — CFO)</li>
+        <li>~2.000 vagas previstas para 2026</li>
+      </ul>
+    </div>
+    <div class="card" style="border-color:rgba(255,107,53,0.3);">
+      <span class="tag tag-pcba">PCBA</span>
+      <h4>Polícia Civil da Bahia</h4>
+      <ul>
+        <li>100 questões objetivas + prova discursiva</li>
+        <li>Matérias-chave: Dir. Penal, Dir. Processual Penal, Português</li>
+        <li>Bancas recentes: CESPE (2013), VUNESP (2018), IBFC (2022)</li>
+        <li>AOCP confirmada para 2026 — 750 vagas</li>
+        <li>Edital previsto: maio/2026 · Provas: setembro/2026</li>
+      </ul>
+    </div>
+    <div class="card" style="border-color:rgba(0,201,167,0.3);">
+      <span class="tag tag-cbmba">CBMBA</span>
+      <h4>Corpo de Bombeiros Militar</h4>
+      <ul>
+        <li>Soldado: 50–80 questões (concurso conjunto com PMBA)</li>
+        <li>CFO: 80 questões (UNEB 2024)</li>
+        <li>Matérias-chave: Português, Dir. Constitucional, Matemática</li>
+        <li>Bancas recentes: IBFC (2017, 2019), FCC (2022), UNEB (2024 — CFO)</li>
+        <li>~600 vagas previstas para 2026</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <strong>Disciplinas que aparecem em 100% dos editais dos três concursos:</strong> Língua Portuguesa, Direito Constitucional, Direito Administrativo, Matemática/Raciocínio Lógico. São as matérias "obrigatórias" — sempre caem, independentemente da banca.
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ PMBA -->
+<section class="section" id="sec-pmba">
+<div class="container">
+  <span class="tag tag-pmba">PMBA</span>
+  <h2 class="section-title">Polícia Militar da Bahia</h2>
+  <p class="section-sub">Análise dos últimos concursos — estrutura de prova, matérias cobradas e ranking de frequência.</p>
+
+  <!-- HISTÓRICO DE PROVAS -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--cor-pmba);">Histórico de Provas — Soldado</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Ano</th><th>Banca</th><th>Vagas</th><th>Questões</th><th>Formato</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2012</td><td>IBFC</td><td>~2.000</td><td>80</td><td>Múltipla escolha + Redação</td></tr>
+      <tr><td>2017</td><td>IBFC</td><td>~2.750 (PM+BM)</td><td>80</td><td>Múltipla escolha + Redação</td></tr>
+      <tr><td>2019</td><td>IBFC</td><td>1.000 PM + 250 BM</td><td>80</td><td>Múltipla escolha + Redação</td></tr>
+      <tr><td>2022</td><td>FCC</td><td>~2.500 (PM+BM)</td><td>50</td><td>Múltipla escolha + Redação</td></tr>
+      <tr><td>2026</td><td>A definir</td><td>~2.000 (previstas)</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--cor-pmba);">Histórico de Provas — CFO (Oficial)</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Ano</th><th>Banca</th><th>Vagas</th><th>Questões</th><th>Formato</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2019</td><td>Banca estadual</td><td>—</td><td>80</td><td>Múltipla escolha + Redação</td></tr>
+      <tr><td>2024</td><td>UNEB</td><td>100 (AOPM)</td><td>80</td><td>Múltipla escolha + Redação</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- DISTRIBUIÇÃO SOLDADO IBFC -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--cor-pmba);">Distribuição de Questões — Soldado (IBFC 2019 · 80 questões)</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Disciplina</th><th>Questões</th><th>Peso</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Direito Constitucional</td><td>12–15</td><td>1,4 pt/questão</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Direitos Humanos</td><td>8–10</td><td>1,4 pt/questão</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Direito Administrativo</td><td>8–10</td><td>1,4 pt/questão</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Direito Penal</td><td>8–10</td><td>1,4 pt/questão</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Igualdade Racial e de Gênero</td><td>5–8</td><td>1,4 pt/questão</td><td class="peso-medio">MÉDIO</td></tr>
+      <tr><td>Língua Portuguesa</td><td>8–10</td><td>1,0 pt/questão</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Matemática / Raciocínio Lógico</td><td>6–8</td><td>1,0 pt/questão</td><td class="peso-medio">MÉDIO</td></tr>
+      <tr><td>História do Brasil</td><td>4–5</td><td>1,0 pt/questão</td><td class="peso-baixo">BAIXO</td></tr>
+      <tr><td>Geografia do Brasil</td><td>4–5</td><td>1,0 pt/questão</td><td class="peso-baixo">BAIXO</td></tr>
+      <tr><td>Atualidades</td><td>4–5</td><td>1,0 pt/questão</td><td class="peso-baixo">BAIXO</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- DISTRIBUIÇÃO SOLDADO FCC -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--cor-pmba);">Distribuição de Questões — Soldado (FCC 2022 · 50 questões)</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Disciplina</th><th>Questões</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Direito Constitucional</td><td>8–10</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Direitos Humanos</td><td>6–8</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Direito Administrativo</td><td>6–8</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Direito Penal</td><td>6–8</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Direito Penal Militar</td><td>4–5</td><td class="peso-medio">MÉDIO</td></tr>
+      <tr><td>Igualdade Racial e de Gênero</td><td>4–5</td><td class="peso-medio">MÉDIO</td></tr>
+      <tr><td>Língua Portuguesa</td><td>~4</td><td class="peso-medio">MÉDIO</td></tr>
+      <tr><td>Matemática</td><td>2–3</td><td class="peso-baixo">BAIXO</td></tr>
+      <tr><td>Informática</td><td>1–2</td><td class="peso-baixo">BAIXO</td></tr>
+      <tr><td>História / Geografia / Atualidades</td><td>5–6</td><td class="peso-baixo">BAIXO</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="highlight">
+    <strong>Mudança importante em 2022 (FCC):</strong> A banca incluiu <strong>Direito Penal Militar</strong> como disciplina autônoma e adicionou <strong>Informática</strong> nos Conhecimentos Gerais — matérias que não apareciam nos editais da IBFC. O total de questões também caiu de 80 para 50.
+  </div>
+
+  <!-- DISTRIBUIÇÃO CFO -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--cor-pmba);">Distribuição de Questões — CFO (UNEB 2024 · 80 questões)</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Disciplina</th><th>Questões</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Língua Portuguesa</td><td>20</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Ciências Humanas (História + Geografia + Sociologia/Filosofia)</td><td>20</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Direito (Constitucional, Penal, Administrativo, Dir. Humanos)</td><td>20</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Matemática</td><td>10</td><td class="peso-medio">MÉDIO</td></tr>
+      <tr><td>Informática</td><td>5</td><td class="peso-baixo">BAIXO</td></tr>
+      <tr><td>Língua Inglesa</td><td>5</td><td class="peso-baixo">BAIXO</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- RANKING SOLDADO -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:20px;color:var(--cor-pmba);">Ranking de Frequência — Soldado PM (4 editais analisados)</h3>
+  <div style="max-width:700px;margin-bottom:36px;">
+    <div class="rank-item"><span class="rank-pos">1</span><span class="rank-label">Direito Constitucional</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-pmba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">2</span><span class="rank-label">Língua Portuguesa</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-pmba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">3</span><span class="rank-label">Direito Penal</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-pmba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">4</span><span class="rank-label">Direitos Humanos</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-pmba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">5</span><span class="rank-label">Direito Administrativo</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-pmba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">6</span><span class="rank-label">Igualdade Racial e de Gênero</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-pmba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">7</span><span class="rank-label">Matemática / RLM</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-pmba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">8</span><span class="rank-label">História do Brasil</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:rgba(59,139,255,0.5);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">9</span><span class="rank-label">Geografia do Brasil</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:rgba(59,139,255,0.5);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">10</span><span class="rank-label">Atualidades</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:75%;background:rgba(59,139,255,0.35);"></div></div><span class="rank-pct">75%</span></div>
+    <div class="rank-item"><span class="rank-pos">11</span><span class="rank-label">Informática</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:50%;background:rgba(59,139,255,0.25);"></div></div><span class="rank-pct">50%</span></div>
+    <div class="rank-item"><span class="rank-pos">12</span><span class="rank-label">Direito Penal Militar</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:25%;background:rgba(59,139,255,0.18);"></div></div><span class="rank-pct">25%</span></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ PCBA -->
+<section class="section" id="sec-pcba">
+<div class="container">
+  <span class="tag tag-pcba">PCBA</span>
+  <h2 class="section-title">Polícia Civil da Bahia</h2>
+  <p class="section-sub">Análise dos últimos concursos — foco na distribuição de questões e no perfil esperado para 2026 (AOCP).</p>
+
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--cor-pcba);">Histórico de Provas — Investigador / Delegado</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Ano</th><th>Banca</th><th>Vagas</th><th>Questões</th><th>Formato</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2008</td><td>Não confirmada</td><td>—</td><td>100</td><td>Múltipla escolha</td></tr>
+      <tr><td>2013</td><td>CESPE/CEBRASPE</td><td>—</td><td>100</td><td>Certo/Errado (com penalização)</td></tr>
+      <tr><td>2018</td><td>VUNESP</td><td>1.000</td><td>100</td><td>Múltipla escolha + Discursiva</td></tr>
+      <tr><td>2022</td><td>IBFC</td><td>1.000</td><td>100</td><td>Múltipla escolha + Discursiva</td></tr>
+      <tr><td>2026</td><td><strong>AOCP</strong></td><td><strong>750</strong></td><td>100</td><td>Múltipla escolha + Discursiva</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="alert">
+    <strong>PCBA 2026 — Banca AOCP confirmada:</strong> 750 vagas (500 Investigador + 150 Escrivão + 100 Delegado). Edital previsto para maio/2026, provas em setembro/2026. A PCBA nunca repete banca em edições consecutivas.
+  </div>
+
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--cor-pcba);">Distribuição de Questões — Investigador (IBFC 2022 · 100 questões)</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Disciplina</th><th>Questões</th><th>% da Prova</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Direito Constitucional</td><td>10</td><td>10%</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Direito Penal</td><td>10</td><td>10%</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Direito Processual Penal</td><td>10</td><td>10%</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Direito Administrativo</td><td>9</td><td>9%</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Medicina Legal</td><td>~10</td><td>~10%</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Contabilidade</td><td>10</td><td>10%</td><td class="peso-medio">MÉDIO</td></tr>
+      <tr><td>Legislação Geral/Especial</td><td>~10</td><td>~10%</td><td class="peso-medio">MÉDIO</td></tr>
+      <tr><td>Língua Portuguesa</td><td>8</td><td>8%</td><td class="peso-alto">ALTO</td></tr>
+      <tr><td>Raciocínio Lógico</td><td>8</td><td>8%</td><td class="peso-medio">MÉDIO</td></tr>
+      <tr><td>Igualdade Racial e de Gênero</td><td>~7</td><td>~7%</td><td class="peso-medio">MÉDIO</td></tr>
+      <tr><td>Informática</td><td>4</td><td>4%</td><td class="peso-baixo">BAIXO</td></tr>
+      <tr><td>Atualidades</td><td>4</td><td>4%</td><td class="peso-baixo">BAIXO</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="highlight">
+    <strong>Bloco jurídico = 39% da prova:</strong> Direito Penal + Processual Penal + Constitucional + Administrativo somam aproximadamente 39 questões. Esse é o bloco mais pesado e deve ser prioridade absoluta na preparação.
+  </div>
+
+  <!-- RANKING PCBA -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:20px;color:var(--cor-pcba);">Ranking de Frequência — PCBA (consolidado histórico)</h3>
+  <div style="max-width:700px;margin-bottom:36px;">
+    <div class="rank-item"><span class="rank-pos">1</span><span class="rank-label">Direito Penal</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-pcba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">2</span><span class="rank-label">Direito Processual Penal</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-pcba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">3</span><span class="rank-label">Língua Portuguesa</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-pcba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">4</span><span class="rank-label">Direito Constitucional</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-pcba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">5</span><span class="rank-label">Direito Administrativo</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-pcba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">6</span><span class="rank-label">Raciocínio Lógico</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-pcba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">7</span><span class="rank-label">Informática</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:85%;background:rgba(255,107,53,0.6);"></div></div><span class="rank-pct">85%</span></div>
+    <div class="rank-item"><span class="rank-pos">8</span><span class="rank-label">Legislação Especial</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:85%;background:rgba(255,107,53,0.6);"></div></div><span class="rank-pct">85%</span></div>
+    <div class="rank-item"><span class="rank-pos">9</span><span class="rank-label">Medicina Legal</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:60%;background:rgba(255,107,53,0.4);"></div></div><span class="rank-pct">60%</span></div>
+    <div class="rank-item"><span class="rank-pos">10</span><span class="rank-label">Atualidades</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:50%;background:rgba(255,107,53,0.3);"></div></div><span class="rank-pct">50%</span></div>
+  </div>
+
+  <!-- PROJEÇÃO 2026 -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--cor-pcba);">Matérias Prováveis — PCBA 2026 (AOCP)</h3>
+  <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:20px;">Baseado no histórico da PCBA + perfil da banca AOCP em concursos de Polícia Civil.</p>
+  <div class="card-grid">
+    <div class="card">
+      <h4 style="color:var(--cor-pcba);">Conhecimentos Básicos</h4>
+      <ul>
+        <li>Língua Portuguesa</li>
+        <li>Raciocínio Lógico / Matemático</li>
+        <li>Informática</li>
+        <li>Atualidades / Realidade da Bahia</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--cor-pcba);">Conhecimentos Específicos</h4>
+      <ul>
+        <li>Direito Penal</li>
+        <li>Direito Processual Penal</li>
+        <li>Direito Constitucional</li>
+        <li>Direito Administrativo</li>
+        <li>Legislação Penal Especial</li>
+        <li>Medicina Legal (Investigador)</li>
+        <li>Estatuto da Polícia Civil da Bahia</li>
+        <li>Direitos Humanos</li>
+        <li>Igualdade Racial e de Gênero</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CBMBA -->
+<section class="section" id="sec-cbmba">
+<div class="container">
+  <span class="tag tag-cbmba">CBMBA</span>
+  <h2 class="section-title">Corpo de Bombeiros Militar da Bahia</h2>
+  <p class="section-sub">Concurso conjunto com a PMBA — mesma banca, estrutura similar, com diferenças na parte específica.</p>
+
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--cor-cbmba);">Histórico de Provas — Soldado</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Ano</th><th>Banca</th><th>Vagas CBM</th><th>Vagas Totais (PM+BM)</th><th>Questões</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2017</td><td>IBFC</td><td>~750</td><td>2.750</td><td>80</td></tr>
+      <tr><td>2019</td><td>IBFC</td><td>250</td><td>1.250</td><td>80</td></tr>
+      <tr><td>2022</td><td>FCC</td><td>500</td><td>2.500</td><td>50</td></tr>
+      <tr><td>2024 (CFO)</td><td>UNEB</td><td>30</td><td>30</td><td>80</td></tr>
+      <tr><td>2026</td><td>A definir</td><td>~600</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--cor-cbmba);">Matérias — Soldado CBMBA vs Soldado PMBA</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Disciplina</th><th>PMBA</th><th>CBMBA</th><th>Observação</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Língua Portuguesa</td><td>Sim</td><td>Sim</td><td>Idêntico</td></tr>
+      <tr><td>Matemática / RLM</td><td>Sim</td><td>Sim</td><td>Idêntico</td></tr>
+      <tr><td>História do Brasil</td><td>Sim</td><td>Sim</td><td>Idêntico</td></tr>
+      <tr><td>Geografia do Brasil</td><td>Sim</td><td>Sim</td><td>Idêntico</td></tr>
+      <tr><td>Direito Constitucional</td><td>Sim</td><td>Sim</td><td>Idêntico</td></tr>
+      <tr><td>Direito Administrativo</td><td>Sim</td><td>Sim</td><td>Idêntico</td></tr>
+      <tr><td>Direito Penal (comum)</td><td>Sim</td><td><strong>Não</strong></td><td style="color:var(--ouro);">Diferença-chave</td></tr>
+      <tr><td>Direito Penal Militar</td><td>Sim (2022)</td><td>Sim</td><td>CBMBA sempre cobra</td></tr>
+      <tr><td>Direitos Humanos</td><td>Sim</td><td>Sim</td><td>Peso crescente desde 2019</td></tr>
+      <tr><td>Igualdade Racial e de Gênero</td><td>Sim</td><td>Sim</td><td>Idêntico</td></tr>
+      <tr><td>Legislação Militar Estadual</td><td>—</td><td>Sim</td><td>Específico do CBMBA</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="highlight">
+    <strong>Diferença principal entre PMBA e CBMBA:</strong> A PMBA cobra Direito Penal comum nos Conhecimentos Específicos, enquanto o CBMBA substitui por Direito Penal Militar + Legislação Militar Estadual. Os Conhecimentos Gerais são idênticos.
+  </div>
+
+  <!-- RANKING CBMBA -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:20px;color:var(--cor-cbmba);">Ranking de Prioridade — Soldado CBMBA</h3>
+  <div style="max-width:700px;margin-bottom:36px;">
+    <div class="rank-item"><span class="rank-pos">1</span><span class="rank-label">Língua Portuguesa</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-cbmba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">2</span><span class="rank-label">Direito Constitucional</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-cbmba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">3</span><span class="rank-label">Matemática / RLM</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-cbmba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">4</span><span class="rank-label">Direito Penal Militar</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-cbmba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">5</span><span class="rank-label">Direito Administrativo</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:var(--cor-cbmba);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">6</span><span class="rank-label">Direitos Humanos</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:95%;background:rgba(0,201,167,0.7);"></div></div><span class="rank-pct">95%</span></div>
+    <div class="rank-item"><span class="rank-pos">7</span><span class="rank-label">Igualdade Racial e de Gênero</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:95%;background:rgba(0,201,167,0.7);"></div></div><span class="rank-pct">95%</span></div>
+    <div class="rank-item"><span class="rank-pos">8</span><span class="rank-label">História do Brasil</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:rgba(0,201,167,0.5);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">9</span><span class="rank-label">Geografia do Brasil</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:rgba(0,201,167,0.5);"></div></div><span class="rank-pct">100%</span></div>
+    <div class="rank-item"><span class="rank-pos">10</span><span class="rank-label">Informática</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:100%;background:rgba(0,201,167,0.4);"></div></div><span class="rank-pct">100%</span></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ BANCAS -->
+<section class="section" id="sec-bancas">
+<div class="container">
+  <span class="tag tag-geral">Histórico</span>
+  <h2 class="section-title">Mapeamento de Bancas Organizadoras</h2>
+  <p class="section-sub">Consolidação dos últimos 10 concursos — PMBA, PCBA e CBMBA — com a banca que organizou cada edição.</p>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Ano</th><th>Concurso</th><th>Cargo</th><th>Banca</th><th>Vagas</th></tr>
+    </thead>
+    <tbody>
+      <tr style="background:rgba(59,139,255,0.04);"><td>2012</td><td>PMBA + CBMBA</td><td>Soldado</td><td>IBFC</td><td>~2.000</td></tr>
+      <tr style="background:rgba(255,107,53,0.04);"><td>2013</td><td>PCBA</td><td>Investigador / Delegado</td><td>CESPE/CEBRASPE</td><td>—</td></tr>
+      <tr style="background:rgba(59,139,255,0.04);"><td>2017</td><td>PMBA + CBMBA</td><td>Soldado + CFO</td><td>IBFC</td><td>~2.750</td></tr>
+      <tr style="background:rgba(255,107,53,0.04);"><td>2018</td><td>PCBA</td><td>Investigador / Escrivão / Delegado</td><td>VUNESP</td><td>1.000</td></tr>
+      <tr style="background:rgba(59,139,255,0.04);"><td>2019</td><td>PMBA + CBMBA</td><td>Soldado</td><td>IBFC</td><td>1.250</td></tr>
+      <tr style="background:rgba(255,107,53,0.04);"><td>2022</td><td>PCBA</td><td>Investigador / Escrivão / Delegado</td><td>IBFC</td><td>1.000</td></tr>
+      <tr style="background:rgba(59,139,255,0.04);"><td>2022</td><td>PMBA + CBMBA</td><td>Soldado + CFO</td><td>FCC</td><td>~2.500</td></tr>
+      <tr style="background:rgba(59,139,255,0.04);"><td>2024</td><td>PMBA + CBMBA</td><td>CFO</td><td>UNEB</td><td>100 PM + 30 BM</td></tr>
+      <tr style="background:rgba(255,107,53,0.04);"><td><strong>2026</strong></td><td><strong>PCBA</strong></td><td><strong>Investigador / Escrivão / Delegado</strong></td><td><strong>AOCP</strong></td><td><strong>750</strong></td></tr>
+      <tr style="background:rgba(59,139,255,0.04);"><td>2026</td><td>PMBA + CBMBA</td><td>Soldado</td><td>A definir</td><td>~2.600</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:20px;">Bancas por Frequência</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>IBFC</h4>
+      <ul>
+        <li>4 concursos organizados (PMBA 2012, 2017, 2019 + PCBA 2022)</li>
+        <li>Questões objetivas e diretas</li>
+        <li>Não cobra temas muito aprofundados</li>
+        <li>Banca mais recorrente na Bahia</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>FCC</h4>
+      <ul>
+        <li>1 concurso organizado (PMBA/CBMBA 2022)</li>
+        <li>Questões mais interpretativas</li>
+        <li>Português mais elaborado</li>
+        <li>Incluiu Direito Penal Militar e Informática</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>UNEB</h4>
+      <ul>
+        <li>1 concurso organizado (CFO 2024)</li>
+        <li>Perfil acadêmico/vestibular</li>
+        <li>Cobra Língua Inglesa e Ciências Humanas</li>
+        <li>Exclusiva para CFO</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>CESPE/CEBRASPE</h4>
+      <ul>
+        <li>1 concurso organizado (PCBA 2013)</li>
+        <li>Formato Certo/Errado com penalização</li>
+        <li>Questões interpretativas e interdisciplinares</li>
+        <li>Maior grau de dificuldade</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>VUNESP</h4>
+      <ul>
+        <li>1 concurso organizado (PCBA 2018)</li>
+        <li>Múltipla escolha tradicional</li>
+        <li>Ênfase em interpretação de texto</li>
+        <li>Provas bem estruturadas</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--cor-aocp);">AOCP (nova)</h4>
+      <ul>
+        <li>PCBA 2026 — primeira vez na Bahia</li>
+        <li>Forte cobrança de lei seca (~95% das questões de Direito)</li>
+        <li>Questões diretas, sem pegadinhas</li>
+        <li>Nota de corte tende a ser alta</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ AOCP -->
+<section class="section" id="sec-aocp">
+<div class="container">
+  <span class="tag tag-aocp">Banca PCBA 2026</span>
+  <h2 class="section-title">Perfil do Instituto AOCP</h2>
+  <p class="section-sub">Análise detalhada da banca confirmada para a PCBA 2026 — estilo de questões, estratégias de estudo e comparação com outras bancas.</p>
+
+  <div class="alert">
+    <strong>Dado confirmado:</strong> O Instituto AOCP foi definido como banca organizadora da PCBA 2026. São 750 vagas (500 Investigador + 150 Escrivão + 100 Delegado). A AOCP organizou concursos de Polícia Civil no Pará (2021), Goiás (2022), Espírito Santo e PM-DF — tem experiência sólida em concursos de segurança pública.
+  </div>
+
+  <!-- CARACTERÍSTICAS -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:20px;color:var(--cor-aocp);">Características Principais</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Lei Seca (~95%)</h4>
+      <ul>
+        <li>A AOCP cobra a literalidade da legislação em quase todas as questões de Direito</li>
+        <li>Não costuma explorar doutrina nem jurisprudência de forma aprofundada</li>
+        <li>Quem domina o texto da lei tem vantagem enorme</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Questões Diretas</h4>
+      <ul>
+        <li>Enunciados objetivos e curtos — sem textos longos de contextualização</li>
+        <li>Ausência de pegadinhas clássicas (diferente do CESPE)</li>
+        <li>O desafio não está na complexidade, mas na nota de corte alta</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Português "Gramatiqueiro"</h4>
+      <ul>
+        <li>~70% das questões de Português são de gramática normativa</li>
+        <li>~30% são de interpretação de texto</li>
+        <li>Foco em sintaxe, colocação pronominal, concordância, regência, crase</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Nota de Corte Alta</h4>
+      <ul>
+        <li>Como as questões são diretas, muitos candidatos acertam bastante</li>
+        <li>A nota de corte sobe — cada questão errada pesa demais</li>
+        <li>Erros por distração são os mais perigosos</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMPARAÇÃO -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:20px;color:var(--cor-aocp);">Comparação entre Bancas</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Aspecto</th><th style="color:var(--cor-aocp);">AOCP</th><th>FCC</th><th>CESPE/CEBRASPE</th><th>IBFC</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Formato</strong></td><td>Múltipla escolha (5 alternativas)</td><td>Múltipla escolha (5 alt.)</td><td>Certo/Errado (com penalização)</td><td>Múltipla escolha (4-5 alt.)</td></tr>
+      <tr><td><strong>Estilo</strong></td><td>Lei seca, direto</td><td>Técnica, equilibrada</td><td>Interpretativa, interdisciplinar</td><td>Objetiva, direta</td></tr>
+      <tr><td><strong>Pegadinhas</strong></td><td>Raras</td><td>Moderadas</td><td>Frequentes</td><td>Raras</td></tr>
+      <tr><td><strong>Dificuldade</strong></td><td>Média (nota de corte alta)</td><td>Média-alta</td><td>Alta</td><td>Média</td></tr>
+      <tr><td><strong>Português</strong></td><td>Gramática pesada (70%)</td><td>Equilibrada</td><td>Interpretação e semântica</td><td>Objetiva</td></tr>
+      <tr><td><strong>Direito</strong></td><td>95% lei seca</td><td>Lei + doutrina</td><td>Doutrina + jurisprudência</td><td>Lei seca + básico</td></tr>
+      <tr><td><strong>Penalização</strong></td><td>Não</td><td>Não</td><td>Sim (−1 anula +1)</td><td>Não</td></tr>
+      <tr><td><strong>"Decoreba"</strong></td><td>Alto</td><td>Médio</td><td>Baixo (exige raciocínio)</td><td>Médio-alto</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- CONCURSOS POLICIAIS AOCP -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--cor-aocp);">Concursos Policiais Organizados pela AOCP</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr><th>Concurso</th><th>Ano</th><th>Cargos</th><th>Vagas</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>PC-PA (Pará)</td><td>2021</td><td>Investigador, Escrivão, Delegado</td><td>1.088</td></tr>
+      <tr><td>PC-GO (Goiás)</td><td>2022-2023</td><td>Escrivão</td><td>—</td></tr>
+      <tr><td>PC-ES (Espírito Santo)</td><td>2019</td><td>Investigador, Escrivão, Perito</td><td>—</td></tr>
+      <tr><td>PM-DF (Distrito Federal)</td><td>2022</td><td>Soldado</td><td>700</td></tr>
+      <tr><td>SEAP-DF (Polícia Penal DF)</td><td>2022</td><td>Policial Penal</td><td>—</td></tr>
+      <tr><td>Polícia Científica PR</td><td>2023</td><td>Perito</td><td>—</td></tr>
+      <tr><td style="color:var(--cor-aocp);font-weight:700;">PC-BA (Bahia)</td><td style="color:var(--cor-aocp);font-weight:700;">2026</td><td style="color:var(--cor-aocp);font-weight:700;">Investigador, Escrivão, Delegado</td><td style="color:var(--cor-aocp);font-weight:700;">750</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- DICAS AOCP -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--cor-aocp);">Estratégias de Estudo para AOCP</h3>
+
+  <div class="cb">
+    <h4>1. Leia a lei seca repetidamente</h4>
+    <div class="cb-body">
+      A AOCP cobra literalidade. Leia os artigos, parágrafos, incisos e alíneas dos códigos e leis. Faça isso de forma cíclica (revisão espaçada). Priorize: Código Penal, Código de Processo Penal, Constituição Federal (Art. 5º, 37, 144), Estatuto da Polícia Civil da Bahia.
+    </div>
+  </div>
+  <div class="cb">
+    <h4>2. Resolva provas anteriores da AOCP</h4>
+    <div class="cb-body">
+      É a estratégia mais eficiente para essa banca. O padrão de cobrança é previsível. Foque em provas de Polícia Civil (PC-PA 2021, PC-GO 2022, PC-ES 2019) e PM-DF. Use QConcursos, TEC Concursos ou Provas Brasil para filtrar questões por banca.
+    </div>
+  </div>
+  <div class="cb">
+    <h4>3. Português: priorize gramática normativa</h4>
+    <div class="cb-body">
+      Dedique 70% do tempo de Português à gramática pura: colocação pronominal, concordância verbal/nominal, regência, crase, pontuação. Os 30% restantes para interpretação de texto. A AOCP é conhecida como "gramatiqueira" no meio concurseiro.
+    </div>
+  </div>
+  <div class="cb">
+    <h4>4. Não subestime nenhuma questão</h4>
+    <div class="cb-body">
+      Como a nota de corte é alta, cada ponto vale ouro. Leia cada alternativa com calma. Um erro bobo pode custar a vaga. A AOCP não faz pegadinhas elaboradas, mas a concorrência acerta muitas questões — o diferencial está na consistência.
+    </div>
+  </div>
+  <div class="cb">
+    <h4>5. Informática e RLM são pontos "fáceis"</h4>
+    <div class="cb-body">
+      A AOCP cobra de forma simples nessas matérias. Estude o básico bem feito e garanta esses pontos. Em Raciocínio Lógico, foque em conectivos lógicos, negações, contrapositiva e problemas de associação (1 para 1). Cálculos sempre simples.
+    </div>
+  </div>
+  <div class="cb">
+    <h4>6. Na discursiva, use a linguagem da lei</h4>
+    <div class="cb-body">
+      Como a banca valoriza literalidade, reproduzir termos e expressões da legislação na prova discursiva demonstra domínio do conteúdo e agrada os corretores. Cite artigos, fundamentos legais e use a terminologia técnica adequada.
+    </div>
+  </div>
+  <div class="cb">
+    <h4>7. Fique atento a atualizações legislativas</h4>
+    <div class="cb-body">
+      A AOCP cobra informações atualizadas. Fique atento a alterações recentes nos Códigos Penal e Processual Penal, na legislação específica da Polícia Civil da Bahia e em leis penais especiais (Lei Maria da Penha, Estatuto da Criança e do Adolescente, Lei de Drogas etc.).
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ TÓPICOS POR MATÉRIA -->
+<section class="section" id="sec-topicos">
+<div class="container">
+  <span class="tag tag-geral">Detalhamento</span>
+  <h2 class="section-title">Tópicos Mais Cobrados por Matéria</h2>
+  <p class="section-sub">Consolidação dos assuntos específicos que mais aparecem nas provas dos três concursos — base para a estratégia de questões dos grupos de WhatsApp.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4 style="color:var(--ouro);">Direito Constitucional</h4>
+      <ul>
+        <li>Direitos e garantias fundamentais (Art. 5º)</li>
+        <li>Segurança pública (Art. 144)</li>
+        <li>Organização do Estado</li>
+        <li>Princípios fundamentais</li>
+        <li>Poder Executivo</li>
+        <li>Nacionalidade e direitos políticos</li>
+        <li>Remédios constitucionais</li>
+        <li>Administração Pública (Art. 37)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--ouro);">Direito Penal</h4>
+      <ul>
+        <li>Teoria Geral do Crime (tipicidade, ilicitude, culpabilidade)</li>
+        <li>Crimes contra a pessoa (homicídio, lesão corporal)</li>
+        <li>Crimes contra o patrimônio (furto, roubo, latrocínio, estelionato)</li>
+        <li>Crimes contra a Administração Pública</li>
+        <li>Princípios do Direito Penal</li>
+        <li>Aplicação da lei penal no tempo e no espaço</li>
+        <li>Dolo, culpa, desistência voluntária, arrependimento eficaz</li>
+        <li>Excludentes de ilicitude</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--ouro);">Direito Processual Penal</h4>
+      <ul>
+        <li>Inquérito Policial (foco para PCBA)</li>
+        <li>Prisão e liberdade provisória</li>
+        <li>Provas (meios de prova, provas ilícitas)</li>
+        <li>Ação Penal (pública e privada)</li>
+        <li>Competência</li>
+        <li>Recursos</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--ouro);">Direito Administrativo</h4>
+      <ul>
+        <li>Princípios da Administração Pública (LIMPE)</li>
+        <li>Atos administrativos</li>
+        <li>Poderes da Administração</li>
+        <li>Servidores públicos</li>
+        <li>Responsabilidade civil do Estado</li>
+        <li>Licitações e contratos (noções)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--ouro);">Língua Portuguesa</h4>
+      <ul>
+        <li>Interpretação e compreensão de textos</li>
+        <li>Crase (cai sempre)</li>
+        <li>Concordância verbal e nominal</li>
+        <li>Regência verbal e nominal</li>
+        <li>Acentuação gráfica</li>
+        <li>Pontuação</li>
+        <li>Conjunções e conectivos</li>
+        <li>Classes de palavras</li>
+        <li>Coesão e coerência textual</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--ouro);">Direitos Humanos</h4>
+      <ul>
+        <li>Declaração Universal dos Direitos Humanos</li>
+        <li>Convenção Americana (Pacto de San José)</li>
+        <li>CF — direitos e garantias</li>
+        <li>Estatuto da Criança e do Adolescente</li>
+        <li>Tortura e maus-tratos</li>
+        <li>Uso progressivo da força</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--ouro);">Igualdade Racial e de Gênero</h4>
+      <ul>
+        <li>Estatuto da Igualdade Racial (Lei 12.288/2010)</li>
+        <li>Lei Maria da Penha (Lei 11.340/2006)</li>
+        <li>Políticas afirmativas</li>
+        <li>Constituição Estadual da Bahia (dispositivos sobre igualdade)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--ouro);">Matemática / Raciocínio Lógico</h4>
+      <ul>
+        <li>Porcentagem</li>
+        <li>Regra de três (simples e composta)</li>
+        <li>Equações de 1º e 2º grau</li>
+        <li>Geometria básica (áreas, volumes)</li>
+        <li>Proposições e tabelas-verdade</li>
+        <li>Análise combinatória e probabilidade</li>
+        <li>Leis de Morgan</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--ouro);">Medicina Legal (PCBA)</h4>
+      <ul>
+        <li>Traumatologia forense</li>
+        <li>Tanatologia (morte e fenômenos cadavéricos)</li>
+        <li>Toxicologia forense</li>
+        <li>Documentos médico-legais</li>
+        <li>Sexologia forense</li>
+        <li>Antropologia forense</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--ouro);">Direito Penal Militar (PMBA/CBMBA)</h4>
+      <ul>
+        <li>Crimes militares em tempo de paz</li>
+        <li>Hierarquia e disciplina</li>
+        <li>Insubordinação</li>
+        <li>Deserção</li>
+        <li>Aplicação da lei penal militar</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--ouro);">Informática</h4>
+      <ul>
+        <li>Sistemas operacionais (Windows)</li>
+        <li>Navegadores e internet</li>
+        <li>Editores de texto e planilhas (LibreOffice/MS Office)</li>
+        <li>Segurança da informação</li>
+        <li>Redes de computadores (noções)</li>
+        <li>Correio eletrônico</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4 style="color:var(--ouro);">Legislação Especial</h4>
+      <ul>
+        <li>Lei de Drogas (Lei 11.343/2006)</li>
+        <li>Estatuto do Desarmamento (Lei 10.826/2003)</li>
+        <li>Lei de Abuso de Autoridade</li>
+        <li>Crimes Hediondos (Lei 8.072/1990)</li>
+        <li>Estatuto da Polícia Civil da Bahia</li>
+        <li>Legislação Militar Estadual</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ ESTRATÉGIA -->
+<section class="section" id="sec-estrategia">
+<div class="container">
+  <span class="tag tag-geral">Direcionamento</span>
+  <h2 class="section-title">Estratégia para os Grupos de WhatsApp</h2>
+  <p class="section-sub">Com base no mapeamento acima, estas são as recomendações para a estratégia de questões comentadas nos grupos.</p>
+
+  <!-- PRIORIZAÇÃO POR GRUPO -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:20px;">Priorização de Matérias por Grupo</h3>
+
+  <div class="cb" style="border-color:rgba(59,139,255,0.3);">
+    <h4 style="color:var(--cor-pmba);">Grupo CFO (Soldado PM)</h4>
+    <div class="cb-body">
+      <strong>Prioridade máxima:</strong> Direito Constitucional (12-15 questões), Direito Penal (8-10), Língua Portuguesa (8-10)<br>
+      <strong>Prioridade alta:</strong> Direitos Humanos (8-10), Direito Administrativo (8-10)<br>
+      <strong>Prioridade média:</strong> Igualdade Racial e de Gênero (5-8), Matemática/RLM (6-8)<br>
+      <strong>Complementar:</strong> História, Geografia, Atualidades, Informática, Dir. Penal Militar<br><br>
+      <strong>Distribuição sugerida de questões no grupo:</strong> 40% Direito (Constitucional + Penal + Administrativo + Dir. Humanos), 20% Português, 15% Igualdade Racial, 15% Matemática/RLM, 10% demais.
+    </div>
+  </div>
+
+  <div class="cb" style="border-color:rgba(59,139,255,0.3);">
+    <h4 style="color:var(--cor-pmba);">Grupo Soldado (Soldado PM)</h4>
+    <div class="cb-body">
+      <strong>Prioridade máxima:</strong> Direito Constitucional, Direito Penal, Língua Portuguesa<br>
+      <strong>Prioridade alta:</strong> Direitos Humanos, Direito Administrativo<br>
+      <strong>Prioridade média:</strong> Igualdade Racial e de Gênero, Matemática/RLM<br>
+      <strong>Complementar:</strong> História, Geografia, Atualidades, Informática<br><br>
+      <strong>Observação:</strong> O grupo Soldado tem o mesmo foco do CFO para a parte de Conhecimentos Específicos (Soldado PM). Ambos exigem ensino médio, mas a prova do CFO tem nível de dificuldade superior e cobra disciplinas adicionais (Língua Inglesa, Ciências Humanas ampliadas) — ajustar o nível de dificuldade das questões.
+    </div>
+  </div>
+
+  <div class="cb" style="border-color:rgba(255,107,53,0.3);">
+    <h4 style="color:var(--cor-pcba);">Grupo PCBA (Investigador)</h4>
+    <div class="cb-body">
+      <strong>Prioridade máxima:</strong> Direito Penal (10-15 questões), Direito Processual Penal (10-15), Língua Portuguesa (8-10)<br>
+      <strong>Prioridade alta:</strong> Direito Constitucional (10), Direito Administrativo (8-10)<br>
+      <strong>Prioridade média:</strong> Medicina Legal (~10), Legislação Especial (~10), Raciocínio Lógico (8)<br>
+      <strong>Complementar:</strong> Informática (4), Atualidades (4)<br><br>
+      <strong>Atenção especial — AOCP:</strong> Priorizar questões de lei seca (literalidade), Português com foco em gramática normativa (70%) e questões da própria banca AOCP (PC-PA, PC-GO, PC-ES, PM-DF). A nota de corte será alta — trabalhar consistência, não dificuldade.
+    </div>
+  </div>
+
+  <div class="cb" style="border-color:rgba(0,201,167,0.3);">
+    <h4 style="color:var(--cor-cbmba);">Observação — Grupo Bombeiro (futuro)</h4>
+    <div class="cb-body">
+      Se um grupo para o CBMBA for criado no futuro, a priorização deve ser: Língua Portuguesa, Direito Constitucional, Matemática/RLM, Direito Penal Militar, Direito Administrativo, Direitos Humanos, Igualdade Racial e de Gênero. A diferença-chave em relação à PMBA é a substituição de Direito Penal comum por Direito Penal Militar + Legislação Militar Estadual.
+    </div>
+  </div>
+
+  <!-- FONTES DE QUESTÕES -->
+  <h3 style="font-size:1rem;font-weight:700;margin-bottom:20px;margin-top:36px;">Fontes Recomendadas para Questões</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>Bancos de Questões Online</h4>
+      <ul>
+        <li>QConcursos — filtro por banca, matéria e concurso</li>
+        <li>TEC Concursos — análise estatística de cobrança por tópico</li>
+        <li>Provas Brasil — provas anteriores completas</li>
+        <li>Estratégia Concursos — questões comentadas</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Provas Anteriores (prioridade)</h4>
+      <ul>
+        <li>PMBA/CBMBA: FCC 2022, IBFC 2019, IBFC 2017</li>
+        <li>PCBA: IBFC 2022, VUNESP 2018, CESPE 2013</li>
+        <li>AOCP (para PCBA 2026): PC-PA 2021, PC-GO 2022, PC-ES 2019, PM-DF 2022</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Estratégia de Seleção</h4>
+      <ul>
+        <li>Questão comentada diária: 1 por dia nos grupos de questões (seg–sáb)</li>
+        <li>Rotacionar matérias conforme peso na prova</li>
+        <li>Para PCBA: priorizar questões AOCP + lei seca</li>
+        <li>Para PMBA/CBMBA: mesclar IBFC + FCC (as duas bancas mais recorrentes)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- RESUMO FINAL -->
+  <div class="highlight" style="margin-top:36px;">
+    <strong>Próximo passo:</strong> Apresentar este documento à equipe de mentores para validação das prioridades e definição da rotina de seleção de questões para cada grupo de WhatsApp. Após aprovação, definir: (1) quem seleciona as questões, (2) frequência de revisão da estratégia, (3) calendário de bancas simuladas nos grupos.
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ FOOTER -->
+<footer class="footer">
+<div class="container">
+  <div class="footer-text">Gabaritando &copy; 2026 — Documento interno · Uso exclusivo da equipe de mentores</div>
+</div>
+</footer>
+
+<script>
+/* Scroll suave */
+function scrollTo_(sel){
+  var el=document.querySelector(sel);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* Nav ativa */
+document.querySelectorAll('.nav-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});
+    this.classList.add('active');
+  });
+});
+
+/* Colapsáveis */
+document.querySelectorAll('.cb h4').forEach(function(h){
+  h.addEventListener('click',function(){
+    this.parentElement.classList.toggle('open');
+  });
+});
+
+/* Observer para nav ativa */
+var sections=document.querySelectorAll('.section[id]');
+var navBtns=document.querySelectorAll('.nav-btn');
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      var id=e.target.id;
+      navBtns.forEach(function(b){
+        b.classList.remove('active');
+        if(b.getAttribute('onclick').indexOf(id)!==-1) b.classList.add('active');
+      });
+    }
+  });
+},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});
+sections.forEach(function(s){obs.observe(s);});
+</script>
+
+</body>
+</html>
