@@ -96,6 +96,11 @@ a{text-decoration:none;color:inherit;}
   .q-header{padding:12px 14px;gap:8px;}
   .q-body{padding:0 14px 14px;}
 }
+
+/* USED BADGE */
+.q.used{border-left:3px solid rgba(74,222,128,0.4);}
+.q.used .q-header::after{content:attr(data-used-label);position:absolute;top:12px;right:12px;font-size:0.56rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#4ADE80;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.25);padding:2px 10px;}
+.q-header{position:relative;}
 </style>
 </head>
 <body>
@@ -151,8 +156,8 @@ a{text-decoration:none;color:inherit;}
 <!-- IBFC -->
 <div class="mat"><div class="mat-title" style="color:var(--ibfc);">IBFC — Direito Constitucional</div>
 
-<div class="q" data-banca="ibfc" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="const">
+<div class="q-header" data-used-label="Usado — 06/06 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -207,8 +212,8 @@ O Poder Constituinte *Derivado* apenas reforma ou complementa a Constituição e
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="const">
+<div class="q-header" data-used-label="Usado — 08/06 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -269,8 +274,8 @@ Reprodução literal do *Art. 5º, LXIX, da CF/88*:
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="const">
+<div class="q-header" data-used-label="Usado — 14/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -323,8 +328,8 @@ Como os pais são turistas (não estão a serviço da Espanha, por exemplo), a c
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="const">
+<div class="q-header" data-used-label="Usado — 14/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — CBM-BA 2017 — Soldado</div>
@@ -381,8 +386,8 @@ A alternativa D é a "pegadinha" — parece correta, mas omite a restrição "du
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="const">
+<div class="q-header" data-used-label="Usado — 22/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -497,8 +502,8 @@ Transcrição literal do *Art. 5º, LXVIII, da CF/88*:
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="const">
+<div class="q-header" data-used-label="Usado — 08/06 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -560,8 +565,8 @@ Conforme *Art. 14, §3º, VI, "a", da CF/88*, a idade mínima é de *35 anos* pa
 <!-- FCC — Direito Constitucional -->
 <div class="mat"><div class="mat-title" style="color:var(--fcc);">FCC — Direito Constitucional</div>
 
-<div class="q" data-banca="fcc" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="const">
+<div class="q-header" data-used-label="Usado — 18/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -618,8 +623,8 @@ A PM é força auxiliar e reserva do *Exército* (não da Marinha), e é órgão
 </div>
 </div>
 
-<div class="q" data-banca="fcc" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="const">
+<div class="q-header" data-used-label="Usado — 22/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -675,8 +680,8 @@ O número de Deputados Estaduais = triplo da representação na Câmara dos Depu
 </div>
 </div>
 
-<div class="q" data-banca="fcc" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="const">
+<div class="q-header" data-used-label="Usado — 02/06 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -731,8 +736,8 @@ A Justiça Militar estadual julga militares dos Estados em crimes militares *e* 
 </div>
 </div>
 
-<div class="q" data-banca="fcc" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="const">
+<div class="q-header" data-used-label="Usado — 18/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — Polícia Federal 2018 — Agente</div>
@@ -789,8 +794,8 @@ IV — Polícia judiciária da União (*com exclusividade*)
 </div>
 </div>
 
-<div class="q" data-banca="fcc" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="const">
+<div class="q-header" data-used-label="Usado — 25/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -850,8 +855,8 @@ E) Independentemente do tempo de serviço, é agregado ao registrar candidatura.
 <!-- AOCP — Direito Constitucional -->
 <div class="mat"><div class="mat-title" style="color:var(--aocp);">AOCP — Direito Constitucional</div>
 
-<div class="q" data-banca="aocp" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="const">
+<div class="q-header" data-used-label="Usado — 15/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -907,8 +912,8 @@ E) É livre a expressão intelectual, artística e de comunicação, mediante li
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="const">
+<div class="q-header" data-used-label="Usado — 25/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -965,8 +970,8 @@ Linha sucessória do Presidente da República:
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="const">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="const">
+<div class="q-header" data-used-label="Usado — 01/06 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-CE 2024 — Inspetor</div>
@@ -1216,8 +1221,8 @@ São brasileiros natos os nascidos no estrangeiro de pai *ou* mãe brasileiros, 
 <!-- IBFC — Dir. Penal -->
 <div class="mat"><div class="mat-title" style="color:var(--ibfc);">IBFC — Direito Penal</div>
 
-<div class="q" data-banca="ibfc" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 27/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -1273,8 +1278,8 @@ Isso vale tanto para *novatio legis in mellius* (pena menor) quanto para *abolit
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 29/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-SE 2018 — Soldado</div>
@@ -1331,8 +1336,8 @@ E) Não há número mínimo, bastando reunião eventual.
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 16/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — CBM-BA 2017 — Soldado</div>
@@ -1388,8 +1393,8 @@ E) As quatro anteriores mais o consentimento do ofendido.
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 01/06 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-SE 2018 — Soldado</div>
@@ -1442,8 +1447,8 @@ Pena: reclusão, de 1 a 5 anos, *se o ato não constitui crime mais grave*.
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 23/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -1504,8 +1509,8 @@ Pena: detenção, de 15 dias a 6 meses, e multa.
 <!-- FCC — Dir. Penal -->
 <div class="mat"><div class="mat-title" style="color:var(--fcc);">FCC — Direito Penal</div>
 
-<div class="q" data-banca="fcc" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 19/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -1562,8 +1567,8 @@ E) O furto de energia é crime próprio, só praticado pelo consumidor cadastrad
 </div>
 </div>
 
-<div class="q" data-banca="fcc" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 19/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PC-BA 2018 — Delegado</div>
@@ -1621,8 +1626,8 @@ Agente desfere uma facada com intenção de matar, mas desiste e não continua �
 </div>
 </div>
 
-<div class="q" data-banca="fcc" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 23/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -1679,8 +1684,8 @@ Pena: reclusão, de *12 a 30 anos*.
 </div>
 </div>
 
-<div class="q" data-banca="fcc" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 02/06 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -1740,8 +1745,8 @@ Pena: detenção, 3 meses a 1 ano, e multa.
 <!-- AOCP — Dir. Penal -->
 <div class="mat"><div class="mat-title" style="color:var(--aocp);">AOCP — Direito Penal</div>
 
-<div class="q" data-banca="aocp" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 14/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -1797,8 +1802,8 @@ d) Genocídio, quando o agente for brasileiro ou domiciliado no Brasil
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 19/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -1856,8 +1861,8 @@ II — Menosprezo ou discriminação à condição de mulher
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 22/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-CE 2024 — Inspetor</div>
@@ -1914,8 +1919,8 @@ Pena: reclusão, 2 a 12 anos, e multa.
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 28/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -2031,8 +2036,8 @@ E) A causa de aumento só se aplica ao homicídio qualificado.
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 02/06 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -2089,8 +2094,8 @@ Pena: reclusão, de 8 a 15 anos.
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="penal">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="penal">
+<div class="q-header" data-used-label="Usado — 06/06 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-CE 2024 — Inspetor</div>
@@ -2158,8 +2163,8 @@ O roubo se consuma no momento em que o agente obtém a posse da coisa mediante v
 
 <div class="mat"><div class="mat-title" style="color:var(--aocp);">AOCP — Direito Processual Penal</div>
 
-<div class="q" data-banca="aocp" data-mat="proc">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="proc">
+<div class="q-header" data-used-label="Usado — 16/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -2217,8 +2222,8 @@ E) Não exige confissão do investigado.
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="proc">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="proc">
+<div class="q-header" data-used-label="Usado — 26/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-CE 2024 — Inspetor</div>
@@ -2273,8 +2278,8 @@ E) A decadência pode ser interrompida por inquérito policial.
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="proc">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="proc">
+<div class="q-header" data-used-label="Usado — 04/06 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -2344,8 +2349,8 @@ E) Pode beneficiar reincidente em crime doloso.
 <!-- IBFC — Dir. Administrativo -->
 <div class="mat"><div class="mat-title" style="color:var(--ibfc);">IBFC — Direito Administrativo</div>
 
-<div class="q" data-banca="ibfc" data-mat="admin">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="admin">
+<div class="q-header" data-used-label="Usado — 15/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -2401,8 +2406,8 @@ E) A Lei de Improbidade não se aplica nesse caso.
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="admin">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="admin">
+<div class="q-header" data-used-label="Usado — 20/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — CBM-BA 2017 — Soldado</div>
@@ -2456,8 +2461,8 @@ E) É sinônimo do princípio da moralidade.
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="admin">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="admin">
+<div class="q-header" data-used-label="Usado — 30/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-SE 2018 — Soldado</div>
@@ -2517,8 +2522,8 @@ No poder discricionário, o administrador avalia *conveniência e oportunidade* 
 <!-- FCC — Dir. Administrativo -->
 <div class="mat"><div class="mat-title" style="color:var(--fcc);">FCC — Direito Administrativo</div>
 
-<div class="q" data-banca="fcc" data-mat="admin">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="admin">
+<div class="q-header" data-used-label="Usado — 21/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -2573,8 +2578,8 @@ E) Policiais não podem ser transferidos para a reserva ex officio.
 </div>
 </div>
 
-<div class="q" data-banca="fcc" data-mat="admin">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="admin">
+<div class="q-header" data-used-label="Usado — 25/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -2634,8 +2639,8 @@ Soldado → Cabo → 3º Sgt → 2º Sgt → 1º Sgt → Subtenente
 </div>
 </div>
 
-<div class="q" data-banca="fcc" data-mat="admin">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="admin">
+<div class="q-header" data-used-label="Usado — 03/06 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -2691,8 +2696,8 @@ E) Eficiência
 </div>
 </div>
 
-<div class="q" data-banca="fcc" data-mat="admin">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="admin">
+<div class="q-header" data-used-label="Usado — 28/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -2756,8 +2761,8 @@ A CF diz que "não caberá HC em relação a punições disciplinares militares"
 <!-- AOCP — Dir. Administrativo -->
 <div class="mat"><div class="mat-title" style="color:var(--aocp);">AOCP — Direito Administrativo</div>
 
-<div class="q" data-banca="aocp" data-mat="admin">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="admin">
+<div class="q-header" data-used-label="Usado — 20/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -2884,8 +2889,8 @@ V — *Diálogo competitivo* (novidade!)
 <!-- IBFC — Português -->
 <div class="mat"><div class="mat-title" style="color:var(--ibfc);">IBFC — Português</div>
 
-<div class="q" data-banca="ibfc" data-mat="port">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="port">
+<div class="q-header" data-used-label="Usado — 16/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -2944,8 +2949,8 @@ A ideia central é a *cooperação* entre Estado e sociedade como base para a se
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="port">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="port">
+<div class="q-header" data-used-label="Usado — 27/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -2999,8 +3004,8 @@ E) Derivação regressiva.
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="port">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="port">
+<div class="q-header" data-used-label="Usado — 03/06 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — CBM-BA 2017 — Soldado</div>
@@ -3061,8 +3066,8 @@ E) Finalidade
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="port">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="port">
+<div class="q-header" data-used-label="Usado — 20/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-SE 2018 — Soldado</div>
@@ -3182,8 +3187,8 @@ Todas são *proparoxítonas* — e proparoxítonas *sempre* recebem acento.
 <!-- AOCP — Português -->
 <div class="mat"><div class="mat-title" style="color:var(--aocp);">AOCP — Português</div>
 
-<div class="q" data-banca="aocp" data-mat="port">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="port">
+<div class="q-header" data-used-label="Usado — 29/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -3309,8 +3314,8 @@ E) Quando os policiais chegaram, o crime já tinha sido evitado.
 <!-- IBFC — Dir. Humanos -->
 <div class="mat"><div class="mat-title" style="color:var(--ibfc);">IBFC — Direitos Humanos</div>
 
-<div class="q" data-banca="ibfc" data-mat="dh">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="dh">
+<div class="q-header" data-used-label="Usado — 26/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -3365,8 +3370,8 @@ A DUDH foi adotada em *10 de dezembro de 1948* pela Assembleia Geral da ONU (Res
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="dh">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="dh">
+<div class="q-header" data-used-label="Usado — 04/06 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — CBM-BA 2017 — Soldado</div>
@@ -3421,8 +3426,8 @@ E) O acusado deve provar sua inocência.
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="dh">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="dh">
+<div class="q-header" data-used-label="Usado — 06/06 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-SE 2018 — Soldado</div>
@@ -3477,8 +3482,8 @@ Em latim: *nullum crimen, nulla poena sine praevia lege*
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="dh">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="dh">
+<div class="q-header" data-used-label="Usado — 30/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -3540,8 +3545,8 @@ E) Nacionalidade.
 <!-- FCC — Dir. Humanos -->
 <div class="mat"><div class="mat-title" style="color:var(--fcc);">FCC — Direitos Humanos</div>
 
-<div class="q" data-banca="fcc" data-mat="dh">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="dh">
+<div class="q-header" data-used-label="Usado — 29/05 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -3598,8 +3603,8 @@ E) Pode ser aplicada a menores de 18 anos.
 </div>
 </div>
 
-<div class="q" data-banca="fcc" data-mat="dh">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="dh">
+<div class="q-header" data-used-label="Usado — 05/06 — CFO" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -3655,8 +3660,8 @@ E) O tratamento humanitário só se aplica a presos políticos.
 </div>
 </div>
 
-<div class="q" data-banca="fcc" data-mat="dh">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="dh">
+<div class="q-header" data-used-label="Usado — 05/06 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — Polícia Civil 2018 — Delegado</div>
@@ -3897,8 +3902,8 @@ Direito a *remédio efetivo* perante tribunais *nacionais* competentes.
 <!-- IBFC — Igualdade -->
 <div class="mat"><div class="mat-title" style="color:var(--ibfc);">IBFC — Igualdade Racial</div>
 
-<div class="q" data-banca="ibfc" data-mat="igual">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="igual">
+<div class="q-header" data-used-label="Usado — 28/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -4073,8 +4078,8 @@ A desigualdade racial no Brasil é *estrutural e multidimensional*:
 <!-- FCC — Igualdade -->
 <div class="mat"><div class="mat-title" style="color:var(--fcc);">FCC — Igualdade Racial e Gênero</div>
 
-<div class="q" data-banca="fcc" data-mat="igual">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="fcc" data-mat="igual">
+<div class="q-header" data-used-label="Usado — 04/06 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num fcc">FCC</span>
   <div class="q-info">
     <div class="q-source">FCC — PM-BA 2022 — Soldado</div>
@@ -4200,8 +4205,8 @@ V — *Moral* (calúnia, difamação, injúria)
 <!-- IBFC — RLM -->
 <div class="mat"><div class="mat-title" style="color:var(--ibfc);">IBFC — Raciocínio Lógico</div>
 
-<div class="q" data-banca="ibfc" data-mat="rlm">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="rlm">
+<div class="q-header" data-used-label="Usado — 15/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -4260,8 +4265,8 @@ Aplicando:
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="rlm">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="rlm">
+<div class="q-header" data-used-label="Usado — 21/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — CBM-BA 2017 — Soldado</div>
@@ -4319,8 +4324,8 @@ P(4) = 4! = 4 × 3 × 2 × 1 = *24*
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="rlm">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="rlm">
+<div class="q-header" data-used-label="Usado — 26/05 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-SE 2018 — Soldado</div>
@@ -4378,8 +4383,8 @@ A condicional (P → Q) só é *FALSA* em um caso:
 </div>
 </div>
 
-<div class="q" data-banca="ibfc" data-mat="rlm">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="ibfc" data-mat="rlm">
+<div class="q-header" data-used-label="Usado — 01/06 — Soldado" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num ibfc">IBFC</span>
   <div class="q-info">
     <div class="q-source">IBFC — PM-BA 2017 — Soldado</div>
@@ -4683,8 +4688,8 @@ Aplicando:
 
 <div class="mat"><div class="mat-title" style="color:var(--aocp);">AOCP — Legislação Especial</div>
 
-<div class="q" data-banca="aocp" data-mat="leg">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="leg">
+<div class="q-header" data-used-label="Usado — 18/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -4789,8 +4794,8 @@ E) Somente com violência física comprovada.
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="leg">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="leg">
+<div class="q-header" data-used-label="Usado — 21/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -4845,8 +4850,8 @@ Pena: reclusão, *3 a 10 anos*, e multa.
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="leg">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="leg">
+<div class="q-header" data-used-label="Usado — 23/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -4903,8 +4908,8 @@ A pena de reclusão (5 a 15 anos) é para o *tráfico* (Art. 33).
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="leg">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="leg">
+<div class="q-header" data-used-label="Usado — 27/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-CE 2024 — Inspetor</div>
@@ -4957,8 +4962,8 @@ E) Adolescente é de 14 a 21 anos.
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="leg">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="leg">
+<div class="q-header" data-used-label="Usado — 30/05 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -5011,8 +5016,8 @@ Pena: detenção, 1 a 4 anos, e multa.
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="leg">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="leg">
+<div class="q-header" data-used-label="Usado — 03/06 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-CE 2024 — Inspetor</div>
@@ -5068,8 +5073,8 @@ E) Prazo de 30 dias, improrrogável.
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="leg">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="leg">
+<div class="q-header" data-used-label="Usado — 05/06 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-PA 2024 — Investigador</div>
@@ -5124,8 +5129,8 @@ Pena: reclusão, *3 a 6 anos*, e multa.
 </div>
 </div>
 
-<div class="q" data-banca="aocp" data-mat="leg">
-<div class="q-header" onclick="this.parentElement.classList.toggle('open')">
+<div class="q used" data-banca="aocp" data-mat="leg">
+<div class="q-header" data-used-label="Usado — 08/06 — PCBA" onclick="this.parentElement.classList.toggle('open')">
   <span class="q-num aocp">AOCP</span>
   <div class="q-info">
     <div class="q-source">AOCP — PC-CE 2024 — Inspetor</div>
@@ -5372,11 +5377,6 @@ E) É de ação penal privada.
 </footer>
 
 <script>
-/* Toggle questão */
-document.querySelectorAll('.q-header').forEach(function(h){
-  h.addEventListener('click',function(){this.parentElement.classList.toggle('open');});
-});
-
 /* Copiar texto */
 function copyText(btn){
   var text=btn.parentElement.querySelector('.copy-text').innerText;
