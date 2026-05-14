@@ -7,12 +7,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ouro: #D4A84B;
-    --preto: #0F2318;
-    --card: #162D1F;
-    --medio: #1B3A2D;
+    --ouro: #FFB800;
+    --preto: #0E0E1A;
+    --card: #13131F;
+    --medio: #1E1E2E;
     --escuro: #234B35;
-    --borda: rgba(45,106,79,0.25);
+    --borda: rgba(255,255,255,0.07);
     --cinza: #666;
     --branco: #FFFFFF;
     --verde: #22C55E;
@@ -75,24 +75,24 @@
     .manifesto-texto strong, .bl li b, .bl li strong,
     .hl-amarelo b, .bi-expande strong,
     .section h2 em, .header h1 em, .tl-texto em, .bi-tese em,
-    .aut-titulo em, .divider, .header-line, .badge { color: #B8893A !important; }
+    .aut-titulo em, .divider, .header-line, .badge { color: #CC9400 !important; }
 
     /* ── Elementos de destaque ── */
-    .big-idea-box   { background: #faf6ef !important; border-color: #B8893A !important; }
+    .big-idea-box   { background: #faf6ef !important; border-color: #CC9400 !important; }
     .bi-tese        { color: #111 !important; font-size: 1.6rem !important; }
-    .bi-tese em     { color: #B8893A !important; }
+    .bi-tese em     { color: #CC9400 !important; }
 
-    .tagline-principal { background: #faf6ef !important; border-color: #B8893A !important; }
+    .tagline-principal { background: #faf6ef !important; border-color: #CC9400 !important; }
     .tl-texto       { color: #111 !important; }
-    .tl-texto em    { color: #B8893A !important; }
+    .tl-texto em    { color: #CC9400 !important; }
 
-    .hl             { background: #faf6ef !important; border-left-color: #B8893A !important; }
+    .hl             { background: #faf6ef !important; border-left-color: #CC9400 !important; }
     .hl-amarelo     { background: #fffbf0 !important; border-left-color: #B45309 !important; }
     .hl-amarelo b   { color: #B45309 !important; }
 
     .manifesto-box  { background: #f8f8f8 !important; border-color: #ddd !important; }
     .manifesto-texto { color: #333 !important; font-style: italic !important; }
-    .manifesto-texto strong { color: #B8893A !important; }
+    .manifesto-texto strong { color: #CC9400 !important; }
 
     .status-bar     { background: #f0fdf4 !important; color: #166534 !important; border-color: #bbf7d0 !important; }
     .dot            { background: #166534 !important; }
@@ -110,11 +110,11 @@
     [style*="var(--cinza)"] { color: #666 !important; }
 
     /* ── Divisores ── */
-    .divider { background: linear-gradient(90deg,#B8893A,rgba(184,137,58,0.05)) !important; }
-    .header-line { background: #B8893A !important; }
+    .divider { background: linear-gradient(90deg,#CC9400,rgba(184,137,58,0.05)) !important; }
+    .header-line { background: #CC9400 !important; }
 
     /* ── Badge ── */
-    .badge { background: #faf3e0 !important; color: #B8893A !important; }
+    .badge { background: #faf3e0 !important; color: #CC9400 !important; }
 
     /* ── Quebras de página ── */
     .section     { page-break-inside: auto; }
@@ -148,7 +148,7 @@
   .lbl { font-size:0.66rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--cinza); margin-bottom:7px; }
   .field-value {
     background:var(--card);
-    border:1px solid rgba(212,168,75,0.14);
+    border:1px solid rgba(255,184,0,0.14);
     padding:16px 20px;
     font-size:0.89rem;
     font-weight:300;
@@ -162,13 +162,13 @@
   .g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
 
   /* HIGHLIGHT */
-  .hl { background:rgba(212,168,75,0.05); border-left:3px solid var(--ouro); padding:17px 22px; margin-bottom:16px; font-size:0.87rem; font-weight:300; color:rgba(255,255,255,0.88); line-height:1.8; }
+  .hl { background:rgba(255,184,0,0.05); border-left:3px solid var(--ouro); padding:17px 22px; margin-bottom:16px; font-size:0.87rem; font-weight:300; color:rgba(255,255,255,0.88); line-height:1.8; }
   .hl b, .hl strong { color:var(--ouro); font-weight:600; }
   .hl-amarelo { background:rgba(245,158,11,0.05); border-left:3px solid var(--amarelo); padding:14px 20px; margin-bottom:14px; font-size:0.84rem; color:rgba(255,255,255,0.72); font-weight:300; line-height:1.75; }
   .hl-amarelo b { color:var(--amarelo); font-weight:600; }
 
   /* BADGES */
-  .badge { display:inline-block; background:rgba(212,168,75,0.11); color:var(--ouro); font-size:0.67rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:4px 11px; margin:2px 3px 2px 0; }
+  .badge { display:inline-block; background:rgba(255,184,0,0.11); color:var(--ouro); font-size:0.67rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:4px 11px; margin:2px 3px 2px 0; }
 
   /* BULLET LIST */
   .bl { list-style:none; padding:0; }
@@ -178,12 +178,12 @@
   .bl li b, .bl li strong { color:var(--ouro); font-weight:600; }
 
   /* DIVIDER */
-  .divider { width:100%; height:1px; background:linear-gradient(90deg,var(--ouro),rgba(212,168,75,0)); margin:56px 0; }
+  .divider { width:100%; height:1px; background:linear-gradient(90deg,var(--ouro),rgba(255,184,0,0)); margin:56px 0; }
 
   /* BIG IDEA BOX — destaque máximo */
   .big-idea-box {
     border:1px solid var(--ouro);
-    background:rgba(212,168,75,0.04);
+    background:rgba(255,184,0,0.04);
     padding:48px 44px;
     margin-bottom:20px;
     position:relative;
@@ -215,15 +215,15 @@
   .bi-expande strong { color:var(--branco); font-weight:500; }
 
   /* COMPONENTES DA BIG IDEA */
-  .componente { background:var(--card); border:1px solid rgba(212,168,75,0.14); padding:22px 24px; margin-bottom:12px; }
+  .componente { background:var(--card); border:1px solid rgba(255,184,0,0.14); padding:22px 24px; margin-bottom:12px; }
   .comp-rotulo { font-size:0.62rem; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:var(--ouro); margin-bottom:9px; }
   .comp-texto { font-size:0.88rem; font-weight:300; color:rgba(255,255,255,0.86); line-height:1.75; }
   .comp-texto strong { color:var(--ouro); font-weight:600; }
 
   /* TAGLINE PRINCIPAL */
   .tagline-principal {
-    border:1px solid rgba(212,168,75,0.5);
-    background:rgba(212,168,75,0.03);
+    border:1px solid rgba(255,184,0,0.5);
+    background:rgba(255,184,0,0.03);
     padding:34px 38px;
     text-align:center;
     margin-bottom:14px;
@@ -252,7 +252,7 @@
     font-family:var(--serif);
     font-size:1.5rem;
     font-weight:700;
-    color:rgba(212,168,75,0.3);
+    color:rgba(255,184,0,0.3);
     flex-shrink:0;
     line-height:1;
     margin-top:2px;
@@ -264,7 +264,7 @@
   /* AUTORIDADE */
   .autoridade-box {
     background:var(--card);
-    border:1px solid rgba(212,168,75,0.2);
+    border:1px solid rgba(255,184,0,0.2);
     padding:28px 30px;
     margin-bottom:14px;
   }
@@ -276,7 +276,7 @@
   /* HEADLINE CARDS */
   .headline-card {
     background:var(--card);
-    border:1px solid rgba(212,168,75,0.14);
+    border:1px solid rgba(255,184,0,0.14);
     padding:24px 26px;
     margin-bottom:10px;
     display:flex;
@@ -287,7 +287,7 @@
     font-family:var(--serif);
     font-size:2rem;
     font-weight:700;
-    color:rgba(212,168,75,0.22);
+    color:rgba(255,184,0,0.22);
     flex-shrink:0;
     line-height:1;
     margin-top:1px;
@@ -313,7 +313,7 @@
 
   /* MANIFESTO */
   .manifesto-box {
-    border:1px solid rgba(212,168,75,0.3);
+    border:1px solid rgba(255,184,0,0.3);
     background:var(--card);
     padding:40px 44px;
     margin-bottom:16px;
@@ -326,7 +326,7 @@
     left:28px;
     font-family:var(--serif);
     font-size:5rem;
-    color:rgba(212,168,75,0.12);
+    color:rgba(255,184,0,0.12);
     line-height:1;
   }
   .manifesto-texto {
@@ -404,8 +404,8 @@
 </head>
 <body>
 
-<div style="position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(15,35,24,0.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(45,106,79,0.25);padding:10px 28px;">
-  <a href="../../index.html" style="font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#D4A84B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">&#8592; &nbsp;Índice Geral</a>
+<div style="position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(14,14,26,0.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.07);padding:10px 28px;">
+  <a href="../../index.html" style="font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#FFB800'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">&#8592; &nbsp;Índice Geral</a>
 </div>
 <div style="height:38px"></div>
 
