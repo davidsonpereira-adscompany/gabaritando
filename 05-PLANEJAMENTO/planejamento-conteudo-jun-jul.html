@@ -256,6 +256,114 @@ a { text-decoration:none; color:inherit; }
   text-transform:none; letter-spacing:0;
 }
 
+/* GUIA — PILARES */
+.pilares-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+  margin-bottom:40px;
+}
+.pilar-card {
+  background:var(--ardosia); border:1px solid var(--borda);
+  padding:28px 22px; cursor:pointer; transition:border-color .3s, transform .2s;
+  position:relative;
+}
+.pilar-card:hover { border-color:var(--ouro); transform:translateY(-2px); }
+.pilar-card.active { border-color:var(--ouro); }
+.pilar-icon {
+  width:36px; height:36px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.8rem; font-weight:800; color:var(--carvao);
+  margin-bottom:14px;
+}
+.pilar-card h3 {
+  font-size:0.88rem; font-weight:700; margin-bottom:4px;
+  text-transform:uppercase; letter-spacing:0.06em;
+}
+.pilar-freq {
+  font-size:0.72rem; font-weight:600; color:var(--ouro);
+  letter-spacing:0.06em; margin-bottom:10px;
+}
+.pilar-desc {
+  font-size:0.78rem; font-weight:300; color:rgba(255,255,255,0.45);
+  line-height:1.7;
+}
+.pilar-detail {
+  display:none; margin-top:16px; padding-top:16px;
+  border-top:1px solid var(--borda);
+}
+.pilar-card.active .pilar-detail { display:block; }
+.pilar-detail table {
+  width:100%; border-collapse:collapse;
+  font-size:0.74rem;
+}
+.pilar-detail th {
+  text-align:left; color:var(--ouro); font-weight:700;
+  padding:6px 8px; border-bottom:1px solid var(--borda);
+  font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase;
+}
+.pilar-detail td {
+  padding:6px 8px; color:rgba(255,255,255,0.6);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  font-weight:400; font-size:0.74rem;
+}
+.pilar-detail td strong { color:var(--branco); font-weight:600; }
+.pilar-detail ul {
+  list-style:none; margin:0; padding:0;
+}
+.pilar-detail li {
+  font-size:0.76rem; color:rgba(255,255,255,0.55);
+  padding:4px 0; padding-left:14px; position:relative;
+}
+.pilar-detail li::before {
+  content:''; position:absolute; left:0; top:11px;
+  width:5px; height:5px; border-radius:50%;
+  background:var(--ouro);
+}
+.pilar-toggle {
+  font-size:0.64rem; font-weight:600; color:var(--ouro);
+  letter-spacing:0.08em; text-transform:uppercase;
+  margin-top:12px; display:inline-block;
+}
+
+/* CICLO VISUAL (WhatsApp pillar) */
+.ciclo-bar {
+  display:flex; gap:0; margin:16px 0 12px; border-radius:4px; overflow:hidden;
+}
+.ciclo-seg {
+  padding:8px 0; text-align:center;
+  font-size:0.56rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--carvao);
+}
+.ciclo-seg.valor     { background:var(--cor-wpp); flex:7; }
+.ciclo-seg.aquec     { background:var(--ouro); flex:4; }
+.ciclo-seg.pitch     { background:var(--cor-reels); flex:2; color:#fff; }
+.ciclo-seg.reset     { background:rgba(255,255,255,0.1); flex:1; color:rgba(255,255,255,0.4); }
+
+.ciclo-legenda {
+  display:flex; gap:16px; flex-wrap:wrap; margin-bottom:16px;
+}
+.ciclo-legenda span {
+  font-size:0.62rem; font-weight:500; color:rgba(255,255,255,0.5);
+  display:flex; align-items:center; gap:5px;
+}
+.ciclo-legenda span::before {
+  content:''; display:inline-block; width:10px; height:10px; border-radius:2px;
+}
+.ciclo-legenda .leg-valor::before  { background:var(--cor-wpp); }
+.ciclo-legenda .leg-aquec::before  { background:var(--ouro); }
+.ciclo-legenda .leg-pitch::before  { background:var(--cor-reels); }
+.ciclo-legenda .leg-reset::before  { background:rgba(255,255,255,0.15); }
+
+.grupo-badge {
+  display:inline-block;
+  font-size:0.56rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+  padding:3px 10px; margin-right:6px; margin-bottom:4px;
+  border:1px solid;
+}
+.grupo-badge.cfo   { color:#3B82F6; border-color:rgba(59,130,246,0.3); background:rgba(59,130,246,0.08); }
+.grupo-badge.sd    { color:var(--cor-wpp); border-color:rgba(37,211,102,0.3); background:rgba(37,211,102,0.08); }
+.grupo-badge.pcba  { color:var(--cor-reels); border-color:rgba(255,107,53,0.3); background:rgba(255,107,53,0.08); }
+.grupo-badge.red   { color:var(--cor-feed); border-color:rgba(155,93,229,0.3); background:rgba(155,93,229,0.08); }
+
 .footer {
   border-top:1px solid var(--borda); padding:28px 0; text-align:center;
   margin-top:40px;
@@ -271,6 +379,11 @@ a { text-decoration:none; color:inherit; }
 }
 
 @media (max-width:600px) {
+  .pilares-grid { grid-template-columns:1fr; gap:12px; }
+  .pilar-card { padding:20px 16px; }
+  .pilar-card h3 { font-size:0.82rem; }
+  .pilar-detail table { font-size:0.68rem; }
+  .pilar-detail td, .pilar-detail th { padding:4px 6px; }
   .container { padding:0 12px; }
   .hero { padding:40px 0 28px; }
   .hero h1 { font-size:1.3rem; }
@@ -347,6 +460,292 @@ a { text-decoration:none; color:inherit; }
   </div>
 </div>
 </section>
+
+<!-- ══════════════════ GUIA DE EXECUCAO ══════════════════ -->
+<section class="section" style="border-bottom:1px solid var(--borda)">
+<div class="container">
+  <div class="section-label">Guia de Execução</div>
+  <h2 class="section-title">Como funciona <em>cada pilar</em></h2>
+  <p class="section-intro">Clique em cada bloco para ver os detalhes. Esse guia serve como referência rápida para quem for executar o planejamento.</p>
+
+  <div class="pilares-grid">
+
+    <!-- LIVES -->
+    <div class="pilar-card" onclick="togglePilar(this)">
+      <div class="pilar-icon" style="background:var(--cor-live)">L</div>
+      <h3>Lives</h3>
+      <div class="pilar-freq">Todos os dias &middot; 20h</div>
+      <div class="pilar-desc">Editorias fixas por dia da semana. Duração livre (10&ndash;30 min).</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+        <table>
+          <tr><th>Dia</th><th>Editoria</th></tr>
+          <tr><td><strong>Segunda</strong></td><td>Planejamento da Semana</td></tr>
+          <tr><td><strong>Terça</strong></td><td>Direito Penal na Prática</td></tr>
+          <tr><td><strong>Quarta</strong></td><td>Português Descomplicado</td></tr>
+          <tr><td><strong>Quinta</strong></td><td>Legislação da Bahia</td></tr>
+          <tr><td><strong>Sexta</strong></td><td>Raciocínio Lógico / Matemática</td></tr>
+          <tr><td><strong>Sábado</strong></td><td>Bate-papo com o Aprovado + Simulado Relâmpago</td></tr>
+          <tr><td><strong>Domingo</strong></td><td>Sem live &mdash; dia de descanso (Reels, feed e Stories continuam)</td></tr>
+        </table>
+        <ul style="margin-top:12px">
+          <li>Horário fixo sugerido: <strong style="color:var(--ouro)">20h</strong> &mdash; pico de audiência para concurseiros</li>
+          <li>Cada live inclui: tema, introdução (hook de 30s) e 3&ndash;5 tópicos</li>
+          <li>Duração livre &mdash; 10 a 30 minutos, de acordo com o expert</li>
+          <li>Alan e Nilton alternam conforme disponibilidade</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- REELS -->
+    <div class="pilar-card" onclick="togglePilar(this)">
+      <div class="pilar-icon" style="background:var(--cor-reels)">R</div>
+      <h3>Reels</h3>
+      <div class="pilar-freq">1&ndash;2 por dia &middot; Foco principal</div>
+      <div class="pilar-desc">7 categorias rotativas. Professor grava de forma natural e humanizada.</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+        <table>
+          <tr><th>#</th><th>Categoria</th><th>Formato</th></tr>
+          <tr><td>1</td><td><strong>Questão do Dia</strong></td><td>Questão na tela + professor resolve (30&ndash;60s)</td></tr>
+          <tr><td>2</td><td><strong>React</strong></td><td>Reage a notícia, edital ou resultado</td></tr>
+          <tr><td>3</td><td><strong>Mito ou Verdade</strong></td><td>Pergunta polêmica + resposta rápida</td></tr>
+          <tr><td>4</td><td><strong>Bastidores</strong></td><td>Rotina de estudo, dia a dia dos mentores</td></tr>
+          <tr><td>5</td><td><strong>Caixinha de Perguntas</strong></td><td>Responde dúvidas reais dos seguidores</td></tr>
+          <tr><td>6</td><td><strong>Motivacional / Depoimento</strong></td><td>Historias de aprovação, frases de impacto</td></tr>
+          <tr><td>7</td><td><strong>Dica Rápida</strong></td><td>Técnica de estudo, macete, gestão de tempo</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- FEED -->
+    <div class="pilar-card" onclick="togglePilar(this)">
+      <div class="pilar-icon" style="background:var(--cor-feed)">F</div>
+      <h3>Feed</h3>
+      <div class="pilar-freq">1 post por dia &middot; Formato misto</div>
+      <div class="pilar-desc">Reels, carrosseis e cards alternados. Presença constante no perfil.</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+        <ul>
+          <li><strong>Reels como post do feed</strong> &mdash; quando você posta um Reels no Instagram, ele já aparece automaticamente no seu feed. Nesses dias, o Reels e a publicação do feed. Não precisa criar nada separado.</li>
+          <li><strong>Carrosseis</strong> &mdash; publicações com varias imagens que a pessoa desliza para o lado (2&ndash;3 por semana). Conteúdo educativo, tipo &ldquo;5 dicas&rdquo;, &ldquo;simulado&rdquo;, etc.</li>
+          <li><strong>Cards</strong> &mdash; imagens únicas com informação visual (frase, dado, checklist). O designer produz a partir do conteúdo que está no planejamento.</li>
+          <li>Para carrosseis e cards, o planejamento já traz: o tema, os textos que devem ir em cada slide e a orientação visual para o designer.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- STORIES -->
+    <div class="pilar-card" onclick="togglePilar(this)">
+      <div class="pilar-icon" style="background:var(--cor-stories)">S</div>
+      <h3>Stories</h3>
+      <div class="pilar-freq">5&ndash;8 blocos por dia</div>
+      <div class="pilar-desc">Presença constante ao longo do dia. Enquetes, bastidores, chamadas para live.</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+        <table>
+          <tr><th>Bloco</th><th>Horário</th><th>Conteúdo</th></tr>
+          <tr><td><strong>Manhã</strong></td><td>7h&ndash;8h</td><td>Bom dia + enquete ou caixinha de perguntas</td></tr>
+          <tr><td><strong>Meio-dia</strong></td><td>12h&ndash;13h</td><td>Dica rápida ou compartilhar Reels do dia</td></tr>
+          <tr><td><strong>Tarde</strong></td><td>15h&ndash;16h</td><td>Bastidores, rotina, contagem regressiva para live</td></tr>
+          <tr><td><strong>Pré-live</strong></td><td>19h&ndash;19h30</td><td>Chamada para live + link</td></tr>
+          <tr><td><strong>Pós-live</strong></td><td>Após a live</td><td>Recap + pergunta de engajamento</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- YOUTUBE -->
+    <div class="pilar-card" onclick="togglePilar(this)">
+      <div class="pilar-icon" style="background:var(--cor-yt)">Y</div>
+      <h3>YouTube</h3>
+      <div class="pilar-freq">2 vídeos por semana &middot; Canal novo</div>
+      <div class="pilar-desc">Conteúdo perene encontrado por busca. Aulas e orientações estratégicas.</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+        <table>
+          <tr><th>Vídeo</th><th>Tipo</th><th>Duração</th></tr>
+          <tr><td><strong>Vídeo 1</strong></td><td>Aula de conteúdo denso</td><td>10&ndash;15 min</td></tr>
+          <tr><td><strong>Vídeo 2</strong></td><td>Estratégico / Orientação</td><td>8&ndash;12 min</td></tr>
+        </table>
+        <ul style="margin-top:12px">
+          <li>Títulos com palavras-chave fortes (SEO): &ldquo;Concurso PMBA 2026&rdquo;, &ldquo;Soldado PMBA&rdquo;, &ldquo;CFO Bahia&rdquo;</li>
+          <li>Miniaturas com rosto do professor + texto grande + contraste</li>
+          <li>Descrição otimizada com links para Instagram e página de vendas</li>
+          <li>Dias flexíveis conforme disponibilidade dos experts para gravação</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EVENTOS -->
+    <div class="pilar-card" onclick="togglePilar(this)">
+      <div class="pilar-icon" style="background:var(--cor-evento)">E</div>
+      <h3>Eventos</h3>
+      <div class="pilar-freq">1 por mês &middot; Presencial ou online</div>
+      <div class="pilar-desc">Aulões, simulados, corridões e encontros para fortalecer a comunidade.</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+        <ul>
+          <li><strong>23/05</strong> &mdash; Aulão Beneficente (CETEP Barreiras) &mdash; realizado</li>
+          <li>Simulado ao Vivo &mdash; simular o dia da prova com tempo cronometrado</li>
+          <li>Corridão Gabaritando &mdash; treino coletivo de corrida 12 min (TAF)</li>
+          <li>Workshop TAF &mdash; barra fixa, flexão, corrida com instrutor</li>
+          <li>Simulado de TAF &mdash; provas físicas nas mesmas condições do concurso</li>
+          <li>Aulão Temático &mdash; 1 matéria específica (ex: Português para PMBA)</li>
+          <li>Encontro da Comunidade &mdash; bate-papo com mentores, networking</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- GRUPOS WHATSAPP -->
+    <div class="pilar-card" onclick="togglePilar(this)" style="grid-column:1/-1">
+      <div class="pilar-icon" style="background:var(--cor-wpp)">W</div>
+      <h3>Grupos de WhatsApp</h3>
+      <div class="pilar-freq">4 grupos &middot; Questão diária + ciclo de vendas a cada 14 dias</div>
+      <div class="pilar-desc">Grupos gratuitos de questões comentadas que alimentam o funil de vendas. Cada grupo segue um ciclo de 14 dias: valor puro, aquecimento e pitch.</div>
+      <div class="pilar-toggle">Ver detalhes</div>
+      <div class="pilar-detail">
+
+        <!-- GRUPOS ATIVOS -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em">Grupos ativos</p>
+        <div style="margin-bottom:16px">
+          <span class="grupo-badge cfo">CFO &mdash; PMBA e CBMBA</span>
+          <span class="grupo-badge sd">Soldado &mdash; PM BA</span>
+          <span class="grupo-badge pcba">PCBA &mdash; Investigador</span>
+          <span class="grupo-badge red">Redação</span>
+        </div>
+
+        <!-- REGRA DO GRUPO -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Regras de funcionamento</p>
+        <ul>
+          <li><strong>Grupo sempre fechado</strong> &mdash; apenas admins enviam mensagens no dia a dia</li>
+          <li><strong>Janela aberta 1x por semana</strong> (quarta ou sexta, conforme disponibilidade dos mentores) &mdash; grupo abre por 1 a 2 horas para os membros tirarem dúvidas ao vivo. Depois, fecha novamente.</li>
+          <li><strong>Questão comentada todos os dias</strong> (segunda a sábado) &mdash; é o produto principal do grupo e o motivo pelo qual as pessoas permanecem</li>
+          <li><strong>Formato da questão:</strong> 2 mensagens em sequência &mdash; primeira com o enunciado completo e alternativas, segunda com o gabarito e a correção detalhada (por que a certa está certa e por que cada errada está errada)</li>
+          <li><strong>Enquete do WhatsApp:</strong> usar apenas para perguntas de opinião/engajamento e para a enquete de aquecimento pré-pitch. Nunca para questões de concurso.</li>
+        </ul>
+
+        <!-- CICLO VISUAL -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:20px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Ciclo de 14 dias &mdash; Grupos de Questões (CFO, Soldado, PCBA)</p>
+
+        <div class="ciclo-bar">
+          <div class="ciclo-seg valor">Dias 1&ndash;7 &middot; Valor</div>
+          <div class="ciclo-seg aquec">Dias 8&ndash;11 &middot; Aquecimento</div>
+          <div class="ciclo-seg pitch">12&ndash;13</div>
+          <div class="ciclo-seg reset">14</div>
+        </div>
+        <div class="ciclo-legenda">
+          <span class="leg-valor">Valor puro (zero venda)</span>
+          <span class="leg-aquec">Aquecimento (prepara terreno)</span>
+          <span class="leg-pitch">Pitch (oferta + link)</span>
+          <span class="leg-reset">Reset (domingo)</span>
+        </div>
+
+        <!-- FASE 1 -->
+        <p style="font-size:0.7rem;font-weight:700;color:var(--cor-wpp);margin-top:16px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.1em">Fase 1 &mdash; Valor puro (Dias 1 a 7)</p>
+        <table>
+          <tr><th>Dia</th><th>Manhã</th><th>Tarde</th></tr>
+          <tr><td><strong>Dia 1 (Seg)</strong></td><td>Questão + Gabarito</td><td>&mdash;</td></tr>
+          <tr><td><strong>Dia 2 (Ter)</strong></td><td>Questão + Gabarito</td><td>Dica de estudo</td></tr>
+          <tr><td><strong>Dia 3 (Qua)</strong></td><td>Questão + Gabarito</td><td>Enquete de engajamento ou janela aberta para dúvidas (1&ndash;2h)</td></tr>
+          <tr><td><strong>Dia 4 (Qui)</strong></td><td>Questão + Gabarito</td><td>&mdash;</td></tr>
+          <tr><td><strong>Dia 5 (Sex)</strong></td><td>Questão + Gabarito</td><td>Notícia ou atualização do concurso</td></tr>
+          <tr><td><strong>Dia 6 (Sáb)</strong></td><td>Questão + Gabarito</td><td>Conteúdo leve (carreira, motivação)</td></tr>
+          <tr><td><strong>Dia 7 (Dom)</strong></td><td colspan="2" style="color:rgba(255,255,255,0.3)">Sem mensagem &mdash; descanso</td></tr>
+        </table>
+
+        <!-- FASE 2 -->
+        <p style="font-size:0.7rem;font-weight:700;color:var(--ouro);margin-top:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.1em">Fase 2 &mdash; Aquecimento (Dias 8 a 11)</p>
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-bottom:8px">O conteúdo continua sendo valor, mas o ângulo muda. Cada mensagem aponta para a dor que o produto resolve, sem mencionar o produto ainda.</p>
+        <table>
+          <tr><th>Dia</th><th>Manhã</th><th>Tarde (aquecimento)</th></tr>
+          <tr><td><strong>Dia 8 (Seg)</strong></td><td>Questão + Gabarito (nível difícil)</td><td>Reflexão: &ldquo;Essa reprova muita gente. A diferença é ter método.&rdquo;</td></tr>
+          <tr><td><strong>Dia 9 (Ter)</strong></td><td>Questão + Gabarito</td><td>Prova social: depoimento de aluno aprovado</td></tr>
+          <tr><td><strong>Dia 10 (Qua)</strong></td><td>Questão + Gabarito</td><td>Conteúdo de dor: &ldquo;3 motivos por que a maioria não passa&rdquo; + janela aberta para dúvidas (1&ndash;2h)</td></tr>
+          <tr><td><strong>Dia 11 (Qui)</strong></td><td>Questão + Gabarito</td><td>Enquete de aquecimento: &ldquo;Se o edital saísse amanhã, você estaria pronto?&rdquo; (opções: Sim / Mais ou menos / Não estou pronto / Nem comecei)</td></tr>
+        </table>
+
+        <!-- FASE 3 -->
+        <p style="font-size:0.7rem;font-weight:700;color:var(--cor-reels);margin-top:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.1em">Fase 3 &mdash; Pitch + Reset (Dias 12 a 14)</p>
+        <table>
+          <tr><th>Dia</th><th>Manhã</th><th>Tarde</th></tr>
+          <tr><td><strong>Dia 12 (Sex)</strong></td><td>Questão + Gabarito</td><td>Pitch principal (ver estrutura abaixo)</td></tr>
+          <tr><td><strong>Dia 13 (Sáb)</strong></td><td>Questão + Gabarito</td><td>Follow-up: ângulo diferente do pitch, última chance, dúvidas no privado</td></tr>
+          <tr><td><strong>Dia 14 (Dom)</strong></td><td colspan="2" style="color:rgba(255,255,255,0.3)">Sem mensagem &mdash; reset. O ciclo recomeça na segunda.</td></tr>
+        </table>
+
+        <!-- ESTRUTURA DO PITCH -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:24px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Estrutura do pitch (Dia 12)</p>
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-bottom:10px">O pitch sempre tem dois produtos na mesma mensagem. A Preparação completa é o destaque principal (80% da mensagem). O Caderno entra no final como segunda opção para quem ainda não quer o curso completo.</p>
+        <table>
+          <tr><th>Bloco</th><th>Conteúdo</th></tr>
+          <tr><td><strong>1. Abertura</strong></td><td>Referencia a enquete do dia anterior: &ldquo;Ontem a maioria respondeu que não se sente pronto. E tá tudo bem &mdash; desde que você faça algo a respeito agora.&rdquo;</td></tr>
+          <tr><td><strong>2. Produto principal<br><span style="color:var(--ouro);font-size:0.62rem">PREPARAÇÃO</span></strong></td><td>Apresentação completa: o que tem dentro (aulas, questões, simulados, cronograma, redação, suporte), acesso por 1 ano, quem são os mentores (aprovados no concurso). Preço + parcelamento 12x + garantia de 7 dias + link de checkout.</td></tr>
+          <tr><td><strong>3. Segunda opção<br><span style="color:var(--cor-wpp);font-size:0.62rem">CADERNO</span></strong></td><td>Transição: &ldquo;E se você ainda não quer o curso completo, a gente tem uma opção pra você começar agora sem compromisso.&rdquo; Apresentação do Caderno de Treino + preço + parcelamento + link de checkout.</td></tr>
+        </table>
+
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:16px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Como fica em cada grupo</p>
+        <table>
+          <tr><th>Grupo</th><th>Produto principal (destaque)</th><th>Segunda opção</th></tr>
+          <tr><td><span class="grupo-badge sd" style="margin:0">Soldado</span></td><td>Preparação Soldado &mdash; R$767 / 12x R$79,33</td><td>Caderno Soldado &mdash; R$147 / 12x R$15,30</td></tr>
+          <tr><td><span class="grupo-badge cfo" style="margin:0">CFO</span></td><td>Preparação CFO &mdash; R$967 / 12x R$100,01</td><td>Caderno CFO &mdash; R$197 / 12x R$20,37</td></tr>
+          <tr><td><span class="grupo-badge pcba" style="margin:0">PCBA</span></td><td>Preparação Investigador &mdash; R$767 / 12x R$79,33</td><td style="color:rgba(255,255,255,0.3)">Sem caderno &mdash; reforçar parcelamento e garantia</td></tr>
+        </table>
+
+        <!-- FORMATO DA QUESTÃO -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:24px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Formato da questão comentada</p>
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-bottom:8px">Duas mensagens enviadas em sequência, uma atrás da outra. A pessoa abre o grupo e tem questão + gabarito completo para estudar.</p>
+        <table>
+          <tr><th>Mensagem</th><th>Conteúdo</th></tr>
+          <tr><td><strong>Mensagem 1</strong></td><td><strong>QUESTÃO DO DIA &mdash; [Matéria]</strong><br>(Banca &mdash; Concurso Ano) Enunciado completo + alternativas A, B, C, D</td></tr>
+          <tr><td><strong>Mensagem 2</strong></td><td><strong>GABARITO &mdash; Alternativa [X]</strong><br>Fundamentação legal + explicação de por que cada alternativa errada está errada. Encerra com: &ldquo;Amanhã tem mais uma!&rdquo;</td></tr>
+        </table>
+
+        <!-- DIFERENÇA ENTRE GRUPOS DE QUESTÕES -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:24px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">O que muda entre os grupos de questões</p>
+        <table>
+          <tr><th>Grupo</th><th>Nível das questões</th><th>Matérias-foco</th><th>Produto ofertado no pitch</th></tr>
+          <tr><td><span class="grupo-badge cfo" style="margin:0">CFO</span></td><td>Mais difícil</td><td>Dir. Administrativo, Dir. Penal, Liderança</td><td>Preparação CFO (R$967 / 12x R$100,01)</td></tr>
+          <tr><td><span class="grupo-badge sd" style="margin:0">Soldado</span></td><td>Intermediário</td><td>Dir. Penal, Constitucional, Português, RLM</td><td>Preparação Soldado (R$767 / 12x R$79,33)</td></tr>
+          <tr><td><span class="grupo-badge pcba" style="margin:0">PCBA</span></td><td>Intermediário a mais difícil</td><td>Dir. Penal e Processual Penal, Criminologia</td><td>Preparação Investigador (R$767 / 12x R$79,33)</td></tr>
+        </table>
+        <ul style="margin-top:10px">
+          <li><strong>Reaproveitamento:</strong> questões de matérias comuns (Dir. Penal, Português) podem ir para 2 ou 3 grupos com introdução adaptada</li>
+        </ul>
+
+        <!-- GRUPO DE REDAÇÃO -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:24px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Grupo de Redação &mdash; estrutura própria</p>
+        <p style="font-size:0.72rem;color:rgba(255,255,255,0.45);margin-bottom:8px">O grupo de Redação é transversal &mdash; atende candidatos de todos os concursos. Redação é conteúdo mais denso, então a frequência é menor (3&ndash;4 mensagens por semana). O ciclo de pitch é mais espaçado: 1 pitch leve a cada 3 semanas.</p>
+        <table>
+          <tr><th>Dia</th><th>Conteúdo</th></tr>
+          <tr><td><strong>Segunda</strong></td><td>Tema de redação da semana + estrutura de abordagem (introdução, desenvolvimento, conclusão)</td></tr>
+          <tr><td><strong>Quarta</strong></td><td>Dica de escrita: coesão, coerência, argumentação, erros gramaticais comuns, conectivos</td></tr>
+          <tr><td><strong>Sexta (semana de valor)</strong></td><td>Modelo de parágrafo bem construído ou correção pública de redação (com autorização do autor)</td></tr>
+          <tr><td><strong>Sexta (semana de pitch)</strong></td><td>Pitch leve: &ldquo;Dentro da Preparação completa tem módulo de redação com correções individualizadas. Quem quer evoluir na escrita, esse é o caminho.&rdquo; + link</td></tr>
+        </table>
+        <ul style="margin-top:10px">
+          <li>Sem questão diária neste grupo &mdash; o foco é produção textual</li>
+          <li>Janela aberta para dúvidas: 1x por semana (quarta), mesmo horário dos outros grupos</li>
+          <li>Pitch a cada 3 semanas (não a cada 2 como nos grupos de questões)</li>
+        </ul>
+
+        <!-- CALENDÁRIO MENSAL -->
+        <p style="font-size:0.74rem;font-weight:600;color:var(--branco);margin-top:24px;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Visão do mês &mdash; quando cai cada fase</p>
+        <table>
+          <tr><th>Semana</th><th>CFO / Soldado / PCBA</th><th>Redação</th></tr>
+          <tr><td><strong>Semana 1</strong></td><td style="color:var(--cor-wpp)">Valor puro</td><td>Valor</td></tr>
+          <tr><td><strong>Semana 2</strong></td><td style="color:var(--cor-reels)">Aquecimento + Pitch</td><td>Valor</td></tr>
+          <tr><td><strong>Semana 3</strong></td><td style="color:var(--cor-wpp)">Valor puro</td><td style="color:var(--cor-reels)">Pitch leve (sexta)</td></tr>
+          <tr><td><strong>Semana 4</strong></td><td style="color:var(--cor-reels)">Aquecimento + Pitch</td><td>Valor</td></tr>
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
 
 <!-- CALENDAR -->
 <section class="section">
@@ -9132,6 +9531,12 @@ Seja sincero. A resposta honesta é o primeiro passo pra mudar.</p>
 
 
 <script>
+function togglePilar(card) {
+  card.classList.toggle('active');
+  var toggle = card.querySelector('.pilar-toggle');
+  toggle.textContent = card.classList.contains('active') ? 'Ocultar detalhes' : 'Ver detalhes';
+}
+
 function showWeek(n, btn) {
   var panel = btn.closest('.section');
   panel.querySelectorAll('.week-panel').forEach(function(p) { p.classList.remove('active'); });
