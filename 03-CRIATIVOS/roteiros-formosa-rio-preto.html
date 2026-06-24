@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roteiros de Vídeo — Concurso Formosa do Rio Preto | Gabaritando</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ouro:#FFB800;
+  --preto:#0E0E1A;
+  --ardosia:#1E1E2E;
+  --laranja:#FF6B35;
+  --branco:#F5F5F5;
+  --cinza:#94A3B8;
+  --verde:#22C55E;
+  --vermelho:#EF4444;
+}
+body{font-family:'Montserrat',sans-serif;background:var(--preto);color:var(--branco);line-height:1.7}
+.container{max-width:900px;margin:0 auto;padding:24px 20px}
+
+/* HEADER */
+.page-header{text-align:center;padding:48px 0 32px;border-bottom:2px solid var(--ardosia)}
+.page-header h1{font-size:1.6rem;font-weight:800;color:var(--ouro);text-transform:uppercase;letter-spacing:1px}
+.page-header .subtitle{font-size:1rem;color:var(--cinza);margin-top:8px;font-weight:500}
+.page-header .badge{display:inline-block;background:var(--laranja);color:#fff;font-size:.75rem;font-weight:700;padding:4px 14px;border-radius:20px;margin-top:12px;text-transform:uppercase;letter-spacing:.5px}
+
+/* INFO BOX */
+.info-box{background:var(--ardosia);border-radius:12px;padding:24px 28px;margin:32px 0;border-left:4px solid var(--ouro)}
+.info-box h3{color:var(--ouro);font-size:.9rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.info-box ul{list-style:none;padding:0}
+.info-box li{padding:6px 0;font-size:.9rem;color:var(--branco)}
+.info-box li strong{color:var(--ouro)}
+.info-box li::before{content:"";display:inline-block;width:6px;height:6px;background:var(--laranja);border-radius:50%;margin-right:10px;vertical-align:middle}
+
+/* ROTEIRO CARD */
+.roteiro{background:var(--ardosia);border-radius:16px;margin:40px 0;overflow:hidden;border:1px solid rgba(255,184,0,.12)}
+.roteiro-header{background:linear-gradient(135deg,rgba(255,184,0,.15),rgba(255,107,53,.1));padding:28px 32px;border-bottom:1px solid rgba(255,184,0,.15)}
+.roteiro-number{font-size:.75rem;font-weight:700;color:var(--laranja);text-transform:uppercase;letter-spacing:2px;margin-bottom:4px}
+.roteiro-title{font-size:1.25rem;font-weight:800;color:#fff}
+.roteiro-meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+.roteiro-meta span{font-size:.78rem;color:var(--cinza);font-weight:500}
+.roteiro-meta span strong{color:var(--ouro)}
+
+.roteiro-body{padding:28px 32px}
+
+/* CENA */
+.cena{margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.06)}
+.cena:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.cena-label{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.cena-num{background:var(--ouro);color:var(--preto);font-size:.7rem;font-weight:800;padding:3px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:.5px}
+.cena-tipo{font-size:.75rem;color:var(--cinza);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.cena-visual{font-size:.82rem;color:var(--laranja);font-style:italic;margin-bottom:8px;padding-left:16px;border-left:2px solid var(--laranja)}
+.cena-fala{font-size:.95rem;color:var(--branco);line-height:1.8;padding-left:16px}
+.cena-fala strong{color:var(--ouro)}
+.cena-fala em{color:var(--cinza);font-style:italic}
+
+/* DICA */
+.dica{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:16px 20px;margin-top:16px}
+.dica-label{font-size:.72rem;font-weight:700;color:var(--verde);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.dica p{font-size:.82rem;color:var(--cinza);line-height:1.6}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:40px 0 24px;border-top:1px solid var(--ardosia);margin-top:48px}
+.page-footer p{font-size:.78rem;color:var(--cinza)}
+.page-footer .brand{color:var(--ouro);font-weight:700}
+
+@media(max-width:600px){
+  .container{padding:16px 14px}
+  .page-header h1{font-size:1.2rem}
+  .roteiro-header,.roteiro-body{padding:20px 18px}
+  .roteiro-title{font-size:1.05rem}
+  .roteiro-meta{gap:8px}
+  .cena-fala{font-size:.88rem}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<header class="page-header">
+  <h1>Roteiros de Vídeo</h1>
+  <p class="subtitle">Concurso Público — Prefeitura de Formosa do Rio Preto - BA</p>
+  <span class="badge">Edital 01/2026 &bull; Prova 16/08/2026</span>
+</header>
+
+<!-- INFO BOX -->
+<div class="info-box">
+  <h3>Dados do Concurso (referência para gravação)</h3>
+  <ul>
+    <li><strong>Organizadora:</strong> Instituto Ação</li>
+    <li><strong>Vagas:</strong> mais de 390 vagas imediatas + cadastro reserva em todos os cargos</li>
+    <li><strong>Níveis:</strong> Fundamental, Médio/Técnico e Superior</li>
+    <li><strong>Salários:</strong> de R$1.518 a R$6.780</li>
+    <li><strong>Prova:</strong> 16 de agosto de 2026 — 40 questões objetivas, 3h30min</li>
+    <li><strong>Simulado Gabaritando:</strong> 9 de agosto de 2026 (7 dias antes da prova)</li>
+    <li><strong>Aulão Gratuito:</strong> 15 de agosto de 2026 (sábado, véspera da prova)</li>
+    <li><strong>Cargos destaque:</strong> Vigilante (50), Servente/Merendeiro (50), Enfermeiro (42), Professores (~80), Guarda Civil Municipal (22), Agente Comunitário de Saúde (22), Assistente Social (10), Técnico Administrativo (10)</li>
+  </ul>
+</div>
+
+<!-- ========================================== -->
+<!-- ROTEIRO 1 — ANÚNCIO / REVELAÇÃO           -->
+<!-- ========================================== -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Roteiro 01</div>
+    <h2 class="roteiro-title">O Concurso Saiu. E a Gente Vai Estar Lá.</h2>
+    <div class="roteiro-meta">
+      <span><strong>Objetivo:</strong> Anunciar o simulado e o aulão</span>
+      <span><strong>Duração:</strong> ~60 segundos</span>
+      <span><strong>Formato:</strong> Reels / Stories / Rádio</span>
+    </div>
+  </div>
+
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 1</span>
+        <span class="cena-tipo">Abertura — Gancho de Atenção</span>
+      </div>
+      <div class="cena-visual">Nilton olhando para a câmera, enquadramento próximo (busto). Pode estar em Formosa — paisagem ou ponto de referência da cidade ao fundo.</div>
+      <div class="cena-fala">
+        "Se você mora em Formosa do Rio Preto ou na região, presta atenção nesse vídeo. Porque <strong>o concurso da Prefeitura já saiu</strong> — e eu vim aqui pessoalmente te contar o que a gente preparou pra você."
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 2</span>
+        <span class="cena-tipo">Dados do Concurso</span>
+      </div>
+      <div class="cena-visual">Enquadramento médio, Nilton gesticulando. Pode alternar com texto na tela: "390+ vagas", "Fundamental, Médio e Superior".</div>
+      <div class="cena-fala">
+        "São <strong>mais de 390 vagas imediatas</strong>, fora cadastro reserva. Tem vaga pra nível fundamental, médio e superior. Salários que vão de mil e quinhentos até quase sete mil reais. A prova é dia <strong>16 de agosto</strong>, pelo Instituto Ação — 40 questões objetivas."
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 3</span>
+        <span class="cena-tipo">O que o Gabaritando Vai Fazer</span>
+      </div>
+      <div class="cena-visual">Enquadramento mais aberto, Nilton apontando para a câmera. Texto na tela: "Simulado + Aulão Gratuito".</div>
+      <div class="cena-fala">
+        "E o Gabaritando vai estar aqui em Formosa com <strong>duas ações pra você</strong>. Primeiro: dia <strong>9 de agosto</strong>, uma semana antes da prova, a gente vai aplicar um <strong>simulado completo</strong> — nos mesmos moldes da prova, pra todos os cargos. Você vai saber exatamente onde está e o que precisa revisar."
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 4</span>
+        <span class="cena-tipo">O Aulão</span>
+      </div>
+      <div class="cena-visual">Nilton com expressão de entusiasmo, enquadramento próximo. Texto na tela: "Aulão Gratuito — 15 de agosto".</div>
+      <div class="cena-fala">
+        "E no dia <strong>15 de agosto</strong>, sábado, véspera da prova, tem <strong>aulão presencial e gratuito</strong> aqui em Formosa. A gente vai revisar <strong>todos os tópicos</strong> que caem na prova: Português, Matemática, Informática, Conhecimentos Gerais — tudo o que você precisa pra ir confiante no domingo."
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 5</span>
+        <span class="cena-tipo">CTA — Chamada para Ação</span>
+      </div>
+      <div class="cena-visual">Close em Nilton, tom direto e confiante.</div>
+      <div class="cena-fala">
+        "Manda esse vídeo pra aquele amigo, aquele parente que vai fazer a prova. <strong>Formosa merece gente preparada nessas vagas.</strong> Acompanha o Gabaritando aqui nas redes que a gente vai soltar todas as informações nos próximos dias."
+      </div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Se possível, gravar em locação de Formosa (praça, entrada da cidade, ponto conhecido). Isso gera identificação imediata com o público local e funciona muito bem para compartilhamento via WhatsApp e divulgação nas rádios parceiras.</p>
+    </div>
+
+  </div>
+</article>
+
+
+<!-- ========================================== -->
+<!-- ROTEIRO 2 — AUTORIDADE / BENEFÍCIOS        -->
+<!-- ========================================== -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Roteiro 02</div>
+    <h2 class="roteiro-title">Por Que Você Não Pode Ir Pra Prova Sem Fazer o Simulado</h2>
+    <div class="roteiro-meta">
+      <span><strong>Objetivo:</strong> Mostrar o valor do simulado e gerar inscrições</span>
+      <span><strong>Duração:</strong> ~75 segundos</span>
+      <span><strong>Formato:</strong> Reels / Feed / Rádio</span>
+    </div>
+  </div>
+
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 1</span>
+        <span class="cena-tipo">Abertura — Identificação Local</span>
+      </div>
+      <div class="cena-visual">Nilton em locação reconhecível de Formosa do Rio Preto (praça, entrada da cidade, ponto de referência). Enquadramento busto, mostrando o cenário ao fundo.</div>
+      <div class="cena-fala">
+        "Você que é de <strong>Formosa do Rio Preto</strong>, da região do Oeste Baiano, esse vídeo é pra você. O <strong>concurso da Prefeitura saiu</strong> — são mais de 390 vagas — e eu vim até aqui pessoalmente porque tenho uma pergunta séria pra te fazer."
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 2</span>
+        <span class="cena-tipo">A Provocação</span>
+      </div>
+      <div class="cena-visual">Corta para enquadramento mais próximo, Nilton olhando fixo para a câmera, tom de conversa séria.</div>
+      <div class="cena-fala">
+        "<strong>Você sabe como está a sua preparação hoje?</strong> Sabe quais matérias domina e quais ainda te derrubam? Porque a maioria dos candidatos só descobre isso na hora da prova — e aí já era. Vai ter muita gente fazendo essa prova. E a diferença entre quem passa e quem não passa geralmente não é inteligência — é <strong>preparo</strong>."
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 3</span>
+        <span class="cena-tipo">A Solução — O Simulado</span>
+      </div>
+      <div class="cena-visual">Nilton mais próximo da câmera, tom de quem revela algo importante. Texto na tela: "Simulado — 9 de agosto".</div>
+      <div class="cena-fala">
+        "Por isso, no dia <strong>9 de agosto</strong>, sete dias antes da prova, o Gabaritando vai aplicar um <strong>simulado presencial</strong> aqui em Formosa, <strong>pra todos os cargos</strong>. Quarenta questões, no mesmo formato da prova do Instituto Ação, com o mesmo tempo. Você vai treinar a pressão, vai testar o conteúdo e, o mais importante: <strong>vai saber exatamente o que revisar na última semana</strong>."
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 4</span>
+        <span class="cena-tipo">O Complemento — O Aulão</span>
+      </div>
+      <div class="cena-visual">Nilton sorrindo, energia positiva. Texto na tela: "Aulão Gratuito — Véspera da Prova".</div>
+      <div class="cena-fala">
+        "E depois do simulado, no <strong>sábado dia 15</strong>, véspera da prova, a gente fecha com um <strong>aulão gratuito</strong>. Revisão completa de tudo: Português, Matemática, Informática, Conhecimentos Gerais. Pra você chegar no domingo com a cabeça fresca, confiante e pronto pra gabaritar."
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 5</span>
+        <span class="cena-tipo">CTA — Chamada para Ação</span>
+      </div>
+      <div class="cena-visual">Close, Nilton olhando fixo pra câmera.</div>
+      <div class="cena-fala">
+        "Não vai pra prova no escuro. <strong>Quem se prepara de verdade não é surpreendido.</strong> Segue o Gabaritando, compartilha esse vídeo e fica ligado nas inscrições do simulado. A gente se vê em Formosa."
+      </div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Esse roteiro funciona bem em tom de conversa direta, como se Nilton estivesse falando com um amigo. Sem pressa, pausas estratégicas nas frases em negrito. Ideal para formato de Reels (vertical) e também pode ser adaptado como spot de rádio cortando as indicações visuais.</p>
+    </div>
+
+  </div>
+</article>
+
+
+<!-- ========================================== -->
+<!-- ROTEIRO 3 — OPORTUNIDADE / CARGOS          -->
+<!-- ========================================== -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Roteiro 03</div>
+    <h2 class="roteiro-title">390 Vagas. Tem Vaga Pra Você Aí Dentro.</h2>
+    <div class="roteiro-meta">
+      <span><strong>Objetivo:</strong> Mostrar a amplitude de cargos e conectar ao simulado/aulão</span>
+      <span><strong>Duração:</strong> ~65 segundos</span>
+      <span><strong>Formato:</strong> Reels / Feed / Rádio</span>
+    </div>
+  </div>
+
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 1</span>
+        <span class="cena-tipo">Abertura — Identificação Local + Gancho</span>
+      </div>
+      <div class="cena-visual">Nilton em locação de Formosa do Rio Preto, enquadramento busto. Tom animado, como quem traz uma boa notícia.</div>
+      <div class="cena-fala">
+        "Formosa do Rio Preto, olha só o tamanho da oportunidade que está na sua porta. O concurso da Prefeitura oferece <strong>mais de 390 vagas</strong> — e eu garanto: <strong>tem cargo pra você aí dentro</strong>."
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 2</span>
+        <span class="cena-tipo">Panorama de Cargos</span>
+      </div>
+      <div class="cena-visual">Enquadramento médio, Nilton contando nos dedos. Texto na tela aparecendo conforme ele cita: "Vigilante — 50 vagas", "Enfermeiro — 42 vagas", etc.</div>
+      <div class="cena-fala">
+        "Tem 50 vagas pra Vigilante, 50 pra Servente, 42 pra Enfermeiro, 22 pra Guarda Civil Municipal, 22 pra Agente Comunitário de Saúde, mais de 80 vagas pra Professor, Técnico Administrativo, Fiscal, Motorista... Desde nível fundamental até nível superior. <strong>Salários de até quase sete mil reais.</strong>"
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 3</span>
+        <span class="cena-tipo">A Prova é Acessível</span>
+      </div>
+      <div class="cena-visual">Nilton mais próximo da câmera, tom tranquilizador. Texto: "40 questões — mínimo 50 pontos".</div>
+      <div class="cena-fala">
+        "A prova é dia <strong>16 de agosto</strong>, organizada pelo Instituto Ação. São 40 questões objetivas e você precisa acertar metade pra ser aprovado. <strong>Não é impossível.</strong> Com a preparação certa, qualquer pessoa consegue."
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 4</span>
+        <span class="cena-tipo">O Gabaritando Vai Ajudar</span>
+      </div>
+      <div class="cena-visual">Enquadramento mais aberto, Nilton gesticulando. Texto: "Simulado 09/08 + Aulão Gratuito 15/08".</div>
+      <div class="cena-fala">
+        "E o Gabaritando vai estar aqui em Formosa pra te ajudar. Dia <strong>9 de agosto</strong>, simulado presencial pra todos os cargos. Dia <strong>15 de agosto</strong>, véspera da prova, <strong>aulão gratuito</strong> com revisão de tudo o que cai. Português, Matemática, Informática, Conhecimentos Gerais — completo."
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 5</span>
+        <span class="cena-tipo">CTA — Chamada para Ação</span>
+      </div>
+      <div class="cena-visual">Close em Nilton, tom firme e motivacional.</div>
+      <div class="cena-fala">
+        "Essa é a chance de conquistar estabilidade aqui na sua cidade. <strong>Não precisa sair de Formosa pra ter uma carreira.</strong> Segue o Gabaritando, compartilha com quem precisa ouvir isso e vem com a gente. A vaga é sua — só falta você se preparar."
+      </div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Esse roteiro explora o volume de cargos e salários para atrair quem ainda não se inscreveu ou não estava levando o concurso a sério. Funciona muito bem em rádio (o público ouve os cargos e se identifica com algum). Gravar em Formosa reforça a mensagem de "oportunidade na sua porta".</p>
+    </div>
+
+  </div>
+</article>
+
+
+<!-- ========================================== -->
+<!-- ROTEIRO 4 — URGÊNCIA / ÚLTIMA CHAMADA      -->
+<!-- ========================================== -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Roteiro 04</div>
+    <h2 class="roteiro-title">Faltam 7 Dias. O Que Você Vai Fazer Com Eles?</h2>
+    <div class="roteiro-meta">
+      <span><strong>Objetivo:</strong> Gerar urgência e confirmar presença no simulado e aulão</span>
+      <span><strong>Duração:</strong> ~50 segundos</span>
+      <span><strong>Formato:</strong> Stories / Reels / WhatsApp</span>
+      <span><strong>Publicar:</strong> 7 dias antes da prova (09/08/2026)</span>
+    </div>
+  </div>
+
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 1</span>
+        <span class="cena-tipo">Abertura — Contagem Regressiva</span>
+      </div>
+      <div class="cena-visual">Nilton com expressão séria, enquadramento próximo. Pode ter um "7 DIAS" grande aparecendo na tela.</div>
+      <div class="cena-fala">
+        "<strong>Sete dias.</strong> É o tempo que falta pra prova do concurso de Formosa do Rio Preto. Mais de 390 vagas. E sabe o que separa quem vai comemorar de quem vai se arrepender? <strong>O que você faz a partir de agora.</strong>"
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 2</span>
+        <span class="cena-tipo">A Oportunidade</span>
+      </div>
+      <div class="cena-visual">Enquadramento médio, Nilton falando com energia. Texto na tela: "Simulado HOJE" ou "Simulado neste sábado" (ajustar conforme data de publicação).</div>
+      <div class="cena-fala">
+        "Hoje o Gabaritando está aqui em Formosa aplicando o <strong>simulado</strong>. Quarenta questões no padrão Instituto Ação, pra todos os cargos. Se você ainda não fez, <strong>corre</strong>. Ainda dá tempo. Quem testa antes da prova chega mais preparado — isso não é opinião, é fato."
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 3</span>
+        <span class="cena-tipo">O Aulão na Véspera</span>
+      </div>
+      <div class="cena-visual">Nilton apontando para a câmera, tom de convocação. Texto: "Aulão Gratuito — Sábado 15/08".</div>
+      <div class="cena-fala">
+        "E sábado que vem, dia <strong>15 de agosto</strong>, véspera da prova, tem <strong>aulão gratuito</strong>. Revisão intensiva de Português, Matemática, Informática e Conhecimentos Gerais. <strong>De graça.</strong> Não tem desculpa pra não estar lá."
+      </div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label">
+        <span class="cena-num">Cena 4</span>
+        <span class="cena-tipo">CTA Final — Urgência Máxima</span>
+      </div>
+      <div class="cena-visual">Close firme em Nilton, pausa antes da frase final.</div>
+      <div class="cena-fala">
+        "Essa vaga pode mudar a sua vida e a da sua família. <strong>Não deixa pra depois o que precisa ser feito agora.</strong> Compartilha esse vídeo, chama quem vai fazer a prova e vem com a gente. O Gabaritando está aqui pra isso: pra ninguém ir pra prova sozinho."
+      </div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Esse vídeo deve ser gravado no dia do simulado (9 de agosto) ou próximo dele, para que a urgência seja real. É o vídeo mais curto e direto — ideal para Stories e envio em massa por WhatsApp. Ritmo rápido, frases curtas, sem enrolação. Se possível, incluir imagens do simulado acontecendo (sala com candidatos, material impresso) como B-roll.</p>
+    </div>
+
+  </div>
+</article>
+
+
+<!-- ORIENTAÇÕES GERAIS -->
+<div class="info-box" style="border-left-color:var(--verde)">
+  <h3>Orientações Gerais de Gravação</h3>
+  <ul>
+    <li><strong>Formato vertical (9:16)</strong> para Reels, Stories e WhatsApp</li>
+    <li><strong>Legendas:</strong> adicionar legendas em todas as versões — muita gente assiste sem som</li>
+    <li><strong>Texto na tela:</strong> destacar números-chave (390+ vagas, datas, "gratuito") como texto animado</li>
+    <li><strong>Rádio:</strong> os roteiros 1, 2 e 3 funcionam como spots de rádio — basta remover as indicações visuais e ajustar o CTA para "procure o Gabaritando nas redes sociais"</li>
+    <li><strong>Tom de voz:</strong> firme, confiante, próximo — como quem fala com um amigo que precisa de um empurrão</li>
+    <li><strong>Duração:</strong> manter entre 50s e 75s para melhor performance orgânica</li>
+    <li><strong>Publicação sugerida:</strong> Roteiro 1 assim que possível (anúncio); Roteiro 2 alguns dias depois (autoridade); Roteiro 3 na semana do simulado (panorama de cargos); Roteiro 4 no dia do simulado, 09/08 (urgência final)</li>
+  </ul>
+</div>
+
+
+<footer class="page-footer">
+  <p><span class="brand">Gabaritando</span> &bull; Concurso Formosa do Rio Preto - BA &bull; Edital 01/2026</p>
+</footer>
+
+</div>
+
+</body>
+</html>
