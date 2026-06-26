@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visão Geral do Cargo | Enfermeiro — Formosa do Rio Preto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--ouro:#FFB800;--preto:#0E0E1A;--ardosia:#1E1E2E;--laranja:#FF6B35;--branco:#F5F5F5;--cinza:#94A3B8;--verde:#22C55E;--vermelho:#EF4444;--azul:#3B82F6;--roxo:#8B5CF6}
+    body{font-family:'Montserrat',sans-serif;background:var(--preto);color:var(--branco);line-height:1.7}
+    .container{max-width:960px;margin:0 auto;padding:24px 20px}
+    .btn-voltar{display:inline-flex;align-items:center;gap:8px;background:var(--ouro);color:var(--preto);font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;transition:.2s}
+    .btn-voltar:hover{background:#e6a600;transform:translateY(-1px)}
+    .section{margin-bottom:48px}
+    .section-title{font-size:1.15rem;font-weight:800;color:var(--ouro);text-transform:uppercase;letter-spacing:1px;padding-bottom:12px;border-bottom:2px solid var(--ouro);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+    .section-num{background:var(--ouro);color:var(--preto);font-size:.7rem;font-weight:800;padding:4px 10px;border-radius:6px}
+    .info-box{background:var(--ardosia);border-radius:12px;padding:24px 28px;margin:20px 0;border-left:4px solid var(--ouro)}
+    .info-box.verde{border-left-color:var(--verde)}
+    .info-box.laranja{border-left-color:var(--laranja)}
+    .info-box.azul{border-left-color:var(--azul)}
+    .info-box.vermelho{border-left-color:var(--vermelho)}
+    .info-box h3{font-size:.85rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+    .info-box h3.ouro{color:var(--ouro)}
+    .info-box h3.verde{color:var(--verde)}
+    .info-box h3.laranja{color:var(--laranja)}
+    .info-box h3.azul{color:var(--azul)}
+    .info-box h3.vermelho{color:var(--vermelho)}
+    .info-box ul{list-style:none;padding:0}
+    .info-box li{padding:5px 0;font-size:.88rem;color:var(--branco)}
+    .info-box li strong{color:var(--ouro)}
+    .info-box li::before{content:"";display:inline-block;width:5px;height:5px;background:var(--laranja);border-radius:50%;margin-right:10px;vertical-align:middle}
+    .info-box p{font-size:.88rem;color:var(--branco);margin-bottom:8px}
+    .info-box p:last-child{margin-bottom:0}
+    .table-wrap{overflow-x:auto;margin:20px 0;border-radius:12px;border:1px solid rgba(255,255,255,.08)}
+    table{width:100%;border-collapse:collapse;font-size:.82rem}
+    thead{background:rgba(255,184,0,.12)}
+    th{color:var(--ouro);font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-size:.72rem;padding:12px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+    td{padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--branco)}
+    tr:hover{background:rgba(255,255,255,.02)}
+    .peso-alto{color:var(--vermelho);font-weight:700}
+    .peso-medio{color:var(--ouro);font-weight:600}
+    .peso-baixo{color:var(--cinza)}
+    .materia{background:var(--ardosia);border-radius:12px;margin:16px 0;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+    .materia-header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;background:rgba(255,184,0,.05)}
+    .materia-nome{font-size:.95rem;font-weight:700;color:#fff}
+    .materia-badge{font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:20px}
+    .materia-badge.critico{background:var(--vermelho);color:#fff}
+    .materia-badge.alto{background:var(--laranja);color:#fff}
+    .materia-badge.medio{background:var(--ouro);color:var(--preto)}
+    .materia-badge.base{background:var(--azul);color:#fff}
+    .materia-body{padding:16px 24px}
+    .materia-body ul{list-style:none;padding:0}
+    .materia-body li{padding:4px 0;font-size:.85rem;color:var(--cinza)}
+    .materia-body li::before{content:"";display:inline-block;width:4px;height:4px;background:var(--ouro);border-radius:50%;margin-right:8px;vertical-align:middle}
+    .materia-body li strong{color:var(--branco)}
+    .materia-body .destaque{color:var(--ouro);font-weight:600}
+    .dna-card{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+    .dna-item{background:var(--ardosia);border-radius:10px;padding:18px 20px;border:1px solid rgba(255,255,255,.06)}
+    .dna-item h4{font-size:.75rem;color:var(--ouro);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+    .dna-item p{font-size:.85rem;color:var(--branco);line-height:1.6}
+    .page-footer{text-align:center;padding:40px 0 24px;border-top:1px solid var(--ardosia);margin-top:48px}
+    .page-footer p{font-size:.78rem;color:var(--cinza)}
+    .brand{color:var(--ouro);font-weight:700}
+    @media(max-width:700px){
+      .container{padding:16px 14px}
+      .dna-card{grid-template-columns:1fr}
+      .materia-header{flex-direction:column;align-items:flex-start;gap:8px}
+      table{font-size:.75rem}
+      th,td{padding:8px 10px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="cronograma-enfermeiro-formosa.html" class="btn-voltar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Voltar à Central
+    </a>
+
+    <section class="section" style="margin-top:32px">
+      <h2 class="section-title"><span class="section-num">01</span> Visão Geral do Cargo</h2>
+
+      <div class="info-box">
+        <h3 class="ouro">Enfermeiro(a) — Dois Códigos no Edital</h3>
+        <ul>
+          <li><strong>Código 11 — Enfermeiro(a) 20h:</strong> 28 vagas &bull; R$2.707,88</li>
+          <li><strong>Código 12 — Enfermeiro(a) 40h:</strong> 14 vagas &bull; R$5.415,77</li>
+          <li><strong>Total:</strong> 42 vagas imediatas + cadastro reserva</li>
+          <li><strong>Requisito:</strong> Diploma de Enfermagem (nível superior) + Registro no COREN</li>
+          <li><strong>Prova:</strong> 40 questões objetivas &bull; 2,50 pontos cada &bull; Total: 100 pontos</li>
+          <li><strong>Aprovação:</strong> mínimo 50 pontos (20 acertos)</li>
+          <li><strong>Duração:</strong> 3h30min</li>
+        </ul>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Disciplina</th>
+              <th>Questões</th>
+              <th>Pontos</th>
+              <th>Peso na Prova</th>
+              <th>Prioridade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Conhecimentos Específicos (Enfermagem)</strong></td>
+              <td>20</td>
+              <td>50</td>
+              <td class="peso-alto">50%</td>
+              <td class="peso-alto">MÁXIMA</td>
+            </tr>
+            <tr>
+              <td><strong>Língua Portuguesa</strong></td>
+              <td>10</td>
+              <td>25</td>
+              <td class="peso-medio">25%</td>
+              <td class="peso-medio">ALTA</td>
+            </tr>
+            <tr>
+              <td><strong>Informática</strong></td>
+              <td>5</td>
+              <td>12,5</td>
+              <td class="peso-baixo">12,5%</td>
+              <td class="peso-baixo">MODERADA</td>
+            </tr>
+            <tr>
+              <td><strong>Conhecimentos Gerais</strong></td>
+              <td>5</td>
+              <td>12,5</td>
+              <td class="peso-baixo">12,5%</td>
+              <td class="peso-baixo">MODERADA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box verde">
+        <h3 class="verde">Matemática da Aprovação</h3>
+        <p>Para aprovar, você precisa de <strong>50 pontos</strong> (20 acertos em 40 questões). Mas para <strong>classificar bem</strong> com 42 vagas, a meta realista é acertar <strong>28 a 32 questões</strong> (70-80 pontos).</p>
+        <p><strong>Distribuição ideal de acertos:</strong> 16/20 em Específicas + 7/10 em Português + 3/5 em Informática + 3/5 em Conhecimentos Gerais = <strong>29 acertos (72,5 pontos)</strong>.</p>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <p><span class="brand">Gabaritando</span> &bull; Concurso Formosa do Rio Preto - BA &bull; Enfermeiro(a) 20h e 40h &bull; Edital 01/2026</p>
+    </footer>
+  </div>
+</body>
+</html>

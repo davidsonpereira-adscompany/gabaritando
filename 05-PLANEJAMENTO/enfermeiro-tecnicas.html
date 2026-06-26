@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Técnicas de Estudo | Enfermeiro — Formosa do Rio Preto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ouro:#FFB800;--preto:#0E0E1A;--ardosia:#1E1E2E;--laranja:#FF6B35;--branco:#F5F5F5;--cinza:#94A3B8;--verde:#22C55E;--vermelho:#EF4444;--azul:#3B82F6;--roxo:#8B5CF6}
+body{font-family:'Montserrat',sans-serif;background:var(--preto);color:var(--branco);line-height:1.7}
+.container{max-width:960px;margin:0 auto;padding:24px 20px}
+.btn-voltar{display:inline-flex;align-items:center;gap:8px;background:var(--ouro);color:var(--preto);font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;transition:.2s}
+.btn-voltar:hover{background:#e6a600;transform:translateY(-1px)}
+.section{margin-bottom:48px}
+.section-title{font-size:1.15rem;font-weight:800;color:var(--ouro);text-transform:uppercase;letter-spacing:1px;padding-bottom:12px;border-bottom:2px solid var(--ouro);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.section-num{background:var(--ouro);color:var(--preto);font-size:.7rem;font-weight:800;padding:4px 10px;border-radius:6px}
+.info-box{background:var(--ardosia);border-radius:12px;padding:24px 28px;margin:20px 0;border-left:4px solid var(--ouro)}
+.info-box.verde{border-left-color:var(--verde)}
+.info-box.laranja{border-left-color:var(--laranja)}
+.info-box.azul{border-left-color:var(--azul)}
+.info-box.vermelho{border-left-color:var(--vermelho)}
+.info-box.roxo{border-left-color:var(--roxo)}
+.info-box h3{font-size:.85rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.info-box h3.ouro{color:var(--ouro)}
+.info-box h3.verde{color:var(--verde)}
+.info-box h3.laranja{color:var(--laranja)}
+.info-box h3.azul{color:var(--azul)}
+.info-box h3.vermelho{color:var(--vermelho)}
+.info-box h3.roxo{color:var(--roxo)}
+.info-box ul{list-style:none;padding:0}
+.info-box li{padding:5px 0;font-size:.88rem;color:var(--branco)}
+.info-box li strong{color:var(--ouro)}
+.info-box li::before{content:"";display:inline-block;width:5px;height:5px;background:var(--laranja);border-radius:50%;margin-right:10px;vertical-align:middle}
+.info-box p{font-size:.88rem;color:var(--branco);margin-bottom:8px}
+.info-box p:last-child{margin-bottom:0}
+.tecnica{background:var(--ardosia);border-radius:14px;margin:20px 0;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.tecnica-header{padding:18px 24px;background:rgba(255,184,0,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.tecnica-titulo{font-size:.95rem;font-weight:800;color:#fff}
+.tecnica-subtitulo{font-size:.72rem;font-weight:600;color:var(--ouro);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+.tecnica-body{padding:18px 24px}
+.tecnica-body p{font-size:.88rem;color:var(--branco);margin-bottom:12px;line-height:1.7}
+.tecnica-body p:last-child{margin-bottom:0}
+.tecnica-body ul{list-style:none;padding:0;margin:8px 0}
+.tecnica-body li{padding:5px 0;font-size:.85rem;color:var(--cinza);line-height:1.6}
+.tecnica-body li::before{content:"";display:inline-block;width:4px;height:4px;background:var(--ouro);border-radius:50%;margin-right:8px;vertical-align:middle}
+.tecnica-body li strong{color:var(--branco)}
+.tecnica-body .destaque{color:var(--ouro);font-weight:600}
+.vs-box{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin:16px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.vs-lado{padding:18px 20px;background:var(--ardosia)}
+.vs-lado h4{font-size:.78rem;color:var(--ouro);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.vs-lado p{font-size:.85rem;color:var(--branco);line-height:1.6}
+.vs-meio{display:flex;align-items:center;justify-content:center;padding:0 12px;background:rgba(255,184,0,.08);font-size:.75rem;font-weight:800;color:var(--ouro)}
+.page-footer{text-align:center;padding:40px 0 24px;border-top:1px solid var(--ardosia);margin-top:48px}
+.page-footer p{font-size:.78rem;color:var(--cinza)}
+.brand{color:var(--ouro);font-weight:700}
+@media(max-width:700px){
+  .container{padding:16px 14px}
+  .vs-box{grid-template-columns:1fr;gap:0}
+  .vs-meio{padding:8px;font-size:.7rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <a href="cronograma-enfermeiro-formosa.html" class="btn-voltar">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Voltar à Central
+  </a>
+
+  <section class="section" style="margin-top:32px">
+    <h2 class="section-title"><span class="section-num">05</span> Técnicas de Estudo — Preparação em Tempo Curto</h2>
+
+    <!-- INTRO -->
+    <div class="info-box laranja">
+      <h3 class="laranja">Por que o método importa tanto quanto o conteúdo</h3>
+      <p>Você tem <strong>51 dias</strong> e um ritmo de <strong>4h30 a 5h por dia</strong> de estudo. Parece bastante, mas se o método estiver errado, essas horas viram tempo perdido. Estudar para um concurso municipal de enfermagem com banca de dificuldade fácil a média (Instituto Ação) exige uma abordagem diferente de quem estuda para Cespe ou FGV.</p>
+      <p>Aqui a prova cobra <strong>letra de lei</strong>, protocolos do Ministério da Saúde e conhecimento clínico direto — sem pegadinhas complexas, sem interpretação rebuscada. O método certo para esse perfil de prova prioriza <strong>questões comentadas, resumos objetivos e repetição espaçada</strong>. As 6 técnicas abaixo foram montadas especificamente para essa realidade.</p>
+    </div>
+
+    <!-- TECNICA 1 -->
+    <div class="tecnica">
+      <div class="tecnica-header">
+        <div class="tecnica-titulo">Técnica 1 — Questões Comentadas vs. Leitura de Teoria</div>
+        <div class="tecnica-subtitulo">A técnica que mais funciona para bancas fáceis e médias</div>
+      </div>
+      <div class="tecnica-body">
+        <p>Para bancas como o Instituto Ação, que cobram texto literal de leis e protocolos, <span class="destaque">resolver questões comentadas é mais eficaz do que ler teoria pura</span>. A questão mostra exatamente o que a banca pergunta — e o comentário mostra como ela pensa.</p>
+        <ul>
+          <li><strong>Proporção ideal:</strong> 60% do tempo em questões, 40% em teoria. Nunca estude teoria sem fazer questões no mesmo dia</li>
+          <li><strong>Leia o comentário de TODA questão</strong> — inclusive as que você acertou. O comentário mostra a lógica da banca, os artigos citados e os detalhes que ela valoriza</li>
+          <li><strong>Para teoria, use resumos e texto de lei</strong> — nunca livros de 500 páginas. Você não tem tempo para ler Brunner inteiro. Use resumos focados e a própria lei seca (Lei 8.080, Lei 7.498, Portarias do MS)</li>
+          <li><strong>Quando usar teoria pura:</strong> apenas quando você acerta menos de 40% das questões de um tema. Se está errando 6 de cada 10 questões sobre SAE, por exemplo, falta base — aí sim, volte à teoria desse tópico específico</li>
+          <li><strong>Fonte de questões:</strong> priorize questões da própria banca (Instituto Ação). Se não tiver volume suficiente, use questões de bancas similares (AOCP, IBFC, FUNCAB) — evite Cespe/FGV, que tem estilo diferente</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TECNICA 2 -->
+    <div class="tecnica">
+      <div class="tecnica-header">
+        <div class="tecnica-titulo">Técnica 2 — Videoaula vs. PDF/Resumo</div>
+        <div class="tecnica-subtitulo">Quando usar cada formato para não perder tempo</div>
+      </div>
+
+      <div class="vs-box">
+        <div class="vs-lado">
+          <h4>Videoaula</h4>
+          <p>Ideal para temas que você nunca viu: conceitos novos, procedimentos clínicos, classificações complexas. Mais fácil de absorver. Porém, consome mais tempo — 1 vídeo de 40 minutos cobre o que você leria em 15 minutos de PDF.</p>
+        </div>
+        <div class="vs-meio">VS</div>
+        <div class="vs-lado">
+          <h4>PDF / Resumo</h4>
+          <p>Ideal para revisão, legislação (SUS, Lei 7.498), e temas que você já conhece. Mais rápido. Permite grifar, anotar e criar flashcards durante a leitura. Você controla o ritmo — pula o que já sabe, aprofunda o que precisa.</p>
+        </div>
+      </div>
+
+      <div class="tecnica-body">
+        <p><span class="destaque">Veredicto:</span> use videoaula APENAS para temas novos ou complexos — SAE completa, urgências obstétricas, cuidados em UTI, procedimentos que você nunca praticou. Para todo o resto, PDF e resumo são mais rápidos e eficientes.</p>
+        <ul>
+          <li><strong>Nunca reassista um vídeo.</strong> Se precisa revisar um tema que viu em vídeo, mude para PDF ou resumo. Reassistir é dobrar o tempo sem dobrar o aprendizado</li>
+          <li><strong>Vídeos curtos e focados:</strong> prefira vídeos de 10 a 20 minutos de canais especializados em concursos de enfermagem no YouTube. Evite aulas gravadas de faculdade com 1h30</li>
+          <li><strong>Velocidade 1.5x a 2x:</strong> se o professor fala devagar, acelere. Seu ouvido se adapta em 2 minutos e você economiza 30% do tempo</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TECNICA 3 -->
+    <div class="tecnica">
+      <div class="tecnica-header">
+        <div class="tecnica-titulo">Técnica 3 — Resumos Próprios: Como Fazer em Tempo Curto</div>
+        <div class="tecnica-subtitulo">Resumo bom cabe em 1 página e salva na revisão final</div>
+      </div>
+      <div class="tecnica-body">
+        <p>Resumo não é cópia do livro. Se você está transcrevendo parágrafos inteiros, está perdendo tempo. O resumo para 51 dias de preparação precisa ser <span class="destaque">curto, visual e direto ao ponto</span>.</p>
+        <ul>
+          <li><strong>Formato:</strong> 1 página por tópico, no máximo. Use bullet points, nunca parágrafos longos. Se não cabe em 1 página, você está detalhando demais</li>
+          <li><strong>O que incluir:</strong> conceitos-chave, números de artigos (para leis), valores numéricos e percentuais, classificações, e o que a banca mais cobra naquele tema</li>
+          <li><strong>Código de cores:</strong> use uma cor para leis e artigos, outra para valores clínicos (sinais vitais, dosagens), e uma terceira para pegadinhas e exceções. Isso acelera a revisão visual</li>
+          <li><strong>Melhores temas para resumo:</strong> legislação do SUS (artigo por artigo da 8.080 e 8.142), etapas da SAE, vias de administração de medicamentos, classificação de emergências obstétricas, escalas de avaliação (Glasgow, Apgar, Braden)</li>
+          <li><strong>Quando NÃO fazer resumo:</strong> para tópicos com peso baixo no edital (Bloco I — assistência domiciliar, saúde do trabalhador isolada). Nesses temas, só faça questões — o custo-benefício de resumir não compensa</li>
+          <li><strong>Dica prática:</strong> faça o resumo DEPOIS de resolver questões do tema, não antes. As questões mostram o que a banca cobra — e isso é o que deve estar no seu resumo</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TECNICA 4 -->
+    <div class="tecnica">
+      <div class="tecnica-header">
+        <div class="tecnica-titulo">Técnica 4 — Flashcards: O Método Mais Rápido de Fixar Conteúdo</div>
+        <div class="tecnica-subtitulo">Uma informação por cartão, revisão todo dia</div>
+      </div>
+      <div class="tecnica-body">
+        <p>Flashcards são cartões com uma <strong>pergunta na frente</strong> e a <strong>resposta no verso</strong>. Cada cartão carrega um único fato. Parece simples, mas é uma das ferramentas com maior comprovação de eficácia para memorização de longo prazo.</p>
+        <ul>
+          <li><strong>Regra de ouro:</strong> uma informação por cartão. "Quais são os princípios do SUS?" é RUIM — muito amplo. "O que é o princípio da UNIVERSALIDADE no SUS?" é BOM — resposta curta e objetiva</li>
+          <li><strong>Melhores temas para flashcards:</strong> nomes de medicamentos + vias + dosagens, princípios e diretrizes do SUS, etapas da SAE (histórico, diagnóstico, planejamento, implementação, avaliação), diagnósticos NANDA mais cobrados, sinais de emergência obstétrica, valores de referência de sinais vitais</li>
+          <li><strong>Como criar:</strong> pode ser físico (fichas de papel) ou digital. Para digital, use o <strong>Anki</strong> — gratuito, disponível para celular e computador</li>
+          <li><strong>Vantagem do Anki:</strong> repetição espaçada automática. O app mostra com mais frequência os cartões que você está errando, e espaça os que você já domina. Você não precisa gerenciar isso manualmente</li>
+          <li><strong>Quando revisar:</strong> todo dia, nos tempos mortos — durante deslocamento, antes de dormir, ou nos primeiros 10 minutos do bloco de estudo como aquecimento. Não precisa de mesa ou silêncio</li>
+          <li><strong>Meta de volume:</strong> construa entre <span class="destaque">200 e 300 flashcards no total</span> até o final da semana 3. A partir daí, o foco passa a ser revisar, não criar novos</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TECNICA 5 -->
+    <div class="tecnica">
+      <div class="tecnica-header">
+        <div class="tecnica-titulo">Técnica 5 — Revisão Espaçada Adaptada para 51 Dias</div>
+        <div class="tecnica-subtitulo">Versão compacta do método para quem tem prazo curto</div>
+      </div>
+      <div class="tecnica-body">
+        <p>O método clássico de revisão espaçada (1-3-7-14-30 dias) não funciona perfeitamente quando você tem apenas 51 dias. O ciclo completo exigiria mais tempo do que você dispõe. A versão adaptada funciona assim:</p>
+        <ul>
+          <li><strong>Regra mínima:</strong> cada tópico precisa ser revisado <span class="destaque">pelo menos 3 vezes</span> antes da prova. Primeiro estudo completo → revisão em 5 a 7 dias → revisão final nas semanas 6 e 7</li>
+          <li><strong>O simulado semanal de domingo É sua ferramenta de revisão espaçada.</strong> Ele força você a recuperar da memória tudo que estudou na semana — e esse esforço de recuperação é o que fixa o conteúdo</li>
+          <li><strong>Caderno de erros:</strong> após cada simulado, anote os temas que errou. Esses temas ganham prioridade no próximo ciclo de revisão. O que você erra no simulado é o que precisa estudar mais, não o que você acerta</li>
+          <li><strong>Flashcards rodando todo dia = micro-revisões contínuas</strong> sem custo extra de tempo. Enquanto você revisa 30 flashcards em 10 minutos, está repassando conteúdo de 5 ou 6 temas diferentes</li>
+          <li><strong>Simulado Gabaritando (9 de agosto):</strong> é o último checkpoint antes da prova. O que você errar nesse simulado define a pauta dos 7 dias finais de estudo. Trate esse resultado como um diagnóstico — não como uma nota</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TECNICA 6 -->
+    <div class="tecnica">
+      <div class="tecnica-header">
+        <div class="tecnica-titulo">Técnica 6 — Técnica de Eliminação na Prova</div>
+        <div class="tecnica-subtitulo">Como aumentar suas chances mesmo quando não sabe a resposta</div>
+      </div>
+      <div class="tecnica-body">
+        <p>A prova do Instituto Ação tem <strong>4 alternativas (A, B, C, D)</strong>. Sem nenhuma técnica, sua chance de acertar no chute é de 25%. Mas com eliminação estratégica, você muda esse jogo:</p>
+        <ul>
+          <li><strong>Eliminar 1 alternativa errada</strong> sobe sua chance de 25% para 33%. <strong>Eliminar 2</strong> sobe para 50%. Sempre tente eliminar antes de escolher</li>
+          <li><strong>Palavras absolutas são armadilhas:</strong> alternativas com "sempre", "nunca", "todos", "nenhum", "exclusivamente" geralmente estão ERRADAS. Em enfermagem, quase nada é absoluto — há exceções para quase tudo</li>
+          <li><strong>Questões com "EXCETO" ou "INCORRETA":</strong> leia cada alternativa isoladamente e marque V (verdadeiro) ou F (falso) ao lado. A alternativa marcada diferente das demais é sua resposta. Essa técnica evita confusão mental</li>
+          <li><strong>Quando travar:</strong> releia o enunciado procurando palavras-chave que combinam com uma alternativa. O Instituto Ação frequentemente esconde a resposta nas palavras exatas da lei ou do protocolo</li>
+          <li><strong>Gestão de tempo:</strong> são 3h30 para 40 questões = <span class="destaque">5 minutos por questão</span>. Se travou após 3 minutos, marque sua melhor opção e siga. Volte no final se sobrar tempo</li>
+          <li><strong>Cartão-resposta:</strong> preencha a cada 10 questões, não no final. Isso evita o risco de ficar sem tempo com o cartão em branco — e também serve como pausa mental entre blocos</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FECHAMENTO -->
+    <div class="info-box verde">
+      <h3 class="verde">Regra de Ouro das Técnicas</h3>
+      <p>A técnica que dá <strong>mais retorno no menor tempo</strong> para esse tipo de prova (banca fácil/média, letra de lei, concurso municipal) é <span style="color:var(--ouro);font-weight:700">RESOLVER QUESTÕES COMENTADAS</span>.</p>
+      <p>Todo o resto — flashcards, resumos, videoaulas, revisão espaçada — existe para apoiar essa prática central. Se você só tem energia para fazer uma coisa hoje, faça <strong>40 questões comentadas</strong>. É o investimento com maior retorno por hora de estudo.</p>
+    </div>
+
+  </section>
+
+  <footer class="page-footer">
+    <p><span class="brand">Gabaritando</span> &bull; Concurso Formosa do Rio Preto - BA &bull; Enfermeiro(a) 20h e 40h &bull; Edital 01/2026</p>
+  </footer>
+
+</div>
+</body>
+</html>

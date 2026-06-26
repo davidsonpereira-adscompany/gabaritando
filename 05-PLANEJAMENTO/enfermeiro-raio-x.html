@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raio-X do Edital | Enfermeiro — Formosa do Rio Preto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--ouro:#FFB800;--preto:#0E0E1A;--ardosia:#1E1E2E;--laranja:#FF6B35;--branco:#F5F5F5;--cinza:#94A3B8;--verde:#22C55E;--vermelho:#EF4444;--azul:#3B82F6;--roxo:#8B5CF6}
+    body{font-family:'Montserrat',sans-serif;background:var(--preto);color:var(--branco);line-height:1.7}
+    .container{max-width:960px;margin:0 auto;padding:24px 20px}
+    .btn-voltar{display:inline-flex;align-items:center;gap:8px;background:var(--ouro);color:var(--preto);font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;transition:.2s}
+    .btn-voltar:hover{background:#e6a600;transform:translateY(-1px)}
+    .section{margin-bottom:48px}
+    .section-title{font-size:1.15rem;font-weight:800;color:var(--ouro);text-transform:uppercase;letter-spacing:1px;padding-bottom:12px;border-bottom:2px solid var(--ouro);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+    .section-num{background:var(--ouro);color:var(--preto);font-size:.7rem;font-weight:800;padding:4px 10px;border-radius:6px}
+    .info-box{background:var(--ardosia);border-radius:12px;padding:24px 28px;margin:20px 0;border-left:4px solid var(--ouro)}
+    .info-box.verde{border-left-color:var(--verde)}
+    .info-box.laranja{border-left-color:var(--laranja)}
+    .info-box.azul{border-left-color:var(--azul)}
+    .info-box.vermelho{border-left-color:var(--vermelho)}
+    .info-box h3{font-size:.85rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+    .info-box h3.ouro{color:var(--ouro)}
+    .info-box h3.verde{color:var(--verde)}
+    .info-box h3.laranja{color:var(--laranja)}
+    .info-box h3.azul{color:var(--azul)}
+    .info-box h3.vermelho{color:var(--vermelho)}
+    .info-box ul{list-style:none;padding:0}
+    .info-box li{padding:5px 0;font-size:.88rem;color:var(--branco)}
+    .info-box li strong{color:var(--ouro)}
+    .info-box li::before{content:"";display:inline-block;width:5px;height:5px;background:var(--laranja);border-radius:50%;margin-right:10px;vertical-align:middle}
+    .info-box p{font-size:.88rem;color:var(--branco);margin-bottom:8px}
+    .info-box p:last-child{margin-bottom:0}
+    .table-wrap{overflow-x:auto;margin:20px 0;border-radius:12px;border:1px solid rgba(255,255,255,.08)}
+    table{width:100%;border-collapse:collapse;font-size:.82rem}
+    thead{background:rgba(255,184,0,.12)}
+    th{color:var(--ouro);font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-size:.72rem;padding:12px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+    td{padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--branco)}
+    tr:hover{background:rgba(255,255,255,.02)}
+    .peso-alto{color:var(--vermelho);font-weight:700}
+    .peso-medio{color:var(--ouro);font-weight:600}
+    .peso-baixo{color:var(--cinza)}
+    .materia{background:var(--ardosia);border-radius:12px;margin:16px 0;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+    .materia-header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;background:rgba(255,184,0,.05)}
+    .materia-nome{font-size:.95rem;font-weight:700;color:#fff}
+    .materia-badge{font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:20px}
+    .materia-badge.critico{background:var(--vermelho);color:#fff}
+    .materia-badge.alto{background:var(--laranja);color:#fff}
+    .materia-badge.medio{background:var(--ouro);color:var(--preto)}
+    .materia-badge.base{background:var(--azul);color:#fff}
+    .materia-body{padding:16px 24px}
+    .materia-body ul{list-style:none;padding:0}
+    .materia-body li{padding:4px 0;font-size:.85rem;color:var(--cinza)}
+    .materia-body li::before{content:"";display:inline-block;width:4px;height:4px;background:var(--ouro);border-radius:50%;margin-right:8px;vertical-align:middle}
+    .materia-body li strong{color:var(--branco)}
+    .materia-body .destaque{color:var(--ouro);font-weight:600}
+    .dna-card{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+    .dna-item{background:var(--ardosia);border-radius:10px;padding:18px 20px;border:1px solid rgba(255,255,255,.06)}
+    .dna-item h4{font-size:.75rem;color:var(--ouro);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+    .dna-item p{font-size:.85rem;color:var(--branco);line-height:1.6}
+    .page-footer{text-align:center;padding:40px 0 24px;border-top:1px solid var(--ardosia);margin-top:48px}
+    .page-footer p{font-size:.78rem;color:var(--cinza)}
+    .brand{color:var(--ouro);font-weight:700}
+    @media(max-width:700px){
+      .container{padding:16px 14px}
+      .dna-card{grid-template-columns:1fr}
+      .materia-header{flex-direction:column;align-items:flex-start;gap:8px}
+      table{font-size:.75rem}
+      th,td{padding:8px 10px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="cronograma-enfermeiro-formosa.html" class="btn-voltar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Voltar à Central
+    </a>
+
+    <section class="section" style="margin-top:32px">
+      <h2 class="section-title"><span class="section-num">02</span> Raio-X Completo do Edital</h2>
+
+      <div class="materia">
+        <div class="materia-header">
+          <span class="materia-nome">Conhecimentos Específicos — Enfermagem (20 questões)</span>
+          <span class="materia-badge critico">50% da prova</span>
+        </div>
+        <div class="materia-body">
+          <h4 style="color:var(--vermelho);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;margin:12px 0 8px">Bloco A — Legislação e Gestão (previsão: 3-4 questões)</h4>
+          <ul>
+            <li><strong>Gerenciamento dos serviços de enfermagem</strong></li>
+            <li>Processo de trabalho em enfermagem</li>
+            <li class="destaque">Lei do Exercício Profissional (Lei 7.498/86) — funções privativas do enfermeiro</li>
+            <li>Atribuições da equipe de enfermagem conforme a lei</li>
+            <li class="destaque">Código de Ética de Enfermagem (Resolução COFEN 564/2017)</li>
+            <li>Conduta profissional segundo a Lei e o Código de Ética</li>
+          </ul>
+          <h4 style="color:var(--vermelho);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px">Bloco B — SAE e Processo de Enfermagem (previsão: 2-3 questões)</h4>
+          <ul>
+            <li class="destaque">Sistematização da Assistência de Enfermagem (SAE)</li>
+            <li>Coleta de dados e diagnóstico de enfermagem</li>
+            <li class="destaque">Taxonomia NANDA — diagnósticos de enfermagem</li>
+            <li>Classificação de Intervenções de Enfermagem (NIC)</li>
+            <li>Avaliação da Assistência de Enfermagem (NOC)</li>
+            <li>Documentação e registro</li>
+          </ul>
+          <h4 style="color:var(--vermelho);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px">Bloco C — SUS e Atenção Primária (previsão: 3-5 questões)</h4>
+          <ul>
+            <li class="destaque">Sistema Único de Saúde — princípios e diretrizes</li>
+            <li class="destaque">Lei 8.080/90 (Lei Orgânica da Saúde)</li>
+            <li class="destaque">Lei 8.142/90 (Participação da comunidade no SUS)</li>
+            <li>Decreto 7.508/2011</li>
+            <li>Pacto do SUS</li>
+            <li class="destaque">Conceitos da Atenção Primária em Saúde</li>
+            <li class="destaque">Política Nacional de Humanização</li>
+            <li>Normas e Diretrizes da Estratégia Saúde da Família</li>
+            <li>Modelos assistenciais</li>
+          </ul>
+          <h4 style="color:var(--vermelho);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px">Bloco D — Saúde do Trabalhador e Biossegurança (previsão: 1-2 questões)</h4>
+          <ul>
+            <li>Saúde do trabalhador e doenças ocupacionais</li>
+            <li class="destaque">Biossegurança</li>
+            <li class="destaque">Prevenção e controle de infecção hospitalar</li>
+            <li>Vigilância epidemiológica no contexto da enfermagem</li>
+          </ul>
+          <h4 style="color:var(--vermelho);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px">Bloco E — Clínica Médica e Assistência Sistêmica (previsão: 3-4 questões)</h4>
+          <ul>
+            <li>Assistência nas alterações dos sistemas: hematopoiético, gastrointestinal, cardiovascular, respiratório, renal, geniturinário, endócrino, nervoso e musculoesquelético</li>
+            <li class="destaque">Doenças crônicas — hipertensão e diabetes (HiperDia)</li>
+            <li>Imunodeficiência</li>
+            <li>Doenças infecciosas</li>
+            <li>Função imunológica, engenharia genética, células-tronco</li>
+            <li>Modelos de intervenção na saúde do idoso</li>
+          </ul>
+          <h4 style="color:var(--vermelho);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px">Bloco F — Cirúrgico e Perioperatório (previsão: 1-2 questões)</h4>
+          <ul>
+            <li>Assistência pré, trans e pós-operatória</li>
+            <li>Centro cirúrgico e central de esterilização</li>
+            <li>Cirurgias gerais, vasculares, ginecológicas, proctológicas, urológicas, neurocirurgia</li>
+            <li>Feridas cirúrgicas, cateteres, drenos, balanço hidroeletrolítico</li>
+          </ul>
+          <h4 style="color:var(--vermelho);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px">Bloco G — Urgência, Emergência e UTI (previsão: 2-3 questões)</h4>
+          <ul>
+            <li class="destaque">Alterações clínicas em urgência e emergência</li>
+            <li>Queimaduras</li>
+            <li>UTI adulto, pediátrico e neonatal</li>
+            <li>Intercorrências clínico-cirúrgicas em estado crítico</li>
+            <li class="destaque">Administração de medicamentos — princípios e cuidados</li>
+          </ul>
+          <h4 style="color:var(--vermelho);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px">Bloco H — Saúde da Mulher e Obstetrícia (previsão: 2-3 questões)</h4>
+          <ul>
+            <li>Anatomia dos órgãos genitais femininos</li>
+            <li class="destaque">Métodos anticoncepcionais (classificação, indicações, contraindicações)</li>
+            <li>Lesões colposcópicas, DST/IST</li>
+            <li class="destaque">Pré-natal, parto e puerpério — assistência completa</li>
+            <li>Parto normal, prematuro, prolongado, gemelar</li>
+            <li>Humanização do parto, doulas</li>
+            <li>Violência contra a mulher</li>
+            <li class="destaque">Urgências obstétricas — DPP, placenta prévia, pré-eclâmpsia, eclâmpsia</li>
+            <li>DHEG, diabetes gestacional, climatério</li>
+          </ul>
+          <h4 style="color:var(--vermelho);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;margin:16px 0 8px">Bloco I — Assistência Domiciliar e Autocuidado (previsão: 0-1 questão)</h4>
+          <ul>
+            <li>Enfermagem no programa de assistência domiciliar</li>
+            <li>Planejamento e promoção do ensino de autocuidado ao paciente</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="materia">
+        <div class="materia-header">
+          <span class="materia-nome">Língua Portuguesa (10 questões)</span>
+          <span class="materia-badge alto">25% da prova</span>
+        </div>
+        <div class="materia-body">
+          <ul>
+            <li class="destaque">Interpretação de textos denotativos e conotativos, intertextualidade</li>
+            <li>Acentuação gráfica e prosódica</li>
+            <li>Ortografia (novo acordo ortográfico)</li>
+            <li class="destaque">Uso da crase</li>
+            <li>Pontuação</li>
+            <li>Frase, oração e período</li>
+            <li>Análise morfossintática em contexto</li>
+            <li>Classificação silábica</li>
+            <li>Colocação pronominal (próclise, mesóclise, ênclise)</li>
+            <li class="destaque">Regência verbal e nominal</li>
+            <li class="destaque">Concordância verbal e nominal</li>
+            <li>Termos da oração (essenciais, integrantes, acessórios)</li>
+            <li>Período composto (coordenação e subordinação)</li>
+            <li>Semântica, sinônimos, antônimos, homônimos e parônimos</li>
+            <li>Elementos da comunicação e funções da linguagem</li>
+            <li>Morfologia (classes gramaticais)</li>
+            <li>Vozes verbais (ativa, passiva, reflexiva)</li>
+            <li>Figuras de linguagem</li>
+            <li>Estrutura e formação das palavras</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="materia">
+        <div class="materia-header">
+          <span class="materia-nome">Informática (5 questões)</span>
+          <span class="materia-badge base">12,5% da prova</span>
+        </div>
+        <div class="materia-body">
+          <ul>
+            <li class="destaque">Windows 10 (pastas, diretórios, atalhos, área de trabalho)</li>
+            <li class="destaque">Word 2019 (edição, formatação, tabelas, cabeçalhos, inserção de objetos)</li>
+            <li class="destaque">Excel 2019 (planilhas, fórmulas, funções, gráficos, macros)</li>
+            <li>Correio eletrônico (envio, anexação)</li>
+            <li>Internet (navegação, URL, links, busca)</li>
+            <li>MS Teams (chats, chamadas, reuniões, gravação)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="materia">
+        <div class="materia-header">
+          <span class="materia-nome">Conhecimentos Gerais / Atualidades (5 questões)</span>
+          <span class="materia-badge base">12,5% da prova</span>
+        </div>
+        <div class="materia-body">
+          <ul>
+            <li class="destaque">Cenário político, econômico e social do Brasil e do Mundo</li>
+            <li>Organização social e cultural</li>
+            <li>Saúde e meio ambiente</li>
+            <li>Política e economia brasileira</li>
+            <li>Conflitos nacionais e mundiais (últimos 2 anos — 2024-2026)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <p><span class="brand">Gabaritando</span> &bull; Concurso Formosa do Rio Preto - BA &bull; Enfermeiro(a) 20h e 40h &bull; Edital 01/2026</p>
+    </footer>
+  </div>
+</body>
+</html>

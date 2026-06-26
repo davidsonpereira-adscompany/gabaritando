@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cronograma Semanal | Enfermeiro — Formosa do Rio Preto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--ouro:#FFB800;--preto:#0E0E1A;--ardosia:#1E1E2E;--laranja:#FF6B35;--branco:#F5F5F5;--cinza:#94A3B8;--verde:#22C55E;--vermelho:#EF4444;--azul:#3B82F6;--roxo:#8B5CF6}
+    body{font-family:'Montserrat',sans-serif;background:var(--preto);color:var(--branco);line-height:1.7}
+    .container{max-width:960px;margin:0 auto;padding:24px 20px}
+    .btn-voltar{display:inline-flex;align-items:center;gap:8px;background:var(--ouro);color:var(--preto);font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;transition:.2s}
+    .btn-voltar:hover{background:#e6a600;transform:translateY(-1px)}
+    .section{margin-bottom:48px}
+    .section-title{font-size:1.15rem;font-weight:800;color:var(--ouro);text-transform:uppercase;letter-spacing:1px;padding-bottom:12px;border-bottom:2px solid var(--ouro);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+    .section-num{background:var(--ouro);color:var(--preto);font-size:.7rem;font-weight:800;padding:4px 10px;border-radius:6px}
+    .info-box{background:var(--ardosia);border-radius:12px;padding:24px 28px;margin:20px 0;border-left:4px solid var(--ouro)}
+    .info-box h3{font-size:.85rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+    .info-box h3.ouro{color:var(--ouro)}
+    .info-box ul{list-style:none;padding:0}
+    .info-box li{padding:5px 0;font-size:.88rem;color:var(--branco)}
+    .info-box li strong{color:var(--ouro)}
+    .info-box li::before{content:"";display:inline-block;width:5px;height:5px;background:var(--laranja);border-radius:50%;margin-right:10px;vertical-align:middle}
+    .semana{background:var(--ardosia);border-radius:14px;margin:20px 0;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+    .semana-header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:rgba(255,184,0,.08);border-bottom:1px solid rgba(255,255,255,.06)}
+    .semana-titulo{font-size:.95rem;font-weight:800;color:#fff}
+    .semana-datas{font-size:.75rem;color:var(--cinza);font-weight:500}
+    .semana-foco{font-size:.72rem;font-weight:700;color:var(--ouro);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+    .semana-body{padding:18px 24px}
+    .dia{display:grid;grid-template-columns:80px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    .dia:last-child{border-bottom:none}
+    .dia-label{font-size:.78rem;font-weight:700;color:var(--laranja)}
+    .dia-content{font-size:.85rem;color:var(--branco);line-height:1.6}
+    .dia-content .tag{display:inline-block;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:6px;vertical-align:middle}
+    .tag-esp{background:rgba(239,68,68,.15);color:var(--vermelho)}
+    .tag-lp{background:rgba(139,92,246,.15);color:var(--roxo)}
+    .tag-info{background:rgba(59,130,246,.15);color:var(--azul)}
+    .tag-cg{background:rgba(34,197,94,.15);color:var(--verde)}
+    .tag-rev{background:rgba(255,184,0,.15);color:var(--ouro)}
+    .tag-sim{background:rgba(255,107,53,.2);color:var(--laranja)}
+    .tag-quest{background:rgba(255,255,255,.1);color:#fff;font-weight:700}
+    .page-footer{text-align:center;padding:40px 0 24px;border-top:1px solid var(--ardosia);margin-top:48px}
+    .page-footer p{font-size:.78rem;color:var(--cinza)}
+    .brand{color:var(--ouro);font-weight:700}
+    @media(max-width:700px){
+      .container{padding:16px 14px}
+      .dia{grid-template-columns:65px 1fr;gap:8px}
+      .semana-header{flex-direction:column;align-items:flex-start;gap:4px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <a href="cronograma-enfermeiro-formosa.html" class="btn-voltar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Voltar a Central
+    </a>
+
+    <section class="section">
+      <h2 class="section-title"><span class="section-num">07</span> Cronograma de Estudos — Semana a Semana</h2>
+
+      <div class="info-box">
+        <h3 class="ouro">Legenda</h3>
+        <ul>
+          <li><span class="tag tag-esp">ESP</span> Conhecimentos Específicos (Bloco 1) &nbsp; <span class="tag tag-lp">LP</span> Língua Portuguesa (Bloco 2) &nbsp; <span class="tag tag-info">INFO</span> Informática (Bloco 2) &nbsp; <span class="tag tag-cg">CG</span> Conhec. Gerais (Bloco 2)</li>
+          <li><span class="tag tag-rev">REV</span> Revisão &nbsp; <span class="tag tag-sim">SIM</span> Simulado &nbsp; <span class="tag tag-quest">Q</span> Questões comentadas (Bloco 3)</li>
+          <li><strong>Bloco 3 (questões)</strong> aparece explicitamente em cada dia — 1h30-2h de questões comentadas sobre os temas do dia</li>
+        </ul>
+      </div>
+
+      <!-- SEMANA 1 -->
+      <div class="semana">
+        <div class="semana-header">
+          <div>
+            <div class="semana-titulo">Semana 1 — SUS + Legislação de Enfermagem</div>
+            <div class="semana-foco">Prioridade 1 e 2 — os blocos que mais caem na prova</div>
+          </div>
+          <span class="semana-datas">26/06 a 02/07</span>
+        </div>
+        <div class="semana-body">
+          <div class="dia"><div class="dia-label">Sex 26/06</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Lei 8.080/90 — princípios do SUS, diretrizes, competências &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Interpretação de texto (tipos de texto, inferência, coesão) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Sáb 27/06</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Lei 8.142/90 — conferências, conselhos de saúde + Decreto 7.508/2011 &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Concordância verbal e nominal &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia" style="background:rgba(255,107,53,.06);border-radius:8px;padding:12px"><div class="dia-label" style="color:var(--laranja)">Dom 28/06</div><div class="dia-content"><span class="tag tag-sim">SIM</span> <strong>Simulado 1</strong> — 40 questões cronometradas (Bloco 2) + Correção detalhada com questões comentadas (Bloco 3) &nbsp;&bull;&nbsp; <span class="tag tag-rev">REV</span> Revisão rápida: Leis 8.080 e 8.142 (Bloco 1)</div></div>
+          <div class="dia"><div class="dia-label">Seg 29/06</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Pacto do SUS + Política Nacional de Humanização + Modelos Assistenciais &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Regência verbal e nominal &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Ter 30/06</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Atenção Primária — conceitos, atributos + Estratégia Saúde da Família (ESF) &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Uso da crase &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Qua 01/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Lei 7.498/86 — funções privativas do enfermeiro, atribuições da equipe &nbsp;&bull;&nbsp; <span class="tag tag-info">INFO</span> Windows 10 + Word 2019 &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Qui 02/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Código de Ética (COFEN 564/2017) — princípios, deveres, proibições &nbsp;&bull;&nbsp; <span class="tag tag-cg">CG</span> Cenário político e econômico Brasil 2024-2026 &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+        </div>
+      </div>
+
+      <!-- SEMANA 2 -->
+      <div class="semana">
+        <div class="semana-header">
+          <div>
+            <div class="semana-titulo">Semana 2 — SAE + Saúde da Mulher</div>
+            <div class="semana-foco">Prioridade 2 e 3 — Processo de Enfermagem + Obstetrícia</div>
+          </div>
+          <span class="semana-datas">03/07 a 09/07</span>
+        </div>
+        <div class="semana-body">
+          <div class="dia"><div class="dia-label">Sex 03/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> SAE — etapas, coleta de dados, diagnóstico de enfermagem &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Pontuação (vírgula, ponto e vírgula, dois pontos) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Sáb 04/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> NANDA, NIC e NOC — taxonomias, classificação de intervenções e resultados &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Colocação pronominal (próclise, mesóclise, ênclise) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia" style="background:rgba(255,107,53,.06);border-radius:8px;padding:12px"><div class="dia-label" style="color:var(--laranja)">Dom 05/07</div><div class="dia-content"><span class="tag tag-sim">SIM</span> <strong>Simulado 2</strong> — 40 questões cronometradas + Correção detalhada &nbsp;&bull;&nbsp; <span class="tag tag-rev">REV</span> Revisão: SAE + SUS (flashcards e resumos)</div></div>
+          <div class="dia"><div class="dia-label">Seg 06/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Saúde da Mulher — pré-natal (consultas, exames, classificação de risco) &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Morfologia (classes gramaticais variáveis e invariáveis) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Ter 07/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Assistência ao parto — mecanismo, fases clínicas, parto normal, prematuro, gemelar &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Vozes verbais (ativa, passiva, reflexiva) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Qua 08/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Urgências obstétricas — DPP, placenta prévia, pré-eclâmpsia, eclâmpsia, DHEG &nbsp;&bull;&nbsp; <span class="tag tag-info">INFO</span> Excel 2019 (fórmulas, funções, gráficos) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Qui 09/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Anticoncepcionais + Humanização do parto + Violência contra a mulher &nbsp;&bull;&nbsp; <span class="tag tag-cg">CG</span> Saúde pública e meio ambiente (atualidades) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+        </div>
+      </div>
+
+      <!-- SEMANA 3 -->
+      <div class="semana">
+        <div class="semana-header">
+          <div>
+            <div class="semana-titulo">Semana 3 — Clínica Médica + Doenças Crônicas</div>
+            <div class="semana-foco">Prioridade 4 — HAS, DM, Sistemas Orgânicos, Saúde do Idoso</div>
+          </div>
+          <span class="semana-datas">10/07 a 16/07</span>
+        </div>
+        <div class="semana-body">
+          <div class="dia"><div class="dia-label">Sex 10/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Hipertensão arterial — HiperDia, classificação, medicamentos, assistência &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Interpretação de texto (prática com questões de bancas similares) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Sáb 11/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Diabetes mellitus — tipos, insulinoterapia, complicações agudas e crônicas &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Concordância verbal e nominal (reforço) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia" style="background:rgba(255,107,53,.06);border-radius:8px;padding:12px"><div class="dia-label" style="color:var(--laranja)">Dom 12/07</div><div class="dia-content"><span class="tag tag-sim">SIM</span> <strong>Simulado 3</strong> — 40 questões cronometradas + Correção detalhada &nbsp;&bull;&nbsp; <span class="tag tag-rev">REV</span> Revisão: SUS + Saúde da Mulher + SAE</div></div>
+          <div class="dia"><div class="dia-label">Seg 13/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Sistemas cardiovascular e respiratório — alterações clínicas e assistência &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Regência + Crase (reforço com questões) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Ter 14/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Sistemas gastrointestinal, renal e endócrino — patologias e cuidados &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Semântica (sinônimos, antônimos, homônimos, parônimos) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Qua 15/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Saúde do idoso — modelos de intervenção, doenças prevalentes &nbsp;&bull;&nbsp; <span class="tag tag-info">INFO</span> Internet, e-mail, MS Teams &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Qui 16/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Doenças infecciosas — dengue, TB, hanseníase, vigilância epidemiológica &nbsp;&bull;&nbsp; <span class="tag tag-cg">CG</span> Conflitos mundiais e economia global 2024-2026 &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+        </div>
+      </div>
+
+      <!-- SEMANA 4 -->
+      <div class="semana">
+        <div class="semana-header">
+          <div>
+            <div class="semana-titulo">Semana 4 — Urgência/Emergência + Farmacologia</div>
+            <div class="semana-foco">Prioridade 5 — UTI, Medicamentos, Biossegurança</div>
+          </div>
+          <span class="semana-datas">17/07 a 23/07</span>
+        </div>
+        <div class="semana-body">
+          <div class="dia"><div class="dia-label">Sex 17/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Urgência e emergência — classificação de risco, PCR/RCP, choque, trauma &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Período composto (coordenação e subordinação) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Sáb 18/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> UTI adulto, pediátrico e neonatal — cuidados críticos, ventilação mecânica &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Figuras de linguagem + Funções da linguagem &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia" style="background:rgba(255,107,53,.06);border-radius:8px;padding:12px"><div class="dia-label" style="color:var(--laranja)">Dom 19/07</div><div class="dia-content"><span class="tag tag-sim">SIM</span> <strong>Simulado 4</strong> — 40 questões cronometradas + Correção detalhada &nbsp;&bull;&nbsp; <span class="tag tag-rev">REV</span> Revisão: temas de maior erro nos simulados anteriores</div></div>
+          <div class="dia"><div class="dia-label">Seg 20/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Administração de medicamentos — vias, cálculos, diluição, interações &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Acentuação gráfica + Ortografia (novo acordo) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Ter 21/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Biossegurança — precauções padrão, EPIs, NR-32, resíduos &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Termos da oração (essenciais, integrantes, acessórios) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Qua 22/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Controle de infecção hospitalar — esterilização, desinfecção, central de material &nbsp;&bull;&nbsp; <span class="tag tag-info">INFO</span> Revisão completa de Informática (Word, Excel, Windows, Teams) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Qui 23/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> DST/IST — diagnóstico, tratamento, notificação compulsória &nbsp;&bull;&nbsp; <span class="tag tag-cg">CG</span> Política brasileira, reformas, eleições (atualidades) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+        </div>
+      </div>
+
+      <!-- SEMANA 5 -->
+      <div class="semana">
+        <div class="semana-header">
+          <div>
+            <div class="semana-titulo">Semana 5 — Cirúrgico + Temas Complementares</div>
+            <div class="semana-foco">Prioridade 7 — Perioperatório, Feridas, Queimaduras + Reforço dos Temas Pesados</div>
+          </div>
+          <span class="semana-datas">24/07 a 30/07</span>
+        </div>
+        <div class="semana-body">
+          <div class="dia"><div class="dia-label">Sex 24/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Perioperatório — assistência pré, trans e pós-operatória, centro cirúrgico &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Interpretação de texto (terceira rodada — questões de bancas similares) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Sáb 25/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Feridas, curativos, drenos, cateteres, sondagens, balanço hidroeletrolítico &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Concordância + Regência + Crase (bateria de questões mistas) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia" style="background:rgba(255,107,53,.06);border-radius:8px;padding:12px"><div class="dia-label" style="color:var(--laranja)">Dom 26/07</div><div class="dia-content"><span class="tag tag-sim">SIM</span> <strong>Simulado 5</strong> — 40 questões cronometradas + Correção detalhada &nbsp;&bull;&nbsp; <span class="tag tag-rev">REV</span> Revisão: SUS + Legislação (reforço dos blocos de maior peso)</div></div>
+          <div class="dia"><div class="dia-label">Seg 27/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Queimaduras + Assistência domiciliar + Autocuidado &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Estrutura e formação das palavras + Classificação silábica &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Ter 28/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> Saúde do trabalhador + Doenças ocupacionais + Imunologia &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Elementos da comunicação + Funções da linguagem &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Qua 29/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> <strong>Revisão:</strong> SUS + SAE (repassar leis secas e diagnósticos NANDA) &nbsp;&bull;&nbsp; <span class="tag tag-info">INFO</span> Questões de Informática (bateria focada) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Qui 30/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> <strong>Revisão:</strong> Saúde da Mulher + HAS/DM (repassar protocolos e assistência) &nbsp;&bull;&nbsp; <span class="tag tag-cg">CG</span> Questões de Conhecimentos Gerais (bateria focada) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+        </div>
+      </div>
+
+      <!-- SEMANA 6 -->
+      <div class="semana">
+        <div class="semana-header">
+          <div>
+            <div class="semana-titulo">Semana 6 — Revisão Intensiva</div>
+            <div class="semana-foco">Todas as prioridades — Consolidação + Simulados pesados</div>
+          </div>
+          <span class="semana-datas">31/07 a 06/08</span>
+        </div>
+        <div class="semana-body">
+          <div class="dia"><div class="dia-label">Sex 31/07</div><div class="dia-content"><span class="tag tag-esp">ESP</span> <strong>Revisão:</strong> SUS completo (8.080, 8.142, Decreto 7.508, PNAB, ESF, Humanização) &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Revisão geral de Português (pontos fracos identificados nos simulados) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Sáb 01/08</div><div class="dia-content"><span class="tag tag-esp">ESP</span> <strong>Revisão:</strong> Legislação (Lei 7.498 + Código de Ética) + SAE/NANDA/NIC/NOC &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Bateria final: 30 questões de LP de bancas similares &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia" style="background:rgba(255,107,53,.06);border-radius:8px;padding:12px"><div class="dia-label" style="color:var(--laranja)">Dom 02/08</div><div class="dia-content"><span class="tag tag-sim">SIM</span> <strong>Simulado 6</strong> — 40 questões cronometradas + Correção detalhada &nbsp;&bull;&nbsp; <span class="tag tag-rev">REV</span> Revisão dos erros acumulados dos 5 simulados anteriores</div></div>
+          <div class="dia"><div class="dia-label">Seg 03/08</div><div class="dia-content"><span class="tag tag-esp">ESP</span> <strong>Revisão:</strong> Saúde da Mulher completa + Urgências obstétricas &nbsp;&bull;&nbsp; <span class="tag tag-lp">LP</span> Revisão: Interpretação + Concordância (temas de maior peso) &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Ter 04/08</div><div class="dia-content"><span class="tag tag-esp">ESP</span> <strong>Revisão:</strong> Clínica Médica (HAS, DM, sistemas) + Urgência/Emergência &nbsp;&bull;&nbsp; <span class="tag tag-info">INFO</span> Revisão final: 15 questões de Informática &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Qua 05/08</div><div class="dia-content"><span class="tag tag-esp">ESP</span> <strong>Revisão:</strong> Biossegurança + Infecção Hospitalar + Farmacologia &nbsp;&bull;&nbsp; <span class="tag tag-cg">CG</span> Revisão final: 15 questões de Conhecimentos Gerais &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+          <div class="dia"><div class="dia-label">Qui 06/08</div><div class="dia-content"><span class="tag tag-esp">ESP</span> <strong>Revisão:</strong> Perioperatório + Doenças Infecciosas + DST/IST &nbsp;&bull;&nbsp; <span class="tag tag-rev">REV</span> Leitura de resumos e flashcards de todos os temas &nbsp;&bull;&nbsp; <span class="tag tag-quest">Q</span> 30-40 questões comentadas dos temas do dia</div></div>
+        </div>
+      </div>
+
+      <!-- SEMANA 7 -->
+      <div class="semana" style="border-color:var(--ouro)">
+        <div class="semana-header" style="background:rgba(255,184,0,.15)">
+          <div>
+            <div class="semana-titulo">Semana 7 — Reta Final</div>
+            <div class="semana-foco">Calibragem + Simulado Gabaritando + Aulão + Prova</div>
+          </div>
+          <span class="semana-datas">07/08 a 16/08</span>
+        </div>
+        <div class="semana-body">
+          <div class="dia"><div class="dia-label">Sex 07/08</div><div class="dia-content"><span class="tag tag-rev">REV</span> Revisão dos erros dos 6 simulados — estudar apenas os pontos fracos identificados (3-4h)</div></div>
+          <div class="dia"><div class="dia-label">Sáb 08/08</div><div class="dia-content"><span class="tag tag-rev">REV</span> Revisão + preparação para o simulado presencial (3-4h)</div></div>
+          <div class="dia" style="background:rgba(255,107,53,.1);border-radius:8px;padding:12px"><div class="dia-label" style="color:var(--ouro)">Dom 09/08</div><div class="dia-content"><span class="tag tag-sim">SIM</span> <strong>SIMULADO GABARITANDO</strong> — presencial em Formosa, para todos os cargos. Tratar como prova real.</div></div>
+          <div class="dia"><div class="dia-label">Seg 10/08</div><div class="dia-content"><span class="tag tag-rev">REV</span> Correção do Simulado Gabaritando — mapear lacunas, definir os 2-3 temas para reforço final (4h)</div></div>
+          <div class="dia"><div class="dia-label">Ter 11/08</div><div class="dia-content"><span class="tag tag-rev">REV</span> Revisão cirúrgica: tema fraco #1 identificado no Simulado Gabaritando (3-4h)</div></div>
+          <div class="dia"><div class="dia-label">Qua 12/08</div><div class="dia-content"><span class="tag tag-rev">REV</span> Revisão cirúrgica: tema fraco #2 + releitura das Leis 8.080 e 8.142 (3-4h)</div></div>
+          <div class="dia"><div class="dia-label">Qui 13/08</div><div class="dia-content"><span class="tag tag-rev">REV</span> Revisão leve: flashcards, resumos visuais, leis secas — <strong>nada novo</strong> (3h)</div></div>
+          <div class="dia"><div class="dia-label">Sex 14/08</div><div class="dia-content"><span class="tag tag-rev">REV</span> Revisão leve: reler anotações dos erros de todos os simulados + descansar (2-3h)</div></div>
+          <div class="dia" style="background:rgba(34,197,94,.1);border-radius:8px;padding:12px"><div class="dia-label" style="color:var(--verde)">Sáb 15/08</div><div class="dia-content"><span class="tag tag-sim">SIM</span> <strong>AULÃO GRATUITO GABARITANDO</strong> — revisão presencial de todos os tópicos em Formosa</div></div>
+          <div class="dia" style="background:rgba(255,184,0,.15);border-radius:8px;padding:12px"><div class="dia-label" style="color:var(--ouro)">Dom 16/08</div><div class="dia-content"><strong style="color:var(--ouro);font-size:1rem">DIA DA PROVA</strong> — chegar cedo, documento com foto, caneta azul ou preta, confiança. Você estudou 255 horas e resolveu 2.000 questões. Vai gabaritar.</div></div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="page-footer">
+      <p><span class="brand">Gabaritando</span> &bull; Concurso Formosa do Rio Preto - BA &bull; Enfermeiro(a) 20h e 40h &bull; Edital 01/2026</p>
+    </footer>
+
+  </div>
+</body>
+</html>

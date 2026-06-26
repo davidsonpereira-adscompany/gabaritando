@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central de Estudos — Enfermeiro | Concurso Formosa do Rio Preto</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ouro:#FFB800;
+  --preto:#0E0E1A;
+  --ardosia:#1E1E2E;
+  --laranja:#FF6B35;
+  --branco:#F5F5F5;
+  --cinza:#94A3B8;
+  --verde:#22C55E;
+  --vermelho:#EF4444;
+  --azul:#3B82F6;
+  --roxo:#8B5CF6;
+}
+body{font-family:'Montserrat',sans-serif;background:var(--preto);color:var(--branco);line-height:1.7;min-height:100vh}
+.container{max-width:920px;margin:0 auto;padding:32px 20px}
+
+/* HEADER */
+.page-header{text-align:center;padding:48px 0 20px}
+.page-header h1{font-size:1.6rem;font-weight:900;color:var(--ouro);text-transform:uppercase;letter-spacing:2px}
+.page-header .subtitle{font-size:.95rem;color:var(--cinza);margin-top:10px;font-weight:500}
+.badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.badge{display:inline-block;font-size:.72rem;font-weight:700;padding:6px 16px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
+.badge-laranja{background:var(--laranja);color:#fff}
+.badge-verde{background:var(--verde);color:var(--preto)}
+.badge-azul{background:var(--azul);color:#fff}
+
+/* SEPARADOR */
+.sep{width:60px;height:3px;background:var(--ouro);margin:28px auto 12px;border-radius:4px}
+.hub-label{text-align:center;font-size:.78rem;font-weight:700;color:var(--cinza);text-transform:uppercase;letter-spacing:2px;margin-bottom:24px}
+
+/* GRID DE CARDS */
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{display:flex;flex-direction:column;background:var(--ardosia);border-radius:16px;padding:28px 24px;text-decoration:none;color:var(--branco);border:2px solid rgba(255,255,255,.06);transition:all .25s;position:relative;overflow:hidden}
+.card:hover{border-color:var(--ouro);transform:translateY(-3px);box-shadow:0 8px 32px rgba(255,184,0,.12)}
+.card-num{font-size:2.8rem;font-weight:900;color:rgba(255,184,0,.1);position:absolute;top:10px;right:16px;line-height:1;pointer-events:none}
+.card-title{font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:8px;line-height:1.3;padding-right:36px}
+.card-desc{font-size:.82rem;color:var(--cinza);line-height:1.55;flex-grow:1}
+.card-arrow{display:flex;align-items:center;gap:6px;margin-top:16px;font-size:.72rem;font-weight:700;color:var(--ouro);text-transform:uppercase;letter-spacing:.5px}
+.card-arrow svg{width:16px;height:16px;transition:transform .2s}
+.card:hover .card-arrow svg{transform:translateX(4px)}
+
+/* BORDAS COLORIDAS NO TOPO */
+.card-vermelho{border-top:3px solid var(--vermelho)}
+.card-laranja{border-top:3px solid var(--laranja)}
+.card-azul{border-top:3px solid var(--azul)}
+.card-ouro{border-top:3px solid var(--ouro)}
+.card-verde{border-top:3px solid var(--verde)}
+.card-roxo{border-top:3px solid var(--roxo)}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:40px 0 24px;margin-top:40px}
+.page-footer p{font-size:.78rem;color:var(--cinza)}
+.brand{color:var(--ouro);font-weight:700}
+
+@media(max-width:640px){
+  .container{padding:20px 16px}
+  .page-header h1{font-size:1.2rem;letter-spacing:1px}
+  .cards-grid{grid-template-columns:1fr;gap:12px}
+  .card{padding:24px 20px}
+  .card-num{font-size:2.2rem}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header class="page-header">
+  <h1>Plano de Estudos — Enfermeiro</h1>
+  <p class="subtitle">Concurso Prefeitura de Formosa do Rio Preto - BA &bull; Edital 01/2026</p>
+  <div class="badges">
+    <span class="badge badge-laranja">Prova 16/08/2026</span>
+    <span class="badge badge-verde">42 vagas</span>
+    <span class="badge badge-azul">~51 dias de preparo</span>
+  </div>
+</header>
+
+<div class="sep"></div>
+<p class="hub-label">Selecione um módulo</p>
+
+<div class="cards-grid">
+
+  <a href="enfermeiro-visao-geral.html" class="card card-verde">
+    <span class="card-num">01</span>
+    <div class="card-title">Visão Geral do Cargo</div>
+    <div class="card-desc">42 vagas, salários, estrutura da prova, distribuição de questões e a matemática da aprovação.</div>
+    <div class="card-arrow">Acessar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+  </a>
+
+  <a href="enfermeiro-raio-x.html" class="card card-vermelho">
+    <span class="card-num">02</span>
+    <div class="card-title">Raio-X do Edital</div>
+    <div class="card-desc">Todos os tópicos do edital organizados em 9 blocos temáticos com previsão de questões por assunto.</div>
+    <div class="card-arrow">Acessar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+  </a>
+
+  <a href="enfermeiro-dna-banca.html" class="card card-azul">
+    <span class="card-num">03</span>
+    <div class="card-title">DNA da Banca</div>
+    <div class="card-desc">Perfil do Instituto Ação: nível de dificuldade, estilo de questões, pegadinhas e onde encontrar provas anteriores.</div>
+    <div class="card-arrow">Acessar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+  </a>
+
+  <a href="enfermeiro-prioridades.html" class="card card-laranja">
+    <span class="card-num">04</span>
+    <div class="card-title">Matriz de Prioridades</div>
+    <div class="card-desc">Os 8 blocos temáticos ranqueados por peso na prova e tempo sugerido. O que estudar primeiro.</div>
+    <div class="card-arrow">Acessar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+  </a>
+
+  <a href="enfermeiro-tecnicas.html" class="card card-roxo">
+    <span class="card-num">05</span>
+    <div class="card-title">Técnicas de Estudo</div>
+    <div class="card-desc">Como estudar em tempo curto: questões vs. teoria, flashcards, videoaula vs. PDF, revisão espaçada e eliminação na prova.</div>
+    <div class="card-arrow">Acessar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+  </a>
+
+  <a href="enfermeiro-rotina.html" class="card card-ouro">
+    <span class="card-num">06</span>
+    <div class="card-title">Rotina Diária</div>
+    <div class="card-desc">Estrutura dos 3 blocos (4h30-5h/dia), formato do domingo com simulado e volume total de estudo.</div>
+    <div class="card-arrow">Acessar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+  </a>
+
+  <a href="enfermeiro-cronograma.html" class="card card-ouro">
+    <span class="card-num">07</span>
+    <div class="card-title">Cronograma Semanal</div>
+    <div class="card-desc">7 semanas detalhadas dia a dia: Bloco 1 (específica), Bloco 2 (complementar), simulados aos domingos.</div>
+    <div class="card-arrow">Acessar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+  </a>
+
+  <a href="enfermeiro-estrategia.html" class="card card-verde">
+    <span class="card-num">08</span>
+    <div class="card-title">Estratégia Final</div>
+    <div class="card-desc">10 regras de ouro, distribuição de tempo por disciplina e onde resolver questões para treino.</div>
+    <div class="card-arrow">Acessar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+  </a>
+
+</div>
+
+<footer class="page-footer">
+  <p><span class="brand">Gabaritando</span> &bull; Concurso Formosa do Rio Preto - BA &bull; Enfermeiro(a) 20h e 40h &bull; Edital 01/2026</p>
+</footer>
+
+</div>
+
+</body>
+</html>

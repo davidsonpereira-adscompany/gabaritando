@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotina Diária | Enfermeiro — Formosa do Rio Preto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--ouro:#FFB800;--preto:#0E0E1A;--ardosia:#1E1E2E;--laranja:#FF6B35;--branco:#F5F5F5;--cinza:#94A3B8;--verde:#22C55E;--vermelho:#EF4444;--azul:#3B82F6;--roxo:#8B5CF6}
+    body{font-family:'Montserrat',sans-serif;background:var(--preto);color:var(--branco);line-height:1.7}
+    .container{max-width:960px;margin:0 auto;padding:24px 20px}
+    .btn-voltar{display:inline-flex;align-items:center;gap:8px;background:var(--ouro);color:var(--preto);font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;transition:.2s}
+    .btn-voltar:hover{background:#e6a600;transform:translateY(-1px)}
+    .section{margin-bottom:48px}
+    .section-title{font-size:1.15rem;font-weight:800;color:var(--ouro);text-transform:uppercase;letter-spacing:1px;padding-bottom:12px;border-bottom:2px solid var(--ouro);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+    .section-num{background:var(--ouro);color:var(--preto);font-size:.7rem;font-weight:800;padding:4px 10px;border-radius:6px}
+    .info-box{background:var(--ardosia);border-radius:12px;padding:24px 28px;margin:20px 0;border-left:4px solid var(--ouro)}
+    .info-box.verde{border-left-color:var(--verde)}
+    .info-box.laranja{border-left-color:var(--laranja)}
+    .info-box.azul{border-left-color:var(--azul)}
+    .info-box.vermelho{border-left-color:var(--vermelho)}
+    .info-box h3{font-size:.85rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+    .info-box h3.ouro{color:var(--ouro)}
+    .info-box h3.verde{color:var(--verde)}
+    .info-box h3.laranja{color:var(--laranja)}
+    .info-box h3.azul{color:var(--azul)}
+    .info-box h3.vermelho{color:var(--vermelho)}
+    .info-box ul{list-style:none;padding:0}
+    .info-box li{padding:5px 0;font-size:.88rem;color:var(--branco)}
+    .info-box li strong{color:var(--ouro)}
+    .info-box li::before{content:"";display:inline-block;width:5px;height:5px;background:var(--laranja);border-radius:50%;margin-right:10px;vertical-align:middle}
+    .info-box p{font-size:.88rem;color:var(--branco);margin-bottom:8px}
+    .info-box p:last-child{margin-bottom:0}
+    .table-wrap{overflow-x:auto;margin:20px 0;border-radius:12px;border:1px solid rgba(255,255,255,.08)}
+    table{width:100%;border-collapse:collapse;font-size:.82rem}
+    thead{background:rgba(255,184,0,.12)}
+    th{color:var(--ouro);font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-size:.72rem;padding:12px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+    td{padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--branco)}
+    tr:hover{background:rgba(255,255,255,.02)}
+    .peso-alto{color:var(--vermelho);font-weight:700}
+    .peso-medio{color:var(--ouro);font-weight:600}
+    .peso-baixo{color:var(--cinza)}
+    .page-footer{text-align:center;padding:40px 0 24px;border-top:1px solid var(--ardosia);margin-top:48px}
+    .page-footer p{font-size:.78rem;color:var(--cinza)}
+    .brand{color:var(--ouro);font-weight:700}
+    @media(max-width:700px){
+      .container{padding:16px 14px}
+      table{font-size:.75rem}
+      th,td{padding:8px 10px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="cronograma-enfermeiro-formosa.html" class="btn-voltar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Voltar à Central
+    </a>
+
+    <section class="section" style="margin-top:32px">
+      <h2 class="section-title"><span class="section-num">06</span> Rotina Diária — 4h30 a 5h</h2>
+
+      <div class="info-box laranja">
+        <h3 class="laranja">Estrutura dos 3 Blocos</h3>
+        <p>A rotina se divide em <strong>3 blocos fixos</strong>, todos os dias, sem dia de descanso. O tempo é curto — bata a meta do dia e depois descanse.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Bloco</th>
+              <th>Tempo</th>
+              <th>Conteúdo</th>
+              <th>Regra</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Bloco 1</strong></td>
+              <td class="peso-alto">1h30</td>
+              <td><strong>Específica de Enfermagem</strong> — tema do dia conforme cronograma</td>
+              <td>Presente <strong>todos os dias</strong>. Sempre a matéria de maior peso (50% da prova).</td>
+            </tr>
+            <tr>
+              <td><strong>Bloco 2</strong></td>
+              <td class="peso-medio">1h30</td>
+              <td><strong>Matéria complementar</strong> — rotaciona conforme a semana</td>
+              <td>Português 4x/semana. Informática 1x. Conhecimentos Gerais 1x.</td>
+            </tr>
+            <tr>
+              <td><strong>Bloco 3</strong></td>
+              <td class="peso-medio">1h30 a 2h</td>
+              <td><strong>Questões comentadas</strong> — dos temas dos Blocos 1 e 2 do dia</td>
+              <td>Meta: 30-40 questões/dia. Ler o comentário de cada questão, certa ou errada.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box verde">
+        <h3 class="verde">Domingo — Dia de Simulado</h3>
+        <p>Todo domingo a rotina muda. O Bloco 2 de matéria leve sai e o tempo é redistribuído:</p>
+        <ul>
+          <li><strong>Bloco 1 (1h30):</strong> Revisão rápida da semana — resumos, flashcards, leis secas</li>
+          <li><strong>Bloco 2 (1h30):</strong> Simulado cronometrado — 40 questões no tempo da prova, sem pausas</li>
+          <li><strong>Bloco 3 (1h30-2h):</strong> Correção detalhada — ver cada questão comentada, entender o erro, anotar o tema que precisa reforçar</li>
+        </ul>
+        <p><strong>Total no domingo:</strong> 4h30 a 5h. A correção do simulado é o estudo mais valioso da semana.</p>
+      </div>
+
+      <div class="info-box">
+        <h3 class="ouro">Volume Total de Estudo</h3>
+        <ul>
+          <li><strong>51 dias x 4h30-5h/dia = ~230 a 255 horas de preparo</strong></li>
+          <li><strong>~1.500 a 2.000 questões comentadas</strong> ao longo do ciclo (30-40/dia)</li>
+          <li><strong>7 simulados completos</strong> (1 por semana) + Simulado Gabaritando presencial</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <p><span class="brand">Gabaritando</span> &bull; Concurso Formosa do Rio Preto - BA &bull; Enfermeiro(a) 20h e 40h &bull; Edital 01/2026</p>
+    </footer>
+  </div>
+</body>
+</html>
