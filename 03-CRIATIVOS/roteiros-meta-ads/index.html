@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central de Roteiros — Meta Ads | Gabaritando</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ouro:#FFB800;
+  --preto:#0E0E1A;
+  --ardosia:#1E1E2E;
+  --laranja:#FF6B35;
+  --branco:#F5F5F5;
+  --cinza:#94A3B8;
+  --verde:#22C55E;
+  --borda:rgba(255,255,255,.07);
+}
+body{font-family:'Montserrat',sans-serif;background:var(--preto);color:var(--branco);line-height:1.7;min-height:100vh}
+
+/* NAV */
+.container{max-width:900px;margin:0 auto;padding:24px 20px}
+.nav-bar{display:flex;gap:12px;flex-wrap:wrap;padding:20px 0;margin-bottom:8px}
+.nav-btn{display:inline-flex;align-items:center;gap:6px;background:var(--ardosia);border:1px solid rgba(255,184,0,.15);color:var(--ouro);font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:600;padding:10px 18px;border-radius:8px;text-decoration:none;transition:background .2s,border-color .2s}
+.nav-btn:hover{background:rgba(255,184,0,.1);border-color:var(--ouro)}
+.nav-btn .arrow{font-size:.9rem}
+
+/* HERO */
+.hero{
+  background:var(--ardosia);
+  border-bottom:1px solid var(--borda);
+  padding:56px 32px 48px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  border-radius:16px;
+  margin-bottom:48px;
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,184,0,.08) 0%,transparent 60%);pointer-events:none}
+.hero-label{font-size:.66rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--ouro);margin-bottom:18px;position:relative}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:900;color:#fff;line-height:1.12;position:relative}
+.hero h1 em{color:var(--ouro);font-style:italic}
+.hero-rule{width:50px;height:2px;background:var(--ouro);margin:22px auto}
+.hero-sub{font-size:.95rem;font-style:italic;color:rgba(255,255,255,.5);position:relative;max-width:520px;margin:0 auto}
+
+/* SECTION */
+.section-label{font-size:.65rem;font-weight:700;letter-spacing:.30em;text-transform:uppercase;color:var(--ouro);margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--borda)}
+
+/* CARDS GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-bottom:48px}
+
+.card{
+  background:var(--ardosia);
+  border:1px solid var(--borda);
+  border-left:3px solid rgba(255,184,0,.13);
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding:32px 28px;
+  border-radius:4px;
+  transition:border-left-color .2s,transform .2s,box-shadow .2s;
+  position:relative;
+  overflow:hidden;
+}
+.card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 0% 0%,rgba(255,184,0,.04) 0%,transparent 60%);pointer-events:none;opacity:0;transition:opacity .3s}
+.card:hover{border-left-color:var(--ouro);transform:translateY(-3px);box-shadow:0 14px 44px rgba(0,0,0,.55)}
+.card:hover::before{opacity:1}
+
+.card-tag{font-size:.60rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,184,0,.55)}
+.card-title{font-family:'Montserrat',sans-serif;font-size:1.18rem;font-weight:700;color:#fff;line-height:1.25}
+.card-desc{font-size:.82rem;font-weight:400;color:var(--cinza);line-height:1.7;flex:1}
+.card-stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:4px}
+.card-stat{font-size:.72rem;font-weight:600;color:var(--branco);background:rgba(255,184,0,.08);border:1px solid rgba(255,184,0,.12);padding:4px 12px;border-radius:6px}
+.card-stat strong{color:var(--ouro)}
+.card-cta{display:flex;align-items:center;gap:6px;font-size:.64rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro);margin-top:4px}
+.card-cta span{transition:transform .2s}
+.card:hover .card-cta span{transform:translateX(4px)}
+
+/* EMPTY STATE */
+.empty-card{
+  background:var(--ardosia);
+  border:1px dashed rgba(255,255,255,.12);
+  padding:32px 28px;
+  border-radius:4px;
+  text-align:center;
+}
+.empty-card p{font-size:.85rem;color:var(--cinza);font-style:italic}
+.empty-card .soon{display:inline-block;margin-top:12px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,184,0,.4);background:rgba(255,184,0,.06);padding:4px 14px;border-radius:20px}
+
+/* FOOTER */
+footer{text-align:center;padding:40px 0 24px;border-top:1px solid var(--ardosia);margin-top:32px}
+footer p{font-size:.72rem;color:var(--cinza);letter-spacing:.06em;line-height:1.9}
+footer .brand{color:var(--ouro);font-weight:700}
+
+@media(max-width:600px){
+  .container{padding:16px 14px}
+  .hero{padding:40px 20px 36px;border-radius:12px}
+  .hero h1{font-size:1.5rem}
+  .grid{grid-template-columns:1fr}
+  .card{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<nav class="nav-bar">
+  <a href="../../index.html" class="nav-btn"><span class="arrow">&larr;</span> Central Geral</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-label">Gabaritando &mdash; Tr&aacute;fego Pago</div>
+  <h1>Central de <em>Roteiros</em></h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">Roteiros de criativos em v&iacute;deo para campanhas Meta Ads &mdash; organizados por m&ecirc;s</p>
+</header>
+
+<div class="section-label">Roteiros por m&ecirc;s</div>
+<div class="grid">
+
+  <a class="card" href="agosto-2026.html">
+    <div class="card-tag">Agosto 2026</div>
+    <div class="card-title">Roteiros &mdash; Agosto 2026</div>
+    <p class="card-desc">Primeira leva de criativos: 16 roteiros distribu&iacute;dos em 4 categorias (Geral, Soldado, Oficial/CFO, Investigador/PCBA). Estilos variados para teste A/B.</p>
+    <div class="card-stats">
+      <span class="card-stat"><strong>16</strong> roteiros</span>
+      <span class="card-stat"><strong>4</strong> categorias</span>
+      <span class="card-stat"><strong>4</strong> estilos</span>
+    </div>
+    <div class="card-cta">Abrir roteiros <span>&#8594;</span></div>
+  </a>
+
+  <div class="empty-card">
+    <p>Pr&oacute;ximos roteiros ser&atilde;o adicionados aqui conforme a campanha evolui.</p>
+    <span class="soon">Em breve</span>
+  </div>
+
+</div>
+
+<div class="section-label">Informa&ccedil;&otilde;es da campanha</div>
+<div style="background:var(--ardosia);border-radius:12px;padding:24px 28px;border-left:4px solid var(--ouro);margin-bottom:48px">
+  <ul style="list-style:none;padding:0">
+    <li style="padding:6px 0;font-size:.88rem;color:var(--branco)"><span style="display:inline-block;width:6px;height:6px;background:var(--laranja);border-radius:50%;margin-right:10px;vertical-align:middle"></span><strong style="color:var(--ouro)">Or&ccedil;amento:</strong> R$30/dia (R$900/m&ecirc;s)</li>
+    <li style="padding:6px 0;font-size:.88rem;color:var(--branco)"><span style="display:inline-block;width:6px;height:6px;background:var(--laranja);border-radius:50%;margin-right:10px;vertical-align:middle"></span><strong style="color:var(--ouro)">Estrutura:</strong> 1 campanha &rarr; 1 conjunto &rarr; m&uacute;ltiplos criativos</li>
+    <li style="padding:6px 0;font-size:.88rem;color:var(--branco)"><span style="display:inline-block;width:6px;height:6px;background:var(--laranja);border-radius:50%;margin-right:10px;vertical-align:middle"></span><strong style="color:var(--ouro)">Formato:</strong> V&iacute;deo vertical 9:16 (Reels / Stories / Feed)</li>
+    <li style="padding:6px 0;font-size:.88rem;color:var(--branco)"><span style="display:inline-block;width:6px;height:6px;background:var(--laranja);border-radius:50%;margin-right:10px;vertical-align:middle"></span><strong style="color:var(--ouro)">&Acirc;ncora de pre&ccedil;o:</strong> &ldquo;Menos de R$3 por dia&rdquo;</li>
+    <li style="padding:6px 0;font-size:.88rem;color:var(--branco)"><span style="display:inline-block;width:6px;height:6px;background:var(--laranja);border-radius:50%;margin-right:10px;vertical-align:middle"></span><strong style="color:var(--ouro)">CTA padr&atilde;o:</strong> WhatsApp ou p&aacute;gina de vendas</li>
+  </ul>
+</div>
+
+<footer>
+  <p><span class="brand">Gabaritando</span> &mdash; Carreiras Policiais da Bahia</p>
+  <p>Central de Roteiros Meta Ads &mdash; Uso interno</p>
+</footer>
+
+</div>
+
+</body>
+</html>
