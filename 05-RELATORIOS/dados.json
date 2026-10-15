@@ -1408,9 +1408,9 @@
       "investido": 30.32,
       "conversas": 0,
       "alcance": 3406,
-      "impressoes": 4388,
+      "impressoes": 4389,
       "cliques": 43,
-      "engajamentos": 480,
+      "engajamentos": 481,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
           "investido": 30.32,
@@ -1428,17 +1428,40 @@
     },
     {
       "data": "2026-10-14",
-      "investido": 34.53,
+      "investido": 36.8,
       "conversas": 0,
-      "alcance": 3202,
-      "impressoes": 4492,
-      "cliques": 40,
-      "engajamentos": 474,
+      "alcance": 3343,
+      "impressoes": 4781,
+      "cliques": 45,
+      "engajamentos": 529,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 34.56,
+          "investido": 36.8,
           "conversas": 0,
-          "alcance": 3202
+          "alcance": 3343
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-15",
+      "investido": 3.04,
+      "conversas": 0,
+      "alcance": 280,
+      "impressoes": 319,
+      "cliques": 2,
+      "engajamentos": 43,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 3.04,
+          "conversas": 0,
+          "alcance": 280
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -1454,11 +1477,11 @@
     {
       "id": "120256503276500367",
       "nome": "CJ02 | Bahia 18-40",
-      "investido": 1504.13,
+      "investido": 1509.44,
       "conversas": 0,
-      "alcance": 68946,
-      "impressoes": 172321,
-      "cliques": 1582,
+      "alcance": 69029,
+      "impressoes": 172930,
+      "cliques": 1589,
       "status": "ACTIVE"
     },
     {
@@ -1477,44 +1500,44 @@
       "id": "120256503311590367",
       "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
       "grupo": "CJ02",
-      "investido": 687.56,
+      "investido": 688.07,
       "conversas": 0,
-      "alcance": 45502,
-      "impressoes": 90345,
-      "cliques": 854,
+      "alcance": 45513,
+      "impressoes": 90420,
+      "cliques": 856,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "120256228490750367",
+      "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
+      "grupo": "CJ01",
+      "investido": 268.89,
+      "conversas": 21,
+      "alcance": 36477,
+      "impressoes": 51642,
+      "cliques": 475,
+      "status": "ADSET_PAUSED"
+    },
+    {
+      "id": "120256503297030367",
+      "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
+      "grupo": "CJ02",
+      "investido": 244.43,
+      "conversas": 0,
+      "alcance": 13588,
+      "impressoes": 29851,
+      "cliques": 296,
       "status": "ACTIVE"
     },
     {
       "id": "120256503280010367",
       "nome": "[ADS01][VIDEO][PCBA - EDITAL JA SAIU]",
       "grupo": "CJ02",
-      "investido": 251.61,
+      "investido": 253.18,
       "conversas": 0,
-      "alcance": 8561,
-      "impressoes": 18514,
+      "alcance": 8627,
+      "impressoes": 18665,
       "cliques": 186,
-      "status": "ACTIVE"
-    },
-    {
-      "id": "120256503297030367",
-      "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
-      "grupo": "CJ02",
-      "investido": 242.26,
-      "conversas": 0,
-      "alcance": 13499,
-      "impressoes": 29607,
-      "cliques": 292,
-      "status": "ACTIVE"
-    },
-    {
-      "id": "120256503280940367",
-      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
-      "grupo": "CJ02",
-      "investido": 93.38,
-      "conversas": 0,
-      "alcance": 4167,
-      "impressoes": 9367,
-      "cliques": 70,
       "status": "ACTIVE"
     },
     {
@@ -1540,6 +1563,28 @@
       "status": "PAUSED"
     },
     {
+      "id": "120256503280940367",
+      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
+      "grupo": "CJ02",
+      "investido": 94.44,
+      "conversas": 0,
+      "alcance": 4220,
+      "impressoes": 9506,
+      "cliques": 71,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "120256228484200367",
+      "nome": "[ADS18][IMG][GERAL - EDITAIS SAINDO]",
+      "grupo": "CJ01",
+      "investido": 9.88,
+      "conversas": 2,
+      "alcance": 3106,
+      "impressoes": 3288,
+      "cliques": 23,
+      "status": "ADSET_PAUSED"
+    },
+    {
       "id": "120256503309120367",
       "nome": "[ADS17][IMG][PCBA - 500 VAGAS]",
       "grupo": "CJ02",
@@ -1551,26 +1596,15 @@
       "status": "PAUSED"
     },
     {
-      "id": "120256228490750367",
-      "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
+      "id": "120256232036610367",
+      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
       "grupo": "CJ01",
-      "investido": 268.89,
-      "conversas": 21,
-      "alcance": 36477,
-      "impressoes": 51642,
-      "cliques": 475,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256228484200367",
-      "nome": "[ADS18][IMG][GERAL - EDITAIS SAINDO]",
-      "grupo": "CJ01",
-      "investido": 9.88,
-      "conversas": 2,
-      "alcance": 3106,
-      "impressoes": 3288,
-      "cliques": 23,
-      "status": "PAUSED"
+      "investido": 2.21,
+      "conversas": 0,
+      "alcance": 246,
+      "impressoes": 283,
+      "cliques": 2,
+      "status": "ADSET_PAUSED"
     },
     {
       "id": "120256232038120367",
@@ -1581,18 +1615,7 @@
       "alcance": 227,
       "impressoes": 233,
       "cliques": 5,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256232036610367",
-      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
-      "grupo": "CJ01",
-      "investido": 2.21,
-      "conversas": 0,
-      "alcance": 246,
-      "impressoes": 283,
-      "cliques": 2,
-      "status": "PAUSED"
+      "status": "ADSET_PAUSED"
     },
     {
       "id": "120256228434010367",
@@ -1603,7 +1626,7 @@
       "alcance": 207,
       "impressoes": 230,
       "cliques": 3,
-      "status": "PAUSED"
+      "status": "ADSET_PAUSED"
     },
     {
       "id": "120256232035470367",
@@ -1614,15 +1637,16 @@
       "alcance": 61,
       "impressoes": 68,
       "cliques": 0,
-      "status": "PAUSED"
+      "status": "ADSET_PAUSED"
     }
   ],
   "atualizacoes": [
-    "2026-10-14T21:50:00-03:00"
+    "2026-10-14T21:50:00-03:00",
+    "2026-10-15T07:10:00-03:00"
   ],
-  "leitura": "<strong>Ainda não há vendas confirmadas pelo anúncio.</strong> Desde 13/08 investimos R$ 1.789,89 e alcançamos milhares de pessoas, mas o pixel do site não registrou nenhuma venda pelo anúncio até agora (ontem: R$ 30,32 investidos, 0 vendas). O grupo CJ02 é o que recebe o orçamento e os toques no anúncio hoje, com destaque para o anúncio [ADS19][IMG][SOLDADO - 2500 VAGAS]; o próximo passo é revisar a configuração de rastreamento de compra no site antes de ampliar o investimento.",
+  "leitura": "<strong>Ainda não há venda confirmada pelo anúncio.</strong> Desde 13/08 investimos R$ 1.795,20 e alcançamos milhares de pessoas, mas o pixel do site não registrou nenhuma venda pela página desde 25/08 (ontem: R$ 36,80 investidos, 0 vendas). O grupo CJ02 é quem recebe o orçamento hoje, com destaque para o anúncio [ADS19][IMG][SOLDADO - 2500 VAGAS]; o próximo passo é revisar com urgência o registro de compras no site antes de ampliar o investimento.",
   "campanha": {
     "status": "ACTIVE"
   },
-  "atualizado_em": "2026-10-14T21:50:00-03:00"
+  "atualizado_em": "2026-10-15T07:10:00-03:00"
 }
