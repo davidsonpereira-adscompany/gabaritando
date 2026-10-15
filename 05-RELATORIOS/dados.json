@@ -1,0 +1,1628 @@
+{
+  "dias": [
+    {
+      "data": "2026-08-13",
+      "investido": 0,
+      "conversas": 0,
+      "alcance": 0,
+      "impressoes": 0,
+      "cliques": 0,
+      "engajamentos": 0,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-14",
+      "investido": 0,
+      "conversas": 0,
+      "alcance": 0,
+      "impressoes": 0,
+      "cliques": 0,
+      "engajamentos": 0,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-15",
+      "investido": 0,
+      "conversas": 0,
+      "alcance": 0,
+      "impressoes": 0,
+      "cliques": 0,
+      "engajamentos": 0,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-16",
+      "investido": 0,
+      "conversas": 0,
+      "alcance": 0,
+      "impressoes": 0,
+      "cliques": 0,
+      "engajamentos": 0,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-17",
+      "investido": 0,
+      "conversas": 0,
+      "alcance": 0,
+      "impressoes": 0,
+      "cliques": 0,
+      "engajamentos": 0,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-18",
+      "investido": 27.24,
+      "conversas": 3,
+      "alcance": 4727,
+      "impressoes": 4967,
+      "cliques": 34,
+      "engajamentos": 70,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 27.24,
+          "conversas": 3,
+          "alcance": 4727
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-19",
+      "investido": 51.92,
+      "conversas": 6,
+      "alcance": 9240,
+      "impressoes": 10503,
+      "cliques": 82,
+      "engajamentos": 111,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 51.92,
+          "conversas": 6,
+          "alcance": 9240
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-20",
+      "investido": 35.38,
+      "conversas": 1,
+      "alcance": 5579,
+      "impressoes": 6238,
+      "cliques": 64,
+      "engajamentos": 84,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 35.38,
+          "conversas": 1,
+          "alcance": 5579
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-21",
+      "investido": 51.85,
+      "conversas": 3,
+      "alcance": 9921,
+      "impressoes": 11065,
+      "cliques": 103,
+      "engajamentos": 156,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 51.85,
+          "conversas": 3,
+          "alcance": 9921
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-22",
+      "investido": 43.6,
+      "conversas": 3,
+      "alcance": 8043,
+      "impressoes": 8886,
+      "cliques": 67,
+      "engajamentos": 78,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 43.6,
+          "conversas": 3,
+          "alcance": 8043
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-23",
+      "investido": 25.48,
+      "conversas": 6,
+      "alcance": 3894,
+      "impressoes": 4319,
+      "cliques": 57,
+      "engajamentos": 67,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 25.48,
+          "conversas": 6,
+          "alcance": 3894
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-24",
+      "investido": 39.81,
+      "conversas": 2,
+      "alcance": 6918,
+      "impressoes": 7827,
+      "cliques": 84,
+      "engajamentos": 100,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 39.81,
+          "conversas": 2,
+          "alcance": 6918
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-25",
+      "investido": 10.57,
+      "conversas": 0,
+      "alcance": 1872,
+      "impressoes": 1955,
+      "cliques": 17,
+      "engajamentos": 24,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 0.09,
+          "conversas": 0,
+          "alcance": 13
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 10.48,
+          "conversas": 0,
+          "alcance": 1862
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-26",
+      "investido": 1.91,
+      "conversas": 0,
+      "alcance": 159,
+      "impressoes": 236,
+      "cliques": 5,
+      "engajamentos": 47,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 1.91,
+          "conversas": 0,
+          "alcance": 159
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-27",
+      "investido": 16.15,
+      "conversas": 0,
+      "alcance": 1187,
+      "impressoes": 1666,
+      "cliques": 9,
+      "engajamentos": 237,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 16.15,
+          "conversas": 0,
+          "alcance": 1187
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-28",
+      "investido": 50.88,
+      "conversas": 0,
+      "alcance": 3951,
+      "impressoes": 5638,
+      "cliques": 55,
+      "engajamentos": 847,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 50.88,
+          "conversas": 0,
+          "alcance": 3951
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-29",
+      "investido": 50.37,
+      "conversas": 0,
+      "alcance": 4856,
+      "impressoes": 5929,
+      "cliques": 35,
+      "engajamentos": 352,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 50.37,
+          "conversas": 0,
+          "alcance": 4856
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-30",
+      "investido": 38.4,
+      "conversas": 0,
+      "alcance": 3205,
+      "impressoes": 3970,
+      "cliques": 31,
+      "engajamentos": 197,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 38.4,
+          "conversas": 0,
+          "alcance": 3205
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-08-31",
+      "investido": 37.18,
+      "conversas": 0,
+      "alcance": 2746,
+      "impressoes": 3517,
+      "cliques": 32,
+      "engajamentos": 240,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 37.18,
+          "conversas": 0,
+          "alcance": 2746
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-01",
+      "investido": 22.2,
+      "conversas": 0,
+      "alcance": 1661,
+      "impressoes": 2128,
+      "cliques": 22,
+      "engajamentos": 189,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 22.2,
+          "conversas": 0,
+          "alcance": 1661
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-02",
+      "investido": 24.07,
+      "conversas": 0,
+      "alcance": 1565,
+      "impressoes": 2193,
+      "cliques": 16,
+      "engajamentos": 243,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 24.07,
+          "conversas": 0,
+          "alcance": 1565
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-03",
+      "investido": 27.97,
+      "conversas": 0,
+      "alcance": 2119,
+      "impressoes": 2753,
+      "cliques": 13,
+      "engajamentos": 409,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 27.97,
+          "conversas": 0,
+          "alcance": 2119
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-04",
+      "investido": 35.51,
+      "conversas": 0,
+      "alcance": 2256,
+      "impressoes": 2971,
+      "cliques": 23,
+      "engajamentos": 516,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 35.51,
+          "conversas": 0,
+          "alcance": 2256
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-05",
+      "investido": 24.31,
+      "conversas": 0,
+      "alcance": 1138,
+      "impressoes": 1631,
+      "cliques": 19,
+      "engajamentos": 309,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 24.31,
+          "conversas": 0,
+          "alcance": 1138
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-06",
+      "investido": 39.3,
+      "conversas": 0,
+      "alcance": 1796,
+      "impressoes": 2594,
+      "cliques": 24,
+      "engajamentos": 464,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 39.3,
+          "conversas": 0,
+          "alcance": 1796
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-07",
+      "investido": 32.91,
+      "conversas": 0,
+      "alcance": 1376,
+      "impressoes": 1932,
+      "cliques": 26,
+      "engajamentos": 243,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 32.91,
+          "conversas": 0,
+          "alcance": 1376
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-08",
+      "investido": 35.31,
+      "conversas": 0,
+      "alcance": 2294,
+      "impressoes": 3227,
+      "cliques": 45,
+      "engajamentos": 238,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 35.31,
+          "conversas": 0,
+          "alcance": 2294
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-09",
+      "investido": 28.32,
+      "conversas": 0,
+      "alcance": 2256,
+      "impressoes": 2910,
+      "cliques": 31,
+      "engajamentos": 143,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 28.32,
+          "conversas": 0,
+          "alcance": 2256
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-10",
+      "investido": 27.02,
+      "conversas": 0,
+      "alcance": 2349,
+      "impressoes": 3002,
+      "cliques": 30,
+      "engajamentos": 61,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 27.02,
+          "conversas": 0,
+          "alcance": 2349
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-11",
+      "investido": 25.3,
+      "conversas": 0,
+      "alcance": 2307,
+      "impressoes": 2818,
+      "cliques": 28,
+      "engajamentos": 32,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 25.3,
+          "conversas": 0,
+          "alcance": 2307
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-12",
+      "investido": 21.49,
+      "conversas": 0,
+      "alcance": 1870,
+      "impressoes": 2266,
+      "cliques": 17,
+      "engajamentos": 24,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 21.49,
+          "conversas": 0,
+          "alcance": 1870
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-13",
+      "investido": 29.11,
+      "conversas": 0,
+      "alcance": 2448,
+      "impressoes": 3151,
+      "cliques": 29,
+      "engajamentos": 64,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 29.11,
+          "conversas": 0,
+          "alcance": 2448
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-14",
+      "investido": 23.91,
+      "conversas": 0,
+      "alcance": 1744,
+      "impressoes": 2287,
+      "cliques": 26,
+      "engajamentos": 64,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 23.91,
+          "conversas": 0,
+          "alcance": 1744
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-15",
+      "investido": 37.7,
+      "conversas": 0,
+      "alcance": 3126,
+      "impressoes": 3997,
+      "cliques": 30,
+      "engajamentos": 62,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 37.7,
+          "conversas": 0,
+          "alcance": 3126
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-16",
+      "investido": 34.45,
+      "conversas": 0,
+      "alcance": 3536,
+      "impressoes": 4415,
+      "cliques": 34,
+      "engajamentos": 77,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 34.45,
+          "conversas": 0,
+          "alcance": 3536
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-17",
+      "investido": 30.71,
+      "conversas": 0,
+      "alcance": 2643,
+      "impressoes": 3328,
+      "cliques": 32,
+      "engajamentos": 53,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 30.71,
+          "conversas": 0,
+          "alcance": 2643
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-18",
+      "investido": 26.14,
+      "conversas": 0,
+      "alcance": 2425,
+      "impressoes": 2869,
+      "cliques": 25,
+      "engajamentos": 46,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 26.14,
+          "conversas": 0,
+          "alcance": 2425
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-19",
+      "investido": 27.91,
+      "conversas": 0,
+      "alcance": 3924,
+      "impressoes": 4538,
+      "cliques": 52,
+      "engajamentos": 78,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 27.91,
+          "conversas": 0,
+          "alcance": 3924
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-20",
+      "investido": 26.6,
+      "conversas": 0,
+      "alcance": 3821,
+      "impressoes": 4331,
+      "cliques": 29,
+      "engajamentos": 71,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 26.6,
+          "conversas": 0,
+          "alcance": 3821
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-21",
+      "investido": 41.62,
+      "conversas": 0,
+      "alcance": 5300,
+      "impressoes": 5955,
+      "cliques": 53,
+      "engajamentos": 74,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 41.62,
+          "conversas": 0,
+          "alcance": 5300
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-22",
+      "investido": 34.95,
+      "conversas": 0,
+      "alcance": 4356,
+      "impressoes": 5348,
+      "cliques": 46,
+      "engajamentos": 68,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 34.95,
+          "conversas": 0,
+          "alcance": 4356
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-23",
+      "investido": 25.76,
+      "conversas": 0,
+      "alcance": 3377,
+      "impressoes": 4029,
+      "cliques": 51,
+      "engajamentos": 61,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 25.76,
+          "conversas": 0,
+          "alcance": 3377
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-24",
+      "investido": 26.5,
+      "conversas": 0,
+      "alcance": 1737,
+      "impressoes": 2081,
+      "cliques": 27,
+      "engajamentos": 98,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 26.5,
+          "conversas": 0,
+          "alcance": 1737
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-25",
+      "investido": 28.48,
+      "conversas": 0,
+      "alcance": 2810,
+      "impressoes": 3295,
+      "cliques": 28,
+      "engajamentos": 146,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 28.48,
+          "conversas": 0,
+          "alcance": 2810
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-26",
+      "investido": 25.64,
+      "conversas": 0,
+      "alcance": 2888,
+      "impressoes": 3408,
+      "cliques": 31,
+      "engajamentos": 120,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 25.64,
+          "conversas": 0,
+          "alcance": 2888
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-27",
+      "investido": 25.08,
+      "conversas": 0,
+      "alcance": 1979,
+      "impressoes": 2553,
+      "cliques": 21,
+      "engajamentos": 177,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 25.08,
+          "conversas": 0,
+          "alcance": 1979
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-28",
+      "investido": 25.35,
+      "conversas": 0,
+      "alcance": 2646,
+      "impressoes": 3263,
+      "cliques": 47,
+      "engajamentos": 538,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 25.35,
+          "conversas": 0,
+          "alcance": 2646
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-29",
+      "investido": 32.66,
+      "conversas": 0,
+      "alcance": 2068,
+      "impressoes": 2920,
+      "cliques": 29,
+      "engajamentos": 502,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 32.66,
+          "conversas": 0,
+          "alcance": 2068
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-09-30",
+      "investido": 41.99,
+      "conversas": 0,
+      "alcance": 1765,
+      "impressoes": 2660,
+      "cliques": 19,
+      "engajamentos": 439,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 41.99,
+          "conversas": 0,
+          "alcance": 1765
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-01",
+      "investido": 26.6,
+      "conversas": 0,
+      "alcance": 1378,
+      "impressoes": 1886,
+      "cliques": 19,
+      "engajamentos": 241,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 26.6,
+          "conversas": 0,
+          "alcance": 1378
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-02",
+      "investido": 36.48,
+      "conversas": 0,
+      "alcance": 2674,
+      "impressoes": 3628,
+      "cliques": 25,
+      "engajamentos": 397,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 36.48,
+          "conversas": 0,
+          "alcance": 2674
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-03",
+      "investido": 21.41,
+      "conversas": 0,
+      "alcance": 2689,
+      "impressoes": 3506,
+      "cliques": 38,
+      "engajamentos": 444,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 21.41,
+          "conversas": 0,
+          "alcance": 2689
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-04",
+      "investido": 41.51,
+      "conversas": 0,
+      "alcance": 5320,
+      "impressoes": 7091,
+      "cliques": 50,
+      "engajamentos": 294,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 41.51,
+          "conversas": 0,
+          "alcance": 5320
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-05",
+      "investido": 30.18,
+      "conversas": 0,
+      "alcance": 3711,
+      "impressoes": 4868,
+      "cliques": 53,
+      "engajamentos": 384,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 30.18,
+          "conversas": 0,
+          "alcance": 3711
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-06",
+      "investido": 33.47,
+      "conversas": 0,
+      "alcance": 3749,
+      "impressoes": 5123,
+      "cliques": 50,
+      "engajamentos": 331,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 33.47,
+          "conversas": 0,
+          "alcance": 3749
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-07",
+      "investido": 28.78,
+      "conversas": 0,
+      "alcance": 2225,
+      "impressoes": 3350,
+      "cliques": 32,
+      "engajamentos": 182,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 28.78,
+          "conversas": 0,
+          "alcance": 2225
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-08",
+      "investido": 21.38,
+      "conversas": 0,
+      "alcance": 1976,
+      "impressoes": 2819,
+      "cliques": 26,
+      "engajamentos": 219,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 21.38,
+          "conversas": 0,
+          "alcance": 1976
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-09",
+      "investido": 26.92,
+      "conversas": 0,
+      "alcance": 2202,
+      "impressoes": 3205,
+      "cliques": 22,
+      "engajamentos": 436,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 26.92,
+          "conversas": 0,
+          "alcance": 2202
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-10",
+      "investido": 27.17,
+      "conversas": 0,
+      "alcance": 2503,
+      "impressoes": 3495,
+      "cliques": 30,
+      "engajamentos": 411,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 27.17,
+          "conversas": 0,
+          "alcance": 2503
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-11",
+      "investido": 27.48,
+      "conversas": 0,
+      "alcance": 2920,
+      "impressoes": 4137,
+      "cliques": 29,
+      "engajamentos": 578,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 27.48,
+          "conversas": 0,
+          "alcance": 2920
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-12",
+      "investido": 34.65,
+      "conversas": 0,
+      "alcance": 3513,
+      "impressoes": 4508,
+      "cliques": 55,
+      "engajamentos": 489,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 34.65,
+          "conversas": 0,
+          "alcance": 3513
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-13",
+      "investido": 30.32,
+      "conversas": 0,
+      "alcance": 3406,
+      "impressoes": 4388,
+      "cliques": 43,
+      "engajamentos": 480,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 30.32,
+          "conversas": 0,
+          "alcance": 3406
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-14",
+      "investido": 34.53,
+      "conversas": 0,
+      "alcance": 3202,
+      "impressoes": 4492,
+      "cliques": 40,
+      "engajamentos": 474,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 34.56,
+          "conversas": 0,
+          "alcance": 3202
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    }
+  ],
+  "grupos": [
+    {
+      "id": "120256503276500367",
+      "nome": "CJ02 | Bahia 18-40",
+      "investido": 1504.13,
+      "conversas": 0,
+      "alcance": 68946,
+      "impressoes": 172321,
+      "cliques": 1582,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "120256226916110367",
+      "nome": "CJ01 | Bahia 18-40",
+      "investido": 285.76,
+      "conversas": 24,
+      "alcance": 40356,
+      "impressoes": 55744,
+      "cliques": 508,
+      "status": "PAUSED"
+    }
+  ],
+  "anuncios": [
+    {
+      "id": "120256503311590367",
+      "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
+      "grupo": "CJ02",
+      "investido": 687.56,
+      "conversas": 0,
+      "alcance": 45502,
+      "impressoes": 90345,
+      "cliques": 854,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "120256503280010367",
+      "nome": "[ADS01][VIDEO][PCBA - EDITAL JA SAIU]",
+      "grupo": "CJ02",
+      "investido": 251.61,
+      "conversas": 0,
+      "alcance": 8561,
+      "impressoes": 18514,
+      "cliques": 186,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "120256503297030367",
+      "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
+      "grupo": "CJ02",
+      "investido": 242.26,
+      "conversas": 0,
+      "alcance": 13499,
+      "impressoes": 29607,
+      "cliques": 292,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "120256503280940367",
+      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
+      "grupo": "CJ02",
+      "investido": 93.38,
+      "conversas": 0,
+      "alcance": 4167,
+      "impressoes": 9367,
+      "cliques": 70,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "120256503287440367",
+      "nome": "[ADS03][VIDEO][GERAL - DEPOIMENTO ALUNO]",
+      "grupo": "CJ02",
+      "investido": 145.95,
+      "conversas": 0,
+      "alcance": 7589,
+      "impressoes": 15277,
+      "cliques": 123,
+      "status": "PAUSED"
+    },
+    {
+      "id": "120256503310280367",
+      "nome": "[ADS18][IMG][GERAL - EDITAIS SAINDO]",
+      "grupo": "CJ02",
+      "investido": 57.01,
+      "conversas": 0,
+      "alcance": 6121,
+      "impressoes": 7408,
+      "cliques": 48,
+      "status": "PAUSED"
+    },
+    {
+      "id": "120256503309120367",
+      "nome": "[ADS17][IMG][PCBA - 500 VAGAS]",
+      "grupo": "CJ02",
+      "investido": 26.36,
+      "conversas": 0,
+      "alcance": 1305,
+      "impressoes": 1803,
+      "cliques": 9,
+      "status": "PAUSED"
+    },
+    {
+      "id": "120256228490750367",
+      "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
+      "grupo": "CJ01",
+      "investido": 268.89,
+      "conversas": 21,
+      "alcance": 36477,
+      "impressoes": 51642,
+      "cliques": 475,
+      "status": "PAUSED"
+    },
+    {
+      "id": "120256228484200367",
+      "nome": "[ADS18][IMG][GERAL - EDITAIS SAINDO]",
+      "grupo": "CJ01",
+      "investido": 9.88,
+      "conversas": 2,
+      "alcance": 3106,
+      "impressoes": 3288,
+      "cliques": 23,
+      "status": "PAUSED"
+    },
+    {
+      "id": "120256232038120367",
+      "nome": "[ADS03][VIDEO][GERAL - DEPOIMENTO ALUNO]",
+      "grupo": "CJ01",
+      "investido": 2.12,
+      "conversas": 0,
+      "alcance": 227,
+      "impressoes": 233,
+      "cliques": 5,
+      "status": "PAUSED"
+    },
+    {
+      "id": "120256232036610367",
+      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
+      "grupo": "CJ01",
+      "investido": 2.21,
+      "conversas": 0,
+      "alcance": 246,
+      "impressoes": 283,
+      "cliques": 2,
+      "status": "PAUSED"
+    },
+    {
+      "id": "120256228434010367",
+      "nome": "[ADS17][IMG][PCBA - 500 VAGAS]",
+      "grupo": "CJ01",
+      "investido": 1.93,
+      "conversas": 1,
+      "alcance": 207,
+      "impressoes": 230,
+      "cliques": 3,
+      "status": "PAUSED"
+    },
+    {
+      "id": "120256232035470367",
+      "nome": "[ADS01][VIDEO][PCBA - EDITAL JA SAIU]",
+      "grupo": "CJ01",
+      "investido": 0.73,
+      "conversas": 0,
+      "alcance": 61,
+      "impressoes": 68,
+      "cliques": 0,
+      "status": "PAUSED"
+    }
+  ],
+  "atualizacoes": [
+    "2026-10-14T21:50:00-03:00"
+  ],
+  "leitura": "<strong>Ainda não há vendas confirmadas pelo anúncio.</strong> Desde 13/08 investimos R$ 1.789,89 e alcançamos milhares de pessoas, mas o pixel do site não registrou nenhuma venda pelo anúncio até agora (ontem: R$ 30,32 investidos, 0 vendas). O grupo CJ02 é o que recebe o orçamento e os toques no anúncio hoje, com destaque para o anúncio [ADS19][IMG][SOLDADO - 2500 VAGAS]; o próximo passo é revisar a configuração de rastreamento de compra no site antes de ampliar o investimento.",
+  "campanha": {
+    "status": "ACTIVE"
+  },
+  "atualizado_em": "2026-10-14T21:50:00-03:00"
+}
