@@ -9,3 +9,6 @@ _REF/
 
 # Sistema macOS
 .DS_Store
+
+# Parciais do painel PRECISAM ser versionadas (disparam o envio ao WhatsApp)
+!05-RELATORIOS/parciais/*.md
