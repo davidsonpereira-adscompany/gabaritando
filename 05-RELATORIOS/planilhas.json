@@ -4,11 +4,27 @@
     "aba": "CONTROLE DIÁRIO",
     "linha_inicio": 5,
     "linha_fim": 145,
-    "colunas": { "data": "A", "investido": "C", "conversas": "D", "vendas": "F", "valor_vendido": "G" }
+    "colunas": {
+      "data": "A",
+      "investido": "C",
+      "conversas": "D",
+      "vendas": "F",
+      "valor_vendido": "G"
+    }
   },
   "projecao": {
-    "id": "11zqgezRKByqvSoFXzU4_t1Vb4gpOm_FteQooQqbl-GY",
-    "abas_por_mes": { "2026-08": "AGOSTO 2026", "2026-09": "SETEMBRO 2026", "2026-10": "OUTUBRO 2026", "2026-11": "NOVEMBRO 2026", "2026-12": "DEZEMBRO 2026" },
-    "celulas": { "dias_trabalhados": "B6", "vendas_acumuladas": "B7", "numero_vendas": "B8" }
+    "id": "1_U5mzk-2u42IqFZTYCdDLpF0Y3wBh47cDXWx70Gxik4",
+    "abas_por_mes": {
+      "2026-08": "AGO 2026",
+      "2026-09": "SET 2026",
+      "2026-10": "OUT 2026",
+      "2026-11": "NOV 2026",
+      "2026-12": "DEZ 2026"
+    },
+    "celulas": {
+      "dias_trabalhados": "B6",
+      "vendas_acumuladas": "B7",
+      "numero_vendas": "B8"
+    }
   }
 }
