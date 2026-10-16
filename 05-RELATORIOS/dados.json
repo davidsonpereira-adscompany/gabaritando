@@ -1428,17 +1428,17 @@
     },
     {
       "data": "2026-10-14",
-      "investido": 36.8,
+      "investido": 36.82,
       "conversas": 0,
-      "alcance": 3343,
-      "impressoes": 4781,
+      "alcance": 3345,
+      "impressoes": 4784,
       "cliques": 45,
       "engajamentos": 529,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 36.8,
+          "investido": 36.82,
           "conversas": 0,
-          "alcance": 3343
+          "alcance": 3345
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -1451,17 +1451,40 @@
     },
     {
       "data": "2026-10-15",
-      "investido": 3.04,
+      "investido": 28.61,
       "conversas": 0,
-      "alcance": 280,
-      "impressoes": 319,
-      "cliques": 2,
-      "engajamentos": 43,
+      "alcance": 2596,
+      "impressoes": 3762,
+      "cliques": 39,
+      "engajamentos": 554,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 3.04,
+          "investido": 28.61,
           "conversas": 0,
-          "alcance": 280
+          "alcance": 2596
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-16",
+      "investido": 3.14,
+      "conversas": 0,
+      "alcance": 372,
+      "impressoes": 429,
+      "cliques": 3,
+      "engajamentos": 49,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 3.14,
+          "conversas": 0,
+          "alcance": 372
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -1477,11 +1500,11 @@
     {
       "id": "120256503276500367",
       "nome": "CJ02 | Bahia 18-40",
-      "investido": 1509.44,
+      "investido": 1538.17,
       "conversas": 0,
-      "alcance": 69029,
-      "impressoes": 172930,
-      "cliques": 1589,
+      "alcance": 69681,
+      "impressoes": 176805,
+      "cliques": 1630,
       "status": "ACTIVE"
     },
     {
@@ -1500,11 +1523,11 @@
       "id": "120256503311590367",
       "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
       "grupo": "CJ02",
-      "investido": 688.07,
+      "investido": 689.72,
       "conversas": 0,
-      "alcance": 45513,
-      "impressoes": 90420,
-      "cliques": 856,
+      "alcance": 45597,
+      "impressoes": 90676,
+      "cliques": 857,
       "status": "ACTIVE"
     },
     {
@@ -1519,25 +1542,25 @@
       "status": "ADSET_PAUSED"
     },
     {
-      "id": "120256503297030367",
-      "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
-      "grupo": "CJ02",
-      "investido": 244.43,
-      "conversas": 0,
-      "alcance": 13588,
-      "impressoes": 29851,
-      "cliques": 296,
-      "status": "ACTIVE"
-    },
-    {
       "id": "120256503280010367",
       "nome": "[ADS01][VIDEO][PCBA - EDITAL JA SAIU]",
       "grupo": "CJ02",
-      "investido": 253.18,
+      "investido": 261.07,
       "conversas": 0,
-      "alcance": 8627,
-      "impressoes": 18665,
-      "cliques": 186,
+      "alcance": 9101,
+      "impressoes": 19792,
+      "cliques": 199,
+      "status": "ACTIVE"
+    },
+    {
+      "id": "120256503297030367",
+      "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
+      "grupo": "CJ02",
+      "investido": 257.27,
+      "conversas": 0,
+      "alcance": 14128,
+      "impressoes": 31368,
+      "cliques": 313,
       "status": "ACTIVE"
     },
     {
@@ -1552,6 +1575,17 @@
       "status": "PAUSED"
     },
     {
+      "id": "120256503280940367",
+      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
+      "grupo": "CJ02",
+      "investido": 100.79,
+      "conversas": 0,
+      "alcance": 4482,
+      "impressoes": 10481,
+      "cliques": 81,
+      "status": "ACTIVE"
+    },
+    {
       "id": "120256503310280367",
       "nome": "[ADS18][IMG][GERAL - EDITAIS SAINDO]",
       "grupo": "CJ02",
@@ -1563,15 +1597,15 @@
       "status": "PAUSED"
     },
     {
-      "id": "120256503280940367",
-      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
+      "id": "120256503309120367",
+      "nome": "[ADS17][IMG][PCBA - 500 VAGAS]",
       "grupo": "CJ02",
-      "investido": 94.44,
+      "investido": 26.36,
       "conversas": 0,
-      "alcance": 4220,
-      "impressoes": 9506,
-      "cliques": 71,
-      "status": "ACTIVE"
+      "alcance": 1305,
+      "impressoes": 1803,
+      "cliques": 9,
+      "status": "PAUSED"
     },
     {
       "id": "120256228484200367",
@@ -1583,17 +1617,6 @@
       "impressoes": 3288,
       "cliques": 23,
       "status": "ADSET_PAUSED"
-    },
-    {
-      "id": "120256503309120367",
-      "nome": "[ADS17][IMG][PCBA - 500 VAGAS]",
-      "grupo": "CJ02",
-      "investido": 26.36,
-      "conversas": 0,
-      "alcance": 1305,
-      "impressoes": 1803,
-      "cliques": 9,
-      "status": "PAUSED"
     },
     {
       "id": "120256232036610367",
@@ -1642,11 +1665,12 @@
   ],
   "atualizacoes": [
     "2026-10-14T21:50:00-03:00",
-    "2026-10-15T07:10:00-03:00"
+    "2026-10-15T07:10:00-03:00",
+    "2026-10-16T07:05:00-03:00"
   ],
-  "leitura": "<strong>Ainda não há venda confirmada pelo anúncio.</strong> Desde 13/08 investimos R$ 1.795,20 e alcançamos milhares de pessoas, mas o pixel do site não registrou nenhuma venda pela página desde 25/08 (ontem: R$ 36,80 investidos, 0 vendas). O grupo CJ02 é quem recebe o orçamento hoje, com destaque para o anúncio [ADS19][IMG][SOLDADO - 2500 VAGAS]; o próximo passo é revisar com urgência o registro de compras no site antes de ampliar o investimento.",
+  "leitura": "<strong>Ainda não há venda confirmada pelo anúncio.</strong> Desde 13/08 investimos R$ 1.823,93 e alcançamos milhares de pessoas, mas o pixel do site não registra venda pela página desde 25/08 (ontem, 15/10: R$ 28,61 investidos, 0 vendas). O grupo CJ02 continua recebendo o orçamento, com destaque para o anúncio [ADS19][IMG][SOLDADO - 2500 VAGAS]; o próximo passo é revisar com urgência o registro de compras no site antes de ampliar o investimento.",
   "campanha": {
     "status": "ACTIVE"
   },
-  "atualizado_em": "2026-10-15T07:10:00-03:00"
+  "atualizado_em": "2026-10-16T07:05:00-03:00"
 }
