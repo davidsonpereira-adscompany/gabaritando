@@ -13,3 +13,4 @@ _REF/
 # Parciais do painel PRECISAM ser versionadas (disparam o envio ao WhatsApp)
 !05-RELATORIOS/parciais/*.md
 !05-RELATORIOS/alertas/*.md
+!05-RELATORIOS/concursos/alertas/*.md

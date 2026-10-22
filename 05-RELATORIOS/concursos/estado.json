@@ -1,0 +1,44 @@
+{
+  "atualizado_em": "2026-10-22",
+  "concursos": {
+    "pmba_soldado_cfo": {
+      "nome": "PMBA — Soldado (2.500 vagas) e CFO (200 vagas)",
+      "edital_publicado": false,
+      "banca": "a definir",
+      "previsao_edital": "até dezembro de 2026 (promessa do comandante em 28/09)",
+      "previsao_provas": "janeiro ou fevereiro de 2027",
+      "inscricoes": null,
+      "ultima_novidade": "21/10/2026 — governador reuniu-se com o comandante-geral e o secretário de Segurança; banca segue a definir; mercado fala em edital até dezembro.",
+      "fontes": [
+        "https://blog.grancursosonline.com.br/concurso-pm-ba/",
+        "https://blog.grancursosonline.com.br/concurso-pm-ba-novo-edital-proximo-2026/",
+        "https://folha.qconcursos.com/n/concurso-pm-ba-2026-prazo-de-edital-e-provas"
+      ]
+    },
+    "pcba": {
+      "nome": "PCBA — Investigador (500), Escrivão (150), Delegado (100)",
+      "edital_publicado": true,
+      "banca": "Instituto AOCP",
+      "inscricoes_encerradas_em": "2026-09-13",
+      "convocacao_locais": "2026-11-24",
+      "cartao_informacao": "2026-11-30 15h (somente no site da banca)",
+      "prova": "2026-12-06 (Salvador; objetiva de manhã, discursiva à tarde)",
+      "gabarito_preliminar": "2026-12-07",
+      "ultima_novidade": "06/10/2026 — deferimento definitivo das inscrições; Delegado com 10.049 inscritos na lista geral.",
+      "fontes": [
+        "https://blog.grancursosonline.com.br/concurso-pc-ba/",
+        "https://concursos.estrategia.com/portal/concurso-pc-ba-2026-cronograma-completo/"
+      ]
+    },
+    "pmba_sargento_cfs": {
+      "nome": "PMBA — Curso de Formação de Sargentos (interno, praças)",
+      "edital_publicado": false,
+      "vagas_previstas": 200,
+      "ultima_novidade": "Previsão nas NPCE 2026; nenhum edital publicado até 22/10/2026.",
+      "fontes": [
+        "https://noticias.focusconcursos.com.br/noticias/concurso-interno-da-pmba-para-sargentos-pode-ter-200-vagas-e-edital-em-2026"
+      ]
+    }
+  },
+  "historico": []
+}

@@ -13,8 +13,9 @@ KEY = os.environ.get("EVOLUTION_APIKEY", "")
 args = [a for a in sys.argv[1:] if not a.startswith("--")]
 hoje = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-3))).date().isoformat()
 data = args[0] if args else hoje
-arq = os.path.join(BASE, "alertas", data + ".md")
-marcador = os.path.join(BASE, "alertas", ".enviados")
+SUB = os.environ.get("ALERTA_DIR", "alertas")
+arq = os.path.join(BASE, SUB, data + ".md")
+marcador = os.path.join(BASE, SUB, ".enviados")
 
 if not KEY:
     print("EVOLUTION_APIKEY não definido — nada enviado."); sys.exit(0)
