@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roteiros Novembro 2026 — Operação Edital PMBA + Black Gabaritando | Gabaritando</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ouro:#FFB800;
+  --preto:#0E0E1A;
+  --ardosia:#1E1E2E;
+  --laranja:#FF6B35;
+  --branco:#F5F5F5;
+  --cinza:#94A3B8;
+  --verde:#22C55E;
+  --vermelho:#EF4444;
+  --azul:#3B82F6;
+  --roxo:#9B5DE5;
+  --black:#F43F5E;
+}
+body{font-family:'Montserrat',sans-serif;background:var(--preto);color:var(--branco);line-height:1.7}
+.container{max-width:900px;margin:0 auto;padding:24px 20px}
+
+.page-header{text-align:center;padding:48px 0 32px;border-bottom:2px solid var(--ardosia)}
+.page-header h1{font-size:1.6rem;font-weight:800;color:var(--ouro);text-transform:uppercase;letter-spacing:1px}
+.page-header .subtitle{font-size:1rem;color:var(--cinza);margin-top:8px;font-weight:500}
+.page-header .badge{display:inline-block;background:var(--laranja);color:#fff;font-size:.75rem;font-weight:700;padding:4px 14px;border-radius:20px;margin-top:12px;text-transform:uppercase;letter-spacing:.5px}
+
+.info-box{background:var(--ardosia);border-radius:12px;padding:24px 28px;margin:32px 0;border-left:4px solid var(--ouro)}
+.info-box h3{color:var(--ouro);font-size:.9rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.info-box ul{list-style:none;padding:0}
+.info-box li{padding:6px 0;font-size:.9rem;color:var(--branco)}
+.info-box li strong{color:var(--ouro)}
+.info-box li::before{content:"";display:inline-block;width:6px;height:6px;background:var(--laranja);border-radius:50%;margin-right:10px;vertical-align:middle}
+
+.category-header{text-align:center;padding:48px 0 24px;margin-top:40px;border-top:2px solid var(--ouro)}
+.category-header h2{font-size:1.4rem;font-weight:900;color:var(--ouro);text-transform:uppercase;letter-spacing:2px}
+.category-header .cat-desc{font-size:.88rem;color:var(--cinza);margin-top:8px;font-weight:500;max-width:600px;margin-left:auto;margin-right:auto}
+.category-header .cat-badge{display:inline-block;margin-top:12px;font-size:.68rem;font-weight:700;padding:4px 16px;border-radius:20px;text-transform:uppercase;letter-spacing:1px}
+.cat-edital .cat-badge{background:var(--verde);color:#0E0E1A}
+.cat-black .cat-badge{background:var(--black);color:#fff}
+.cat-dia .cat-badge{background:var(--azul);color:#fff}
+.cat-formatos .cat-badge{background:var(--roxo);color:#fff}
+
+.roteiro{background:var(--ardosia);border-radius:16px;margin:40px 0;overflow:hidden;border:1px solid rgba(255,184,0,.12)}
+.roteiro-header{background:linear-gradient(135deg,rgba(255,184,0,.15),rgba(255,107,53,.1));padding:28px 32px;border-bottom:1px solid rgba(255,184,0,.15)}
+.roteiro-number{font-size:.75rem;font-weight:700;color:var(--laranja);text-transform:uppercase;letter-spacing:2px;margin-bottom:4px}
+.roteiro-title{font-size:1.25rem;font-weight:800;color:#fff}
+.roteiro-meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+.roteiro-meta span{font-size:.78rem;color:var(--cinza);font-weight:500}
+.roteiro-meta span strong{color:var(--ouro)}
+.roteiro-insight{display:inline-block;margin-top:10px;font-size:.65rem;font-weight:700;padding:3px 12px;border-radius:6px;text-transform:uppercase;letter-spacing:.8px;margin-right:6px}
+.insight-rumo{background:rgba(255,107,53,.15);color:var(--laranja);border:1px solid rgba(255,107,53,.3)}
+.insight-players{background:rgba(59,130,246,.15);color:var(--azul);border:1px solid rgba(59,130,246,.3)}
+.insight-misto{background:rgba(155,93,229,.15);color:var(--roxo);border:1px solid rgba(155,93,229,.3)}
+.insight-diferencial{background:rgba(255,184,0,.15);color:var(--ouro);border:1px solid rgba(255,184,0,.3)}
+.insight-black{background:rgba(244,63,94,.15);color:var(--black);border:1px solid rgba(244,63,94,.35)}
+.insight-novo{background:rgba(34,197,94,.15);color:var(--verde);border:1px solid rgba(34,197,94,.3)}
+
+.roteiro-body{padding:28px 32px}
+.cena{margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.06)}
+.cena:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.cena-label{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.cena-num{background:var(--ouro);color:var(--preto);font-size:.7rem;font-weight:800;padding:3px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:.5px}
+.cena-tipo{font-size:.75rem;color:var(--cinza);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.cena-visual{font-size:.82rem;color:var(--laranja);font-style:italic;margin-bottom:8px;padding-left:16px;border-left:2px solid var(--laranja)}
+.cena-fala{font-size:.95rem;color:var(--branco);line-height:1.8;padding-left:16px}
+.cena-fala strong{color:var(--ouro)}
+.cena-fala em{color:var(--cinza);font-style:italic}
+
+.dica{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:16px 20px;margin-top:16px}
+.dica-label{font-size:.72rem;font-weight:700;color:var(--verde);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.dica p{font-size:.82rem;color:var(--cinza);line-height:1.6}
+
+.texto-tela{background:rgba(255,184,0,.06);border:1px solid rgba(255,184,0,.15);border-radius:8px;padding:12px 16px;margin-top:12px}
+.texto-tela-label{font-size:.65rem;font-weight:700;color:var(--ouro);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.texto-tela p{font-size:.82rem;color:var(--branco);line-height:1.5}
+
+.nav-bar{display:flex;gap:12px;flex-wrap:wrap;padding:20px 0;margin-bottom:8px}
+.nav-btn{display:inline-flex;align-items:center;gap:6px;background:var(--ardosia);border:1px solid rgba(255,184,0,.15);color:var(--ouro);font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:600;padding:10px 18px;border-radius:8px;text-decoration:none;transition:background .2s,border-color .2s}
+.nav-btn:hover{background:rgba(255,184,0,.1);border-color:var(--ouro)}
+.nav-btn .arrow{font-size:.9rem}
+
+.page-footer{text-align:center;padding:40px 0 24px;border-top:1px solid var(--ardosia);margin-top:48px}
+.page-footer p{font-size:.78rem;color:var(--cinza)}
+.page-footer .brand{color:var(--ouro);font-weight:700}
+
+@media(max-width:600px){
+  .container{padding:16px 14px}
+  .page-header h1{font-size:1.2rem}
+  .category-header h2{font-size:1.1rem}
+  .roteiro-header,.roteiro-body{padding:20px 18px}
+  .roteiro-title{font-size:1.05rem}
+  .roteiro-meta{gap:8px}
+  .cena-fala{font-size:.88rem}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<nav class="nav-bar">
+  <a href="index.html" class="nav-btn"><span class="arrow">&larr;</span> Central de Roteiros</a>
+  <a href="../../index.html" class="nav-btn"><span class="arrow">&larr;</span> Central Geral</a>
+</nav>
+
+<header class="page-header">
+  <h1>Roteiros Novembro 2026 — Operação Edital PMBA</h1>
+  <p class="subtitle">16 roteiros &bull; 4 blocos &bull; Pré-edital, Black Gabaritando, Dia do Edital e formatos novos</p>
+  <span class="badge">Soldado &bull; Oficial/CFO &bull; Foco total na PM</span>
+</header>
+
+<div class="info-box">
+  <h3>O que os dados de agosto a outubro ensinaram</h3>
+  <ul>
+    <li><strong>O tráfego funciona, a venda trava no checkout:</strong> 86 pessoas abriram o checkout e 1 comprou. Todo roteiro precisa responder à objeção “e se o edital não sair?” — por isso a Garantia Edital aparece em quase todos.</li>
+    <li><strong>Vídeo curto com cara-câmera venceu:</strong> “Quem já passou” (ADS11) teve o melhor custo por clique (R$ 0,40). O depoimento longo (ADS03) consumiu 48% da verba sem converter. Depoimento entra como trecho de 3 segundos, não como vídeo inteiro.</li>
+    <li><strong>Soldado é o produto:</strong> 67% da verba e 40 dos 62 checkouts. CFO é o segundo público, com o Alan como voz.</li>
+    <li><strong>PC saiu do centro:</strong> por decisão do time (22/10), nenhum roteiro de PCBA. Tudo aqui é PMBA.</li>
+    <li><strong>Público real:</strong> homens de 18 a 34 anos, Bahia, Instagram (84% do gasto). O tom “tu”, direto, continua.</li>
+    <li><strong>Duas chamadas, não uma:</strong> antes da Black, o CTA frio é a <strong>Lista do Edital</strong> (WhatsApp); na Black, o CTA é o checkout com preço na tela.</li>
+  </ul>
+</div>
+
+<div class="info-box" style="border-left-color:var(--laranja)">
+  <h3>Legenda dos estilos</h3>
+  <ul>
+    <li><strong style="color:var(--laranja)">Estilo Rumo:</strong> cara-câmera casual, quebra de objeções, tom de irmão mais velho</li>
+    <li><strong style="color:var(--azul)">Grandes Players:</strong> números na tela, salário, urgência de edital</li>
+    <li><strong style="color:var(--roxo)">Misto:</strong> autenticidade + dados</li>
+    <li><strong style="color:var(--ouro)">Diferencial Gabaritando:</strong> mentores aprovados, prova social real, Garantia Edital</li>
+    <li><strong style="color:var(--black)">Black:</strong> oferta, preço e prazo na tela — só de 25 a 30/11</li>
+    <li><strong style="color:var(--verde)">Formato novo:</strong> sem fala, rua, resposta a comentário, antes e depois</li>
+  </ul>
+</div>
+
+<div class="info-box" style="border-left-color:var(--black)">
+  <h3>Regras de produção deste mês</h3>
+  <ul>
+    <li><strong>Gravar em lote:</strong> os 16 roteiros cabem em duas diárias de 3 horas (uma com Nilton, uma com Alan + os dois juntos). Os 3 roteiros do “Dia do Edital” ficam prontos na gaveta.</li>
+    <li><strong>Vertical 9:16, legenda queimada sempre</strong> — 70% assiste sem som.</li>
+    <li><strong>Primeiros 2 segundos decidem:</strong> toda cena 1 começa com a frase forte, sem “oi, gente”.</li>
+    <li><strong>Preço na Black (a validar):</strong> Soldado R$ 497 (de R$ 800) · CFO R$ 597 (de R$ 1.000) · PIX ou 12x. Antes de 25/11, nunca falar número — só “menor preço do ano”.</li>
+    <li><strong>Garantia Edital (a validar):</strong> “se o edital não sair até 31/03/2027, +6 meses de acesso”. Sempre com as mesmas palavras.</li>
+    <li><strong>Texto na tela</strong> segue a identidade: fundo escuro, ouro para destaque, Montserrat. O selo vermelho-rosa só na Black.</li>
+  </ul>
+</div>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║   BLOCO 1 — PRÉ-EDITAL (01 a 24/11)       ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+
+<div class="category-header cat-edital">
+  <h2>Bloco 1 — Pré-edital: começar antes</h2>
+  <p class="cat-desc">Para rodar de 01 a 24/11 no Meta Ads e no orgânico. Vende a decisão de começar antes do edital e leva o frio para a Lista do Edital. Soldado com Nilton, CFO com Alan.</p>
+  <span class="cat-badge">Soldado &bull; CFO &bull; CTA: Lista do Edital ou página</span>
+</div>
+
+
+<!-- PRÉ-EDITAL — ROTEIRO 01 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Pré-edital — Roteiro 01</div>
+    <h2 class="roteiro-title">E Se o Edital Não Sair? Então o Teu Acesso Cresce.</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~30 segundos</span>
+      <span><strong>Formato:</strong> Reels / Stories</span>
+      <span><strong>Quem grava:</strong> Nilton</span>
+      <span><strong>Destino:</strong> Página Soldado</span>
+    </div>
+    <span class="roteiro-insight insight-diferencial">Diferencial Gabaritando</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — A objeção dita em voz alta</span></div>
+      <div class="cena-visual">Nilton olhando direto, enquadramento busto, ambiente de treino ou pátio. Texto na tela: “E se o edital não sair?”.</div>
+      <div class="cena-fala">“Eu sei o que te segura. Não é o preço. É isto aqui: <strong>‘e se eu pagar e o edital não sair?’</strong> Então ouve.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">A resposta — Garantia Edital</span></div>
+      <div class="cena-visual">Nilton mais próximo, tom de quem resolve. Texto na tela: “Garantia Edital: +6 meses”.</div>
+      <div class="cena-fala">“Se o edital não sair até março, <strong>o teu acesso ganha mais seis meses</strong>. Tu não compra um curso com prazo. Tu compra um curso que acompanha o concurso. Comprar antes do edital deixou de ser risco — virou vantagem: tu chega ao edital com Penal, Constitucional e Português fechados.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">CTA</span></div>
+      <div class="cena-visual">Close. Texto na tela: “2.500 vagas • Garantia Edital • Clica aqui”.</div>
+      <div class="cena-fala">“2.500 vagas de Soldado. Quem começa agora revisa quando o edital sair. Quem espera, corre. Clica aqui.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Este é o roteiro mais importante do mês: ele ataca a única objeção que derrubou 85 de 86 checkouts. A frase da garantia precisa ser dita devagar e igual em todos os vídeos. Gravar duas versões do fecho: uma com “clica aqui” (página) e outra com “entra na Lista do Edital, link na bio” (orgânico).</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- PRÉ-EDITAL — ROTEIRO 02 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Pré-edital — Roteiro 02</div>
+    <h2 class="roteiro-title">Quem Está na Lista Vai Saber do Edital Antes dos Sites.</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~25 segundos</span>
+      <span><strong>Formato:</strong> Reels / Stories</span>
+      <span><strong>Quem grava:</strong> Nilton</span>
+      <span><strong>Destino:</strong> Lista do Edital (WhatsApp)</span>
+    </div>
+    <span class="roteiro-insight insight-players">Grandes Players</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — Promessa útil</span></div>
+      <div class="cena-visual">Tela preta com texto em ouro: “Edital PMBA — aviso em primeira mão”. Corte para Nilton com o celular na mão.</div>
+      <div class="cena-fala">“O edital da PMBA vai sair — dezembro, janeiro, não importa. O que importa é: <strong>tu vai saber na hora, ou vai saber pelo vizinho?</strong>”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">O que a lista entrega</span></div>
+      <div class="cena-visual">Nilton mostra a tela do WhatsApp (grupo “Lista do Edital — Gabaritando”). Texto na tela: “Aviso + plano de 60 dias + oferta antes de todo mundo”.</div>
+      <div class="cena-fala">“Criei a Lista do Edital. Quem está nela recebe o aviso no minuto em que sair, com as cinco datas que importam e o plano de 60 dias pronto. E recebe a oferta da Black Gabaritando <strong>24 horas antes de todo mundo</strong>.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">CTA</span></div>
+      <div class="cena-visual">Close. Texto: “Lista do Edital • Grátis • Link na bio”.</div>
+      <div class="cena-fala">“É grátis, é só entrar. Link na bio. Quem está na lista, está na frente.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>É o roteiro de captação da semana de 16 a 22/11. Pode rodar como anúncio com objetivo de mensagem (WhatsApp) para público frio, a um custo bem menor que venda direta. Mostrar o grupo real na tela gera confiança — cobrir os números dos membros.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- PRÉ-EDITAL — ROTEIRO 03 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Pré-edital — Roteiro 03</div>
+    <h2 class="roteiro-title">Sessenta Dias. Sete Matérias. Faz a Conta.</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~35 segundos</span>
+      <span><strong>Formato:</strong> Reels / Feed</span>
+      <span><strong>Quem grava:</strong> Nilton</span>
+      <span><strong>Destino:</strong> Página Soldado</span>
+    </div>
+    <span class="roteiro-insight insight-misto">Misto</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — A conta na tela</span></div>
+      <div class="cena-visual">Tela escura. Números aparecem um a um: “Edital → 60 dias → 7 matérias → redação → TAF”. Corte para Nilton.</div>
+      <div class="cena-fala">“Quando o edital sai, a prova vem em <strong>60 dias</strong>. Sete matérias, redação e TAF. São <strong>oito dias por matéria</strong>. Faz a conta: não dá.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">A virada</span></div>
+      <div class="cena-visual">Nilton em pé, energia sobe. Texto na tela: “Quem começou em novembro: revisa. Quem não começou: corre.”</div>
+      <div class="cena-fala">“Agora olha quem começou em novembro: chega ao edital com Penal, Constitucional e Português fechados — e usa os 60 dias para <strong>revisar e treinar TAF</strong>. Não é sobre ser mais inteligente. É sobre ter começado antes.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">CTA</span></div>
+      <div class="cena-visual">Close. Texto: “Começa hoje • Garantia Edital • Clica aqui”.</div>
+      <div class="cena-fala">“Preparação completa, com Garantia Edital: se demorar, teu acesso cresce. Clica aqui e começa hoje.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>A força está na conta simples (60 ÷ 7). Os números precisam aparecer grandes na tela, um por vez, no ritmo da fala. Versão de 15 segundos (só a cena 1 + CTA) serve de Story de anúncio.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- PRÉ-EDITAL — ROTEIRO 04 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Pré-edital — Roteiro 04</div>
+    <h2 class="roteiro-title">Prova de Oficial Não Se Faz em 60 Dias.</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~35 segundos</span>
+      <span><strong>Formato:</strong> Reels / Feed</span>
+      <span><strong>Quem grava:</strong> Alan</span>
+      <span><strong>Destino:</strong> Página CFO</span>
+    </div>
+    <span class="roteiro-insight insight-diferencial">Diferencial Gabaritando</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — Autoridade</span></div>
+      <div class="cena-visual">Alan, enquadramento próximo, postura de oficial. Se possível, contexto de comando (quartel, pátio). Texto: “200 vagas — CFO PMBA”.</div>
+      <div class="cena-fala">“Eu sou oficial da PM da Bahia. Fiz o CFO. E vou te dizer uma coisa que ninguém diz: <strong>prova de oficial não se faz em 60 dias.</strong>”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">Por que começar antes</span></div>
+      <div class="cena-visual">Alan, tom de mentor. Texto na tela: “Administrativo • Penal • Constitucional • Direitos Humanos — nível de oficial”.</div>
+      <div class="cena-fala">“Administrativo, Penal, Constitucional, Direitos Humanos — no nível que a banca cobra de oficial. Quem passa no CFO começou antes do edital. Eu comecei nove meses antes. E a Garantia Edital resolve o resto: <strong>se o edital demorar, o teu acesso cresce</strong>.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">CTA</span></div>
+      <div class="cena-visual">Close em Alan. Texto: “200 vagas • Preparação por quem passou • Clica aqui”.</div>
+      <div class="cena-fala">“200 vagas. A preparação de oficial, feita por oficial. Clica aqui.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Tom sóbrio, sem gritar: o público de CFO responde a autoridade, não a pressão. É o único vídeo do mês em que a farda ou o contexto de comando pode aparecer de verdade — se as regras da corporação permitirem; caso contrário, foto de formatura em B-roll de 1 segundo.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║   BLOCO 2 — BLACK GABARITANDO (25 a 30/11)║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+
+<div class="category-header cat-black">
+  <h2>Bloco 2 — Black Gabaritando</h2>
+  <p class="cat-desc">Cinco roteiros na ordem da campanha: teaser (sem preço), abertura, objeção, prova social e última chamada. Preço e prazo na tela só a partir de 25/11 às 20h.</p>
+  <span class="cat-badge">25 a 30/11 &bull; CTA: checkout</span>
+</div>
+
+
+<!-- BLACK — ROTEIRO 01 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Black — Roteiro 01 (teaser, 23 e 24/11)</div>
+    <h2 class="roteiro-title">Quinta, 20h. O Menor Preço do Ano — e Uma Garantia Que Eu Nunca Dei.</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~20 segundos</span>
+      <span><strong>Formato:</strong> Reels / Stories</span>
+      <span><strong>Quem grava:</strong> Nilton</span>
+      <span><strong>Destino:</strong> Lista do Edital (até 25/11)</span>
+    </div>
+    <span class="roteiro-insight insight-black">Black</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — Data</span></div>
+      <div class="cena-visual">Tela preta, letras em ouro: “Black Gabaritando — quinta, 26/11, 20h”. Corte para Nilton em fundo escuro, luz dura.</div>
+      <div class="cena-fala">“Quinta, 20h, ao vivo. A Preparação Total entra com o <strong>menor preço do ano</strong>.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">O gancho — sem número</span></div>
+      <div class="cena-visual">Nilton, meio sorriso. Texto na tela: “Garantia Edital”.</div>
+      <div class="cena-fala">“E vem com uma garantia que eu nunca dei: se o edital não sair, o teu acesso cresce. Preço? Quarta à noite a Lista do Edital descobre. Quinta, todo mundo.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">CTA</span></div>
+      <div class="cena-visual">Close. Texto: “Lista do Edital vê 24h antes • Link na bio”.</div>
+      <div class="cena-fala">“Quer ver antes? Lista do Edital, link na bio.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Teaser é curiosidade, não explicação. Nenhum número, nenhum “de/por”. A iluminação dura e o fundo preto diferenciam a Black de todo o resto do feed — é a única mudança de cara visual do mês.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- BLACK — ROTEIRO 02 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Black — Roteiro 02 (abertura, 26/11)</div>
+    <h2 class="roteiro-title">Abriu. R$ 497. Com Garantia Edital. Até Segunda, 23h59.</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~25 segundos</span>
+      <span><strong>Formato:</strong> Reels / Stories / Anúncio</span>
+      <span><strong>Quem grava:</strong> Nilton (versão Soldado) e Alan (versão CFO)</span>
+      <span><strong>Destino:</strong> Checkout</span>
+    </div>
+    <span class="roteiro-insight insight-black">Black</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — Preço na tela</span></div>
+      <div class="cena-visual">Tela preta. “De R$ 800” riscado, “R$ 497” em ouro grande. Corte para Nilton.</div>
+      <div class="cena-fala">“Abriu. Preparação Total Soldado PMBA: de R$ 800 por <strong>R$ 497</strong>. PIX à vista ou 12x no cartão.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">O que vem junto</span></div>
+      <div class="cena-visual">Texto na tela em lista rápida: “Caderno incluso • 30 dias de mentoria • Garantia Edital”.</div>
+      <div class="cena-fala">“Todas as matérias, questões da FCC e da IBFC, simulados, o Caderno de Treino incluso e 30 dias de mentoria em grupo. E a Garantia Edital: <strong>não saiu até março, mais seis meses de acesso</strong>.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">CTA + prazo</span></div>
+      <div class="cena-visual">Close. Texto: “Até segunda, 30/11, 23h59 • Link na bio”.</div>
+      <div class="cena-fala">“Vai até segunda, 23h59. Depois volta para R$ 800. Link na bio.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Gravar a versão CFO com Alan trocando apenas os números (de R$ 1.000 por R$ 597) e a mentoria por “correção de redação”. É o anúncio principal da Black no Meta: o preço precisa estar legível nos 2 primeiros segundos mesmo sem som. Valores a confirmar antes de gravar.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- BLACK — ROTEIRO 03 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Black — Roteiro 03 (objeções, 27/11)</div>
+    <h2 class="roteiro-title">As Três Perguntas Que Chegaram no Privado. Respondidas.</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~35 segundos</span>
+      <span><strong>Formato:</strong> Reels / Feed</span>
+      <span><strong>Quem grava:</strong> Nilton</span>
+      <span><strong>Destino:</strong> Checkout</span>
+    </div>
+    <span class="roteiro-insight insight-black">Black</span><span class="roteiro-insight insight-rumo">Estilo Rumo</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — Prints reais</span></div>
+      <div class="cena-visual">Prints de mensagens do WhatsApp (nomes cobertos) passando rápido na tela. Corte para Nilton.</div>
+      <div class="cena-fala">“Desde ontem chegaram as mesmas três perguntas no privado. Vou responder as três de uma vez.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">Quebra de objeções — contando nos dedos</span></div>
+      <div class="cena-visual">Nilton conta nos dedos, ritmo acelerado. Texto na tela acompanha: “1. Edital 2. Cartão 3. Tempo”.</div>
+      <div class="cena-fala">“Um: <strong>e se o edital não sair?</strong> Garantia Edital, mais seis meses, tu não perde nada. Dois: <strong>não tenho limite no cartão.</strong> PIX à vista, mesmo valor, sem juros — e tem o Caderno por R$ 97 para começar. Três: <strong>não tenho tempo.</strong> Uma hora por dia, vinte questões. É assim que o aprovado estuda.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">CTA</span></div>
+      <div class="cena-visual">Close. Texto: “R$ 497 • PIX ou 12x • até segunda 23h59”.</div>
+      <div class="cena-fala">“Acabaram as desculpas. Link na bio, até segunda, 23h59.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Trocar as três perguntas pelas que realmente chegarem na quinta à noite — a honestidade de usar prints reais é o que faz o vídeo funcionar. Gravar na sexta de manhã e publicar até o meio-dia.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- BLACK — ROTEIRO 04 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Black — Roteiro 04 (prova social, 28/11)</div>
+    <h2 class="roteiro-title">Em 24 Horas, [N] Pessoas Decidiram Não Esperar o Edital.</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~30 segundos</span>
+      <span><strong>Formato:</strong> Reels / Stories</span>
+      <span><strong>Quem grava:</strong> Nilton (narração) + prints</span>
+      <span><strong>Destino:</strong> Checkout</span>
+    </div>
+    <span class="roteiro-insight insight-black">Black</span><span class="roteiro-insight insight-diferencial">Diferencial Gabaritando</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — Número real</span></div>
+      <div class="cena-visual">Tela da área de membros com as boas-vindas aos novos alunos (nomes cobertos). Contador na tela: “[N] novos alunos em 24h”.</div>
+      <div class="cena-fala">“Em 24 horas, <strong>[N] pessoas</strong> decidiram não esperar o edital.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">Depoimento curto + Simuladão</span></div>
+      <div class="cena-visual">Trecho de 3 segundos de um aluno que entrou antes do edital no ano passado e passou. Corte para Nilton.</div>
+      <div class="cena-fala"><em>[Trecho do depoimento]</em><br>“Esse aí entrou em setembro do ano passado, sem edital. Hoje está fardado. Amanhã, domingo, 9h, tem <strong>Simuladão PMBA ao vivo</strong>: 50 questões, correção comentada. Vem ver onde tu está.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">CTA</span></div>
+      <div class="cena-visual">Close. Texto: “Simuladão domingo 9h • Black até segunda 23h59”.</div>
+      <div class="cena-fala">“A Black fecha segunda, 23h59. Link na bio.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Usar o número real, mesmo que pequeno — “19 pessoas” convence mais que “centenas”. O depoimento entra como trecho de 3 segundos (aprendizado de agosto: depoimento inteiro não converte). Montar no sábado de manhã com o número da noite anterior.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- BLACK — ROTEIRO 05 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Black — Roteiro 05 (última chamada, 30/11)</div>
+    <h2 class="roteiro-title">Hoje, 23h59. Depois Disso, R$ 800.</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~15 segundos</span>
+      <span><strong>Formato:</strong> Stories / Reels / Anúncio</span>
+      <span><strong>Quem grava:</strong> Nilton e Alan (um vídeo cada)</span>
+      <span><strong>Destino:</strong> Checkout</span>
+    </div>
+    <span class="roteiro-insight insight-black">Black</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — Relógio</span></div>
+      <div class="cena-visual">Tela preta com relógio em contagem. Corte para Nilton, direto, sem sorriso.</div>
+      <div class="cena-fala">“Hoje, 23h59, a Black Gabaritando fecha. <strong>Soldado por R$ 497. Oficial por R$ 597.</strong> Com Garantia Edital.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">CTA — Sem prorrogação</span></div>
+      <div class="cena-visual">Close. Texto: “Fecha hoje 23h59 • Sem prorrogação • Link na bio”.</div>
+      <div class="cena-fala">“Amanhã volta para R$ 800 e R$ 1.000. Eu avisei desde o primeiro dia: sem prorrogação. Link na bio.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Quinze segundos, sem enfeite. Gravar três variações da frase inicial (“faltam 12 horas”, “faltam 6 horas”, “faltam 3 horas”) para publicar ao longo do dia. A credibilidade da próxima Black depende de fechar às 23h59 de verdade.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║   BLOCO 3 — DIA DO EDITAL (gravar antes)  ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+
+<div class="category-header cat-dia">
+  <h2>Bloco 3 — Dia do Edital (gravados antes, publicados na hora)</h2>
+  <p class="cat-desc">Três vídeos prontos na gaveta. No dia em que o edital sair, publicam em até 3 horas, enquanto a concorrência ainda está lendo o Diário Oficial. As lacunas entre colchetes são preenchidas na edição.</p>
+  <span class="cat-badge">Gravar até 15/11 &bull; Publicar no dia D</span>
+</div>
+
+
+<!-- DIA DO EDITAL — ROTEIRO 01 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Dia do Edital — Roteiro 01</div>
+    <h2 class="roteiro-title">Saiu o Edital da PMBA. Para Tudo e Ouve Isto.</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~30 segundos</span>
+      <span><strong>Formato:</strong> Reels / Stories / Anúncio</span>
+      <span><strong>Quem grava:</strong> Nilton</span>
+      <span><strong>Destino:</strong> Página Soldado</span>
+    </div>
+    <span class="roteiro-insight insight-players">Grandes Players</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — A notícia</span></div>
+      <div class="cena-visual">Tela com texto: “SAIU O EDITAL — PMBA”. Corte para Nilton com energia de urgência real.</div>
+      <div class="cena-fala">“<strong>Saiu o edital da PMBA.</strong> 2.500 vagas de Soldado, 200 de Oficial. A partir de agora cada dia conta.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">As cinco datas (lacunas)</span></div>
+      <div class="cena-visual">Texto na tela com cinco linhas, preenchidas na edição: “Inscrições: [__] • Taxa: [__] • Prova: [__] • TAF: [__] • Resultado: [__]”.</div>
+      <div class="cena-fala">“Anota as cinco datas que importam: inscrição, taxa, prova, TAF e resultado. Estão na tela. E agora a pergunta: <strong>tu tem [__] dias até a prova. Vai começar hoje ou vai esperar mais um pouco?</strong>”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">CTA</span></div>
+      <div class="cena-visual">Close. Texto: “Plano de 60 dias pronto • Clica aqui”.</div>
+      <div class="cena-fala">“O plano de 60 dias já está pronto no Gabaritando. Clica aqui e entra hoje.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Gravar a cena 2 deixando pausas onde as datas entram — o editor insere os números no dia. Gravar também uma frase alternativa para a cena 2 caso o prazo seja menor que 60 dias (“tu tem menos de dois meses”). Este vídeo vira o anúncio principal no dia D.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- DIA DO EDITAL — ROTEIRO 02 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Dia do Edital — Roteiro 02</div>
+    <h2 class="roteiro-title">O Que Cai na Prova: Li o Edital Pra Tu Não Precisar.</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~40 segundos</span>
+      <span><strong>Formato:</strong> Reels / Feed</span>
+      <span><strong>Quem grava:</strong> Nilton (Soldado) e Alan (CFO)</span>
+      <span><strong>Destino:</strong> Página Soldado / CFO</span>
+    </div>
+    <span class="roteiro-insight insight-misto">Misto</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — Serviço</span></div>
+      <div class="cena-visual">Nilton com o edital impresso (ou tablet) na mão, folheando. Texto: “Li o edital inteiro”.</div>
+      <div class="cena-fala">“O edital tem [__] páginas. Eu li todas. Em 40 segundos tu vai saber o que cai e por onde começar.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">Matérias e pesos (lacunas)</span></div>
+      <div class="cena-visual">Lista na tela, preenchida na edição: “Português [__] questões • Matemática/RLM [__] • Penal [__] • Constitucional [__] • Direitos Humanos [__] • Legislação [__]”.</div>
+      <div class="cena-fala">“As matérias estão na tela com o número de questões de cada uma. A regra é simples: <strong>começa pela que tem mais questão e tu menos sabe</strong>. Para a maioria, é Português e Penal.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">CTA</span></div>
+      <div class="cena-visual">Close. Texto: “Cronograma montado por matéria • Clica aqui”.</div>
+      <div class="cena-fala">“No Gabaritando o cronograma já está montado por matéria, no peso do edital. Clica aqui.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Gravar a base com o edital de 2022 nas mãos (a estrutura muda pouco); se o novo edital mudar as matérias, regravar só a cena 2 no dia. É o vídeo de maior salvamento do mês: o candidato guarda para consultar.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- DIA DO EDITAL — ROTEIRO 03 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Dia do Edital — Roteiro 03</div>
+    <h2 class="roteiro-title">Quem Entrou em Novembro Está Revisando. E Tu?</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~30 segundos</span>
+      <span><strong>Formato:</strong> Reels / Stories</span>
+      <span><strong>Quem grava:</strong> Nilton e Alan juntos</span>
+      <span><strong>Destino:</strong> Página Soldado / CFO</span>
+    </div>
+    <span class="roteiro-insight insight-diferencial">Diferencial Gabaritando</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — Dupla</span></div>
+      <div class="cena-visual">Nilton e Alan lado a lado, ambiente descontraído, celular na mão com o grupo de alunos aberto.</div>
+      <div class="cena-fala"><strong>[Nilton]</strong> “Saiu o edital. Sabe o que os nossos alunos estão fazendo agora?”<br><strong>[Alan]</strong> “Revisando. Porque eles começaram em novembro.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">A diferença</span></div>
+      <div class="cena-visual">Nilton assume, enquadramento próximo. Texto: “Começar hoje ainda dá. Esperar, não.”</div>
+      <div class="cena-fala">“Quem entrou antes está revisando. Quem entrar hoje ainda chega — o plano de 60 dias está pronto, com as matérias no peso do edital. <strong>Quem esperar mais uma semana, não chega.</strong>”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">CTA — Dupla</span></div>
+      <div class="cena-visual">Os dois. Texto: “Soldado • Oficial • Clica aqui”.</div>
+      <div class="cena-fala"><strong>[Alan]</strong> “Soldado ou Oficial.”<br><strong>[Nilton]</strong> “Clica aqui. Hoje.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Não tem lacuna: pode ser gravado inteiro antes. Serve para qualquer data de edital. O formato dupla gera diferenciação no feed (nenhum concorrente tem dois policiais aprovados).</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- ╔══════════════════════════════════════════╗ -->
+<!-- ║   BLOCO 4 — FORMATOS NOVOS                ║ -->
+<!-- ╚══════════════════════════════════════════╝ -->
+
+<div class="category-header cat-formatos">
+  <h2>Bloco 4 — Formatos novos</h2>
+  <p class="cat-desc">Quatro formatos que o Gabaritando ainda não usou: sem fala, pergunta na rua, resposta a comentário e antes/depois. Mudam a cara do perfil e alimentam o orgânico e o anúncio.</p>
+  <span class="cat-badge">Orgânico + teste no Meta Ads</span>
+</div>
+
+
+<!-- FORMATOS — ROTEIRO 01 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Formato novo — Roteiro 01</div>
+    <h2 class="roteiro-title">Reels de Contexto: a Farda Fala por Si (sem fala)</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> 15–30 segundos</span>
+      <span><strong>Formato:</strong> Reels / Stories</span>
+      <span><strong>Quem grava:</strong> acervo (formatura, treino, operação)</span>
+      <span><strong>Destino:</strong> Lista do Edital ou página</span>
+    </div>
+    <span class="roteiro-insight insight-novo">Formato novo</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena única</span><span class="cena-tipo">Ambiente + legenda</span></div>
+      <div class="cena-visual">Corte de 15 a 30 segundos de material real: corridão ao amanhecer, último “fora de forma” da formatura, instrução de tiro, viatura à noite. Música marcial ou trilha que já viralizou no nicho. Sem fala.</div>
+      <div class="cena-fala"><em>Sem fala. Uma frase na tela, grande, em ouro sobre o vídeo. Cinco frases para rodar na sequência:</em></div>
+      <div class="texto-tela">
+        <div class="texto-tela-label">Frases de tela (uma por vídeo)</div>
+        <p>1. “Estude até o peso da caneta virar o peso do fuzil.”<br>2. “O edital tem data incerta. O seu treino, não.”<br>3. “2.500 vagas. 30 mil inscritos. De que lado tu vai estar?”<br>4. “Um dia tu vai olhar para trás e agradecer por não ter esperado.”<br>5. (Black) “Garantia Edital: se o edital demorar, o teu acesso cresce.”</p>
+      </div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de produção</div>
+      <p>É o formato de maior alcance orgânico do nicho e custa zero gravação nova: só acervo e corte. O segredo é a cena — sempre o momento mais emocional (formatura, abraço de família, primeira farda). Guardar todo material que chegar de alunos e colegas. Nos anúncios, usar como vídeo de público frio com o CTA da Lista do Edital.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- FORMATOS — ROTEIRO 02 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Formato novo — Roteiro 02</div>
+    <h2 class="roteiro-title">Pergunta na Rua: “Tu Sabe Quantas Vagas a PMBA Vai Abrir?”</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~40 segundos</span>
+      <span><strong>Formato:</strong> Reels / Feed</span>
+      <span><strong>Quem grava:</strong> Nilton com microfone de lapela, na rua ou na porta de um curso</span>
+      <span><strong>Destino:</strong> Página Soldado</span>
+    </div>
+    <span class="roteiro-insight insight-novo">Formato novo</span><span class="roteiro-insight insight-players">Grandes Players</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — Abordagem</span></div>
+      <div class="cena-visual">Nilton aborda jovens de 18 a 30 anos em Barreiras (praça, academia, porta de faculdade). Câmera na mão, cortes rápidos entre 3 ou 4 pessoas.</div>
+      <div class="cena-fala">“Rapidinho: tu sabe quantas vagas a PM da Bahia vai abrir?” <em>[respostas erradas: “mil?”, “não faço ideia”, “saiu já?”]</em></div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">A revelação</span></div>
+      <div class="cena-visual">Nilton revela para a câmera com o número grande na tela: “2.500 Soldado + 200 Oficial”.</div>
+      <div class="cena-fala">“Duas mil e quinhentas de Soldado e duzentas de Oficial. Já autorizadas. E a maioria nem sabe. <strong>Quem sabe e começa antes, chega na frente de quem vai descobrir no dia do edital.</strong>”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">CTA</span></div>
+      <div class="cena-visual">Close em Nilton, ainda na rua. Texto: “Lista do Edital • Link na bio”.</div>
+      <div class="cena-fala">“Entra na Lista do Edital: tu vai saber antes de todo mundo. Link na bio.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Pedir autorização por áudio antes de gravar cada pessoa (“posso usar no Instagram?”). As respostas erradas são o conteúdo — não cortar. Render de 3 a 5 vídeos numa tarde de gravação (variar a pergunta: salário, idade máxima, TAF).</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- FORMATOS — ROTEIRO 03 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Formato novo — Roteiro 03</div>
+    <h2 class="roteiro-title">Respondendo o Comentário: “Vou Esperar Sair o Edital.”</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~30 segundos</span>
+      <span><strong>Formato:</strong> Reels (resposta a comentário)</span>
+      <span><strong>Quem grava:</strong> Nilton</span>
+      <span><strong>Destino:</strong> Página Soldado</span>
+    </div>
+    <span class="roteiro-insight insight-novo">Formato novo</span><span class="roteiro-insight insight-rumo">Estilo Rumo</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Hook — O comentário na tela</span></div>
+      <div class="cena-visual">Formato nativo de resposta a comentário do Instagram: o comentário real (“vou esperar sair o edital pra começar”) aparece fixado no topo. Nilton abaixo, cara-câmera.</div>
+      <div class="cena-fala">“Esse comentário aqui eu recebo todo dia. ‘Vou esperar sair o edital.’ Deixa eu te mostrar o que acontece com quem espera.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">A resposta com dado</span></div>
+      <div class="cena-visual">Nilton, tom de irmão mais velho. Texto na tela: “Edital → 60 dias → 8 dias por matéria”.</div>
+      <div class="cena-fala">“O edital sai e a prova vem em 60 dias. Sete matérias, redação, TAF. Quem espera tem oito dias por matéria. Quem começou em novembro tem <strong>sessenta dias para revisar</strong>. Não é opinião. É calendário.”</div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">CTA</span></div>
+      <div class="cena-visual">Close. Texto: “Garantia Edital • Clica aqui”.</div>
+      <div class="cena-fala">“E se o edital demorar? Garantia Edital: teu acesso cresce. Tu não tem mais desculpa. Clica aqui.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Usar o recurso nativo “responder com Reels” do Instagram num comentário real — o algoritmo entrega para quem comentou e para quem viu o comentário. Fazer um por semana com a objeção mais repetida da semana (edital, preço, tempo, TAF, idade).</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- FORMATOS — ROTEIRO 04 -->
+<article class="roteiro">
+  <div class="roteiro-header">
+    <div class="roteiro-number">Formato novo — Roteiro 04</div>
+    <h2 class="roteiro-title">Antes e Depois: Três Perguntas Para o Aprovado</h2>
+    <div class="roteiro-meta">
+      <span><strong>Duração:</strong> ~45 segundos</span>
+      <span><strong>Formato:</strong> Reels / Feed / YouTube Shorts</span>
+      <span><strong>Quem grava:</strong> aluno aprovado + Nilton (entrevista)</span>
+      <span><strong>Destino:</strong> Página Soldado / CFO</span>
+    </div>
+    <span class="roteiro-insight insight-novo">Formato novo</span><span class="roteiro-insight insight-diferencial">Diferencial Gabaritando</span>
+  </div>
+  <div class="roteiro-body">
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 1</span><span class="cena-tipo">Antes — Pergunta 1</span></div>
+      <div class="cena-visual">Aluno aprovado, enquadramento busto, fundo neutro. Nilton fora de quadro faz a pergunta. Texto na tela: “ANTES”.</div>
+      <div class="cena-fala"><strong>[Nilton]</strong> “Como era tua rotina antes de começar?”<br><strong>[Aluno]</strong> <em>[resposta de 8 segundos — o quanto adiava, quantas horas estudava]</em></div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 2</span><span class="cena-tipo">Durante — Pergunta 2</span></div>
+      <div class="cena-visual">Mesmo enquadramento. Texto: “DURANTE”.</div>
+      <div class="cena-fala"><strong>[Nilton]</strong> “O que mudou quando tu entrou no Gabaritando?”<br><strong>[Aluno]</strong> <em>[resposta de 10 segundos — questão todo dia, cronograma, correção]</em></div>
+    </div>
+
+    <div class="cena">
+      <div class="cena-label"><span class="cena-num">Cena 3</span><span class="cena-tipo">Depois — Pergunta 3 + CTA</span></div>
+      <div class="cena-visual">Corte para foto ou vídeo do aluno fardado. Texto: “DEPOIS”. Fecho com Nilton em quadro.</div>
+      <div class="cena-fala"><strong>[Nilton]</strong> “E hoje?”<br><strong>[Aluno]</strong> <em>[resposta de 5 segundos — “hoje eu tô fardado”]</em><br><strong>[Nilton]</strong> “O método é o mesmo que está aberto pra tu agora. Clica aqui.”</div>
+    </div>
+
+    <div class="dica">
+      <div class="dica-label">Dica de gravação</div>
+      <p>Três perguntas, 45 segundos, sem deixar o aluno contar a vida inteira — é o oposto do depoimento longo que não converteu. A foto fardado no “depois” é o momento que vende. Gravar com 3 alunos diferentes na mesma tarde; o melhor vira anúncio na Black.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- RESUMO FINAL -->
+<div class="info-box" style="margin-top:56px;border-left-color:var(--verde)">
+  <h3>Resumo — 16 roteiros prontos para gravação</h3>
+  <ul>
+    <li><strong>Bloco 1 — Pré-edital:</strong> 4 roteiros → página Soldado / CFO e Lista do Edital (01 a 24/11)</li>
+    <li><strong>Bloco 2 — Black Gabaritando:</strong> 5 roteiros → checkout (teaser 23–24, abertura 26, objeções 27, prova social 28, última chamada 30)</li>
+    <li><strong>Bloco 3 — Dia do Edital:</strong> 3 roteiros na gaveta, com lacunas para datas e matérias</li>
+    <li><strong>Bloco 4 — Formatos novos:</strong> 4 roteiros (sem fala, rua, resposta a comentário, antes e depois)</li>
+    <li><strong>Mensagem que atravessa tudo:</strong> começar antes do edital é vantagem, e a Garantia Edital tira o risco</li>
+    <li><strong>CTA frio:</strong> Lista do Edital (WhatsApp) · <strong>CTA quente:</strong> página / checkout</li>
+    <li><strong>Zero PCBA</strong> — decisão do time em 22/10</li>
+  </ul>
+</div>
+
+<div class="info-box" style="border-left-color:var(--laranja)">
+  <h3>Ordem sugerida de gravação</h3>
+  <ul>
+    <li><strong>Diária 1 (até 05/11) — Nilton:</strong> Pré-edital 01, 02 e 03 · Formato 03 (resposta a comentário) · Dia do Edital 01 e 02 (base)</li>
+    <li><strong>Diária 2 (até 12/11) — Alan + dupla:</strong> Pré-edital 04 · Dia do Edital 02 (CFO) e 03 (dupla) · Black 02 e 05 (versões CFO)</li>
+    <li><strong>Até 15/11:</strong> Formato 02 (rua) numa tarde · Formato 04 (antes e depois) com 3 alunos</li>
+    <li><strong>Semana 23/11:</strong> Black 01 (teaser) e Black 02 (abertura) — só depois de os preços serem confirmados</li>
+    <li><strong>Na hora:</strong> Black 03 (sexta de manhã, com os prints reais) e Black 04 (sábado, com o número real)</li>
+    <li><strong>Contínuo:</strong> Formato 01 (contexto) — 1 por dia a partir do acervo</li>
+  </ul>
+</div>
+
+
+<nav class="nav-bar" style="justify-content:center;padding-top:32px">
+  <a href="index.html" class="nav-btn"><span class="arrow">&larr;</span> Central de Roteiros</a>
+  <a href="../../index.html" class="nav-btn"><span class="arrow">&larr;</span> Central Geral</a>
+</nav>
+
+<footer class="page-footer">
+  <p><span class="brand">Gabaritando</span> — Carreiras Policiais da Bahia</p>
+  <p style="margin-top:8px">16 roteiros • Operação Edital PMBA + Black Gabaritando • Novembro 2026</p>
+</footer>
+
+</div>
+
+</body>
+</html>
