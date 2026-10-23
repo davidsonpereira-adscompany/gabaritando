@@ -6,7 +6,7 @@
 <title>Criativos para Tráfego — Gabaritando | ADS Company</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
 <style>
-  :root { --ouro:#FFB800; --preto:#0E0E1A; --card:#15152A; --card-hover:#1C1C33; --cinza-claro:#8A8FA3; --borda:rgba(255,255,255,0.07); --branco:#F5F5F5; --black:#F43F5E; --roxo:#9B5DE5; --azul:#3B8BFF; }
+  :root { --ouro:#FFB800; --preto:#0E0E1A; --card:#15152A; --card-hover:#1C1C33; --cinza-claro:#8A8FA3; --borda:rgba(255,255,255,0.07); --branco:#F5F5F5; --black:#F43F5E; --azul:#3B8BFF; }
   *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
   body { background:var(--preto); color:var(--branco); font-family:'Montserrat',sans-serif; font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; min-height:100vh; }
   .top-bar { background:rgba(14,14,26,0.92); backdrop-filter:blur(20px); border-bottom:1px solid var(--borda); padding:14px 32px; position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; }
@@ -31,7 +31,7 @@
   .doc-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:0; background:var(--ouro); transition:height .3s ease; }
   .doc-card:hover { background:var(--card-hover); border-color:rgba(255,184,0,0.25); transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,.45); }
   .doc-card:hover::before { height:100%; }
-  .doc-card.soon { opacity:.55; pointer-events:none; }
+  .doc-card.soon { opacity:.65; }
   .doc-card-tag { font-size:0.6rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--ouro); }
   .doc-card h3 { font-size:1.08rem; font-weight:800; line-height:1.3; }
   .doc-card h3 em { font-style:normal; color:var(--ouro); }
@@ -41,7 +41,6 @@
   .status-ready { background:rgba(34,197,94,.1); color:#22C55E; border:1px solid rgba(34,197,94,.2); }
   .status-pending { background:rgba(255,184,0,.1); color:var(--ouro); border:1px solid rgba(255,184,0,.25); }
   .status-review { background:rgba(244,63,94,.1); color:var(--black); border:1px solid rgba(244,63,94,.25); }
-  .status-progress { background:rgba(59,139,255,.1); color:var(--azul); border:1px solid rgba(59,139,255,.2); }
   .doc-card-arrow { width:32px; height:32px; background:rgba(255,184,0,.08); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .3s; }
   .doc-card:hover .doc-card-arrow { background:var(--ouro); }
   .doc-card-arrow svg { width:14px; height:14px; stroke:var(--ouro); stroke-width:2; fill:none; }
@@ -65,74 +64,36 @@
   <div class="hero-tag">Gabaritando · Meta Ads</div>
   <h1>Criativos para <em>Tráfego</em></h1>
   <div class="hero-line"></div>
-  <p>As peças de imagem que vão para os anúncios e os roteiros dos vídeos para gravação, organizados mês a mês. Cada mês tem a sua página com o uso previsto de cada peça.</p>
+  <p>Cards e roteiros de vídeo dos anúncios, organizados mês a mês. Entre no mês para ver as peças, os roteiros e o que foi aprendido.</p>
 </div>
 
 <div class="container">
-
   <div class="section">
     <div class="section-header">
-      <div class="section-tag">Novembro 2026</div>
-      <div class="section-title">Operação Edital PMBA + <em>Black Gabaritando</em></div>
+      <div class="section-tag">Por mês</div>
+      <div class="section-title">Escolha o <em>mês</em></div>
     </div>
     <div class="doc-grid">
-      <a href="criativos-nov-2026/index.html" class="doc-card">
-        <div class="doc-card-tag" style="color:var(--black)">13 peças · 9 feed + 4 Stories</div>
-        <h3>Cards de <em>novembro</em></h3>
-        <p>Garantia Edital, Lista do Edital, Operação Edital e as peças da Black. Nova direção visual: cena fotorrealista da PM + título em ouro. Peças de preço aguardam aprovação da equipe.</p>
+      <a href="nov-2026/index.html" class="doc-card">
+        <div class="doc-card-tag" style="color:var(--black)">13 cards + 16 roteiros</div>
+        <h3>Novembro <em>2026</em></h3>
+        <p>Operação Edital PMBA e Black Gabaritando: Garantia Edital, Lista do Edital, oferta e última chamada. Peças de preço em aprovação pela equipe.</p>
         <div class="doc-card-footer"><span class="doc-card-status status-review">Em aprovação</span><div class="doc-card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div></div>
       </a>
-      <a href="roteiros-meta-ads/novembro-2026.html" class="doc-card">
-        <div class="doc-card-tag" style="color:var(--roxo)">16 roteiros · 4 blocos</div>
-        <h3>Roteiros de vídeo — <em>novembro</em></h3>
-        <p>Pré-edital, Black Gabaritando, Dia do Edital (gravado antes) e formatos novos. Ordem de gravação em duas diárias com Nilton e Alan.</p>
-        <div class="doc-card-footer"><span class="doc-card-status status-ready">Pronto para gravar</span><div class="doc-card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div></div>
-      </a>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-header">
-      <div class="section-tag">Agosto a outubro 2026</div>
-      <div class="section-title">Campanha <em>CP03</em> — histórico</div>
-    </div>
-    <div class="doc-grid">
-      <a href="plano-trafego-agosto-2026.html" class="doc-card">
-        <div class="doc-card-tag">Plano de campanha · 38 peças + 16 vídeos</div>
-        <h3>Plano de Tráfego — <em>Agosto 2026</em></h3>
-        <p>Estrutura da campanha CP03, distribuição dos criativos por público, copy dos anúncios, regras de otimização e projeções com R$ 30/dia.</p>
+      <a href="ago-out-2026/index.html" class="doc-card">
+        <div class="doc-card-tag">22 cards + 16 roteiros + 16 vídeos</div>
+        <h3>Agosto a Outubro <em>2026</em></h3>
+        <p>Primeira campanha (CP03): cards para Geral, Soldado, Oficial/CFO e Investigador/PCBA, os roteiros de agosto e os vídeos gravados ADS01 a ADS16.</p>
         <div class="doc-card-footer"><span class="doc-card-status status-ready">Concluído</span><div class="doc-card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div></div>
       </a>
-      <a href="roteiros-meta-ads/agosto-2026.html" class="doc-card">
-        <div class="doc-card-tag" style="color:var(--roxo)">16 roteiros · 4 categorias</div>
-        <h3>Roteiros de vídeo — <em>agosto</em></h3>
-        <p>Primeira leva: Geral, Soldado, Oficial/CFO e Investigador/PCBA, em quatro estilos para teste. Os vídeos ADS01 a ADS16 saíram daqui.</p>
-        <div class="doc-card-footer"><span class="doc-card-status status-ready">Gravados</span><div class="doc-card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div></div>
+      <a href="dez-2026/index.html" class="doc-card doc-card-full soon">
+        <div class="doc-card-tag">Em preparação</div>
+        <h3>Dezembro <em>2026</em></h3>
+        <p>Pós-Black e, se o edital sair, os criativos do Dia do Edital com as datas reais. Entra aqui conforme for produzido.</p>
+        <div class="doc-card-footer"><span class="doc-card-status status-pending">Em breve</span><div class="doc-card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div></div>
       </a>
     </div>
   </div>
-
-  <div class="section">
-    <div class="section-header">
-      <div class="section-tag">Próximos</div>
-      <div class="section-title">Dezembro e <em>dia do edital</em></div>
-    </div>
-    <div class="doc-grid">
-      <div class="doc-card soon">
-        <div class="doc-card-tag">Na gaveta</div>
-        <h3>Criativos do <em>Dia do Edital</em></h3>
-        <p>Serão produzidos com as datas reais (inscrição, prova, TAF) no dia em que o edital da PMBA for publicado. Os roteiros já estão prontos.</p>
-        <div class="doc-card-footer"><span class="doc-card-status status-pending">Aguarda o edital</span></div>
-      </div>
-      <div class="doc-card soon">
-        <div class="doc-card-tag">Em preparação</div>
-        <h3>Criativos de <em>dezembro</em></h3>
-        <p>Definidos após a Black e conforme a data do edital.</p>
-        <div class="doc-card-footer"><span class="doc-card-status status-pending">Em breve</span></div>
-      </div>
-    </div>
-  </div>
-
 </div>
 
 <div class="footer">

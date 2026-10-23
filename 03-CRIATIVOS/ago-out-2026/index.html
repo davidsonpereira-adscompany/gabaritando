@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criativos — Agosto a Outubro 2026 | Gabaritando</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+<style>
+  :root { --ouro:#FFB800; --preto:#0E0E1A; --card:#15152A; --card-hover:#1C1C33; --cinza-claro:#8A8FA3; --borda:rgba(255,255,255,0.07); --branco:#F5F5F5; --roxo:#9B5DE5; --azul:#3B8BFF; }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--preto); color:var(--branco); font-family:'Montserrat',sans-serif; font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased; min-height:100vh; }
+  .top-bar { background:rgba(14,14,26,0.92); backdrop-filter:blur(20px); border-bottom:1px solid var(--borda); padding:14px 32px; position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .top-bar-links { display:flex; gap:18px; flex-wrap:wrap; }
+  .top-bar a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.72rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; }
+  .top-bar a:hover { color:var(--ouro); }
+  .top-bar-badge { font-size:0.6rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--ouro); background:rgba(255,184,0,0.08); border:1px solid rgba(255,184,0,0.18); padding:5px 14px; border-radius:20px; }
+  .hero { padding:80px 32px 56px; text-align:center; background:linear-gradient(180deg,#13131F 0%,var(--preto) 100%); }
+  .hero-tag { display:inline-block; font-size:0.6rem; font-weight:700; letter-spacing:0.4em; text-transform:uppercase; color:var(--ouro); margin-bottom:20px; }
+  .hero h1 { font-size:clamp(1.8rem,4.5vw,2.8rem); font-weight:900; text-transform:uppercase; line-height:1.12; }
+  .hero h1 em { font-style:normal; color:var(--ouro); }
+  .hero-line { width:60px; height:2px; background:var(--ouro); margin:22px auto; }
+  .hero p { font-size:0.95rem; color:var(--cinza-claro); font-weight:300; max-width:600px; margin:0 auto; line-height:1.7; }
+  .container { max-width:960px; margin:0 auto; padding:0 32px; }
+  .section { padding:48px 0 16px; }
+  .section-header { text-align:center; margin-bottom:36px; }
+  .section-tag { font-size:0.6rem; font-weight:700; letter-spacing:0.35em; text-transform:uppercase; color:var(--ouro); margin-bottom:10px; }
+  .section-title { font-size:1.4rem; font-weight:800; }
+  .section-title em { font-style:normal; color:var(--ouro); }
+  .doc-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media (max-width:700px) { .doc-grid { grid-template-columns:1fr; } }
+  .doc-card { background:var(--card); border:1px solid var(--borda); padding:28px 26px; display:flex; flex-direction:column; gap:12px; transition:all .3s ease; position:relative; overflow:hidden; text-decoration:none; color:var(--branco); }
+  .doc-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:0; background:var(--ouro); transition:height .3s ease; }
+  .doc-card:hover { background:var(--card-hover); border-color:rgba(255,184,0,0.25); transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,.45); }
+  .doc-card:hover::before { height:100%; }
+  .doc-card-tag { font-size:0.6rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--ouro); }
+  .doc-card h3 { font-size:1.08rem; font-weight:800; line-height:1.3; }
+  .doc-card h3 em { font-style:normal; color:var(--ouro); }
+  .doc-card p { font-size:0.82rem; color:var(--cinza-claro); font-weight:300; line-height:1.6; flex:1; }
+  .doc-card-footer { display:flex; align-items:center; justify-content:space-between; padding-top:14px; border-top:1px solid var(--borda); margin-top:auto; }
+  .doc-card-status { font-size:0.62rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 12px; border-radius:12px; }
+  .status-ready { background:rgba(34,197,94,.1); color:#22C55E; border:1px solid rgba(34,197,94,.2); }
+  .status-off { background:rgba(148,163,184,.1); color:#94A3B8; border:1px solid rgba(148,163,184,.25); }
+  .doc-card-arrow { width:32px; height:32px; background:rgba(255,184,0,.08); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all .3s; }
+  .doc-card:hover .doc-card-arrow { background:var(--ouro); }
+  .doc-card-arrow svg { width:14px; height:14px; stroke:var(--ouro); stroke-width:2; fill:none; }
+  .doc-card:hover .doc-card-arrow svg { stroke:var(--preto); }
+  .doc-card-full { grid-column:1 / -1; }
+  .videos { background:var(--card); border:1px solid var(--borda); padding:24px 26px; }
+  .videos h3 { font-size:1rem; font-weight:800; margin-bottom:6px; }
+  .videos h3 em { font-style:normal; color:var(--ouro); }
+  .videos p { font-size:.82rem; color:var(--cinza-claro); margin-bottom:14px; }
+  .videos ol { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:6px 24px; }
+  @media (max-width:700px) { .videos ol { grid-template-columns:1fr; } }
+  .videos li { font-size:.8rem; color:rgba(255,255,255,.75); padding:4px 0; border-bottom:1px solid var(--borda); }
+  .videos li span { color:var(--ouro); font-weight:700; margin-right:8px; }
+  .footer { text-align:center; padding:48px 32px 32px; border-top:1px solid var(--borda); margin-top:48px; }
+  .footer-brand { font-size:.95rem; font-weight:700; color:rgba(255,255,255,.65); margin-bottom:8px; }
+  .footer-brand em { font-style:normal; color:var(--ouro); }
+  .footer-sub { font-size:.72rem; color:rgba(255,255,255,.3); font-weight:300; }
+  @media (max-width:600px) { .top-bar { padding:12px 16px; } .hero { padding:56px 20px 40px; } .container { padding:0 16px; } }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-links">
+    <a href="../index.html">&larr; Criativos para Tráfego</a>
+    <a href="../../index.html">&larr; Central de Documentos</a>
+  </div>
+  <span class="top-bar-badge">Agosto a Outubro 2026</span>
+</div>
+
+<div class="hero">
+  <div class="hero-tag">Criativos para Tráfego · Agosto a Outubro 2026</div>
+  <h1>Campanha <em>CP03</em> — primeira leva</h1>
+  <div class="hero-line"></div>
+  <p>Os 22 cards, os 16 roteiros e os 16 vídeos gravados que rodaram na campanha de 13/08 a 22/10. Material de referência para o que vem a seguir.</p>
+</div>
+
+<div class="container">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Neste período</div>
+      <div class="section-title">Cards, roteiros e <em>vídeos</em></div>
+    </div>
+    <div class="doc-grid">
+      <a href="cards.html" class="doc-card">
+        <div class="doc-card-tag">22 peças · ADS17 a ADS38</div>
+        <h3>Cards de <em>agosto</em></h3>
+        <p>Imagens para Geral, Soldado, Oficial/CFO e Investigador/PCBA em três ângulos (dados, urgência, preço). Inclui o ADS19, o card que mais gerou checkout.</p>
+        <div class="doc-card-footer"><span class="doc-card-status status-ready">Galeria</span><div class="doc-card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div></div>
+      </a>
+      <a href="../roteiros-meta-ads/agosto-2026.html" class="doc-card">
+        <div class="doc-card-tag" style="color:var(--roxo)">16 roteiros · 4 categorias</div>
+        <h3>Roteiros de <em>vídeo</em></h3>
+        <p>Estilo Rumo, Grandes Players, Misto e Diferencial Gabaritando para cada público. Os vídeos ADS01 a ADS16 saíram daqui.</p>
+        <div class="doc-card-footer"><span class="doc-card-status status-ready">Gravados</span><div class="doc-card-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div></div>
+      </a>
+    </div>
+
+    <div class="videos" style="margin-top:20px">
+      <h3>Vídeos gravados — <em>ADS01 a ADS16</em></h3>
+      <p>Arquivos .mov na pasta do projeto (04-VENDAS/deploy/ads) e na biblioteca de mídia da conta de anúncios. Não ficam no site pelo tamanho.</p>
+      <ol>
+        <li><span>ADS01</span>PCBA — Edital já saiu <em style="color:#94A3B8">(pausado 23/10)</em></li>
+        <li><span>ADS02</span>Geral — Todo mundo quer ser policial <em style="color:#22C55E">(no ar)</em></li>
+        <li><span>ADS03</span>Geral — Depoimento do aluno</li>
+        <li><span>ADS04</span>Geral — Boa notícia</li>
+        <li><span>ADS05</span>Geral — Duas horas por dia</li>
+        <li><span>ADS06</span>Geral — Mesa 02</li>
+        <li><span>ADS07</span>Geral — Tenho algo para te contar</li>
+        <li><span>ADS08</span>Geral — Já estamos em agosto</li>
+        <li><span>ADS09</span>Geral — Sala de aula 01</li>
+        <li><span>ADS10</span>Geral — Sala de aula 02</li>
+        <li><span>ADS11</span>Geral — Quem já passou <em style="color:#22C55E">(no ar · melhor custo por clique)</em></li>
+        <li><span>ADS12</span>Geral — Estamos aqui para te preparar</li>
+        <li><span>ADS13</span>Geral — Interpretação da lei</li>
+        <li><span>ADS14</span>Geral — Poltrona</li>
+        <li><span>ADS15</span>Geral — Rua 02</li>
+        <li><span>ADS16</span>Geral — Rua 03</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-brand">ADS <em>Company</em> — Assessoria de Marketing e Performance</div>
+  <div class="footer-sub">Criativos para Tráfego — Agosto a Outubro 2026 — Projeto Gabaritando</div>
+</div>
+
+</body>
+</html>
