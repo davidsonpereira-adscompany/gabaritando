@@ -280,7 +280,7 @@
       "data": "2026-08-25",
       "investido": 10.57,
       "conversas": 0,
-      "alcance": 1872,
+      "alcance": 1875,
       "impressoes": 1955,
       "cliques": 17,
       "engajamentos": 24,
@@ -1589,17 +1589,17 @@
     },
     {
       "data": "2026-10-21",
-      "investido": 23.54,
+      "investido": 23.73,
       "conversas": 0,
-      "alcance": 4692,
-      "impressoes": 5445,
-      "cliques": 58,
-      "engajamentos": 880,
+      "alcance": 4723,
+      "impressoes": 5505,
+      "cliques": 60,
+      "engajamentos": 906,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 23.54,
+          "investido": 23.73,
           "conversas": 0,
-          "alcance": 4692
+          "alcance": 4723
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -1612,17 +1612,40 @@
     },
     {
       "data": "2026-10-22",
-      "investido": 5.4,
+      "investido": 41.86,
       "conversas": 0,
-      "alcance": 1173,
-      "impressoes": 1275,
-      "cliques": 5,
-      "engajamentos": 148,
+      "alcance": 4848,
+      "impressoes": 6227,
+      "cliques": 48,
+      "engajamentos": 598,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 5.4,
+          "investido": 41.86,
           "conversas": 0,
-          "alcance": 1173
+          "alcance": 4848
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-23",
+      "investido": 7.29,
+      "conversas": 0,
+      "alcance": 601,
+      "impressoes": 750,
+      "cliques": 2,
+      "engajamentos": 3,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 7.29,
+          "conversas": 0,
+          "alcance": 601
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -1638,11 +1661,11 @@
     {
       "id": "120256503276500367",
       "nome": "CJ02 | Bahia 18-40",
-      "investido": 1718.58,
+      "investido": 1762.52,
       "conversas": 0,
-      "alcance": 85807,
-      "impressoes": 213602,
-      "cliques": 1989,
+      "alcance": 88013,
+      "impressoes": 219364,
+      "cliques": 2036,
       "status": "ACTIVE"
     },
     {
@@ -1658,47 +1681,47 @@
   ],
   "anuncios": [
     {
-      "id": "120256503297030367",
-      "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
+      "id": "120257473857810367",
+      "nome": "[ADS39][IMG][PCBA - RETA FINAL]",
       "grupo": "CJ02",
-      "investido": 338.14,
+      "investido": 30.71,
       "conversas": 0,
-      "alcance": 24559,
-      "impressoes": 48037,
-      "cliques": 449,
+      "alcance": 2332,
+      "impressoes": 3390,
+      "cliques": 14,
       "status": "ACTIVE"
     },
     {
-      "id": "120256503280010367",
-      "nome": "[ADS01][VIDEO][PCBA - EDITAL JA SAIU]",
+      "id": "120256503297030367",
+      "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
       "grupo": "CJ02",
-      "investido": 329.12,
+      "investido": 346.97,
       "conversas": 0,
-      "alcance": 17503,
-      "impressoes": 33812,
-      "cliques": 368,
+      "alcance": 25169,
+      "impressoes": 49545,
+      "cliques": 471,
       "status": "ACTIVE"
     },
     {
       "id": "120256503280940367",
       "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
       "grupo": "CJ02",
-      "investido": 124.17,
+      "investido": 125.54,
       "conversas": 0,
-      "alcance": 6641,
-      "impressoes": 14991,
-      "cliques": 117,
+      "alcance": 6732,
+      "impressoes": 15254,
+      "cliques": 123,
       "status": "ACTIVE"
     },
     {
       "id": "120256503311590367",
       "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
       "grupo": "CJ02",
-      "investido": 697.83,
+      "investido": 698.92,
       "conversas": 0,
-      "alcance": 46341,
-      "impressoes": 92274,
-      "cliques": 875,
+      "alcance": 46600,
+      "impressoes": 92540,
+      "cliques": 876,
       "status": "ACTIVE"
     },
     {
@@ -1766,6 +1789,17 @@
       "impressoes": 230,
       "cliques": 3,
       "status": "ADSET_PAUSED"
+    },
+    {
+      "id": "120256503280010367",
+      "nome": "[ADS01][VIDEO][PCBA - EDITAL JA SAIU]",
+      "grupo": "CJ02",
+      "investido": 331.06,
+      "conversas": 0,
+      "alcance": 17641,
+      "impressoes": 34147,
+      "cliques": 372,
+      "status": "PAUSED"
     },
     {
       "id": "120256503309120367",
@@ -2514,11 +2548,12 @@
     "2026-10-19T07:10:00-03:00",
     "2026-10-20T07:05:00-03:00",
     "2026-10-21T07:08:00-03:00",
-    "2026-10-22T07:10-03:00"
+    "2026-10-22T07:10-03:00",
+    "2026-10-23T07:10:00-03:00"
   ],
-  "leitura": "<strong>Ainda não há nenhuma venda pela página confirmada desde o início da campanha.</strong> De 13/08 até ontem (21/10) investimos R$ 1.998,94 e alcançamos milhares de pessoas, mas o pixel do site continua sem registrar vendas — ontem foram R$ 23,54 investidos e 0 vendas. O anúncio [ADS19][IMG][SOLDADO - 2500 VAGAS], do grupo CJ02 (hoje o único ativo), continua sendo o que mais alcança pessoas e tem o melhor custo por toque no anúncio; o próximo passo continua sendo revisar com urgência o registro de compra no site antes de ampliar o investimento.",
+  "leitura": "<strong>Nenhuma venda pela página registrada desde o início da campanha.</strong> De 13/08 até ontem (22/10) investimos R$ 2.040,99 e alcançamos milhares de pessoas, mas o pixel do site continua sem confirmar nenhuma venda — ontem foram R$ 41,86 investidos e 0 vendas. O grupo CJ02 (ativo) e o anúncio [ADS19][IMG][SOLDADO - 2500 VAGAS] continuam trazendo o maior alcance e o maior número de toques no anúncio; o próximo passo é revisar com urgência o registro de compra no site antes de ampliar o investimento.",
   "campanha": {
     "status": "ACTIVE"
   },
-  "atualizado_em": "2026-10-22T07:10-03:00"
+  "atualizado_em": "2026-10-23T07:10:00-03:00"
 }
