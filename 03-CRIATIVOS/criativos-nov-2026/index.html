@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--ouro:#FFB800;--preto:#0E0E1A;--ardosia:#1E1E2E;--laranja:#FF6B35;--branco:#F5F5F5;--cinza:#94A3B8;--verde:#22C55E;--black:#F43F5E;--borda:rgba(255,255,255,.07)}
+:root{--ouro:#FFB800;--preto:#0E0E1A;--ardosia:#1E1E2E;--laranja:#FF6B35;--branco:#F5F5F5;--cinza:#94A3B8;--verde:#22C55E;--black:#F43F5E;--azul:#3B8BFF;--borda:rgba(255,255,255,.07)}
 body{font-family:'Montserrat',sans-serif;background:var(--preto);color:var(--branco);line-height:1.7}
 .container{max-width:1100px;margin:0 auto;padding:24px 20px}
 .nav-bar{display:flex;gap:12px;flex-wrap:wrap;padding:20px 0;margin-bottom:8px}
@@ -23,9 +23,14 @@ body{font-family:'Montserrat',sans-serif;background:var(--preto);color:var(--bra
 .info-box li{padding:6px 0;font-size:.9rem}
 .info-box li strong{color:var(--ouro)}
 .info-box li::before{content:"";display:inline-block;width:6px;height:6px;background:var(--laranja);border-radius:50%;margin-right:10px;vertical-align:middle}
-.section-label{font-size:.65rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--ouro);margin:40px 0 20px;padding-bottom:12px;border-bottom:1px solid var(--borda)}
+.section-label{display:flex;align-items:center;gap:12px;font-size:.65rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--ouro);margin:40px 0 20px;padding-bottom:12px;border-bottom:1px solid var(--borda)}
+.pill{font-size:.6rem;font-weight:700;letter-spacing:.1em;padding:3px 10px;border-radius:12px;border:1px solid}
+.pill.ok{color:var(--verde);border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.08)}
+.pill.rev{color:var(--black);border-color:rgba(244,63,94,.35);background:rgba(244,63,94,.08)}
+.pill.wait{color:var(--cinza);border-color:rgba(148,163,184,.3);background:rgba(148,163,184,.08)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
 .card{background:var(--ardosia);border:1px solid var(--borda);border-radius:12px;overflow:hidden}
+.card.dim{opacity:.6}
 .card img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover;background:#000}
 .card-body{padding:18px 20px}
 .card-tag{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,184,0,.7)}
@@ -44,62 +49,71 @@ body{font-family:'Montserrat',sans-serif;background:var(--preto);color:var(--bra
 <div class="container">
 
 <nav class="nav-bar">
-  <a href="../../index.html" class="nav-btn">&larr; Central Geral</a>
+  <a href="../../index.html" class="nav-btn">&larr; Central de Documentos</a>
+  <a href="../index.html" class="nav-btn">&larr; Criativos para Tráfego</a>
   <a href="../roteiros-meta-ads/novembro-2026.html" class="nav-btn">Roteiros de Novembro &rarr;</a>
-  <a href="../../05-PLANEJAMENTO/planejamento-conteudo-nov-2026.html" class="nav-btn">Planejamento de Novembro &rarr;</a>
 </nav>
 
 <header class="page-header">
   <h1>Criativos Novembro 2026 — Operação Edital PMBA</h1>
-  <p class="subtitle">9 cards de feed (1080x1080) &bull; Pré-edital, Black Gabaritando e Dia do Edital</p>
+  <p class="subtitle">13 peças &bull; 9 cards de feed (1080x1080) + 4 Stories (1080x1920)</p>
   <span class="badge">Soldado &bull; Oficial/CFO &bull; Foco total na PM</span>
 </header>
+
+<div class="info-box" style="border-left-color:var(--black)">
+  <h3>Para a equipe do Gabaritando — o que precisa de retorno</h3>
+  <ul>
+    <li><strong>Peças com preço (C05, C06, C07, C09):</strong> os valores da Black são sugestão — Soldado R$ 497 (de R$ 800), CFO R$ 597 (de R$ 1.000). Aprovem ou mandem o valor certo que a peça é refeita no mesmo dia.</li>
+    <li><strong>Garantia Edital:</strong> a regra proposta é “se o edital não sair até 31/03/2027, +6 meses de acesso”. Confirmem data de corte e tamanho da extensão.</li>
+    <li><strong>Sugestões de texto, cena ou ângulo</strong> são bem-vindas em qualquer peça: é só apontar o código (C01 a C09).</li>
+    <li><strong>Contexto desta semana:</strong> o comandante-geral da PMBA indicou que o edital sai ainda em 2026, mas as provas ficam para o início de 2027. Por isso nenhuma peça fala em “edital saiu” — essas ficam na gaveta até a publicação.</li>
+  </ul>
+</div>
 
 <div class="info-box">
   <h3>O que mudou na cara dos criativos</h3>
   <ul>
-    <li><strong>Da tipografia chapada para a cena:</strong> a linha v2 (fundo liso + texto) deu lugar a cenas fotorrealistas da PM — pátio, formatura, pista — como o ADS19, o card que mais gerou checkout.</li>
-    <li><strong>Uma mensagem por peça:</strong> título enorme em ouro, subtítulo em branco, uma faixa de informação. Nada de quatro ícones competindo com o número.</li>
+    <li><strong>Da tipografia chapada para a cena:</strong> a linha anterior (fundo liso + texto) deu lugar a cenas fotorrealistas da PM — pátio, formatura, pista — como o ADS19, o card que mais gerou checkout.</li>
+    <li><strong>Uma mensagem por peça:</strong> título enorme em ouro, subtítulo em branco, uma faixa de informação.</li>
     <li><strong>Identidade mantida:</strong> fundo #0E0E1A, ouro #FFB800, Montserrat, logo oficial em ouro na faixa inferior. O vermelho-rosa (#F43F5E) entra só como selo da Black.</li>
-    <li><strong>Garantia Edital em quase todas:</strong> é a resposta à objeção que travou 85 de 86 checkouts.</li>
-    <li><strong>Valores da Black são sugestão</strong> (R$ 497 Soldado, R$ 597 CFO): confirmar antes de publicar as peças C06, C07 e C09.</li>
+    <li><strong>Garantia Edital em quase todas:</strong> é a resposta à objeção que travou 85 de 86 checkouts entre setembro e outubro.</li>
   </ul>
 </div>
 
-<div class="section-label">Bloco 1 — Pré-edital (01 a 24/11)</div>
+<div class="section-label">Aprovados pelo Davidson — prontos para usar <span class="pill ok">4 peças</span></div>
 <div class="grid">
-  <div class="card"><img src="feed/C01-garantia-soldado.jpg" alt="E se o edital não sair? Garantia Edital — Soldado PMBA"><div class="card-body"><div class="card-tag">C01 · Soldado</div><div class="card-title">E se o edital não sair?</div><p class="card-desc"><strong>Uso:</strong> anúncio principal do pré-edital (público frio e remarketing dos 86 checkouts). Roteiro 01 do bloco pré-edital em vídeo.</p><a class="card-dl" href="feed/C01-garantia-soldado.jpg" download>Baixar JPG &darr;</a></div></div>
+  <div class="card"><img src="feed/C01-garantia-soldado.jpg" alt="E se o edital não sair? Garantia Edital — Soldado PMBA"><div class="card-body"><div class="card-tag">C01 · Soldado</div><div class="card-title">E se o edital não sair?</div><p class="card-desc"><strong>Uso:</strong> anúncio principal do pré-edital (público frio e remarketing dos 86 checkouts). Versão Stories abaixo.</p><a class="card-dl" href="feed/C01-garantia-soldado.jpg" download>Baixar JPG &darr;</a></div></div>
   <div class="card"><img src="feed/C02-garantia-cfo.jpg" alt="Prova de oficial não se faz em 60 dias — CFO PMBA"><div class="card-body"><div class="card-tag">C02 · CFO</div><div class="card-title">Prova de oficial não se faz em 60 dias.</div><p class="card-desc"><strong>Uso:</strong> anúncio CFO pré-edital; par do roteiro 04 (Alan).</p><a class="card-dl" href="feed/C02-garantia-cfo.jpg" download>Baixar JPG &darr;</a></div></div>
-  <div class="card"><img src="feed/C03-lista-do-edital.jpg" alt="Saiu o edital? Você vai saber primeiro — Lista do Edital"><div class="card-body"><div class="card-tag">C03 · Captação</div><div class="card-title">Saiu o edital? Você vai saber primeiro.</div><p class="card-desc"><strong>Uso:</strong> feed de 13/11 e semana de 16 a 22/11; anúncio de mensagens (WhatsApp) para a Lista do Edital.</p><a class="card-dl" href="feed/C03-lista-do-edital.jpg" download>Baixar JPG &darr;</a></div></div>
+  <div class="card"><img src="feed/C03-lista-do-edital.jpg" alt="Saiu o edital? Você vai saber primeiro — Lista do Edital"><div class="card-body"><div class="card-tag">C03 · Captação</div><div class="card-title">Saiu o edital? Você vai saber primeiro.</div><p class="card-desc"><strong>Uso:</strong> feed de 13/11 e semana de 16 a 22/11; anúncio de mensagens (WhatsApp) para a Lista do Edital. Versão Stories abaixo.</p><a class="card-dl" href="feed/C03-lista-do-edital.jpg" download>Baixar JPG &darr;</a></div></div>
   <div class="card"><img src="feed/C04-60-dias.jpg" alt="Edital, 60 dias, 7 matérias — Operação Edital"><div class="card-body"><div class="card-tag">C04 · Soldado</div><div class="card-title">Edital → 60 dias → 7 matérias.</div><p class="card-desc"><strong>Uso:</strong> card de 16/11 (Operação Edital) e anúncio de público frio; par do roteiro 03.</p><a class="card-dl" href="feed/C04-60-dias.jpg" download>Baixar JPG &darr;</a></div></div>
 </div>
 
-<div class="section-label">Bloco 2 — Black Gabaritando (23 a 30/11)</div>
+<div class="section-label">Black Gabaritando — em aprovação pela equipe <span class="pill rev">valores a confirmar</span></div>
 <div class="grid">
-  <div class="card"><img src="feed/C05-black-teaser.jpg" alt="Black Gabaritando — o menor preço do ano"><div class="card-body"><div class="card-tag bf">C05 · Teaser</div><div class="card-title">O menor preço do ano.</div><p class="card-desc"><strong>Uso:</strong> 13/11 (abertura da lista) e 23–25/11. Sem número de preço.</p><a class="card-dl" href="feed/C05-black-teaser.jpg" download>Baixar JPG &darr;</a></div></div>
-  <div class="card"><img src="feed/C06-black-oferta-soldado.jpg" alt="Black Gabaritando — Soldado de R$ 800 por R$ 497"><div class="card-body"><div class="card-tag bf">C06 · Oferta Soldado</div><div class="card-title">De R$ 800 por R$ 497.</div><p class="card-desc"><strong>Uso:</strong> 26 a 30/11, feed e anúncio principal da Black. <strong>Confirmar preço.</strong></p><a class="card-dl" href="feed/C06-black-oferta-soldado.jpg" download>Baixar JPG &darr;</a></div></div>
+  <div class="card"><img src="feed/C05-black-teaser.jpg" alt="Black Gabaritando — o menor preço do ano"><div class="card-body"><div class="card-tag bf">C05 · Teaser</div><div class="card-title">O menor preço do ano.</div><p class="card-desc"><strong>Uso:</strong> 13/11 (abertura da lista) e 23 a 25/11. Não mostra número — depende só da aprovação da data (26/11, 20h).</p><a class="card-dl" href="feed/C05-black-teaser.jpg" download>Baixar JPG &darr;</a></div></div>
+  <div class="card"><img src="feed/C06-black-oferta-soldado.jpg" alt="Black Gabaritando — Soldado de R$ 800 por R$ 497"><div class="card-body"><div class="card-tag bf">C06 · Oferta Soldado</div><div class="card-title">De R$ 800 por R$ 497.</div><p class="card-desc"><strong>Uso:</strong> 26 a 30/11, feed e anúncio principal da Black. <strong>Confirmar preço.</strong> Versão Stories abaixo.</p><a class="card-dl" href="feed/C06-black-oferta-soldado.jpg" download>Baixar JPG &darr;</a></div></div>
   <div class="card"><img src="feed/C07-black-oferta-cfo.jpg" alt="Black Gabaritando — CFO de R$ 1.000 por R$ 597"><div class="card-body"><div class="card-tag bf">C07 · Oferta CFO</div><div class="card-title">De R$ 1.000 por R$ 597.</div><p class="card-desc"><strong>Uso:</strong> 26 a 30/11, anúncio CFO. <strong>Confirmar preço.</strong></p><a class="card-dl" href="feed/C07-black-oferta-cfo.jpg" download>Baixar JPG &darr;</a></div></div>
-  <div class="card"><img src="feed/C09-black-ultima-chamada.jpg" alt="Black Gabaritando — fecha hoje, 23h59"><div class="card-body"><div class="card-tag bf">C09 · Última chamada</div><div class="card-title">Fecha hoje, 23h59.</div><p class="card-desc"><strong>Uso:</strong> 30/11, feed e Stories ao longo do dia.</p><a class="card-dl" href="feed/C09-black-ultima-chamada.jpg" download>Baixar JPG &darr;</a></div></div>
-</div>
-
-<div class="section-label">Bloco 3 — Dia do Edital (na gaveta)</div>
-<div class="grid">
-  <div class="card"><img src="feed/C08-dia-do-edital.jpg" alt="Saiu o edital da PMBA 2026"><div class="card-body"><div class="card-tag">C08 · Dia D</div><div class="card-title">Saiu o edital. PMBA 2026 é agora.</div><p class="card-desc"><strong>Uso:</strong> publicar em até 1 hora após a publicação do edital; vira o anúncio principal no dia D.</p><a class="card-dl" href="feed/C08-dia-do-edital.jpg" download>Baixar JPG &darr;</a></div></div>
+  <div class="card"><img src="feed/C09-black-ultima-chamada.jpg" alt="Black Gabaritando — fecha hoje, 23h59"><div class="card-body"><div class="card-tag bf">C09 · Última chamada</div><div class="card-title">Fecha hoje, 23h59.</div><p class="card-desc"><strong>Uso:</strong> 30/11, feed e Stories ao longo do dia. <strong>Confirmar preços.</strong> Versão Stories abaixo.</p><a class="card-dl" href="feed/C09-black-ultima-chamada.jpg" download>Baixar JPG &darr;</a></div></div>
 </div>
 
 <div class="section-label">Stories 1080x1920 — peças que vão para anúncio em Stories/Reels</div>
 <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">
   <div class="card"><img src="stories/C01-garantia-soldado.jpg" alt="Story — E se o edital não sair?" style="aspect-ratio:9/16"><div class="card-body"><div class="card-tag">C01 · Story</div><div class="card-title">E se o edital não sair?</div><a class="card-dl" href="stories/C01-garantia-soldado.jpg" download>Baixar JPG &darr;</a></div></div>
   <div class="card"><img src="stories/C03-lista-do-edital.jpg" alt="Story — Lista do Edital" style="aspect-ratio:9/16"><div class="card-body"><div class="card-tag">C03 · Story</div><div class="card-title">Você vai saber primeiro.</div><a class="card-dl" href="stories/C03-lista-do-edital.jpg" download>Baixar JPG &darr;</a></div></div>
-  <div class="card"><img src="stories/C06-black-oferta-soldado.jpg" alt="Story — Black Soldado R$ 497" style="aspect-ratio:9/16"><div class="card-body"><div class="card-tag bf">C06 · Story</div><div class="card-title">De R$ 800 por R$ 497.</div><a class="card-dl" href="stories/C06-black-oferta-soldado.jpg" download>Baixar JPG &darr;</a></div></div>
-  <div class="card"><img src="stories/C09-black-ultima-chamada.jpg" alt="Story — Fecha hoje 23h59" style="aspect-ratio:9/16"><div class="card-body"><div class="card-tag bf">C09 · Story</div><div class="card-title">Fecha hoje, 23h59.</div><a class="card-dl" href="stories/C09-black-ultima-chamada.jpg" download>Baixar JPG &darr;</a></div></div>
+  <div class="card"><img src="stories/C06-black-oferta-soldado.jpg" alt="Story — Black Soldado R$ 497" style="aspect-ratio:9/16"><div class="card-body"><div class="card-tag bf">C06 · Story · em aprovação</div><div class="card-title">De R$ 800 por R$ 497.</div><a class="card-dl" href="stories/C06-black-oferta-soldado.jpg" download>Baixar JPG &darr;</a></div></div>
+  <div class="card"><img src="stories/C09-black-ultima-chamada.jpg" alt="Story — Fecha hoje 23h59" style="aspect-ratio:9/16"><div class="card-body"><div class="card-tag bf">C09 · Story · em aprovação</div><div class="card-title">Fecha hoje, 23h59.</div><a class="card-dl" href="stories/C09-black-ultima-chamada.jpg" download>Baixar JPG &darr;</a></div></div>
+</div>
+
+<div class="section-label">Na gaveta — só quando o edital for publicado <span class="pill wait">não usar agora</span></div>
+<div class="grid">
+  <div class="card dim"><img src="feed/C08-dia-do-edital.jpg" alt="Saiu o edital da PMBA 2026"><div class="card-body"><div class="card-tag">C08 · Dia D</div><div class="card-title">Saiu o edital. PMBA 2026 é agora.</div><p class="card-desc"><strong>Uso:</strong> publicar em até 1 hora após a publicação do edital, com as datas reais inseridas. Até lá, fica fora do ar — o edital ainda não saiu e a prova deve ficar para 2027.</p></div></div>
 </div>
 
 <div class="info-box" style="border-left-color:var(--verde)">
   <h3>Próximas versões</h3>
   <ul>
+    <li><strong>Black:</strong> C06, C07 e C09 são refeitas assim que a equipe aprovar os valores.</li>
     <li><strong>Dia do Edital:</strong> versão com as datas reais (inscrição, prova, TAF) assim que o edital sair.</li>
-    <li><strong>Black:</strong> regenerar C06, C07 e C09 se os preços aprovados forem diferentes dos sugeridos.</li>
     <li><strong>Stories</strong> das demais peças sob demanda (o gerador está pronto).</li>
   </ul>
 </div>
