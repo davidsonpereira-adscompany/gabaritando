@@ -280,7 +280,7 @@
       "data": "2026-08-25",
       "investido": 10.57,
       "conversas": 0,
-      "alcance": 1872,
+      "alcance": 1875,
       "impressoes": 1955,
       "cliques": 17,
       "engajamentos": 24,
@@ -1704,17 +1704,17 @@
     },
     {
       "data": "2026-10-26",
-      "investido": 22.79,
+      "investido": 22.92,
       "conversas": 0,
-      "alcance": 4765,
-      "impressoes": 5315,
+      "alcance": 4775,
+      "impressoes": 5338,
       "cliques": 39,
-      "engajamentos": 688,
+      "engajamentos": 690,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 22.79,
+          "investido": 22.92,
           "conversas": 0,
-          "alcance": 4765
+          "alcance": 4775
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -1727,17 +1727,40 @@
     },
     {
       "data": "2026-10-27",
-      "investido": 4.35,
+      "investido": 31.4,
       "conversas": 0,
-      "alcance": 132,
-      "impressoes": 147,
-      "cliques": 1,
-      "engajamentos": 20,
+      "alcance": 4355,
+      "impressoes": 5444,
+      "cliques": 47,
+      "engajamentos": 625,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 4.35,
+          "investido": 31.4,
           "conversas": 0,
-          "alcance": 135
+          "alcance": 4355
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-28",
+      "investido": 1.46,
+      "conversas": 0,
+      "alcance": 218,
+      "impressoes": 231,
+      "cliques": 2,
+      "engajamentos": 30,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 1.46,
+          "conversas": 0,
+          "alcance": 218
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -1753,11 +1776,11 @@
     {
       "id": "120256503276500367",
       "nome": "CJ02 | Bahia 18-40",
-      "investido": 1866.71,
+      "investido": 1895.35,
       "conversas": 0,
-      "alcance": 102109,
-      "impressoes": 247393,
-      "cliques": 2264,
+      "alcance": 104272,
+      "impressoes": 252944,
+      "cliques": 2312,
       "status": "ACTIVE"
     },
     {
@@ -1776,33 +1799,33 @@
       "id": "120256503297030367",
       "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
       "grupo": "CJ02",
-      "investido": 420.92,
+      "investido": 440.45,
       "conversas": 0,
-      "alcance": 37249,
-      "impressoes": 69234,
-      "cliques": 656,
+      "alcance": 38416,
+      "impressoes": 72460,
+      "cliques": 689,
       "status": "ACTIVE"
     },
     {
       "id": "120256503280940367",
       "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
       "grupo": "CJ02",
-      "investido": 138.61,
+      "investido": 141.5,
       "conversas": 0,
-      "alcance": 10273,
-      "impressoes": 19897,
-      "cliques": 141,
+      "alcance": 10538,
+      "impressoes": 20454,
+      "cliques": 144,
       "status": "ACTIVE"
     },
     {
       "id": "120256503311590367",
       "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
       "grupo": "CJ02",
-      "investido": 711.6,
+      "investido": 717.83,
       "conversas": 0,
-      "alcance": 49523,
-      "impressoes": 95792,
-      "cliques": 897,
+      "alcance": 50941,
+      "impressoes": 97563,
+      "cliques": 909,
       "status": "ACTIVE"
     },
     {
@@ -2645,11 +2668,12 @@
     "2026-10-24T07:10:00-03:00",
     "2026-10-25T07:05:00-03:00",
     "2026-10-26T07:06:00-03:00",
-    "2026-10-27T07:10-03:00"
+    "2026-10-27T07:10-03:00",
+    "2026-10-28T07:10:00-03:00"
   ],
-  "leitura": "<strong>Nenhuma venda confirmada pela página desde o início da campanha, em 13/08.</strong> Já investimos R$ 2.152,47 e alcançamos mais de 140 mil pessoas; ontem (26/10) foram R$ 22,79 investidos, sem venda registrada pelo pixel. O grupo CJ02 segue ativo e é quem mais traz pessoas alcançadas e toques no anúncio, com destaque para o anúncio [ADS19][IMG][SOLDADO - 2500 VAGAS]; o próximo passo é revisar a página de vendas e o pixel, já que o fluxo de toques existe mas ainda não está virando compra.",
+  "leitura": "<strong>Nenhuma venda pela página registrada desde o início da campanha.</strong> De 13/08 até ontem investimos R$ 2.181,11 e alcançamos mais de 140 mil pessoas únicas, mas o pixel do site ainda não registrou nenhuma venda confirmada. O grupo CJ02 (Bahia, 18 a 40 anos) é o único ativo hoje e concentra o investimento; o anúncio [ADS19][IMG][SOLDADO - 2500 VAGAS] é o que mais rendeu em alcance e toques. Próximo passo: revisar com urgência o registro de compras no site (pixel/checkout) antes de ampliar o investimento.",
   "campanha": {
     "status": "ACTIVE"
   },
-  "atualizado_em": "2026-10-27T07:10-03:00"
+  "atualizado_em": "2026-10-28T07:10:00-03:00"
 }
