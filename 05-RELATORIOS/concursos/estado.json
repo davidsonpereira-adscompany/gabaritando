@@ -1,17 +1,17 @@
 {
-  "atualizado_em": "2026-10-22",
+  "atualizado_em": "2026-10-30",
   "concursos": {
     "pmba_soldado_cfo": {
       "nome": "PMBA — Soldado (2.500 vagas) e CFO (200 vagas)",
       "edital_publicado": false,
       "banca": "a definir",
-      "previsao_edital": "até dezembro de 2026 (promessa do comandante em 28/09)",
-      "previsao_provas": "janeiro ou fevereiro de 2027",
+      "previsao_edital": "até dezembro de 2026 (comandante-geral reafirmou em 28/10)",
+      "previsao_provas": "início de 2027",
       "inscricoes": null,
-      "ultima_novidade": "21/10/2026 — governador reuniu-se com o comandante-geral e o secretário de Segurança; banca segue a definir; mercado fala em edital até dezembro.",
+      "ultima_novidade": "28/10/2026 — comandante-geral da PMBA reafirmou que os editais de Soldado e CFO devem ser publicados até dezembro de 2026, com a Saeb já nos preparativos; banca ainda não definida.",
       "fontes": [
+        "https://noticias.focusconcursos.com.br/noticias/pm-bahia-refora-concurso-para-2026-e-confirma-edital-no-segundo-semestre-nova-declarao-aumenta-expectativa",
         "https://blog.grancursosonline.com.br/concurso-pm-ba/",
-        "https://blog.grancursosonline.com.br/concurso-pm-ba-novo-edital-proximo-2026/",
         "https://folha.qconcursos.com/n/concurso-pm-ba-2026-prazo-de-edital-e-provas"
       ]
     },
@@ -40,5 +40,13 @@
       ]
     }
   },
-  "historico": []
+  "historico": [
+    {
+      "data": "2026-10-30",
+      "concurso": "pmba_soldado_cfo",
+      "tipo": "fraca",
+      "resumo": "Comandante-geral da PMBA reafirmou, em 28/10, que os editais de Soldado e CFO devem sair até dezembro de 2026; sem edital publicado, banca ainda a definir.",
+      "fonte": "https://noticias.focusconcursos.com.br/noticias/pm-bahia-refora-concurso-para-2026-e-confirma-edital-no-segundo-semestre-nova-declarao-aumenta-expectativa"
+    }
+  ]
 }
