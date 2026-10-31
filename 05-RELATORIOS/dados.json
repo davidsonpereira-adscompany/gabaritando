@@ -1773,17 +1773,17 @@
     },
     {
       "data": "2026-10-29",
-      "investido": 26.46,
+      "investido": 26.55,
       "conversas": 1,
-      "alcance": 2774,
-      "impressoes": 3750,
+      "alcance": 2778,
+      "impressoes": 3759,
       "cliques": 30,
-      "engajamentos": 498,
+      "engajamentos": 502,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 26.46,
+          "investido": 26.55,
           "conversas": 1,
-          "alcance": 2774
+          "alcance": 2778
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -1796,17 +1796,40 @@
     },
     {
       "data": "2026-10-30",
-      "investido": 5.31,
+      "investido": 38.94,
       "conversas": 0,
-      "alcance": 881,
-      "impressoes": 1036,
-      "cliques": 10,
-      "engajamentos": 85,
+      "alcance": 5238,
+      "impressoes": 6510,
+      "cliques": 58,
+      "engajamentos": 774,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 5.31,
+          "investido": 38.94,
           "conversas": 0,
-          "alcance": 914
+          "alcance": 5238
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-10-31",
+      "investido": 6.15,
+      "conversas": 0,
+      "alcance": 757,
+      "impressoes": 866,
+      "cliques": 7,
+      "engajamentos": 147,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 6.15,
+          "conversas": 0,
+          "alcance": 767
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -1822,11 +1845,11 @@
     {
       "id": "120256503276500367",
       "nome": "[CJ02][BAHIA][18 A 40][P - ABERTO][G - ABERTO][COMPRA]",
-      "investido": 1957.24,
+      "investido": 1997.11,
       "conversas": 1,
-      "alcance": 108519,
-      "impressoes": 264295,
-      "cliques": 2404,
+      "alcance": 110713,
+      "impressoes": 270644,
+      "cliques": 2459,
       "status": "ACTIVE"
     },
     {
@@ -1845,33 +1868,33 @@
       "id": "120256503297030367",
       "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
       "grupo": "CJ02",
-      "investido": 482.27,
+      "investido": 510.44,
       "conversas": 1,
-      "alcance": 41846,
-      "impressoes": 80301,
-      "cliques": 755,
+      "alcance": 44091,
+      "impressoes": 85058,
+      "cliques": 795,
       "status": "ACTIVE"
     },
     {
       "id": "120256503280940367",
       "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
       "grupo": "CJ02",
-      "investido": 156.32,
+      "investido": 164.58,
       "conversas": 0,
-      "alcance": 11324,
-      "impressoes": 22735,
-      "cliques": 155,
+      "alcance": 11708,
+      "impressoes": 23623,
+      "cliques": 164,
       "status": "ACTIVE"
     },
     {
       "id": "120256503311590367",
       "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
       "grupo": "CJ02",
-      "investido": 723.07,
+      "investido": 726.63,
       "conversas": 0,
-      "alcance": 52036,
-      "impressoes": 98789,
-      "cliques": 924,
+      "alcance": 52706,
+      "impressoes": 99508,
+      "cliques": 930,
       "status": "ACTIVE"
     },
     {
@@ -2717,11 +2740,12 @@
     "2026-10-27T07:10-03:00",
     "2026-10-28T07:10:00-03:00",
     "2026-10-29T07:10-03:00",
-    "2026-10-30T07:10:00-03:00"
+    "2026-10-30T07:10:00-03:00",
+    "2026-10-31T07:10:00-03:00"
   ],
-  "leitura": "<strong>Primeira venda pela página desde o início da campanha, registrada ontem (29/10)!</strong> De 13/08 até ontem investimos R$ 2.243,00 e tivemos 1 venda confirmada pelo pixel do site, com custo por venda de R$ 26,46 no dia em que ela ocorreu; o grupo CJ02 (Bahia, 18 a 40 anos) foi o responsável, com destaque para o anúncio [ADS11][VIDEO][GERAL - QUEM JA PASSOU], que também é um dos que mais alcançam pessoas e recebem toques no anúncio. Próximo passo: manter o investimento no CJ02 e acompanhar se novas vendas aparecem nos próximos dias para confirmar a tendência.",
+  "leitura": "<strong>Poucas vendas apesar do investimento alto.</strong> Desde 13/08, foram investidos R$ 2.282,87 e registrada 1 venda pela página, com custo por venda de R$ 2.282,87; ontem (30/10) foram investidos R$ 38,94 sem nenhuma venda registrada. O grupo CJ02 e o anúncio \"[ADS11][VIDEO][GERAL - QUEM JA PASSOU]\" seguem sendo os que mais renderam até aqui. Próximo passo: revisar a oferta e a página de vendas antes de continuar investindo neste ritmo.",
   "campanha": {
     "status": "ACTIVE"
   },
-  "atualizado_em": "2026-10-30T07:10:00-03:00"
+  "atualizado_em": "2026-10-31T07:10:00-03:00"
 }
