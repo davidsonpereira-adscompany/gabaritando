@@ -1842,17 +1842,40 @@
     },
     {
       "data": "2026-11-01",
-      "investido": 2.29,
+      "investido": 34.15,
       "conversas": 0,
-      "alcance": 234,
-      "impressoes": 285,
-      "cliques": 1,
-      "engajamentos": 18,
+      "alcance": 4077,
+      "impressoes": 5268,
+      "cliques": 44,
+      "engajamentos": 568,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 2.29,
+          "investido": 34.15,
           "conversas": 0,
-          "alcance": 234
+          "alcance": 4077
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-11-02",
+      "investido": 2.47,
+      "conversas": 0,
+      "alcance": 319,
+      "impressoes": 348,
+      "cliques": 2,
+      "engajamentos": 42,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 2.47,
+          "conversas": 0,
+          "alcance": 320
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -1868,11 +1891,11 @@
     {
       "id": "120256503276500367",
       "nome": "[CJ02][BAHIA][18 A 40][P - ABERTO][G - ABERTO][COMPRA]",
-      "investido": 2009.01,
+      "investido": 2043.34,
       "conversas": 1,
-      "alcance": 110775,
-      "impressoes": 272075,
-      "cliques": 2469,
+      "alcance": 112797,
+      "impressoes": 277406,
+      "cliques": 2514,
       "status": "ACTIVE"
     },
     {
@@ -1891,33 +1914,33 @@
       "id": "120256503297030367",
       "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
       "grupo": "CJ02",
-      "investido": 519.03,
+      "investido": 539.82,
       "conversas": 1,
-      "alcance": 44531,
-      "impressoes": 86083,
-      "cliques": 803,
+      "alcance": 45780,
+      "impressoes": 89400,
+      "cliques": 835,
       "status": "ACTIVE"
     },
     {
       "id": "120256503280940367",
       "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
       "grupo": "CJ02",
-      "investido": 166.37,
+      "investido": 172.07,
       "conversas": 0,
-      "alcance": 11759,
-      "impressoes": 23804,
-      "cliques": 166,
+      "alcance": 12055,
+      "impressoes": 24588,
+      "cliques": 170,
       "status": "ACTIVE"
     },
     {
       "id": "120256503311590367",
       "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
       "grupo": "CJ02",
-      "investido": 728.03,
+      "investido": 735.87,
       "conversas": 0,
-      "alcance": 52706,
-      "impressoes": 99718,
-      "cliques": 930,
+      "alcance": 53759,
+      "impressoes": 100948,
+      "cliques": 939,
       "status": "ACTIVE"
     },
     {
@@ -2765,11 +2788,12 @@
     "2026-10-29T07:10-03:00",
     "2026-10-30T07:10:00-03:00",
     "2026-10-31T07:10:00-03:00",
-    "2026-11-01T07:10:00-03:00"
+    "2026-11-01T07:10:00-03:00",
+    "2026-11-02T07:09-03:00"
   ],
-  "leitura": "<strong>Em quase três meses de campanha, uma venda confirmada pela página.</strong> Desde 13/08 investimos R$ 2.294,77 e alcançamos mais de 143 mil pessoas; ontem (31/10) foram R$ 15,75 investidos, sem venda registrada no dia. O grupo CJ02 é quem sustenta a entrega hoje (o CJ01 está pausado) e o anúncio em vídeo \"Quem já passou\" foi o único ligado à venda registrada até agora. Próximo passo: revisar com a cliente o registro de vendas no site, porque o investimento está entregando bem mais pessoas alcançadas e toques no anúncio do que vendas confirmadas.",
+  "leitura": "<strong>Mais um dia sem venda pela página, mas o grupo CJ02 segue entregando.</strong> Desde 13/08 investimos R$ 2.329,10 e alcançamos mais de 143 mil pessoas, com apenas 1 venda confirmada pelo pixel do site; ontem (01/11) foram R$ 34,15 investidos e nenhuma venda registrada, e o grupo CJ02 é quem sustenta toda a entrega hoje, já que o CJ01 está pausado. O anúncio em vídeo \"Quem já passou\" segue sendo o único ligado à venda registrada até agora; o próximo passo é continuar acompanhando de perto o registro de vendas no site, já que o alcance e os toques no anúncio estão numa escala bem maior do que as vendas confirmadas.",
   "campanha": {
     "status": "ACTIVE"
   },
-  "atualizado_em": "2026-11-01T07:10:00-03:00"
+  "atualizado_em": "2026-11-02T07:09-03:00"
 }
