@@ -1937,7 +1937,7 @@
       "investido": 27.96,
       "conversas": 0,
       "alcance": 2506,
-      "impressoes": 4582,
+      "impressoes": 4583,
       "cliques": 27,
       "engajamentos": 39,
       "campanhas": {
@@ -1957,17 +1957,40 @@
     },
     {
       "data": "2026-11-06",
-      "investido": 1.21,
+      "investido": 23.71,
       "conversas": 0,
-      "alcance": 106,
-      "impressoes": 147,
-      "cliques": 1,
-      "engajamentos": 1,
+      "alcance": 1446,
+      "impressoes": 3150,
+      "cliques": 15,
+      "engajamentos": 111,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 1.21,
+          "investido": 23.71,
           "conversas": 0,
-          "alcance": 106
+          "alcance": 1446
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-11-07",
+      "investido": 1.98,
+      "conversas": 0,
+      "alcance": 198,
+      "impressoes": 269,
+      "cliques": 5,
+      "engajamentos": 7,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 1.98,
+          "conversas": 0,
+          "alcance": 198
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -1983,11 +2006,11 @@
     {
       "id": "120256503276500367",
       "nome": "CJ02 | Bahia 18-40",
-      "investido": 2170.38,
+      "investido": 2194.86,
       "conversas": 1,
-      "alcance": 119071,
-      "impressoes": 298890,
-      "cliques": 2686,
+      "alcance": 119181,
+      "impressoes": 302163,
+      "cliques": 2705,
       "status": "ACTIVE"
     },
     {
@@ -2006,21 +2029,21 @@
       "id": "120256503297030367",
       "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
       "grupo": "CJ02",
-      "investido": 575.05,
+      "investido": 579.6,
       "conversas": 1,
       "alcance": 48251,
-      "impressoes": 95169,
-      "cliques": 877,
+      "impressoes": 95695,
+      "cliques": 881,
       "status": "ACTIVE"
     },
     {
       "id": "120256503280940367",
       "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
       "grupo": "CJ02",
-      "investido": 181.9,
+      "investido": 185.23,
       "conversas": 0,
-      "alcance": 12460,
-      "impressoes": 26011,
+      "alcance": 12476,
+      "impressoes": 26373,
       "cliques": 180,
       "status": "ACTIVE"
     },
@@ -2028,11 +2051,11 @@
       "id": "120256503311590367",
       "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
       "grupo": "CJ02",
-      "investido": 817.85,
+      "investido": 834.45,
       "conversas": 0,
-      "alcance": 59507,
-      "impressoes": 115240,
-      "cliques": 1059,
+      "alcance": 59700,
+      "impressoes": 117629,
+      "cliques": 1074,
       "status": "ACTIVE"
     },
     {
@@ -2885,11 +2908,12 @@
     "2026-11-03T07:09-03:00",
     "2026-11-04T07:10-03:00",
     "2026-11-05T07:10:00-03:00",
-    "2026-11-06T07:10:00-03:00"
+    "2026-11-06T07:10:00-03:00",
+    "2026-11-07T07:10:59-03:00"
   ],
-  "leitura": "<strong>A campanha segue ativa, com 1 venda pela página confirmada desde o início.</strong> Desde 13/08 investimos R$ 2.456,14 e alcançamos milhares de pessoas, mas apenas 1 venda pela página foi registrada pelo pixel do site, em 29/10 — ontem (05/11) foram R$ 27,96 investidos, sem venda nova. O grupo CJ02 (ativo) é o único gerando vendas, com destaque para o anúncio ADS11 (vídeo \"quem já passou\"), responsável pela única venda. Próximo passo: continuar acompanhando de perto o registro de compras no site junto à cliente, já que o investimento está entregando bem, mas a conversão em vendas continua muito baixa.",
+  "leitura": "<strong>A campanha segue ativa, com 1 venda pela página confirmada desde o início.</strong> Desde 13/08 investimos R$ 2.480,62 e alcançamos mais de 159 mil pessoas, mas apenas 1 venda pela página foi registrada pelo pixel do site, em 29/10 — ontem (06/11) foram R$ 23,71 investidos, sem venda nova. O grupo CJ02 (ativo) é o único gerando vendas, com destaque para o anúncio ADS11 (vídeo \"quem já passou\"), responsável pela única venda. Próximo passo: continuar acompanhando de perto o registro de compras no site junto à cliente, já que o investimento está entregando bem, mas a conversão em vendas continua muito baixa.",
   "campanha": {
     "status": "ACTIVE"
   },
-  "atualizado_em": "2026-11-06T07:10:00-03:00"
+  "atualizado_em": "2026-11-07T07:10:59-03:00"
 }
