@@ -1983,7 +1983,7 @@
       "investido": 23.64,
       "conversas": 0,
       "alcance": 2106,
-      "impressoes": 3613,
+      "impressoes": 3614,
       "cliques": 28,
       "engajamentos": 124,
       "campanhas": {
@@ -2003,17 +2003,40 @@
     },
     {
       "data": "2026-11-08",
-      "investido": 2.76,
+      "investido": 36.15,
       "conversas": 0,
-      "alcance": 241,
-      "impressoes": 302,
-      "cliques": 2,
-      "engajamentos": 4,
+      "alcance": 3338,
+      "impressoes": 5943,
+      "cliques": 39,
+      "engajamentos": 158,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 2.76,
+          "investido": 36.15,
           "conversas": 0,
-          "alcance": 241
+          "alcance": 3338
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-11-09",
+      "investido": 1.14,
+      "conversas": 0,
+      "alcance": 186,
+      "impressoes": 240,
+      "cliques": 2,
+      "engajamentos": 3,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 1.14,
+          "conversas": 0,
+          "alcance": 186
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -2029,11 +2052,11 @@
     {
       "id": "120256503276500367",
       "nome": "CJ02 | Bahia 18-40",
-      "investido": 2219.34,
+      "investido": 2253.88,
       "conversas": 1,
-      "alcance": 120035,
-      "impressoes": 305813,
-      "cliques": 2730,
+      "alcance": 121637,
+      "impressoes": 311699,
+      "cliques": 2769,
       "status": "ACTIVE"
     },
     {
@@ -2052,33 +2075,33 @@
       "id": "120256503297030367",
       "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
       "grupo": "CJ02",
-      "investido": 583.09,
+      "investido": 587.58,
       "conversas": 1,
-      "alcance": 48335,
-      "impressoes": 96171,
-      "cliques": 884,
+      "alcance": 48449,
+      "impressoes": 96690,
+      "cliques": 888,
       "status": "ACTIVE"
     },
     {
       "id": "120256503280940367",
       "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
       "grupo": "CJ02",
-      "investido": 188.04,
+      "investido": 189.32,
       "conversas": 0,
-      "alcance": 12555,
-      "impressoes": 26645,
-      "cliques": 181,
+      "alcance": 12570,
+      "impressoes": 26784,
+      "cliques": 184,
       "status": "ACTIVE"
     },
     {
       "id": "120256503311590367",
       "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
       "grupo": "CJ02",
-      "investido": 852.63,
+      "investido": 881.4,
       "conversas": 0,
-      "alcance": 60451,
-      "impressoes": 120527,
-      "cliques": 1095,
+      "alcance": 62446,
+      "impressoes": 125755,
+      "cliques": 1127,
       "status": "ACTIVE"
     },
     {
@@ -2933,11 +2956,12 @@
     "2026-11-05T07:10:00-03:00",
     "2026-11-06T07:10:00-03:00",
     "2026-11-07T07:10:59-03:00",
-    "2026-11-08T07:13-03:00"
+    "2026-11-08T07:13-03:00",
+    "2026-11-09T07:12-03:00"
   ],
-  "leitura": "<strong>Desde 13/08 investimos R$ 2.505,10 e registramos 1 venda pela página, com custo por venda de R$ 2.505,10.</strong> Ontem (07/11) foram R$ 23,64 investidos, sem venda registrada pelo pixel do site; o grupo CJ02 segue sendo o único ativo e concentra o alcance, os toques no anúncio e a única venda, puxada pelo anúncio em vídeo \"Quem já passou\". Próximo passo: manter o investimento e revisar com a cliente o funil da página, pois o volume de pessoas alcançadas ainda não está se convertendo em vendas.",
+  "leitura": "<strong>Mais de dois meses de campanha com apenas 1 venda confirmada pela página.</strong> Desde o início, em 13/08, já investimos R$ 2.539,74 e alcançamos mais de 157 mil pessoas, mas o custo por venda segue muito alto (R$ 2.539,74) porque só houve 1 venda registrada, em 29/10. O grupo CJ02 (Bahia, 18 a 40 anos, ativo) é quem está entregando, com destaque para o anúncio [ADS11][VIDEO][GERAL - QUEM JA PASSOU], responsável pela única venda; o próximo passo é continuar acompanhando com a cliente o registro de compras no site, já que o anúncio está entregando bem.",
   "campanha": {
     "status": "ACTIVE"
   },
-  "atualizado_em": "2026-11-08T07:13-03:00"
+  "atualizado_em": "2026-11-09T07:12-03:00"
 }
