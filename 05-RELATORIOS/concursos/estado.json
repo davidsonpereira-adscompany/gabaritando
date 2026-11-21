@@ -1,5 +1,5 @@
 {
-  "atualizado_em": "2026-11-19",
+  "atualizado_em": "2026-11-21",
   "concursos": {
     "pmba_soldado_cfo": {
       "nome": "PMBA — Soldado (2.500 vagas) e CFO (200 vagas)",
@@ -24,15 +24,18 @@
       "cartao_informacao": "2026-11-30 15h (somente no site da banca)",
       "prova": "2026-12-06 (Salvador; objetiva de manhã, discursiva à tarde) — mantida para Escrivão e Investigador; para Delegado, data suspensa por liminar (ver abaixo)",
       "gabarito_preliminar": "2026-12-07",
-      "situacao_delegado": "Suspenso por liminar da 5ª Vara da Fazenda Pública de Salvador (ação popular nº 8168313-56.2026.8.05.0001) até retificação do edital, que deve passar a prever prova oral e outros ajustes exigidos pela Lei nº 14.735/2023. Prazo de 15 dias para a retificação a partir da intimação. Escrivão e Investigador não são afetados.",
-      "ultima_novidade": "16/11/2026 — Justiça suspende por liminar o concurso de Delegado da PC-BA até retificação do edital (exige prova oral); Escrivão e Investigador seguem normalmente, com prova mantida em 06/12.",
+      "situacao_delegado": "A liminar que suspendia o certame de Delegado foi, por sua vez, suspensa em seus efeitos pelo presidente do TJ-BA (Des. José Edivaldo Rocha Rotondano), a pedido do Estado da Bahia, até nova deliberação do tribunal sobre o mérito. Com isso, o concurso de Delegado volta a tramitar normalmente: convocação para as provas prevista para 24/11/2026 e prova mantida em 06/12/2026. A decisão sobre o mérito da ação popular (retificação do edital, inclusão de prova oral) ainda não foi julgada pelo TJ-BA. Escrivão e Investigador não foram afetados em nenhum momento.",
+      "ultima_novidade": "19-20/11/2026 — Presidente do TJ-BA suspende os efeitos da liminar que travava o concurso de Delegado da PC-BA (pedido do Estado); concurso de Delegado volta a tramitar normalmente, com convocação prevista para 24/11 e prova mantida em 06/12, enquanto o mérito ainda será julgado.",
       "fontes": [
         "https://blog.grancursosonline.com.br/concurso-pc-ba/",
         "https://concursos.estrategia.com/portal/concurso-pc-ba-2026-cronograma-completo/",
         "https://cj.estrategia.com/portal/concurso-delegado-ba-2026-liminar-suspende-certame/",
         "https://ceisc.com.br/blog/post/concurso-pc-ba-edital-para-delegado-e-suspenso-pela-justica",
         "https://folha.qconcursos.com/n/concurso-pc-ba-edital-suspenso-delegado-2026",
-        "https://blog.grancursosonline.com.br/concurso-delegado-ba-suspenso-2026/"
+        "https://blog.grancursosonline.com.br/concurso-delegado-ba-suspenso-2026/",
+        "https://cj.estrategia.com/portal/concurso-delegado-ba-2026-tjba-suspende-liminar/",
+        "https://ceisc.com.br/blog/post/concurso-pc-ba-tribunal-de-justica-do-estado-suspende-liminar-e-mantem-prova-para-delegado",
+        "https://blog.grancursosonline.com.br/concurso-pc-ba-delegado-nao-esta-mais-suspenso-2026/"
       ]
     },
     "pmba_sargento_cfs": {
@@ -59,6 +62,13 @@
       "tipo": "forte",
       "resumo": "Liminar da Justiça baiana suspende o concurso de Delegado da PC-BA até retificação do edital (exige prova oral); Escrivão e Investigador não são afetados e mantêm prova em 06/12.",
       "fonte": "https://cj.estrategia.com/portal/concurso-delegado-ba-2026-liminar-suspende-certame/"
+    },
+    {
+      "data": "2026-11-20",
+      "concurso": "pcba",
+      "tipo": "forte",
+      "resumo": "Presidente do TJ-BA suspende os efeitos da liminar que travava o concurso de Delegado da PC-BA, a pedido do Estado; concurso de Delegado volta a tramitar normalmente, com convocação prevista para 24/11 e prova mantida em 06/12.",
+      "fonte": "https://cj.estrategia.com/portal/concurso-delegado-ba-2026-tjba-suspende-liminar/"
     }
   ]
 }
