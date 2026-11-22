@@ -2279,15 +2279,15 @@
     },
     {
       "data": "2026-11-20",
-      "investido": 28.18,
+      "investido": 28.2,
       "conversas": 0,
       "alcance": 2188,
-      "impressoes": 3297,
+      "impressoes": 3299,
       "cliques": 23,
       "engajamentos": 86,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 28.19,
+          "investido": 28.2,
           "conversas": 0,
           "alcance": 2188
         },
@@ -2302,17 +2302,40 @@
     },
     {
       "data": "2026-11-21",
-      "investido": 1.88,
+      "investido": 22.26,
       "conversas": 0,
-      "alcance": 200,
-      "impressoes": 249,
-      "cliques": 10,
-      "engajamentos": 10,
+      "alcance": 1789,
+      "impressoes": 2877,
+      "cliques": 33,
+      "engajamentos": 76,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 1.89,
+          "investido": 22.26,
           "conversas": 0,
-          "alcance": 200
+          "alcance": 1789
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-11-22",
+      "investido": 1.8,
+      "conversas": 0,
+      "alcance": 154,
+      "impressoes": 189,
+      "cliques": 2,
+      "engajamentos": 4,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 1.84,
+          "conversas": 0,
+          "alcance": 161
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -2328,11 +2351,11 @@
     {
       "id": "120256503276500367",
       "nome": "CJ02 | Bahia 18-40",
-      "investido": 2615.09,
+      "investido": 2637.29,
       "conversas": 2,
-      "alcance": 132320,
-      "impressoes": 364181,
-      "cliques": 3146,
+      "alcance": 133202,
+      "impressoes": 367000,
+      "cliques": 3171,
       "status": "ACTIVE"
     },
     {
@@ -2351,10 +2374,10 @@
       "id": "120256503297030367",
       "nome": "ADS11 - Quem ja passou",
       "grupo": "CJ02",
-      "investido": 616.73,
+      "investido": 618.69,
       "conversas": 1,
-      "alcance": 49086,
-      "impressoes": 99695,
+      "alcance": 49126,
+      "impressoes": 99882,
       "cliques": 915,
       "status": "ACTIVE"
     },
@@ -2362,10 +2385,10 @@
       "id": "120256503280940367",
       "nome": "ADS02 - Todo mundo quer ser policial",
       "grupo": "CJ02",
-      "investido": 204.54,
+      "investido": 205.35,
       "conversas": 0,
-      "alcance": 12827,
-      "impressoes": 28251,
+      "alcance": 12878,
+      "impressoes": 28324,
       "cliques": 202,
       "status": "ACTIVE"
     },
@@ -2373,12 +2396,78 @@
       "id": "120256503311590367",
       "nome": "ADS19 - Soldado 2500 vagas",
       "grupo": "CJ02",
-      "investido": 1198.26,
+      "investido": 1217.66,
       "conversas": 1,
-      "alcance": 73773,
-      "impressoes": 173772,
-      "cliques": 1459,
+      "alcance": 74598,
+      "impressoes": 176323,
+      "cliques": 1484,
       "status": "ACTIVE"
+    },
+    {
+      "id": "120256232038120367",
+      "nome": "ADS03 - Depoimento aluno",
+      "grupo": "CJ01",
+      "investido": 2.12,
+      "conversas": 0,
+      "alcance": 227,
+      "impressoes": 233,
+      "cliques": 5,
+      "status": "ADSET_PAUSED"
+    },
+    {
+      "id": "120256232036610367",
+      "nome": "ADS02 - Todo mundo quer ser policial",
+      "grupo": "CJ01",
+      "investido": 2.21,
+      "conversas": 0,
+      "alcance": 246,
+      "impressoes": 283,
+      "cliques": 2,
+      "status": "ADSET_PAUSED"
+    },
+    {
+      "id": "120256232035470367",
+      "nome": "ADS01 - PCBA edital ja saiu",
+      "grupo": "CJ01",
+      "investido": 0.73,
+      "conversas": 0,
+      "alcance": 61,
+      "impressoes": 68,
+      "cliques": 0,
+      "status": "ADSET_PAUSED"
+    },
+    {
+      "id": "120256228490750367",
+      "nome": "ADS19 - Soldado 2500 vagas",
+      "grupo": "CJ01",
+      "investido": 268.89,
+      "conversas": 0,
+      "alcance": 36477,
+      "impressoes": 51642,
+      "cliques": 475,
+      "status": "ADSET_PAUSED"
+    },
+    {
+      "id": "120256228484200367",
+      "nome": "ADS18 - Editais saindo",
+      "grupo": "CJ01",
+      "investido": 9.88,
+      "conversas": 0,
+      "alcance": 3106,
+      "impressoes": 3288,
+      "cliques": 23,
+      "status": "ADSET_PAUSED"
+    },
+    {
+      "id": "120256228434010367",
+      "nome": "ADS17 - PCBA 500 vagas",
+      "grupo": "CJ01",
+      "investido": 1.93,
+      "conversas": 0,
+      "alcance": 207,
+      "impressoes": 230,
+      "cliques": 3,
+      "status": "ADSET_PAUSED"
     },
     {
       "id": "120257473857810367",
@@ -2788,72 +2877,6 @@
       "status": "PAUSED"
     },
     {
-      "id": "120256232038120367",
-      "nome": "ADS03 - Depoimento aluno",
-      "grupo": "CJ01",
-      "investido": 2.12,
-      "conversas": 0,
-      "alcance": 227,
-      "impressoes": 233,
-      "cliques": 5,
-      "status": "ADSET_PAUSED"
-    },
-    {
-      "id": "120256232036610367",
-      "nome": "ADS02 - Todo mundo quer ser policial",
-      "grupo": "CJ01",
-      "investido": 2.21,
-      "conversas": 0,
-      "alcance": 246,
-      "impressoes": 283,
-      "cliques": 2,
-      "status": "ADSET_PAUSED"
-    },
-    {
-      "id": "120256232035470367",
-      "nome": "ADS01 - PCBA edital ja saiu",
-      "grupo": "CJ01",
-      "investido": 0.73,
-      "conversas": 0,
-      "alcance": 61,
-      "impressoes": 68,
-      "cliques": 0,
-      "status": "ADSET_PAUSED"
-    },
-    {
-      "id": "120256228490750367",
-      "nome": "ADS19 - Soldado 2500 vagas",
-      "grupo": "CJ01",
-      "investido": 268.89,
-      "conversas": 0,
-      "alcance": 36477,
-      "impressoes": 51642,
-      "cliques": 475,
-      "status": "ADSET_PAUSED"
-    },
-    {
-      "id": "120256228484200367",
-      "nome": "ADS18 - Editais saindo",
-      "grupo": "CJ01",
-      "investido": 9.88,
-      "conversas": 0,
-      "alcance": 3106,
-      "impressoes": 3288,
-      "cliques": 23,
-      "status": "ADSET_PAUSED"
-    },
-    {
-      "id": "120256228434010367",
-      "nome": "ADS17 - PCBA 500 vagas",
-      "grupo": "CJ01",
-      "investido": 1.93,
-      "conversas": 0,
-      "alcance": 207,
-      "impressoes": 230,
-      "cliques": 3,
-      "status": "ADSET_PAUSED"
-    },
-    {
       "id": "120256232059430367",
       "nome": "ADS06 - Mesa 02",
       "grupo": "CJ01",
@@ -3241,11 +3264,12 @@
     "2026-11-14T07:10:00-03:00",
     "2026-11-19T07:10:00-03:00",
     "2026-11-20T07:10:00-03:00",
-    "2026-11-21T07:12-03:00"
+    "2026-11-21T07:12-03:00",
+    "2026-11-22T07:14:00-03:00"
   ],
-  "leitura": "<strong>O investimento segue em dia, mas as vendas pela página continuam raras.</strong> Desde 13/08 investimos R$ 2.900,85, alcançamos 320.245 pessoas e tivemos 419.925 toques no anúncio, mas o pixel do site registrou apenas 2 vendas em todo o período — a última em 09/11, já 12 dias sem venda nova. O grupo CJ02 | Bahia 18-40 é o que está ativo e o anúncio ADS11 - Quem ja passou é o que mais rende, com R$ 616,73 por venda; o próximo passo é revisar com urgência o registro de compras no site antes de ampliar o investimento.",
+  "leitura": "<strong>O investimento segue em dia, mas as vendas pela página continuam raras.</strong> Desde 13/08 investimos R$ 2.923,05, alcançamos mais de 321 mil pessoas e tivemos 3.679 toques no anúncio, mas o pixel do site registrou apenas 2 vendas em todo o período — a última em 09/11, já 13 dias sem venda nova. O grupo CJ02 | Bahia 18-40 é o único ativo e concentra as duas vendas, e o anúncio ADS11 - Quem ja passou é o que mais rende, com R$ 618,69 por venda; o próximo passo é revisar com urgência o registro de compras no site antes de ampliar o investimento.",
   "campanha": {
     "status": "ACTIVE"
   },
-  "atualizado_em": "2026-11-21T07:12-03:00"
+  "atualizado_em": "2026-11-22T07:14:00-03:00"
 }
