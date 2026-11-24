@@ -2325,17 +2325,17 @@
     },
     {
       "data": "2026-11-22",
-      "investido": 38.74,
+      "investido": 38.98,
       "conversas": 0,
-      "alcance": 2881,
-      "impressoes": 4827,
-      "cliques": 42,
-      "engajamentos": 118,
+      "alcance": 2888,
+      "impressoes": 4840,
+      "cliques": 43,
+      "engajamentos": 119,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 38.74,
+          "investido": 38.98,
           "conversas": 0,
-          "alcance": 2881
+          "alcance": 2888
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -2348,17 +2348,40 @@
     },
     {
       "data": "2026-11-23",
-      "investido": 3.59,
+      "investido": 29.54,
       "conversas": 0,
-      "alcance": 337,
-      "impressoes": 400,
-      "cliques": 3,
-      "engajamentos": 22,
+      "alcance": 2523,
+      "impressoes": 4522,
+      "cliques": 40,
+      "engajamentos": 67,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 3.59,
+          "investido": 29.54,
           "conversas": 0,
-          "alcance": 337
+          "alcance": 2523
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-11-24",
+      "investido": 2.81,
+      "conversas": 0,
+      "alcance": 314,
+      "impressoes": 368,
+      "cliques": 6,
+      "engajamentos": 7,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 2.87,
+          "conversas": 0,
+          "alcance": 324
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -2374,11 +2397,11 @@
     {
       "id": "120256503276500367",
       "nome": "CJ02 | Bahia 18-40",
-      "investido": 2677.83,
+      "investido": 2706.89,
       "conversas": 2,
-      "alcance": 135206,
-      "impressoes": 372039,
-      "cliques": 3214,
+      "alcance": 136112,
+      "impressoes": 376553,
+      "cliques": 3258,
       "status": "ACTIVE"
     },
     {
@@ -2395,40 +2418,40 @@
   "anuncios": [
     {
       "id": "120256503297030367",
-      "nome": "ADS11 - Quem ja passou",
+      "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
       "grupo": "CJ02",
-      "investido": 622.0,
+      "investido": 622.16,
       "conversas": 1,
       "alcance": 49276,
-      "impressoes": 100216,
+      "impressoes": 100221,
       "cliques": 919,
       "status": "ACTIVE"
     },
     {
       "id": "120256503280940367",
-      "nome": "ADS02 - Todo mundo quer ser policial",
+      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
       "grupo": "CJ02",
-      "investido": 206.84,
+      "investido": 206.85,
       "conversas": 0,
       "alcance": 12941,
-      "impressoes": 28486,
+      "impressoes": 28491,
       "cliques": 205,
       "status": "ACTIVE"
     },
     {
       "id": "120256503311590367",
-      "nome": "ADS19 - Soldado 2500 vagas",
+      "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
       "grupo": "CJ02",
-      "investido": 1253.41,
+      "investido": 1282.3,
       "conversas": 1,
-      "alcance": 75843,
-      "impressoes": 180867,
-      "cliques": 1520,
+      "alcance": 77797,
+      "impressoes": 185367,
+      "cliques": 1564,
       "status": "ACTIVE"
     },
     {
       "id": "120256232038120367",
-      "nome": "ADS03 - Depoimento aluno",
+      "nome": "[ADS03][VIDEO][GERAL - DEPOIMENTO ALUNO]",
       "grupo": "CJ01",
       "investido": 2.12,
       "conversas": 0,
@@ -2439,7 +2462,7 @@
     },
     {
       "id": "120256232036610367",
-      "nome": "ADS02 - Todo mundo quer ser policial",
+      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
       "grupo": "CJ01",
       "investido": 2.21,
       "conversas": 0,
@@ -2450,7 +2473,7 @@
     },
     {
       "id": "120256232035470367",
-      "nome": "ADS01 - PCBA edital ja saiu",
+      "nome": "[ADS01][VIDEO][PCBA - EDITAL JA SAIU]",
       "grupo": "CJ01",
       "investido": 0.73,
       "conversas": 0,
@@ -2461,7 +2484,7 @@
     },
     {
       "id": "120256228490750367",
-      "nome": "ADS19 - Soldado 2500 vagas",
+      "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
       "grupo": "CJ01",
       "investido": 268.89,
       "conversas": 0,
@@ -2472,7 +2495,7 @@
     },
     {
       "id": "120256228484200367",
-      "nome": "ADS18 - Editais saindo",
+      "nome": "[ADS18][IMG][GERAL - EDITAIS SAINDO]",
       "grupo": "CJ01",
       "investido": 9.88,
       "conversas": 0,
@@ -2483,7 +2506,7 @@
     },
     {
       "id": "120256228434010367",
-      "nome": "ADS17 - PCBA 500 vagas",
+      "nome": "[ADS17][IMG][PCBA - 500 VAGAS]",
       "grupo": "CJ01",
       "investido": 1.93,
       "conversas": 0,
@@ -2494,7 +2517,7 @@
     },
     {
       "id": "120257473857810367",
-      "nome": "ADS39 - PCBA reta final",
+      "nome": "[ADS39][IMG][PCBA - RETA FINAL]",
       "grupo": "CJ02",
       "investido": 35.2,
       "conversas": 0,
@@ -2505,7 +2528,7 @@
     },
     {
       "id": "120256503280010367",
-      "nome": "ADS01 - PCBA edital ja saiu",
+      "nome": "[ADS01][VIDEO][PCBA - EDITAL JA SAIU]",
       "grupo": "CJ02",
       "investido": 331.06,
       "conversas": 0,
@@ -2516,7 +2539,7 @@
     },
     {
       "id": "120256503309120367",
-      "nome": "ADS17 - PCBA 500 vagas",
+      "nome": "[ADS17][IMG][PCBA - 500 VAGAS]",
       "grupo": "CJ02",
       "investido": 26.36,
       "conversas": 0,
@@ -2527,7 +2550,7 @@
     },
     {
       "id": "120256503287440367",
-      "nome": "ADS03 - Depoimento aluno",
+      "nome": "[ADS03][VIDEO][GERAL - DEPOIMENTO ALUNO]",
       "grupo": "CJ02",
       "investido": 145.95,
       "conversas": 0,
@@ -2538,7 +2561,7 @@
     },
     {
       "id": "120256503289660367",
-      "nome": "ADS06 - Mesa 02",
+      "nome": "[ADS06][VIDEO][GERAL - MESA 02]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2549,7 +2572,7 @@
     },
     {
       "id": "120256503310280367",
-      "nome": "ADS18 - Editais saindo",
+      "nome": "[ADS18][IMG][GERAL - EDITAIS SAINDO]",
       "grupo": "CJ02",
       "investido": 57.01,
       "conversas": 0,
@@ -2560,7 +2583,7 @@
     },
     {
       "id": "120256503291220367",
-      "nome": "ADS07 - Tenho algo pra te contar",
+      "nome": "[ADS07][VIDEO][GERAL - TENHO ALGO PRA TE CONTAR]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2571,7 +2594,7 @@
     },
     {
       "id": "120256503306100367",
-      "nome": "ADS16 - Rua 03",
+      "nome": "[ADS16][VIDEO][GERAL - RUA 03]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2582,7 +2605,7 @@
     },
     {
       "id": "120256503332680367",
-      "nome": "ADS31 - Soldado urgencia",
+      "nome": "[ADS31][IMG][SOLDADO - URGENCIA]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2593,7 +2616,7 @@
     },
     {
       "id": "120256503294440367",
-      "nome": "ADS09 - Sala de aula 01",
+      "nome": "[ADS09][VIDEO][GERAL - SALA DE AULA 01]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2604,7 +2627,7 @@
     },
     {
       "id": "120256503283450367",
-      "nome": "ADS03 - Depoimento aluno (2)",
+      "nome": "[ADS03][VIDEO][GERAL - DEPOIMENTO ALUNO]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2615,7 +2638,7 @@
     },
     {
       "id": "120256503304380367",
-      "nome": "ADS15 - Rua 02",
+      "nome": "[ADS15][VIDEO][GERAL - RUA 02]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2626,7 +2649,7 @@
     },
     {
       "id": "120256503295930367",
-      "nome": "ADS10 - Sala de aula 02",
+      "nome": "[ADS10][VIDEO][GERAL - SALA DE AULA 02]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2637,7 +2660,7 @@
     },
     {
       "id": "120256503293400367",
-      "nome": "ADS08 - Ja estamos em agosto",
+      "nome": "[ADS08][VIDEO][GERAL - JA ESTAMOS EM AGOSTO]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2648,7 +2671,7 @@
     },
     {
       "id": "120256503346030367",
-      "nome": "ADS35 - CFO preco",
+      "nome": "[ADS35][IMG][CFO - PRECO]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2659,7 +2682,7 @@
     },
     {
       "id": "120256503284920367",
-      "nome": "ADS04 - Boa noticia",
+      "nome": "[ADS04][VIDEO][GERAL - BOA NOTICIA]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2670,7 +2693,7 @@
     },
     {
       "id": "120256503319190367",
-      "nome": "ADS23 - Soldado preco R3",
+      "nome": "[ADS23][IMG][SOLDADO - PRECO R3]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2681,7 +2704,7 @@
     },
     {
       "id": "120256503299480367",
-      "nome": "ADS12 - Estamos aqui pra te preparar",
+      "nome": "[ADS12][VIDEO][GERAL - ESTAMOS AQUI PRA TE PREPARAR]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2692,7 +2715,7 @@
     },
     {
       "id": "120256503302820367",
-      "nome": "ADS14 - Poltrona",
+      "nome": "[ADS14][VIDEO][GERAL - POLTRONA]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2703,7 +2726,7 @@
     },
     {
       "id": "120256503328960367",
-      "nome": "ADS29 - Geral preco",
+      "nome": "[ADS29][IMG][GERAL - PRECO]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2714,7 +2737,7 @@
     },
     {
       "id": "120256503343510367",
-      "nome": "ADS34 - CFO urgencia",
+      "nome": "[ADS34][IMG][CFO - URGENCIA]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2725,7 +2748,7 @@
     },
     {
       "id": "120256503330790367",
-      "nome": "ADS30 - Soldado dados",
+      "nome": "[ADS30][IMG][SOLDADO - DADOS]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2736,7 +2759,7 @@
     },
     {
       "id": "120256503354600367",
-      "nome": "ADS38 - PCBA preco",
+      "nome": "[ADS38][IMG][PCBA - PRECO]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2747,7 +2770,7 @@
     },
     {
       "id": "120256503288130367",
-      "nome": "ADS05 - Duas horas por dia",
+      "nome": "[ADS05][VIDEO][GERAL - DUAS HORAS POR DIA]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2758,7 +2781,7 @@
     },
     {
       "id": "120256503314700367",
-      "nome": "ADS20 - Geral 3200 vagas",
+      "nome": "[ADS20][IMG][GERAL - 3200 VAGAS]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2769,7 +2792,7 @@
     },
     {
       "id": "120256503324360367",
-      "nome": "ADS27 - Geral dados",
+      "nome": "[ADS27][IMG][GERAL - DADOS]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2780,7 +2803,7 @@
     },
     {
       "id": "120256503349920367",
-      "nome": "ADS36 - PCBA dados",
+      "nome": "[ADS36][IMG][PCBA - DADOS]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2791,7 +2814,7 @@
     },
     {
       "id": "120256503323580367",
-      "nome": "ADS26 - CFO preco R4",
+      "nome": "[ADS26][IMG][CFO - PRECO R4]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2802,7 +2825,7 @@
     },
     {
       "id": "120256503337150367",
-      "nome": "ADS32 - Soldado preco",
+      "nome": "[ADS32][IMG][SOLDADO - PRECO]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2813,7 +2836,7 @@
     },
     {
       "id": "120256503321590367",
-      "nome": "ADS24 - CFO 200 vagas",
+      "nome": "[ADS24][IMG][CFO - 200 VAGAS]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2824,7 +2847,7 @@
     },
     {
       "id": "120256503328080367",
-      "nome": "ADS28 - Geral urgencia",
+      "nome": "[ADS28][IMG][GERAL - URGENCIA]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2835,7 +2858,7 @@
     },
     {
       "id": "120256503300970367",
-      "nome": "ADS13 - Interpretacao da lei",
+      "nome": "[ADS13][VIDEO][GERAL - INTERPRETACAO DA LEI]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2846,7 +2869,7 @@
     },
     {
       "id": "120256503353040367",
-      "nome": "ADS37 - PCBA urgencia",
+      "nome": "[ADS37][IMG][PCBA - URGENCIA]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2857,7 +2880,7 @@
     },
     {
       "id": "120256503318130367",
-      "nome": "ADS22 - Soldado edital chegando",
+      "nome": "[ADS22][IMG][SOLDADO - EDITAL CHEGANDO]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2868,7 +2891,7 @@
     },
     {
       "id": "120256503315690367",
-      "nome": "ADS21 - Geral preco R4",
+      "nome": "[ADS21][IMG][GERAL - PRECO R4]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2879,7 +2902,7 @@
     },
     {
       "id": "120256503322630367",
-      "nome": "ADS25 - CFO 1 lugar",
+      "nome": "[ADS25][IMG][CFO - 1 LUGAR]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2890,7 +2913,7 @@
     },
     {
       "id": "120256503340290367",
-      "nome": "ADS33 - CFO dados",
+      "nome": "[ADS33][IMG][CFO - DADOS]",
       "grupo": "CJ02",
       "investido": 0.0,
       "conversas": 0,
@@ -2901,7 +2924,7 @@
     },
     {
       "id": "120256232059430367",
-      "nome": "ADS06 - Mesa 02",
+      "nome": "[ADS06][VIDEO][GERAL - MESA 02]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -2912,7 +2935,7 @@
     },
     {
       "id": "120256228650190367",
-      "nome": "ADS22 - Soldado edital chegando",
+      "nome": "[ADS22][IMG][SOLDADO - EDITAL CHEGANDO]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -2923,7 +2946,7 @@
     },
     {
       "id": "120256232137510367",
-      "nome": "ADS16 - Rua 03",
+      "nome": "[ADS16][VIDEO][GERAL - RUA 03]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -2934,7 +2957,7 @@
     },
     {
       "id": "120256232136800367",
-      "nome": "ADS15 - Rua 02",
+      "nome": "[ADS15][VIDEO][GERAL - RUA 02]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -2945,7 +2968,7 @@
     },
     {
       "id": "120256232134350367",
-      "nome": "ADS13 - Interpretacao da lei",
+      "nome": "[ADS13][VIDEO][GERAL - INTERPRETACAO DA LEI]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -2956,7 +2979,7 @@
     },
     {
       "id": "120256232135140367",
-      "nome": "ADS14 - Poltrona",
+      "nome": "[ADS14][VIDEO][GERAL - POLTRONA]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -2967,7 +2990,7 @@
     },
     {
       "id": "120256232114460367",
-      "nome": "ADS12 - Estamos aqui pra te preparar",
+      "nome": "[ADS12][VIDEO][GERAL - ESTAMOS AQUI PRA TE PREPARAR]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -2978,7 +3001,7 @@
     },
     {
       "id": "120256232089470367",
-      "nome": "ADS09 - Sala de aula 01",
+      "nome": "[ADS09][VIDEO][GERAL - SALA DE AULA 01]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -2989,7 +3012,7 @@
     },
     {
       "id": "120256232112710367",
-      "nome": "ADS11 - Quem ja passou",
+      "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3000,7 +3023,7 @@
     },
     {
       "id": "120256232087340367",
-      "nome": "ADS08 - Ja estamos em agosto",
+      "nome": "[ADS08][VIDEO][GERAL - JA ESTAMOS EM AGOSTO]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3011,7 +3034,7 @@
     },
     {
       "id": "120256232109440367",
-      "nome": "ADS10 - Sala de aula 02",
+      "nome": "[ADS10][VIDEO][GERAL - SALA DE AULA 02]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3022,7 +3045,7 @@
     },
     {
       "id": "120256232085650367",
-      "nome": "ADS07 - Tenho algo pra te contar",
+      "nome": "[ADS07][VIDEO][GERAL - TENHO ALGO PRA TE CONTAR]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3033,7 +3056,7 @@
     },
     {
       "id": "120256232057840367",
-      "nome": "ADS05 - Duas horas por dia",
+      "nome": "[ADS05][VIDEO][GERAL - DUAS HORAS POR DIA]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3044,7 +3067,7 @@
     },
     {
       "id": "120256232052690367",
-      "nome": "ADS04 - Boa noticia",
+      "nome": "[ADS04][VIDEO][GERAL - BOA NOTICIA]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3055,7 +3078,7 @@
     },
     {
       "id": "120256229510040367",
-      "nome": "ADS38 - PCBA preco",
+      "nome": "[ADS38][IMG][PCBA - PRECO]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3066,7 +3089,7 @@
     },
     {
       "id": "120256229498650367",
-      "nome": "ADS36 - PCBA dados",
+      "nome": "[ADS36][IMG][PCBA - DADOS]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3077,7 +3100,7 @@
     },
     {
       "id": "120256229503680367",
-      "nome": "ADS37 - PCBA urgencia",
+      "nome": "[ADS37][IMG][PCBA - URGENCIA]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3088,7 +3111,7 @@
     },
     {
       "id": "120256229083490367",
-      "nome": "ADS34 - CFO urgencia",
+      "nome": "[ADS34][IMG][CFO - URGENCIA]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3099,7 +3122,7 @@
     },
     {
       "id": "120256229099680367",
-      "nome": "ADS33 - CFO dados",
+      "nome": "[ADS33][IMG][CFO - DADOS]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3110,7 +3133,7 @@
     },
     {
       "id": "120256229102370367",
-      "nome": "ADS35 - CFO preco",
+      "nome": "[ADS35][IMG][CFO - PRECO]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3121,7 +3144,7 @@
     },
     {
       "id": "120256228936500367",
-      "nome": "ADS31 - Soldado urgencia",
+      "nome": "[ADS31][IMG][SOLDADO - URGENCIA]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3132,7 +3155,7 @@
     },
     {
       "id": "120256228942210367",
-      "nome": "ADS32 - Soldado preco",
+      "nome": "[ADS32][IMG][SOLDADO - PRECO]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3143,7 +3166,7 @@
     },
     {
       "id": "120256228931750367",
-      "nome": "ADS30 - Soldado dados",
+      "nome": "[ADS30][IMG][SOLDADO - DADOS]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3154,7 +3177,7 @@
     },
     {
       "id": "120256228890990367",
-      "nome": "ADS29 - Geral preco",
+      "nome": "[ADS29][IMG][GERAL - PRECO]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3165,7 +3188,7 @@
     },
     {
       "id": "120256228877060367",
-      "nome": "ADS28 - Geral urgencia",
+      "nome": "[ADS28][IMG][GERAL - URGENCIA]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3176,7 +3199,7 @@
     },
     {
       "id": "120256228862630367",
-      "nome": "ADS27 - Geral dados",
+      "nome": "[ADS27][IMG][GERAL - DADOS]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3187,7 +3210,7 @@
     },
     {
       "id": "120256228773670367",
-      "nome": "ADS24 - CFO 200 vagas",
+      "nome": "[ADS24][IMG][CFO - 200 VAGAS]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3198,7 +3221,7 @@
     },
     {
       "id": "120256228786370367",
-      "nome": "ADS25 - CFO 1 lugar",
+      "nome": "[ADS25][IMG][CFO - 1 LUGAR]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3209,7 +3232,7 @@
     },
     {
       "id": "120256228795020367",
-      "nome": "ADS26 - CFO preco R4",
+      "nome": "[ADS26][IMG][CFO - PRECO R4]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3220,7 +3243,7 @@
     },
     {
       "id": "120256228578040367",
-      "nome": "ADS20 - Geral 3200 vagas",
+      "nome": "[ADS20][IMG][GERAL - 3200 VAGAS]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3231,7 +3254,7 @@
     },
     {
       "id": "120256228652650367",
-      "nome": "ADS23 - Soldado preco R3",
+      "nome": "[ADS23][IMG][SOLDADO - PRECO R3]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3242,7 +3265,7 @@
     },
     {
       "id": "120256228605920367",
-      "nome": "ADS21 - Geral preco R4",
+      "nome": "[ADS21][IMG][GERAL - PRECO R4]",
       "grupo": "CJ01",
       "investido": 0.0,
       "conversas": 0,
@@ -3289,11 +3312,12 @@
     "2026-11-20T07:10:00-03:00",
     "2026-11-21T07:12-03:00",
     "2026-11-22T07:14:00-03:00",
-    "2026-11-23T07:10:00-03:00"
+    "2026-11-23T07:10:00-03:00",
+    "2026-11-24T07:05:00-03:00"
   ],
-  "leitura": "<strong>O investimento segue em dia, mas as vendas pela página continuam raras.</strong> Desde 13/08 investimos R$ 2.963,59, alcançamos mais de 321 mil pessoas e tivemos 3.722 toques no anúncio, mas o pixel do site registrou apenas 2 vendas em todo o período — a última em 09/11, já 14 dias sem venda nova. O grupo CJ02 | Bahia 18-40 é o único ativo e concentra as duas vendas, e o anúncio ADS11 - Quem ja passou e o ADS19 - Soldado 2500 vagas são os que mais rendem, cada um com uma venda; o próximo passo é revisar com urgência o registro de compras no site antes de ampliar o investimento.",
+  "leitura": "<strong>Vendas continuam muito abaixo do investido.</strong> Desde 13/08 investimos R$ 2.992,59 e alcançamos mais de 136 mil pessoas, mas tivemos apenas 2 vendas pela página em todo o período — a última em 09/11, já são 15 dias sem venda nova; ontem (23/11) foram R$ 29,54 investidos e nenhuma venda. O grupo CJ02 é o único ativo e quem trouxe as vendas, com destaque para o anúncio [ADS11][VIDEO][GERAL - QUEM JA PASSOU]; o próximo passo é revisar com a cliente o registro das vendas no site, já que o alcance e o investimento seguem normais.",
   "campanha": {
     "status": "ACTIVE"
   },
-  "atualizado_em": "2026-11-23T07:10:00-03:00"
+  "atualizado_em": "2026-11-24T07:05:00-03:00"
 }
