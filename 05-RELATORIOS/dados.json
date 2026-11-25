@@ -2348,17 +2348,17 @@
     },
     {
       "data": "2026-11-23",
-      "investido": 29.54,
+      "investido": 29.57,
       "conversas": 0,
-      "alcance": 2523,
-      "impressoes": 4522,
+      "alcance": 2525,
+      "impressoes": 4526,
       "cliques": 40,
       "engajamentos": 67,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 29.54,
+          "investido": 29.57,
           "conversas": 0,
-          "alcance": 2523
+          "alcance": 2525
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -2371,17 +2371,40 @@
     },
     {
       "data": "2026-11-24",
-      "investido": 2.81,
+      "investido": 33.89,
       "conversas": 0,
-      "alcance": 314,
-      "impressoes": 368,
-      "cliques": 6,
-      "engajamentos": 7,
+      "alcance": 2642,
+      "impressoes": 4380,
+      "cliques": 50,
+      "engajamentos": 144,
       "campanhas": {
         "CJ02 | Bahia 18-40": {
-          "investido": 2.87,
+          "investido": 33.89,
           "conversas": 0,
-          "alcance": 324
+          "alcance": 2642
+        },
+        "CJ01 | Bahia 18-40": {
+          "investido": 0.0,
+          "conversas": 0,
+          "alcance": 0
+        }
+      },
+      "vendas": null,
+      "valor_vendido": null
+    },
+    {
+      "data": "2026-11-25",
+      "investido": 3.21,
+      "conversas": 0,
+      "alcance": 248,
+      "impressoes": 314,
+      "cliques": 2,
+      "engajamentos": 10,
+      "campanhas": {
+        "CJ02 | Bahia 18-40": {
+          "investido": 3.29,
+          "conversas": 0,
+          "alcance": 251
         },
         "CJ01 | Bahia 18-40": {
           "investido": 0.0,
@@ -2397,11 +2420,11 @@
     {
       "id": "120256503276500367",
       "nome": "CJ02 | Bahia 18-40",
-      "investido": 2706.89,
+      "investido": 2741.23,
       "conversas": 2,
-      "alcance": 136112,
-      "impressoes": 376553,
-      "cliques": 3258,
+      "alcance": 136556,
+      "impressoes": 380884,
+      "cliques": 3304,
       "status": "ACTIVE"
     },
     {
@@ -2417,114 +2440,26 @@
   ],
   "anuncios": [
     {
-      "id": "120256503297030367",
-      "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
-      "grupo": "CJ02",
-      "investido": 622.16,
-      "conversas": 1,
-      "alcance": 49276,
-      "impressoes": 100221,
-      "cliques": 919,
-      "status": "ACTIVE"
-    },
-    {
-      "id": "120256503280940367",
-      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
-      "grupo": "CJ02",
-      "investido": 206.85,
-      "conversas": 0,
-      "alcance": 12941,
-      "impressoes": 28491,
-      "cliques": 205,
-      "status": "ACTIVE"
-    },
-    {
       "id": "120256503311590367",
       "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
       "grupo": "CJ02",
-      "investido": 1282.3,
+      "investido": 1308.75,
       "conversas": 1,
-      "alcance": 77797,
-      "impressoes": 185367,
-      "cliques": 1564,
+      "alcance": 78496,
+      "impressoes": 188839,
+      "cliques": 1599,
       "status": "ACTIVE"
     },
     {
-      "id": "120256232038120367",
-      "nome": "[ADS03][VIDEO][GERAL - DEPOIMENTO ALUNO]",
-      "grupo": "CJ01",
-      "investido": 2.12,
-      "conversas": 0,
-      "alcance": 227,
-      "impressoes": 233,
-      "cliques": 5,
-      "status": "ADSET_PAUSED"
-    },
-    {
-      "id": "120256232036610367",
-      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
-      "grupo": "CJ01",
-      "investido": 2.21,
-      "conversas": 0,
-      "alcance": 246,
-      "impressoes": 283,
-      "cliques": 2,
-      "status": "ADSET_PAUSED"
-    },
-    {
-      "id": "120256232035470367",
-      "nome": "[ADS01][VIDEO][PCBA - EDITAL JA SAIU]",
-      "grupo": "CJ01",
-      "investido": 0.73,
-      "conversas": 0,
-      "alcance": 61,
-      "impressoes": 68,
-      "cliques": 0,
-      "status": "ADSET_PAUSED"
-    },
-    {
-      "id": "120256228490750367",
-      "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
-      "grupo": "CJ01",
-      "investido": 268.89,
-      "conversas": 0,
-      "alcance": 36477,
-      "impressoes": 51642,
-      "cliques": 475,
-      "status": "ADSET_PAUSED"
-    },
-    {
-      "id": "120256228484200367",
-      "nome": "[ADS18][IMG][GERAL - EDITAIS SAINDO]",
-      "grupo": "CJ01",
-      "investido": 9.88,
-      "conversas": 0,
-      "alcance": 3106,
-      "impressoes": 3288,
-      "cliques": 23,
-      "status": "ADSET_PAUSED"
-    },
-    {
-      "id": "120256228434010367",
-      "nome": "[ADS17][IMG][PCBA - 500 VAGAS]",
-      "grupo": "CJ01",
-      "investido": 1.93,
-      "conversas": 0,
-      "alcance": 207,
-      "impressoes": 230,
-      "cliques": 3,
-      "status": "ADSET_PAUSED"
-    },
-    {
-      "id": "120257473857810367",
-      "nome": "[ADS39][IMG][PCBA - RETA FINAL]",
+      "id": "120256503297030367",
+      "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
       "grupo": "CJ02",
-      "investido": 35.2,
-      "conversas": 0,
-      "alcance": 2488,
-      "impressoes": 3835,
-      "cliques": 18,
-      "status": "PAUSED"
+      "investido": 625.59,
+      "conversas": 1,
+      "alcance": 49279,
+      "impressoes": 100560,
+      "cliques": 920,
+      "status": "ACTIVE"
     },
     {
       "id": "120256503280010367",
@@ -2538,15 +2473,26 @@
       "status": "PAUSED"
     },
     {
-      "id": "120256503309120367",
-      "nome": "[ADS17][IMG][PCBA - 500 VAGAS]",
-      "grupo": "CJ02",
-      "investido": 26.36,
+      "id": "120256228490750367",
+      "nome": "[ADS19][IMG][SOLDADO - 2500 VAGAS]",
+      "grupo": "CJ01",
+      "investido": 268.89,
       "conversas": 0,
-      "alcance": 1305,
-      "impressoes": 1803,
-      "cliques": 9,
-      "status": "PAUSED"
+      "alcance": 36477,
+      "impressoes": 51642,
+      "cliques": 475,
+      "status": "ADSET_PAUSED"
+    },
+    {
+      "id": "120256503280940367",
+      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
+      "grupo": "CJ02",
+      "investido": 211.31,
+      "conversas": 0,
+      "alcance": 13095,
+      "impressoes": 29015,
+      "cliques": 215,
+      "status": "ACTIVE"
     },
     {
       "id": "120256503287440367",
@@ -2557,17 +2503,6 @@
       "alcance": 7589,
       "impressoes": 15277,
       "cliques": 123,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503289660367",
-      "nome": "[ADS06][VIDEO][GERAL - MESA 02]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
       "status": "PAUSED"
     },
     {
@@ -2582,697 +2517,81 @@
       "status": "PAUSED"
     },
     {
-      "id": "120256503291220367",
-      "nome": "[ADS07][VIDEO][GERAL - TENHO ALGO PRA TE CONTAR]",
+      "id": "120257473857810367",
+      "nome": "[ADS39][IMG][PCBA - RETA FINAL]",
       "grupo": "CJ02",
-      "investido": 0.0,
+      "investido": 35.2,
       "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
+      "alcance": 2488,
+      "impressoes": 3835,
+      "cliques": 18,
       "status": "PAUSED"
     },
     {
-      "id": "120256503306100367",
-      "nome": "[ADS16][VIDEO][GERAL - RUA 03]",
+      "id": "120256503309120367",
+      "nome": "[ADS17][IMG][PCBA - 500 VAGAS]",
       "grupo": "CJ02",
-      "investido": 0.0,
+      "investido": 26.36,
       "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
+      "alcance": 1305,
+      "impressoes": 1803,
+      "cliques": 9,
       "status": "PAUSED"
     },
     {
-      "id": "120256503332680367",
-      "nome": "[ADS31][IMG][SOLDADO - URGENCIA]",
-      "grupo": "CJ02",
-      "investido": 0.0,
+      "id": "120256228484200367",
+      "nome": "[ADS18][IMG][GERAL - EDITAIS SAINDO]",
+      "grupo": "CJ01",
+      "investido": 9.88,
       "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
+      "alcance": 3106,
+      "impressoes": 3288,
+      "cliques": 23,
+      "status": "ADSET_PAUSED"
     },
     {
-      "id": "120256503294440367",
-      "nome": "[ADS09][VIDEO][GERAL - SALA DE AULA 01]",
-      "grupo": "CJ02",
-      "investido": 0.0,
+      "id": "120256232036610367",
+      "nome": "[ADS02][VIDEO][GERAL - TODO MUNDO QUER SER POLICIAL]",
+      "grupo": "CJ01",
+      "investido": 2.21,
       "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
+      "alcance": 246,
+      "impressoes": 283,
+      "cliques": 2,
+      "status": "ADSET_PAUSED"
     },
     {
-      "id": "120256503283450367",
+      "id": "120256232038120367",
       "nome": "[ADS03][VIDEO][GERAL - DEPOIMENTO ALUNO]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503304380367",
-      "nome": "[ADS15][VIDEO][GERAL - RUA 02]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503295930367",
-      "nome": "[ADS10][VIDEO][GERAL - SALA DE AULA 02]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503293400367",
-      "nome": "[ADS08][VIDEO][GERAL - JA ESTAMOS EM AGOSTO]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503346030367",
-      "nome": "[ADS35][IMG][CFO - PRECO]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503284920367",
-      "nome": "[ADS04][VIDEO][GERAL - BOA NOTICIA]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503319190367",
-      "nome": "[ADS23][IMG][SOLDADO - PRECO R3]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503299480367",
-      "nome": "[ADS12][VIDEO][GERAL - ESTAMOS AQUI PRA TE PREPARAR]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503302820367",
-      "nome": "[ADS14][VIDEO][GERAL - POLTRONA]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503328960367",
-      "nome": "[ADS29][IMG][GERAL - PRECO]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503343510367",
-      "nome": "[ADS34][IMG][CFO - URGENCIA]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503330790367",
-      "nome": "[ADS30][IMG][SOLDADO - DADOS]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503354600367",
-      "nome": "[ADS38][IMG][PCBA - PRECO]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503288130367",
-      "nome": "[ADS05][VIDEO][GERAL - DUAS HORAS POR DIA]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503314700367",
-      "nome": "[ADS20][IMG][GERAL - 3200 VAGAS]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503324360367",
-      "nome": "[ADS27][IMG][GERAL - DADOS]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503349920367",
-      "nome": "[ADS36][IMG][PCBA - DADOS]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503323580367",
-      "nome": "[ADS26][IMG][CFO - PRECO R4]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503337150367",
-      "nome": "[ADS32][IMG][SOLDADO - PRECO]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503321590367",
-      "nome": "[ADS24][IMG][CFO - 200 VAGAS]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503328080367",
-      "nome": "[ADS28][IMG][GERAL - URGENCIA]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503300970367",
-      "nome": "[ADS13][VIDEO][GERAL - INTERPRETACAO DA LEI]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503353040367",
-      "nome": "[ADS37][IMG][PCBA - URGENCIA]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503318130367",
-      "nome": "[ADS22][IMG][SOLDADO - EDITAL CHEGANDO]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503315690367",
-      "nome": "[ADS21][IMG][GERAL - PRECO R4]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503322630367",
-      "nome": "[ADS25][IMG][CFO - 1 LUGAR]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256503340290367",
-      "nome": "[ADS33][IMG][CFO - DADOS]",
-      "grupo": "CJ02",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256232059430367",
-      "nome": "[ADS06][VIDEO][GERAL - MESA 02]",
       "grupo": "CJ01",
-      "investido": 0.0,
+      "investido": 2.12,
       "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
+      "alcance": 227,
+      "impressoes": 233,
+      "cliques": 5,
+      "status": "ADSET_PAUSED"
     },
     {
-      "id": "120256228650190367",
-      "nome": "[ADS22][IMG][SOLDADO - EDITAL CHEGANDO]",
+      "id": "120256228434010367",
+      "nome": "[ADS17][IMG][PCBA - 500 VAGAS]",
       "grupo": "CJ01",
-      "investido": 0.0,
+      "investido": 1.93,
       "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
+      "alcance": 207,
+      "impressoes": 230,
+      "cliques": 3,
+      "status": "ADSET_PAUSED"
     },
     {
-      "id": "120256232137510367",
-      "nome": "[ADS16][VIDEO][GERAL - RUA 03]",
+      "id": "120256232035470367",
+      "nome": "[ADS01][VIDEO][PCBA - EDITAL JA SAIU]",
       "grupo": "CJ01",
-      "investido": 0.0,
+      "investido": 0.73,
       "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
+      "alcance": 61,
+      "impressoes": 68,
       "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256232136800367",
-      "nome": "[ADS15][VIDEO][GERAL - RUA 02]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256232134350367",
-      "nome": "[ADS13][VIDEO][GERAL - INTERPRETACAO DA LEI]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256232135140367",
-      "nome": "[ADS14][VIDEO][GERAL - POLTRONA]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256232114460367",
-      "nome": "[ADS12][VIDEO][GERAL - ESTAMOS AQUI PRA TE PREPARAR]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256232089470367",
-      "nome": "[ADS09][VIDEO][GERAL - SALA DE AULA 01]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256232112710367",
-      "nome": "[ADS11][VIDEO][GERAL - QUEM JA PASSOU]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256232087340367",
-      "nome": "[ADS08][VIDEO][GERAL - JA ESTAMOS EM AGOSTO]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256232109440367",
-      "nome": "[ADS10][VIDEO][GERAL - SALA DE AULA 02]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256232085650367",
-      "nome": "[ADS07][VIDEO][GERAL - TENHO ALGO PRA TE CONTAR]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256232057840367",
-      "nome": "[ADS05][VIDEO][GERAL - DUAS HORAS POR DIA]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256232052690367",
-      "nome": "[ADS04][VIDEO][GERAL - BOA NOTICIA]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256229510040367",
-      "nome": "[ADS38][IMG][PCBA - PRECO]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256229498650367",
-      "nome": "[ADS36][IMG][PCBA - DADOS]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256229503680367",
-      "nome": "[ADS37][IMG][PCBA - URGENCIA]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256229083490367",
-      "nome": "[ADS34][IMG][CFO - URGENCIA]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256229099680367",
-      "nome": "[ADS33][IMG][CFO - DADOS]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256229102370367",
-      "nome": "[ADS35][IMG][CFO - PRECO]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256228936500367",
-      "nome": "[ADS31][IMG][SOLDADO - URGENCIA]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256228942210367",
-      "nome": "[ADS32][IMG][SOLDADO - PRECO]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256228931750367",
-      "nome": "[ADS30][IMG][SOLDADO - DADOS]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256228890990367",
-      "nome": "[ADS29][IMG][GERAL - PRECO]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256228877060367",
-      "nome": "[ADS28][IMG][GERAL - URGENCIA]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256228862630367",
-      "nome": "[ADS27][IMG][GERAL - DADOS]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256228773670367",
-      "nome": "[ADS24][IMG][CFO - 200 VAGAS]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256228786370367",
-      "nome": "[ADS25][IMG][CFO - 1 LUGAR]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256228795020367",
-      "nome": "[ADS26][IMG][CFO - PRECO R4]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256228578040367",
-      "nome": "[ADS20][IMG][GERAL - 3200 VAGAS]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256228652650367",
-      "nome": "[ADS23][IMG][SOLDADO - PRECO R3]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
-    },
-    {
-      "id": "120256228605920367",
-      "nome": "[ADS21][IMG][GERAL - PRECO R4]",
-      "grupo": "CJ01",
-      "investido": 0.0,
-      "conversas": 0,
-      "alcance": 0,
-      "impressoes": 0,
-      "cliques": 0,
-      "status": "PAUSED"
+      "status": "ADSET_PAUSED"
     }
   ],
   "atualizacoes": [
@@ -3313,11 +2632,12 @@
     "2026-11-21T07:12-03:00",
     "2026-11-22T07:14:00-03:00",
     "2026-11-23T07:10:00-03:00",
-    "2026-11-24T07:05:00-03:00"
+    "2026-11-24T07:05:00-03:00",
+    "2026-11-25T07:05:00-03:00"
   ],
-  "leitura": "<strong>Vendas continuam muito abaixo do investido.</strong> Desde 13/08 investimos R$ 2.992,59 e alcançamos mais de 136 mil pessoas, mas tivemos apenas 2 vendas pela página em todo o período — a última em 09/11, já são 15 dias sem venda nova; ontem (23/11) foram R$ 29,54 investidos e nenhuma venda. O grupo CJ02 é o único ativo e quem trouxe as vendas, com destaque para o anúncio [ADS11][VIDEO][GERAL - QUEM JA PASSOU]; o próximo passo é revisar com a cliente o registro das vendas no site, já que o alcance e o investimento seguem normais.",
+  "leitura": "<strong>Em mais de 100 dias de campanha, a Gabaritando investiu R$ 3.026,91 e alcançou 136.556 pessoas no grupo ativo, mas teve apenas 2 vendas confirmadas pela página, a última em 09/11.</strong> O anúncio [ADS11][VIDEO][GERAL - QUEM JA PASSOU] trouxe a venda mais barata (R$ 625,59), seguido do [ADS19][IMG][SOLDADO - 2500 VAGAS] (R$ 1.308,75); o grupo CJ02 é o único gerando vendas, enquanto o CJ01 está pausado. Ontem (24/11) foram investidos R$ 33,89 sem vendas pela página; o próximo passo é revisar com urgência o registro de compras no site, já que o investimento está entregando alcance mas as vendas continuam muito abaixo do esperado.",
   "campanha": {
     "status": "ACTIVE"
   },
-  "atualizado_em": "2026-11-24T07:05:00-03:00"
+  "atualizado_em": "2026-11-25T07:05:00-03:00"
 }
